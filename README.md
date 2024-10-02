@@ -41,7 +41,36 @@ Los desarrolladores deben consultar estos mockups para asegurar que el diseño d
 5. Ver la aplicacion en el navegador de su preferencia:
     ```bash
     npm install http://localhost:8080
-    
+
+## Herramientas utilizadas
+
+<a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="html5" width="40" height="40"/>
+</a>
+<a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="css3" width="40" height="40"/>
+</a>
+<a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>
+</a>
+<a href="https://vuejs.org/" target="_blank">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg" alt="vuejs" width="40" height="40"/>
+</a>
+<a href="https://nodejs.org/" target="_blank">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="nodejs" width="40" height="40"/>
+</a>
+<a href="https://www.mysql.com/" target="_blank">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="mysql" width="40" height="40"/>
+</a>
+<a href="https://expressjs.com/" target="_blank">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" alt="expressjs" width="40" height="40" style="background-color: white; padding: 5px; border-radius: 5px;"/>
+</a>
+<a href="https://getbootstrap.com/" target="_blank">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain.svg" alt="bootstrap" width="40" height="40"  style="background-color: white; padding: 5px; border-radius: 5px;"/>
+</a>
+
+
+
 ## Estado del Proyecto
 
 - Los mockups están completados y se encuentran en la carpeta `/mockups/`.
