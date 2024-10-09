@@ -74,4 +74,5 @@ Los desarrolladores deben consultar estos mockups para asegurar que el diseño d
 ## Estado del Proyecto
 
 - Los mockups están completados y se encuentran en la carpeta `/mockups/`.
+- El diseño de la base de datos se encuentra en desarrollo y se encuentra en la carpeta `/db_model/`
 - Actualmente, estamos desarrollando el frontend e implementando la lógica de las páginas de inicio y la integración de los componentes de Vue.js. y el backend.
