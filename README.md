@@ -63,11 +63,14 @@ Los desarrolladores deben consultar estos mockups para asegurar que el diseño d
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="mysql" width="40" height="40"/>
 </a>
 <a href="https://expressjs.com/" target="_blank">
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" alt="expressjs" width="40" height="40" style="background-color: white; padding: 5px; border-radius: 5px;"/>
+  ![pngwing com](https://github.com/user-attachments/assets/8fa9ccb2-ff56-4e6c-8632-51c0a320967f)
 </a>
 <a href="https://getbootstrap.com/" target="_blank">
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain.svg" alt="bootstrap" width="40" height="40"  style="background-color: white; padding: 5px; border-radius: 5px;"/>
+  ![pngegg](https://github.com/user-attachments/assets/7ce00580-91e6-452d-9994-9355a2b7b660)
 </a>
+
+
+
 
 
 
