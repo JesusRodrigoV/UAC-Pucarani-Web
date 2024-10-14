@@ -59,16 +59,13 @@ Los desarrolladores deben consultar estos mockups para asegurar que el diseño d
 <a href="https://nodejs.org/" target="_blank">
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="nodejs" width="40" height="40"/>
 </a>
-<a href="https://www.mysql.com/" target="_blank">
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="mysql" width="40" height="40"/>
-</a>
+
 <a href="https://expressjs.com/" target="_blank">
-  ![pngwing com](https://github.com/user-attachments/assets/8fa9ccb2-ff56-4e6c-8632-51c0a320967f)
+  <img src="https://github.com/user-attachments/assets/8fa9ccb2-ff56-4e6c-8632-51c0a320967f" alt="ExpressJS" width="40" height="40"/>
 </a>
 <a href="https://getbootstrap.com/" target="_blank">
-  ![pngegg](https://github.com/user-attachments/assets/7ce00580-91e6-452d-9994-9355a2b7b660)
+  <img src="https://github.com/user-attachments/assets/c8884e7d-0876-4107-bbbb-f1f077ec8eae" alt="Bootstrap" width="40" height="40"/>
 </a>
-
 
 
 
