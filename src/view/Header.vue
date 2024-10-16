@@ -1,7 +1,7 @@
 <template>
     <header class="header">
       <div class="logo">
-        <img src="assets/images/logoAzulUAC.png" alt="Logo UAC Pucarani">
+        <img src="@/assets/images/logoAzulUAC.png" alt="Logo UAC Pucarani">
       </div>
       <nav class="nav">
         <ul>

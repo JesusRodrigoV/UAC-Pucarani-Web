@@ -1,7 +1,7 @@
 <template>
     <div class="carousel">
       <div class="carousel-image">
-        <img src="assets/images/UAC UCB.png" alt="Biblioteca Digital UAC Pucarani">
+        <img src="@/assets/images/UAC UCB.png" alt="Biblioteca Digital UAC Pucarani">
         <div class="carousel-text">
           <h1>Biblioteca Digital UAC Pucarani</h1>
         </div>
