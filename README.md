@@ -13,13 +13,14 @@ Este es el repositorio del proyecto de desarrollo de la propuesta del portal web
 ## Estructura del Proyecto
 El proyecto sigue una estructura estándar de Vue.js con las siguientes carpetas y archivos principales:
 ```
-├── /mockups/            # Carpeta que contiene los diseños visuales y wireframes <br>
-├── /src/                # Código fuente de la aplicación Vue.js <br>
-|   ├── /assets/         # Archivos estáticos como imágenes y estilos <br>
-|       ├── /images      # Archivo con las imagenes usadas en el proyecto <br>
-|   ├── /components/     # Componentes Vue <br>
-├── package.json         # Configuración del proyecto y dependencias <br>
-├── README.md            # Documentación del proyecto <br>
+├── /db-model/           # Carpeta que contiene el diseño de la base de datos
+├── /mockups/            # Carpeta que contiene los diseños visuales y wireframes
+├── /src/                # Código fuente de la aplicación Vue.js
+|   ├── /assets/         # Archivos estáticos como imágenes y estilos
+|       ├── /images      # Archivo con las imagenes usadas en el proyecto
+|   ├── /components/     # Componentes Vue
+├── package.json         # Configuración del proyecto y dependencias
+├── README.md            # Documentación del proyecto
 ```
 ## Mockups
 
@@ -35,12 +36,12 @@ Los desarrolladores deben consultar estos mockups para asegurar que el diseño d
 2. Instalar dependencias:
     ```bash
     npm install
+    npm install vue-router
+    npm install boxicons --save
 3. Iniciar el servidor de desarrollo:
     ```bash
-    npm run serve
+    npm run dev
 5. Ver la aplicacion en el navegador de su preferencia:
-    ```bash
-    npm install http://localhost:8080
 
 ## Herramientas utilizadas
 

@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "boxicons": "^2.1.4",
     "proyectouac": "file:",
     "vue": "^3.4.37",
     "vue-router": "^4.4.5"
