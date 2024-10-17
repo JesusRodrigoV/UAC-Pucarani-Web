@@ -5,13 +5,13 @@
   <footer class="footer">
     <div class="footer-info">
       <div class="contact-info">
-        <h4>Información de Contacto</h4>
+        <h3>Información de Contacto</h3>
         <p>Teléfono: +591-78782060</p>
         <p>Email: contacto@uacpucarani.edu.bo</p>
         <p>Dirección: Av. Principal, Pucarani, Bolivia</p>
       </div>
       <div class="policies">
-        <h4>Políticas</h4>
+        <h3>Políticas</h3>
         <ul>
           <li><a href="#">Política de Privacidad</a></li>
           <li><a href="#">Términos de Servicio</a></li>
@@ -19,7 +19,7 @@
         </ul>
       </div>
       <div class="credits">
-        <h4>Créditos</h4>
+        <h3>Créditos</h3>
         <p>© 2024 UAC Pucarani. Todos los derechos reservados.</p>
         <p>Diseñado por el equipo de desarrollo UAC.</p>
       </div>
@@ -35,13 +35,24 @@
         <img src="../assets/images/whatsapp.png" alt="WhatsApp" />
       </a>
     </div>
+    
   </footer>
 </template>
 
 <style scoped>
+/* 
+Pagina Web:
+https://uacucb.edu.bo/puca.php
+X:
+https://x.com/CatolicaUacs
+Facebook:
+
+YouTube:
+https://youtube.com/@uacucb_catolica?si=WoriJ9hPPNR3La6Y
+ */
 .footer {
-  background-color: #fff;
-  padding: 40px 0;
+  background-color: #036;
+  padding: 20px 0;
   text-align: center;
   border-top: 2px solid #e9ecef;
   margin-top: auto;
@@ -74,14 +85,14 @@
   margin: 20px;
 }
 
-h4 {
+h3 {
   font-weight: bold;
-  color: #333;
+  color: #fff;
   margin-bottom: 10px;
 }
 
 p {
-  color: #333;
+  color: #fff;
 
 }
 
@@ -96,7 +107,7 @@ ul li {
 
 ul li a {
   text-decoration: none;
-  color: #333;
+  color: #fff;
   transition: color 0.3s ease;
 }
 
