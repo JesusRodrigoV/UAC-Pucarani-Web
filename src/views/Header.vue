@@ -16,7 +16,7 @@ import { RouterLink } from 'vue-router';
       <RouterLink to="/jobBank">Bolsa de trabajo</RouterLink>
     </nav>
     <div class="header-right">
-      <RouterLink to="/login.vue">
+      <RouterLink to="/login">
         <img src="../assets/images/login.png" alt="Login" class="login-icon" />
       </RouterLink>
     </div>
