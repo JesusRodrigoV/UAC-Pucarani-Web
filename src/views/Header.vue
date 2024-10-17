@@ -5,15 +5,21 @@ import { RouterLink } from 'vue-router';
 <template>
   <header class="header">
     <div class="header-left">
-      <img src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
+      <RouterLink to="/">
+        <img src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
+      </RouterLink>
     </div>
     <nav class="nav-links">
       <RouterLink to="/">Inicio</RouterLink>
       <RouterLink to="/careers">Carreras</RouterLink>
       <RouterLink to="/library">Biblioteca</RouterLink>
-      <RouterLink to="/content">Contenido</RouterLink>
-      <RouterLink to="/contacts">Contactos</RouterLink>
-      <RouterLink to="/jobBank">Bolsa de trabajo</RouterLink>
+      <!-- <RouterLink to="/content">Contenido</RouterLink> -->
+      <!-- <RouterLink to="/contacts">Contactos</RouterLink> -->
+      <!-- <RouterLink to="/jobBank">Bolsa de trabajo</RouterLink> -->
+
+      <RouterLink to="/vac">Contenido</RouterLink>
+      <RouterLink to="/vac">Contactos</RouterLink>
+      <RouterLink to="/vac">Bolsa de trabajo</RouterLink>
     </nav>
     <div class="header-right">
       <RouterLink to="/login">
