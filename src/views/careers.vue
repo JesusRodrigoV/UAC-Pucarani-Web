@@ -1,6 +1,8 @@
 <script setup>
 import Header from './Header.vue'
 import Footer from './Footer.vue'
+import fisio from './fisio.vue'
+import enfe from './enfe.vue'
 import { RouterLink } from 'vue-router';
 </script>
 
@@ -16,10 +18,10 @@ import { RouterLink } from 'vue-router';
     </div>
 
     <div class="links-container">
-      <RouterLink to="/fisio.vue">
+      <RouterLink to="/fisio">
         <img src="@/assets/images/logoFisioKineLetra.png" alt="Fisioterapia" class="link-image" />
       </RouterLink>
-      <RouterLink to="/enfe.vue">
+      <RouterLink to="/enfe">
         <img src="@/assets/images/logoEnfermeriaLetra.png" alt="Enfermería" class="link-image" />
       </RouterLink>
     </div>

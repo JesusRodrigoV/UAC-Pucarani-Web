@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router"
-import careers from "../view/careers.vue"
-import home from "../view/home.vue"
-import library from "../view/library.vue"
-import content from "../view/content.vue"
-import contacts from "../view/contacts.vue"
-import jobBank from "../view/jobBank.vue"
-/*import fisio from "../views/fisio.vue"
-import enfe from "../views/enfe.vue";*/
+import careers from "../views/careers.vue"
+import home from "../views/home.vue"
+import library from "../views/library.vue"
+import content from "../views/content.vue"
+import contacts from "../views/contacts.vue"
+import jobBank from "../views/jobBank.vue"
+import fisio from "../views/fisio.vue"
+import enfe from "../views/enfe.vue";
 const routes = [
     {
         path: '/',
@@ -32,14 +32,14 @@ const routes = [
         path: '/jobBank',
         component:jobBank
     },
-    /*{
+    {
         path: '/fisio',
         component: fisio,
     },
     {
         path: '/enfe',
         component: enfe,
-    }*/
+    },
 ]
 
 const router = createRouter ({
