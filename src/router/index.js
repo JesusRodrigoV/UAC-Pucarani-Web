@@ -1,4 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
+
+import login from "../views/login.vue"
+
 import careers from "../views/careers.vue"
 import home from "../views/home.vue"
 import library from "../views/library.vue"
@@ -11,6 +14,10 @@ const routes = [
     {
         path: '/',
         component:home
+    },
+    {
+        path: '/login',
+        component: login
     },
     {
         path: '/careers',
