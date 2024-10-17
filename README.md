@@ -77,8 +77,3 @@ Los desarrolladores deben consultar estos mockups para asegurar que el diseño d
 - El diseño de la base de datos se encuentra en desarrollo y se encuentra en la carpeta `/db_model/`
 - Actualmente, estamos desarrollando el frontend e implementando la lógica de las páginas de inicio y la integración de los componentes de Vue.js. y el backend.
 
-
-## Desarrolladores
-![C5743E5D-F048-4700-AE81-AEF4407304B5_1_201_a](https://github.com/user-attachments/assets/0cd18318-dfa5-4693-8042-145a87118cc9)
-Axl Severich
-Frontend
