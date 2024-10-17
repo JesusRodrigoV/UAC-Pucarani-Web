@@ -36,12 +36,12 @@ Los desarrolladores deben consultar estos mockups para asegurar que el diseño d
 2. Instalar dependencias:
     ```bash
     npm install
+    npm install vue-router
+    npm install boxicons --save
 3. Iniciar el servidor de desarrollo:
     ```bash
-    npm run serve
+    npm run dev
 5. Ver la aplicacion en el navegador de su preferencia:
-    ```bash
-    npm install http://localhost:8080
 
 ## Herramientas utilizadas
 
