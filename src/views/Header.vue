@@ -17,7 +17,8 @@ import { RouterLink } from 'vue-router';
     </nav>
     <div class="header-right">
       <RouterLink to="/login">
-        <img src="../assets/images/login.png" alt="Login" class="login-icon" />
+        <i class='bx bxs-user-circle login-icon' ></i>
+        
       </RouterLink>
     </div>
   </header>
@@ -68,9 +69,12 @@ import { RouterLink } from 'vue-router';
 }
 
 .login-icon {
-  height: 80px;
   cursor: pointer;
+  margin-right: 100px;
+  font-size: 24px;
+  width: 50px;
 }
+
 
 body {
   margin-top: 80px;
