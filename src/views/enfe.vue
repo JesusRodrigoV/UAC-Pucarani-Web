@@ -18,13 +18,14 @@ import Footer from './Footer.vue'
 
     <div class="info-cards">
       <div class="info-card">
-        <img src="@/assets/images/duracion.png" alt="Duración de la carrera" class="info-icon" />
+        <i class='bx bx-time-five info-icon'></i>
         <h2>Duración de la carrera</h2>
         <p>10 semestres</p>
       </div>
 
       <div class="info-card">
-        <img src="@/assets/images/estudio.png" alt="Áreas de estudio" class="info-icon" />
+        <i class='bx bx-book-bookmark info-icon'></i>
+        <!-- <img src="@/assets/images/estudio.png" alt="Áreas de estudio" class="info-icon" /> -->
         <h2>Áreas de estudio</h2>
         <ul>
           <li>Área 1</li>
@@ -36,7 +37,8 @@ import Footer from './Footer.vue'
 
 
       <div class="info-card">
-        <img src="@/assets/images/graduacion.png" alt="Modalidades de graduación" class="info-icon" />
+        <i class='bx bxs-bookmark-star info-icon'></i>
+        <!-- <img src="@/assets/images/graduacion.png" alt="Modalidades de graduación" class="info-icon" /> -->
         <h2>Modalidades de graduación</h2>
         <ul>
           <li>Graduación por excelencia</li>
@@ -120,8 +122,11 @@ import Footer from './Footer.vue'
 }
 
 .info-icon {
-  width: 50px;
+  font-size: 75px;
   margin-bottom: 15px;
+}
+i:hover{
+  color:blue;
 }
 
 ul {

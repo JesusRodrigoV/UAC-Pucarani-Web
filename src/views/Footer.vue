@@ -1,5 +1,5 @@
 <script>
-import 'boxicons';
+
 </script>
 
 <template>
@@ -12,13 +12,21 @@ import 'boxicons';
             <span class="logo_name">UAC UCB</span>
           </div>
           <div class="desc_area">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus omnis eius dolorum eos blanditiis ipsam
-              soluta unde velit a? At porro modi ea nesciunt officia sequi eos et molestiae quo.</p>
+            <p>Teléfono: +591-78782060</p>
+            <p>Email: contacto@uacpucarani.edu.bo</p>
+            <p>Dirección: Av. Principal, Pucarani, Bolivia</p>
           </div>
           <div class="social_media">
             <a href="#"><i class='bx bxl-facebook-circle'></i></a>
             <a href="#"><i class='bx bxl-instagram'></i></a>
             <a href="#"><i class='bx bxl-youtube'></i></a>
+            <a href="#"><svg class="social-icon" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1"
+                viewBox="0 0 24 24">
+                <path
+                  d="m18.9,1.153h3.682l-8.042,9.189,9.46,12.506h-7.405l-5.804-7.583-6.634,7.583H.469l8.6-9.831L0,1.153h7.593l5.241,6.931,6.065-6.931Zm-1.293,19.494h2.039L6.482,3.239h-2.19l13.314,17.408Z" />
+              </svg></a>
+            <a href="#"><i class='bx bxl-tiktok'></i></a>
+            <a href="#"><i class='bx bxl-whatsapp'></i></a>
           </div>
         </div>
         <div class="service_area">
@@ -49,51 +57,15 @@ import 'boxicons';
       <div class="footer_bottom">
         <div class="copy_right">
           <i class='bx bx-copyright'></i>
-          <span>2024 UAC UCB | Desarrollado por Axl y sus Amigos</span>
+          <span>2024 UAC Pucarani | Desarrollado por Axl y sus amigos</span>
         </div>
         <div class="tou">
-          <a href="#">Term</a>
-          <a href="#">Priv</a>
-          <a href="#">Cook</a>
+          <a href="#">Política de Privacidad</a>
+          <a href="#">Términos de Servicio</a>
+          <a href="#">Política de Cookies</a>
         </div>
       </div>
     </div>
-
-
-
-    <!-- <div class="footer-info">
-      <div class="contact-info">
-        <h3>Información de Contacto</h3>
-        <p>Teléfono: +591-78782060</p>
-        <p>Email: contacto@uacpucarani.edu.bo</p>
-        <p>Dirección: Av. Principal, Pucarani, Bolivia</p>
-      </div>
-      <div class="policies">
-        <h3>Políticas</h3>
-        <ul>
-          <li><a href="#">Política de Privacidad</a></li>
-          <li><a href="#">Términos de Servicio</a></li>
-          <li><a href="#">Política de Cookies</a></li>
-        </ul>
-      </div>
-      <div class="credits">
-        <h3>Créditos</h3>
-        <p>© 2024 UAC Pucarani. Todos los derechos reservados.</p>
-        <p>Diseñado por el equipo de desarrollo UAC.</p>
-      </div>
-    </div>
-    <div class="social-icons">
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-        <img src="../assets/images/facebook.png" alt="Facebook" />
-      </a>
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-        <img src="../assets/images/instagram.png" alt="Instagram" />
-      </a>
-      <a href="https://whatsapp.com" target="_blank" aria-label="WhatsApp">
-        <img src="../assets/images/whatsapp.png" alt="WhatsApp" />
-      </a>
-    </div> -->
-
   </footer>
 </template>
 
@@ -140,12 +112,12 @@ footer {
   left: 0;
   background-color: #036;
   box-shadow: 0 16px 70px -8px rgba(0, 0, 0, 0.25);
-  border-radius: 20px 20px 0 0;
+  border-radius: 15px 15px 0 0;
   transition: background 0.3s linear;
 }
 
 .container {
-  max-width: 1240px;
+  max-width: 1285px;
   padding: 30px 40px;
   margin: auto;
 }
@@ -165,7 +137,7 @@ footer {
 
 .profil .logo_area img {
   border-radius: 50%;
-  border: 1px solid #fff;
+  /* border: 1px solid #fff; */
   width: 150px;
 }
 
@@ -193,8 +165,17 @@ footer {
   font-size: 24px;
 }
 
+.social-icon {
+  width: 20px;
+  fill: #828282;
+}
+
+.social-icon:hover {
+  fill: #fff;
+}
+
 .social_media a:hover {
-  color: #313131;
+  color: #fff;
 }
 
 .service_area {
@@ -217,7 +198,7 @@ li.service_name {
 }
 
 .service_header li a:hover {
-  color: #313131;
+  color: #fff;
 }
 
 .service_header li {
@@ -256,10 +237,22 @@ hr {
 }
 
 .tou a:hover {
-  color: #313131;
+  color: #fff;
 }
 
-@media screen and (max-width: 768px){
+/** */
+.footer-icon {
+  width: 50px;
+  height: 50px;
+  filter: brightness(0) saturate(100%) invert(62%) sepia(5%) saturate(0%) hue-rotate(177deg) brightness(88%) contrast(86%);
+  transition: filter 0.3s ease;
+}
+
+.footer-icon:hover {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg) brightness(100%) contrast(100%);
+}
+
+@media screen and (max-width: 768px) {
   .content_footer {
     flex-wrap: wrap;
     justify-content: left;
@@ -284,78 +277,14 @@ hr {
     justify-content: center;
   }
 }
-@media screen and (max-width: 768px){
+
+@media screen and (max-width: 768px) {
   .service_header {
     margin-bottom: 8px;
   }
-  .copy_right{
+
+  .copy_right {
     margin-bottom: 8px;
   }
 }
-  /*
-.footer {
-  background-color: #036;
-  padding: 20px 0;
-  text-align: center;
-  border-top: 2px solid #e9ecef;
-  margin-top: auto;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  margin-bottom: 20px;
-}
-
-.social-icons img {
-  width: 30px;
-  height: 30px;
-}
-
-.footer-info {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.contact-info,
-.policies,
-.credits {
-  flex: 1;
-  margin: 20px;
-}
-
-h3 {
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-p {
-  color: #fff;
-
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li {
-  margin-bottom: 5px;
-}
-
-ul li a {
-  text-decoration: none;
-  color: #fff;
-  transition: color 0.3s ease;
-}
-
-ul li a:hover {
-  color: #024a97;
-}*/</style>
+</style>

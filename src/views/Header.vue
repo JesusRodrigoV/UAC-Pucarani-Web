@@ -23,8 +23,8 @@ import { RouterLink } from 'vue-router';
     </nav>
     <div class="header-right">
       <RouterLink to="/login">
-        <i class='bx bxs-user-circle login-icon' ></i>
-        
+        <i class='bx bxs-user-circle login-icon'></i>
+
       </RouterLink>
     </div>
   </header>
@@ -42,6 +42,7 @@ import { RouterLink } from 'vue-router';
   padding: 10px 20px;
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 15px 15px;
 }
 
 .header-left {
@@ -67,6 +68,8 @@ import { RouterLink } from 'vue-router';
 
 .nav-links a:hover {
   color: #024a97;
+  font-size: 17px;
+
 }
 
 .header-right {
@@ -76,11 +79,11 @@ import { RouterLink } from 'vue-router';
 
 .login-icon {
   cursor: pointer;
+  color: black;
   margin-right: 100px;
-  font-size: 24px;
+  font-size: 48px;
   width: 50px;
 }
-
 
 body {
   margin-top: 80px;
