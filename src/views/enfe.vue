@@ -25,7 +25,6 @@ import Footer from './Footer.vue'
 
       <div class="info-card">
         <i class='bx bx-book-bookmark info-icon'></i>
-        <!-- <img src="@/assets/images/estudio.png" alt="Áreas de estudio" class="info-icon" /> -->
         <h2>Áreas de estudio</h2>
         <ul>
           <li>Área 1</li>
@@ -109,6 +108,7 @@ import Footer from './Footer.vue'
   text-align: center;
   width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 2.5%;
 }
 
 .info-card h2 {
@@ -119,6 +119,7 @@ import Footer from './Footer.vue'
 .info-card p, .info-card ul {
   font-size: 16px;
   color: #555;
+  
 }
 
 .info-icon {

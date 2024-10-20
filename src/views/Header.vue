@@ -14,12 +14,13 @@ import { RouterLink } from 'vue-router';
       <RouterLink to="/careers">Carreras</RouterLink>
       <RouterLink to="/library">Biblioteca</RouterLink>
       <!-- <RouterLink to="/content">Contenido</RouterLink> -->
-      <!-- <RouterLink to="/contacts">Contactos</RouterLink> -->
+      
       <!-- <RouterLink to="/jobBank">Bolsa de trabajo</RouterLink> -->
 
       <RouterLink to="/vac">Contenido</RouterLink>
-      <RouterLink to="/vac">Contactos</RouterLink>
+      
       <RouterLink to="/vac">Bolsa de trabajo</RouterLink>
+      <RouterLink to="/contacts">Contactos</RouterLink>
     </nav>
     <div class="header-right">
       <RouterLink to="/login">

@@ -2,3 +2,25 @@ body {
   margin: 0;
   margin-top: 100px; 
 }
+.principal{
+  text-align: center;
+  align-items: center;
+  margin-top: 140px; 
+  margin-bottom: 50px;
+}
+.mapa{
+  width: 1000px;
+  height: 500px;
+  border: 0;
+  border-radius: 2%;
+}
+.fade-in-element {
+  opacity: 0; 
+  transform: translateY(20px);
+  transition: opacity 2s ease-out, transform 1s ease-out;
+}
+
+.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0); 
+}
