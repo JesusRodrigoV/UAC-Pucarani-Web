@@ -14,12 +14,16 @@ Este es el repositorio del proyecto de desarrollo de la propuesta del portal web
 El proyecto sigue una estructura estándar de Vue.js con las siguientes carpetas y archivos principales:
 ```
 ├── /db-model/           # Carpeta que contiene el diseño de la base de datos
-├── /mockups/            # Carpeta que contiene los diseños visuales y wireframes
+├── /mockup/            # Carpeta que contiene los diseños visuales y wireframes
 ├── /src/                # Código fuente de la aplicación Vue.js
 |   ├── /assets/         # Archivos estáticos como imágenes y estilos
 |       ├── /images      # Archivo con las imagenes usadas en el proyecto
 |   ├── /components/     # Componentes Vue
 ├── package.json         # Configuración del proyecto y dependencias
+├── index.html           # Punto de entrada principal del proyecto
+├── package-lock.json    # Mapa exacto de versiones de dependencias instaladas.
+├── tailwind.config.js   # Configuración personalizada de Tailwind CSS.
+├── vite.config.js       # Configuración y optimización de Vite.
 ├── README.md            # Documentación del proyecto
 ```
 ## Mockups
@@ -36,8 +40,6 @@ Los desarrolladores deben consultar estos mockups para asegurar que el diseño d
 2. Instalar dependencias:
     ```bash
     npm install
-    npm install vue-router
-    npm install boxicons --save
 3. Iniciar el servidor de desarrollo:
     ```bash
     npm run dev
@@ -57,7 +59,7 @@ Los desarrolladores deben consultar estos mockups para asegurar que el diseño d
 <a href="https://vuejs.org/" target="_blank">
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg" alt="vuejs" width="40" height="40"/>
 </a>
-<a href="https://nodejs.org/" target="_blank">
+<!--<a href="https://nodejs.org/" target="_blank">
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="nodejs" width="40" height="40"/>
 </a>
 
@@ -66,7 +68,8 @@ Los desarrolladores deben consultar estos mockups para asegurar que el diseño d
 </a>
 <a href="https://getbootstrap.com/" target="_blank">
   <img src="https://github.com/user-attachments/assets/c8884e7d-0876-4107-bbbb-f1f077ec8eae" alt="Bootstrap" width="40" height="40"/>
-</a>
+</a>-->
+
 
 
 
