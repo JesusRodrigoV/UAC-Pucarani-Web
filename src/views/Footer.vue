@@ -1,5 +1,5 @@
-<script>
-
+<script setup>
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
@@ -9,33 +9,30 @@
         <div class="profil">
           <div class="logo_area">
             <img src="@/assets/images/logoBlancoUAC.png" alt="Logo UAC">
-            <span class="logo_name">UAC UCB</span>
+            <span class="logo_name"></span>
           </div>
           <div class="desc_area">
-            <p>Teléfono: +591-78782060</p>
+            <box-icon type='logo' name='postgresql'></box-icon>
+            <p>Teléfono: +591 78782060</p>
             <p>Email: contacto@uacpucarani.edu.bo</p>
-            <p>Dirección: Av. Principal, Pucarani, Bolivia</p>
+            <p>Dirección: Av. Avaroa s/n, Pucarani, Provincia Los Andes, Bolivia.</p>
           </div>
           <div class="social_media">
-            <a href="#"><i class='bx bxl-facebook-circle'></i></a>
-            <a href="#"><i class='bx bxl-instagram'></i></a>
-            <a href="#"><i class='bx bxl-youtube'></i></a>
-            <a href="#"><svg class="social-icon" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1"
-                viewBox="0 0 24 24">
-                <path
-                  d="m18.9,1.153h3.682l-8.042,9.189,9.46,12.506h-7.405l-5.804-7.583-6.634,7.583H.469l8.6-9.831L0,1.153h7.593l5.241,6.931,6.065-6.931Zm-1.293,19.494h2.039L6.482,3.239h-2.19l13.314,17.408Z" />
-              </svg></a>
-            <a href="#"><i class='bx bxl-tiktok'></i></a>
-            <a href="#"><i class='bx bxl-whatsapp'></i></a>
+            <a href="www.youtube.com/@uacucb_catolica" target='_blank'><i class='bx bxl-youtube'></i></a>
+            <a href="https://x.com/CatolicaUacs" target='_blank'>
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24">
+                <path d="m18.9,1.153h3.682l-8.042,9.189,9.46,12.506h-7.405l-5.804-7.583-6.634,7.583H.469l8.6-9.831L0,1.153h7.593l5.241,6.931,6.065-6.931Zm-1.293,19.494h2.039L6.482,3.239h-2.19l13.314,17.408Z" />
+              </svg>
+            </a>
+            <a href="https://www.tiktok.com/@enfe_fisioucb?is_from_webapp=1&sender_device=pc" target='_blank'><i class='bx bxl-tiktok'></i></a>
+            <a href="#" target='_blank'><i class='bx bxl-whatsapp'></i></a>
           </div>
         </div>
         <div class="service_area">
           <ul class="service_header">
-            <li class="service_name">Services</li>
-            <li><a href="">Algo</a></li>
-            <li><a href="">Algo</a></li>
-            <li><a href="">Algo</a></li>
-            <li><a href="">Algo</a></li>
+            <li class="service_name">Carreras</li>
+            <li><RouterLink to="/enfe">Enfermeria</RouterLink></li>
+            <li><RouterLink to="/fisio">Fisioterapia<br>kinesiologia</RouterLink></li>
           </ul>
           <ul class="service_header">
             <li class="service_name">Industries</li>
@@ -73,12 +70,7 @@
 /* 
 Pagina Web:
 https://uacucb.edu.bo/puca.php
-X:
-https://x.com/CatolicaUacs
-Facebook:
 
-YouTube:
-https://youtube.com/@uacucb_catolica?si=WoriJ9hPPNR3La6Y
  */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
@@ -118,7 +110,7 @@ footer {
 
 .container {
   max-width: 1285px;
-  padding: 30px 40px;
+  padding: 30px 30px;
   margin: auto;
 }
 
@@ -254,8 +246,10 @@ hr {
 
 @media screen and (max-width: 768px) {
   .content_footer {
+    width: 100%;
     flex-wrap: wrap;
     justify-content: left;
+    text-align: center;
   }
 
   .service_area {
@@ -267,11 +261,25 @@ hr {
     margin-left: 0;
     margin-right: 40px;
   }
-
+  .desc_area {
+    width: 100%;
+    text-align: center;
+  }
+  
   .social_media {
     margin-bottom: 1rem;
+    text-align: center; 
   }
-
+  .profil{
+    width: 100%;
+  }
+   .logo_area {
+    width: 100%;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+    /* margin-bottom: 1rem; */
+  }
   .footer_bottom {
     flex-wrap: wrap;
     justify-content: center;
