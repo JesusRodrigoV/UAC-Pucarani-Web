@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.45.6",
     "boxicons": "^2.1.4",
     "proyectouac": "file:",
     "vue": "^3.4.37",

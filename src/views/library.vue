@@ -1,6 +1,19 @@
 <script setup>
 import Header from './Header.vue'
 import Footer from './Footer.vue'
+import { ref, onMounted } from 'vue';
+import { supabase } from '../lib/supabase'
+
+const libros = ref([])
+
+async function getLibros() {
+  const { data } = await supabase.from('libros').select()
+  libros.value = data
+}
+
+onMounted(() => {
+  getLibros()
+})
 </script>
 
 <template>
@@ -19,6 +32,16 @@ import Footer from './Footer.vue'
       <div class="search-input-container">
         <input type="text" placeholder="Coloca el nombre de un libro" class="search-input" />
         <button class="search-button">Buscar</button>
+      </div>
+    </div>
+
+    <div class="results-section">
+      <div class="item-find" v-for="libro in libros" :key="libro.id">
+        <p class="item-text">{{ libro.tipo }}</p>
+        <p class="item-text">{{ libro.titulo }}</p>
+        <p class="item-text">{{ libro.autor }}</p>
+        <p class="item-text">{{ libro.descripcion }}</p>
+        <hr>
       </div>
     </div>
   </div>
@@ -75,7 +98,7 @@ import Footer from './Footer.vue'
 .search-text {
   font-size: 24px;
   margin-bottom: 10px;
-  color:#333
+  color: #333
 }
 
 .search-input-container {
@@ -102,6 +125,22 @@ import Footer from './Footer.vue'
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+}
+
+.results-section {
+  width: 900px;
+}
+
+.item-find {
+  padding: 5px;
+}
+
+.item-text {
+  color: #000000;
+}
+
+.item-find:hover {
+  background-color: #ccc;
 }
 
 .search-button:hover {
