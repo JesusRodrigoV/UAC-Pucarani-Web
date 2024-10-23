@@ -12,7 +12,6 @@ import { RouterLink } from 'vue-router';
             <span class="logo_name"></span>
           </div>
           <div class="desc_area">
-            <box-icon type='logo' name='postgresql'></box-icon>
             <p>Teléfono: +591 78782060</p>
             <p>Email: contacto@uacpucarani.edu.bo</p>
             <p>Dirección: Av. Avaroa s/n, Pucarani, Provincia Los Andes, Bolivia.</p>

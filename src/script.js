@@ -14,3 +14,5 @@ const observer = new IntersectionObserver((entries, observer) => {
 fadeElements.forEach(el => {
   observer.observe(el);
 });
+
+// Mostrar el botón cuando se baja un poco
