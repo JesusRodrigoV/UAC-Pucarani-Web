@@ -5,6 +5,7 @@ import fisio from './fisio.vue'
 import enfe from './enfe.vue'
 import { RouterLink } from 'vue-router';
 import { onMounted } from 'vue';
+import Boton from './Boton.vue'
 
 onMounted(() => {
   const fadeElements = document.querySelectorAll('.fade-in-element');
@@ -48,7 +49,7 @@ onMounted(() => {
       </RouterLink>
     </div>
   </div>
-
+  <Boton />
   <Footer />
 </template>
 

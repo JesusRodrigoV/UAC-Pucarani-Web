@@ -1,6 +1,7 @@
 <script setup>
 import Header from './Header.vue'
 import Footer from './Footer.vue'
+import Boton from './Boton.vue'
 </script>
 
 <template>
@@ -13,7 +14,7 @@ import Footer from './Footer.vue'
       </div>
     </div>
   </div>
-
+  <Boton />
   <Footer />
 </template>
 
