@@ -82,8 +82,45 @@ body {
 }
 
 @media (max-width: 750px) {
-    main {
-        padding: 30px 0px;
-    }
+  .form-login {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .txtLogin {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .btnLogin {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .imgLogin img {
+    width: 150px;
+  }
 }
+
+
+@media (max-width: 480px) {
+  .form-login {
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .txtLogin {
+    font-size: 16px;
+  }
+
+  .btnLogin {
+    font-size: 16px;
+  }
+
+  .imgLogin img {
+    width: 120px;
+  }
+}
+
 </style>

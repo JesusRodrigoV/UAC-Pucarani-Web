@@ -54,7 +54,7 @@ onMounted(() => {
 
 <template>
   <Header />
-  <!-- Logo encima del header -->
+
 <div class="logo-container">
   <img src="@/assets/images/logoAzulUAC.png" alt="Logo UAC" class="uac-logo" />
 </div>
@@ -177,22 +177,22 @@ onMounted(() => {
 
 
 .logo-container {
-  position: fixed; /* Fijo en la pantalla */
+  position: fixed;
   top: 25px;
   left: 20px;
-  z-index: 9999; /* Un valor mucho mayor para asegurar que esté sobre todo */
+  z-index: 9999;
 }
 
 
 
 .uac-logo {
-  width: 100px; /* Tamaño del logo */
+  width: 100px;
   height: auto;
   transition: transform 0.3s ease-in-out;
 }
 
 .icon-container:hover .uac-logo {
-  transform: translateY(10px); /* Hace que el logo baje cuando se hace scroll */
+  transform: translateY(10px);
 }
 
 </style>

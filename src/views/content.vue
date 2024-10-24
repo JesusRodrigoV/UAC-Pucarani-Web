@@ -39,7 +39,6 @@ onMounted(() => {
     </div>
   </div>
 
-  <!-- Contenedor de la carrera de Fisioterapia y Kinesiología -->
   <div class="content-container fade-in-element">
     <div class="image-info-container reverse-layout">
       <div class="text-info">
@@ -55,8 +54,7 @@ onMounted(() => {
     </div>
   </div>
 
-  <!-- Sección de noticias -->
-<!-- Sección de noticias con imágenes -->
+
 <div class="news-container fade-in-element">
   <h2>Últimas Noticias</h2>
   <div class="news-items">
@@ -123,7 +121,7 @@ onMounted(() => {
 }
 .fisio-container {
   display: flex;
-  flex-direction: row-reverse; /* Cambiar la dirección de los elementos */
+  flex-direction: row-reverse;
   align-items: center;
   padding: 20px;
 }
@@ -322,6 +320,19 @@ onMounted(() => {
   transform: translateY(-10px);
 }
 
-/* Otros estilos permanecen iguales */
+/* Responsive styling for images */
+@media (max-width: 768px) {
+  .career-image {
+    width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .career-image {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
 
 </style>

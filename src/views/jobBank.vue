@@ -180,4 +180,18 @@ ul {
 ul li {
   margin: 5px 0;
 }
+
+
+@media (max-width: 768px) {
+  .info-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
 </style>

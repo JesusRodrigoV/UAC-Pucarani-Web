@@ -95,7 +95,6 @@ const toggleMenu = () => {
   width: 50px;
 }
 
-/* Icono de menú hamburguesa para móviles */
 .menu-icon {
   display: none;
   font-size: 2rem;
@@ -103,7 +102,6 @@ const toggleMenu = () => {
   color: #333;
 }
 
-/* Media Queries para dispositivos móviles */
 @media screen and (max-width: 768px) {
   .nav-links {
     display: none;
@@ -140,7 +138,6 @@ const toggleMenu = () => {
   }
 }
 
-/* Ajustes adicionales para pantallas más pequeñas */
 body {
   margin-top: 80px;
 }
