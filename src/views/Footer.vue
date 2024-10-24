@@ -34,18 +34,12 @@ import { RouterLink } from 'vue-router';
             <li><RouterLink to="/fisio">Fisioterapia<br>kinesiologia</RouterLink></li>
           </ul>
           <ul class="service_header">
-            <li class="service_name">Industries</li>
-            <li><a href="">Algo</a></li>
-            <li><a href="">Algo</a></li>
-            <li><a href="">Algo</a></li>
-            <li><a href="">Algo</a></li>
+            <li class="service_name">Industrias</li>
+            <li><a href="">Johnson & Johnson, Bayer, y Roche</a></li>
           </ul>
           <ul class="service_header">
-            <li class="service_name">Company</li>
-            <li><a href="">Algo</a></li>
-            <li><a href="">Algo</a></li>
-            <li><a href="">Algo</a></li>
-            <li><a href="">Algo</a></li>
+            <li class="service_name">Compañía</li>
+            <li><a href="">Ucbito</a></li>
           </ul>
         </div>
       </div>
