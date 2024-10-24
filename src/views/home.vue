@@ -51,9 +51,6 @@ onMounted(() => {
   calendarDiv.innerHTML = calendarHTML;
 });
 
-import Header from './Header.vue'
-import Footer from './Footer.vue'
-import Boton from './Boton.vue'
 import { RouterLink } from 'vue-router';
 
 </script>
@@ -122,7 +119,7 @@ import { RouterLink } from 'vue-router';
   height: 50px;
   cursor: pointer;
   position: fixed;
-  bottom: 20px;
+  bottom: 50px;
   right: 20px;
 }
 
