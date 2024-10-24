@@ -5,52 +5,6 @@ import Footer from './Footer.vue';
 import Boton from './Boton.vue'
 import { ref, onMounted } from 'vue';
 
-
-const showCalendar = ref(false);
-
-
-function toggleCalendar() {
-  showCalendar.value = !showCalendar.value;
-  console.log('Toggling calendar', showCalendar.value);
-}
-
-onMounted(() => {
-  const calendarDiv = document.getElementById('small-calendar');
-  const today = new Date();
-  const month = today.toLocaleString('default', { month: 'long' });
-  const year = today.getFullYear();
-
-  const firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
-  const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-
-
-  let calendarHTML = `
-    <h4>${month} ${year}</h4>
-    <table>
-      <tr><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr>
-      <tr>
-  `;
-
-
-  for (let i = 0; i < firstDay; i++) {
-    calendarHTML += '<td></td>';
-  }
-
-
-  for (let day = 1; day <= daysInMonth; day++) {
-    calendarHTML += `<td>${day}</td>`;
-    if ((day + firstDay) % 7 === 0) {
-      calendarHTML += '</tr><tr>';
-    }
-  }
-
-
-  calendarHTML += '</tr></table>';
-  
-
-  calendarDiv.innerHTML = calendarHTML;
-});
-
 </script>
 
 
