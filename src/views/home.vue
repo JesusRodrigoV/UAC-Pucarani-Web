@@ -51,9 +51,7 @@ onMounted(() => {
   calendarDiv.innerHTML = calendarHTML;
 });
 
-import Header from './Header.vue'
-import Footer from './Footer.vue'
-import Boton from './Boton.vue'
+
 import { RouterLink } from 'vue-router';
 
 </script>
@@ -72,6 +70,7 @@ import { RouterLink } from 'vue-router';
   <RouterLink to="/calendar">
   <img src="@/assets/images/icono.png" alt="Calendario" class="calendar-icon" />
 </RouterLink>
+
 
   <Footer />
 </template>
