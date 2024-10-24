@@ -8,9 +8,9 @@ import Footer from './Footer.vue'
 <template>
   <Header />
 
-<div class="logo-container">
+<!-- <div class="logo-container">
   <img src="@/assets/images/logoAzulUAC.png" alt="Logo UAC" class="uac-logo" />
-</div>
+</div> -->
 
   <div class="home-container">
     <div class="image-container">

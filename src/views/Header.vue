@@ -13,9 +13,9 @@ const toggleMenu = () => {
 <template>
   <header class="header">
     <div class="header-left">
-      <!-- <RouterLink to="/">
+      <RouterLink to="/">
         <img src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
-      </RouterLink> -->
+      </RouterLink>
     </div>
 
     <!-- Icono de menú hamburguesa -->
