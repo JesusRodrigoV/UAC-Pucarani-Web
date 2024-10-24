@@ -39,7 +39,9 @@ export default {
     align-items: center;
     text-align: center;
     display: none;
+    /* Inicialmente oculto */
     font-size: 20px;
+    /* Cambia el tamaño del icono */
     transition: background-color 0.3s;
     z-index: 100;
 }
@@ -49,7 +51,7 @@ export default {
     color: white;
 }
 
-
+/* Animación suave de deslizamiento */
 html {
     scroll-behavior: smooth;
 }

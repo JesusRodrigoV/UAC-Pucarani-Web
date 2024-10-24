@@ -4,24 +4,7 @@ import Footer from './Footer.vue'
 
 </script>
 <script>
-export default {
-  mounted() {
-    window.onscroll = this.toggleScrollToTopBtn;
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    },
-    toggleScrollToTopBtn() {
-      const btn = document.getElementById("scrollToTopBtn");
-      if (window.scrollY > 200) {
-        btn.style.display = "block";
-      } else {
-        btn.style.display = "none";
-      }
-    }
-  }
-};
+
 </script>
 <template>
     <Header />
@@ -85,7 +68,7 @@ export default {
         </div>
 
     </div>
-    <button id="scrollToTopBtn" class="scroll-to-top-btn" @click="scrollToTop"><i class='bx bxs-up-arrow'></i></button>
+    
     <Footer />
 </template>
 
