@@ -80,8 +80,8 @@ export default {
         <!-- Redes Sociales -->
         <div class="social-media">
             <h3>Encuéntranos en Facebook</h3>
-            <a href="https://www.facebook.com/carrera1" target="_blank">Carrera 1 - UAC UCB</a>
-            <a href="https://www.facebook.com/carrera2" target="_blank">Carrera 2 - UAC UCB</a>
+            <a href="https://www.facebook.com/carrera1" target="_blank">Enfermería - UAC UCB</a>
+            <a href="https://www.facebook.com/carrera2" target="_blank">Fisiología y kimeología - UAC UCB</a>
         </div>
 
     </div>

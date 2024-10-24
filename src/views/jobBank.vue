@@ -29,7 +29,7 @@ onMounted(() => {
     <div class="image-container">
       <img src="@/assets/images/bolsa.jfif" alt="Carreras UAC" class="main-image" />
       <div class="overlay">
-        <h1 class="overlay-text">Fisioterapia y Kinesiología</h1>
+        <h1 class="overlay-text">Bolsa de trabajo</h1>
       </div>
     </div>
 <div><h1>Para enfermería</h1></div>
