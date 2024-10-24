@@ -1,6 +1,8 @@
 <script setup>
+
 import Header from './Header.vue';
 import Footer from './Footer.vue';
+import Boton from './Boton.vue'
 import { ref, onMounted } from 'vue';
 
 
@@ -48,6 +50,7 @@ onMounted(() => {
 
   calendarDiv.innerHTML = calendarHTML;
 });
+
 </script>
 
 
@@ -80,6 +83,8 @@ onMounted(() => {
     </div>
   </transition>
 
+
+  <Boton />
   <Footer />
 </template>
 

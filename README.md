@@ -72,9 +72,6 @@ Los desarrolladores deben consultar estos mockups para asegurar que el diseño d
 
 
 
-
-
-
 ## Estado del Proyecto
 
 - Los mockups están completados y se encuentran en la carpeta `/mockups/`.
