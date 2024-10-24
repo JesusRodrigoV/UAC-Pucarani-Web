@@ -10,7 +10,6 @@ import contacts from "../views/contacts.vue"
 import jobBank from "../views/jobBank.vue"
 import fisio from "../views/fisio.vue"
 import enfe from "../views/enfe.vue";
-import Boton from "../views/Boton.vue";
 import vac from "../views/vacio.vue";
 const routes = [
     {
@@ -48,10 +47,6 @@ const routes = [
     {
         path: '/enfe',
         component: enfe,
-    },
-    {
-        path: '/boton',
-        component: Boton,
     },
     {
         path: '/vac',

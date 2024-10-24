@@ -3,7 +3,6 @@ import Header from './Header.vue'
 import Footer from './Footer.vue'
 import { RouterLink } from 'vue-router';
 import { onMounted } from 'vue';
-import Boton from './Boton.vue'
 
 onMounted(() => {
   const fadeElements = document.querySelectorAll('.fade-in-element');
@@ -47,7 +46,7 @@ onMounted(() => {
       </RouterLink>
     </div>
   </div>
-  <Boton />
+
   <Footer />
 </template>
 

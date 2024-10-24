@@ -1,10 +1,6 @@
 <script setup>
-
-import Header from './Header.vue';
-import Footer from './Footer.vue';
-import Boton from './Boton.vue'
-import { ref, onMounted } from 'vue';
-
+import Header from './Header.vue'
+import Footer from './Footer.vue'
 </script>
 
 
@@ -25,20 +21,6 @@ import { ref, onMounted } from 'vue';
     </div>
   </div>
 
-  <div class="icon-container" @click="toggleCalendar">
-    <img src="@/assets/images/icono.png" alt="Icono Calendario" class="calendar-icon" />
-  </div>
-
-  <transition name="fade">
-    <div v-if="showCalendar" class="calendar-container">
-      <h3>Calendario</h3>
-      <div id="small-calendar"></div>
-      <a href="full-calendar.html" class="calendar-link">Calendario completo</a>
-    </div>
-  </transition>
-
-
-  <Boton />
   <Footer />
 </template>
 
