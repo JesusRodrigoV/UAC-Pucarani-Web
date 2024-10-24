@@ -77,6 +77,27 @@ p {
     color: black;
 }
 
-/* Estilos Generales */
+
+.map-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mapa {
+  width: 100%;
+  height: 350px;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    padding: 0 10px;
+  }
+
+  .mapa {
+    height: 250px;
+  }
+}
+
 </style>
 <style src="src/style.css"> </style>

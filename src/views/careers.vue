@@ -1,8 +1,6 @@
 <script setup>
 import Header from './Header.vue'
 import Footer from './Footer.vue'
-import fisio from './fisio.vue'
-import enfe from './enfe.vue'
 import { RouterLink } from 'vue-router';
 import { onMounted } from 'vue';
 import Boton from './Boton.vue'
@@ -110,5 +108,26 @@ onMounted(() => {
 
 .link-image:hover {
   transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .links-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .link-image {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay-text {
+    font-size: 32px;
+  }
+
+  .link-image {
+    width: 120px;
+  }
 }
 </style>

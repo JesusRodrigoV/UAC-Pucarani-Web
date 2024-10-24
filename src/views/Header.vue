@@ -12,9 +12,9 @@ const toggleMenu = () => {
 <template>
   <header class="header">
     <div class="header-left">
-      <RouterLink to="/">
+   <!--   <RouterLink to="/"> 
         <img src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
-      </RouterLink>
+      </RouterLink> -->
     </div>
 
     <!-- Icono de menú hamburguesa -->
@@ -27,8 +27,8 @@ const toggleMenu = () => {
       <RouterLink to="/">Inicio</RouterLink>
       <RouterLink to="/careers">Carreras</RouterLink>
       <RouterLink to="/library">Biblioteca</RouterLink>
-      <RouterLink to="/vac">Contenido</RouterLink>
-      <RouterLink to="/vac">Bolsa de trabajo</RouterLink>
+      <RouterLink to="/content">Contenido</RouterLink>
+      <RouterLink to="/jobBank">Bolsa de trabajo</RouterLink>
       <RouterLink to="/contacts">Contactos</RouterLink>
     </nav>
 
@@ -95,7 +95,6 @@ const toggleMenu = () => {
   width: 50px;
 }
 
-/* Icono de menú hamburguesa para móviles */
 .menu-icon {
   display: none;
   font-size: 2rem;
@@ -103,7 +102,6 @@ const toggleMenu = () => {
   color: #333;
 }
 
-/* Media Queries para dispositivos móviles */
 @media screen and (max-width: 768px) {
   .nav-links {
     display: none;
@@ -140,7 +138,6 @@ const toggleMenu = () => {
   }
 }
 
-/* Ajustes adicionales para pantallas más pequeñas */
 body {
   margin-top: 80px;
 }
