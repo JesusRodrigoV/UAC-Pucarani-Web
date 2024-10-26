@@ -1,31 +1,12 @@
 <script setup>
 import Header from './Header.vue'
 import Footer from './Footer.vue'
+import Boton from './Boton.vue'
+</script>
 
-</script>
-<script>
-export default {
-  mounted() {
-    window.onscroll = this.toggleScrollToTopBtn;
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    },
-    toggleScrollToTopBtn() {
-      const btn = document.getElementById("scrollToTopBtn");
-      if (window.scrollY > 200) {
-        btn.style.display = "block";
-      } else {
-        btn.style.display = "none";
-      }
-    }
-  }
-};
-</script>
 <template>
     <Header />
-    <div class="principal">
+    <div class="principal fade-in-element">
         <h1>UAC Pucarani</h1>
         <h2>Contactos</h2>
         <div class="contact-info">
@@ -85,8 +66,8 @@ export default {
         </div>
 
     </div>
-    <button id="scrollToTopBtn" class="scroll-to-top-btn" @click="scrollToTop"><i class='bx bxs-up-arrow'></i></button>
-    <Footer />
+    <Boton />
+    <Footer></Footer>
 </template>
 
 <style>

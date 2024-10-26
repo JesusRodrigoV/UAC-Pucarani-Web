@@ -1,6 +1,7 @@
 <script setup>
 import Header from './Header.vue'
 import Footer from './Footer.vue'
+import Boton from './Boton.vue'
 import { RouterLink } from 'vue-router';
 import { onMounted } from 'vue';
 
@@ -46,7 +47,7 @@ onMounted(() => {
       </RouterLink>
     </div>
   </div>
-
+<Boton></Boton>
   <Footer />
 </template>
 

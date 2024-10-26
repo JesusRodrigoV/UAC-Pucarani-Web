@@ -166,14 +166,8 @@ onMounted(() => {
   font-family: Arial, sans-serif;
 }
 
-.fade-in-element {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
 
-.fade-in-visible {
-  opacity: 1;
-}.content-container {
+.content-container {
   display: flex;
   flex-direction: column;
   align-items: center;
