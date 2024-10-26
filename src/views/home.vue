@@ -1,16 +1,13 @@
 <script setup>
 import Header from './Header.vue'
 import Footer from './Footer.vue'
+import Boton from './Boton.vue';
 </script>
 
 
 
 <template>
   <Header />
-
-<!-- <div class="logo-container">
-  <img src="@/assets/images/logoAzulUAC.png" alt="Logo UAC" class="uac-logo" />
-</div> -->
 
   <div class="home-container">
     <div class="image-container">
@@ -20,7 +17,7 @@ import Footer from './Footer.vue'
       </div>
     </div>
   </div>
-
+<Boton />
   <Footer />
 </template>
 
