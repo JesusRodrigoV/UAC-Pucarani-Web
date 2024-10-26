@@ -1,19 +1,23 @@
 <template>
   <div v-if="visible" class="modal-overlay">
     <div class="modal-content">
-      <slot></slot>
+      
       <button @click="closeModal">Cerrar</button>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   props: ['visible'],
+  components: {
+    'vue3-calendar': Calendar
+  },
   methods: {
     closeModal() {
       this.$emit('close');
-    }
+    },
   }
 };
 </script>
@@ -29,7 +33,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
 }
 
 .modal-content {

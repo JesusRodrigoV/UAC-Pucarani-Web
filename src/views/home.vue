@@ -2,7 +2,28 @@
 import Header from './Header.vue'
 import Footer from './Footer.vue'
 import Boton from './Boton.vue';
+</script>
+<script>
+import Modal from './Modal.vue';
 
+export default {
+  components: {
+    Modal
+  },
+  data() {
+    return {
+      isModalVisible: false
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    hideModal() {
+      this.isModalVisible = false;
+    }
+  }
+};
 </script>
 
 <template>
@@ -17,12 +38,9 @@ import Boton from './Boton.vue';
       </div>
     </div>
   </div>
-  <div id="app">
-    <button @click="showModal">Abrir Modal</button>
-    <Modal :visible="isModalVisible" @close="hideModal">
-      <h2>Esta es una ventana modal</h2>
-      <p>Contenido de la ventana modal.</p>
-    </Modal>
+  <div>
+    <button @click="showModal">Abrir Modal con Calendario</button>
+    <Modal :visible="isModalVisible" @close="hideModal"></Modal>
   </div>
   <Boton />
   <Footer />
