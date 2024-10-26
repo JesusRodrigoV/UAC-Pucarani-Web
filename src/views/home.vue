@@ -9,8 +9,6 @@ import { ref, onMounted } from 'vue';
 
 </script>
 
-
-
 <template>
   <Header />
   <div class="home-container">
@@ -96,8 +94,9 @@ import { ref, onMounted } from 'vue';
   background-color: #0055a5;
   color: white;
 }
+
 .calendar-icon {
-font-size: 31px;
+  font-size: 31px;
 }
 
 
@@ -128,10 +127,14 @@ font-size: 31px;
 .calendar-link:hover {
   text-decoration: underline;
 }
-.fade-enter-active, .fade-leave-active {
+
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to {
+
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 
@@ -154,5 +157,4 @@ font-size: 31px;
 .icon-container:hover .uac-logo {
   transform: translateY(10px);
 }
-
 </style>
