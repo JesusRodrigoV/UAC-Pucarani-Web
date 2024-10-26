@@ -5,8 +5,6 @@ import Boton from './Boton.vue';
 
 </script>
 
-
-
 <template>
   <Header />
   <div class="principal">
@@ -19,7 +17,13 @@ import Boton from './Boton.vue';
       </div>
     </div>
   </div>
-
+  <div id="app">
+    <button @click="showModal">Abrir Modal</button>
+    <Modal :visible="isModalVisible" @close="hideModal">
+      <h2>Esta es una ventana modal</h2>
+      <p>Contenido de la ventana modal.</p>
+    </Modal>
+  </div>
   <Boton />
   <Footer />
 </template>
