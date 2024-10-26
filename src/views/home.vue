@@ -28,8 +28,7 @@ import { ref, onMounted } from 'vue';
 
   <transition name="fade">
     <div v-if="showCalendar" class="calendar-container">
-      <Calendar /> <!-- Usa el componente Calendar aquí -->
-      <a href="full-calendar.html" class="calendar-link">Calendario completo</a>
+      <Calendar />
     </div>
   </transition>
 
