@@ -3,53 +3,9 @@
 import Header from './Header.vue';
 import Footer from './Footer.vue';
 import Boton from './Boton.vue'
+import Calendar from './Calendar.vue';
 import { ref, onMounted } from 'vue';
 
-
-const showCalendar = ref(false);
-
-
-function toggleCalendar() {
-  showCalendar.value = !showCalendar.value;
-  console.log('Toggling calendar', showCalendar.value);
-}
-
-onMounted(() => {
-  const calendarDiv = document.getElementById('small-calendar');
-  const today = new Date();
-  const month = today.toLocaleString('default', { month: 'long' });
-  const year = today.getFullYear();
-
-  const firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
-  const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-
-
-  let calendarHTML = `
-    <h4>${month} ${year}</h4>
-    <table>
-      <tr><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr>
-      <tr>
-  `;
-
-
-  for (let i = 0; i < firstDay; i++) {
-    calendarHTML += '<td></td>';
-  }
-
-
-  for (let day = 1; day <= daysInMonth; day++) {
-    calendarHTML += `<td>${day}</td>`;
-    if ((day + firstDay) % 7 === 0) {
-      calendarHTML += '</tr><tr>';
-    }
-  }
-
-
-  calendarHTML += '</tr></table>';
-  
-
-  calendarDiv.innerHTML = calendarHTML;
-});
 
 </script>
 
@@ -72,17 +28,15 @@ onMounted(() => {
   </div>
 
   <div class="icon-container" @click="toggleCalendar">
-    <img src="@/assets/images/icono.png" alt="Icono Calendario" class="calendar-icon" />
+    <i class='bx bx-calendar calendar-icon'></i>
   </div>
 
   <transition name="fade">
     <div v-if="showCalendar" class="calendar-container">
-      <h3>Calendario</h3>
-      <div id="small-calendar"></div>
+      <Calendar /> <!-- Usa el componente Calendar aquí -->
       <a href="full-calendar.html" class="calendar-link">Calendario completo</a>
     </div>
   </transition>
-
 
   <Boton />
   <Footer />
@@ -134,17 +88,24 @@ onMounted(() => {
 
 .icon-container {
   position: fixed;
-  bottom: 500px;
-  right: 20px;
+  bottom: 80px;
+  padding: 5px;
+  right: 25px;
+  border-radius: 35%;
   cursor: pointer;
-  z-index: 100;
+  transition: background-color 0.3s;
+  z-index: 500;
+  background-color: #d3d3d3;
 }
 
-
+.icon-container:hover {
+  background-color: #0055a5;
+  color: white;
+}
 .calendar-icon {
-  width: 30px;
-  height: 30px;
+font-size: 31px;
 }
+
 
 /* Contenedor del calendario */
 .calendar-container {
