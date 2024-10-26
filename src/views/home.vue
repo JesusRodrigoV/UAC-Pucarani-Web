@@ -13,11 +13,6 @@ import { ref, onMounted } from 'vue';
 
 <template>
   <Header />
-
-<div class="logo-container">
-  <img src="@/assets/images/logoAzulUAC.png" alt="Logo UAC" class="uac-logo" />
-</div>
-
   <div class="home-container">
     <div class="image-container">
       <img src="@/assets/images/uac_inicio.jfif" alt="UAC Inicio" class="home-image" />
