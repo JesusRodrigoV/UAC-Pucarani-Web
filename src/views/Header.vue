@@ -18,7 +18,6 @@ const toggleMenu = () => {
       </RouterLink>
     </div>
 
-    <!-- Icono de menú hamburguesa -->
     <div class="menu-icon" @click="toggleMenu">
       <i class='bx bx-menu'></i>
     </div>
