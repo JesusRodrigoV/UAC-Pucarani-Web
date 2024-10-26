@@ -12,6 +12,9 @@ import fisio from "../views/fisio.vue"
 import enfe from "../views/enfe.vue";
 import Boton from "../views/Boton.vue";
 import vac from "../views/vacio.vue";
+import Calendar from '../views/Calendar.vue';
+
+
 const routes = [
     {
         path: '/',
@@ -57,6 +60,10 @@ const routes = [
         path: '/vac',
         component: vac,
     },
+    {
+        path: '/calendar',
+        component: Calendar,
+      },
 ]
 
 const router = createRouter ({
