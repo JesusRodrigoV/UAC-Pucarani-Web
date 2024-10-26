@@ -13,18 +13,17 @@ const toggleMenu = () => {
 <template>
   <header class="header">
     <div class="header-left">
-   <!--   <RouterLink to="/"> 
+      <RouterLink to="/">
         <img src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
-      </RouterLink> -->
+      </RouterLink>
     </div>
 
-    <!-- Icono de menú hamburguesa -->
     <div class="menu-icon" @click="toggleMenu">
       <i class='bx bx-menu'></i>
     </div>
 
     <!-- Enlaces de navegación -->
-    <nav class="nav-links" :class="{ show: menuOpen }">
+    <nav :class="['nav-links', menuOpen ? 'show' : '']">
       <RouterLink to="/">Inicio</RouterLink>
       <RouterLink to="/careers">Carreras</RouterLink>
       <RouterLink to="/library">Biblioteca</RouterLink>
