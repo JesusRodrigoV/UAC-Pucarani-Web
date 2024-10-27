@@ -39,7 +39,7 @@ export default {
     </div>
   </div>
   <div>
-    <button @click="showModal">Abrir Modal con Calendario</button>
+    <!-- @click="showModal" -->
     <Modal :visible="isModalVisible" @close="hideModal"></Modal>
   </div>
   <Boton />
