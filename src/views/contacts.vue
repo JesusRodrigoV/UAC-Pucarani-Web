@@ -6,7 +6,7 @@ import Boton from './Boton.vue'
 
 <template>
     <Header />
-    <div class="principal fade-in-element">
+    <div class="principal">
         <h1>UAC Pucarani</h1>
         <h2>Contactos</h2>
         <div class="contact-info">
@@ -66,6 +66,10 @@ import Boton from './Boton.vue'
         </div>
 
     </div>
+    <button id="icon-container" class="icon-container" @click="showModal">
+        <i class='bx bxs-calendar'></i>
+    </button>
+    <Modal :visible="isModalVisible" @close="hideModal"></Modal>
     <Boton />
     <Footer></Footer>
 </template>
@@ -77,25 +81,24 @@ p {
 
 
 .map-container {
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .mapa {
-  width: 100%;
-  height: 350px;
+    width: 100%;
+    height: 350px;
 }
 
 @media (max-width: 768px) {
-  .map-container {
-    padding: 0 10px;
-  }
+    .map-container {
+        padding: 0 10px;
+    }
 
-  .mapa {
-    height: 250px;
-  }
+    .mapa {
+        height: 250px;
+    }
 }
-
 </style>
-<style src="src/style.css"> </style>
+<style src="src/style.css"></style>
