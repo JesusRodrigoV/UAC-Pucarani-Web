@@ -6,6 +6,7 @@ import Boton from './Boton.vue';
 <script>
 import Modal from './Modal.vue';
 
+<<<<<<< HEAD
 export default {
   components: {
     Modal
@@ -24,10 +25,20 @@ export default {
     }
   }
 };
+=======
+import Header from './Header.vue';
+import Footer from './Footer.vue';
+import Boton from './Boton.vue'
+import Calendar from './Calendar.vue';
+import { ref, onMounted } from 'vue';
+
+
+>>>>>>> e246cbfbc1f5564619c9721992aa1926649f8428
 </script>
 
 <template>
   <Header />
+<<<<<<< HEAD
   <div class="principal">
     <div class="home-container">
       <div class="image-container">
@@ -42,6 +53,27 @@ export default {
     <!-- @click="showModal" -->
     <Modal :visible="isModalVisible" @close="hideModal"></Modal>
   </div>
+=======
+  <div class="home-container">
+    <div class="image-container">
+      <img src="@/assets/images/uac_inicio.jfif" alt="UAC Inicio" class="home-image" />
+      <div class="overlay">
+        <h1 class="overlay-text">UAC Pucarani</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="icon-container" @click="toggleCalendar">
+    <i class='bx bx-calendar calendar-icon'></i>
+  </div>
+
+  <transition name="fade">
+    <div v-if="showCalendar" class="calendar-container">
+      <Calendar />
+    </div>
+  </transition>
+
+>>>>>>> e246cbfbc1f5564619c9721992aa1926649f8428
   <Boton />
   <Footer />
 </template>
@@ -49,5 +81,123 @@ export default {
 
 
 <style scoped>
+<<<<<<< HEAD
+=======
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.home-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(23, 28, 47, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-text {
+  color: white;
+  font-size: 48px;
+  font-weight: 300;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+
+.icon-container {
+  position: fixed;
+  bottom: 80px;
+  padding: 5px;
+  right: 25px;
+  border-radius: 35%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 500;
+  background-color: #d3d3d3;
+}
+
+.icon-container:hover {
+  background-color: #0055a5;
+  color: white;
+}
+.calendar-icon {
+font-size: 31px;
+}
+
+
+/* Contenedor del calendario */
+.calendar-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#small-calendar {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.calendar-link {
+  margin-top: 10px;
+  display: inline-block;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.calendar-link:hover {
+  text-decoration: underline;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+
+.logo-container {
+  position: fixed;
+  top: 25px;
+  left: 20px;
+  z-index: 9999;
+}
+
+
+
+.uac-logo {
+  width: 100px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon-container:hover .uac-logo {
+  transform: translateY(10px);
+}
+>>>>>>> e246cbfbc1f5564619c9721992aa1926649f8428
 
 </style>
