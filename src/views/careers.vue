@@ -117,6 +117,7 @@ export default {
   transform: scale(1.1);
 }
 
+
 @media (max-width: 768px) {
   .links-container {
     flex-direction: column;
