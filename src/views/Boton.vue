@@ -30,7 +30,7 @@ export default {
     position: fixed;
     bottom: 25px;
     right: 20px;
-    padding: 5px;
+    padding: 10px;
     background-color: #d3d3d3;
     color: #003366;
     border: none;
@@ -39,7 +39,7 @@ export default {
     align-items: center;
     text-align: center;
     display: none;
-    font-size: 20px;
+    font-size: 25px;
     transition: background-color 0.3s ease-in-out;
     z-index: 50;
 }

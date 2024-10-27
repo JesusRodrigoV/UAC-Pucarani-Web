@@ -164,9 +164,8 @@ body {
 /*Botones flotantes*/
 .icon-container {
   position: fixed;
-  transform: translateY(412px);
+  bottom: 90px;
   right: 20px;
-  left: 1462px;
   padding: 9px;
   background-color: #d3d3d3;
   color: #003366;
@@ -175,7 +174,7 @@ body {
   cursor: pointer;
   align-items: center;
   text-align: center;
-  font-size: 33px;
+  font-size: 25px;
   transition: background-color 0.3s;
   z-index: 100;
 }
