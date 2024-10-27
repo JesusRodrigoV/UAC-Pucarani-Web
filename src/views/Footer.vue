@@ -60,7 +60,12 @@ import { RouterLink } from 'vue-router';
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+/* 
+Pagina Web:
+https://uacucb.edu.bo/puca.php
+
+ */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 * {
   padding: 0;
@@ -69,16 +74,36 @@ import { RouterLink } from 'vue-router';
   font-family: 'Rubik', sans-serif;
 }
 
-footer {
+body {
+  background-color: #036;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
   width: 100%;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 0;
   background-color: #036;
   box-shadow: 0 16px 70px -8px rgba(0, 0, 0, 0.25);
   border-radius: 15px 15px 0 0;
+  transition: background 0.3s linear;
 }
 
 .container {
   max-width: 1285px;
-  padding: 30px;
+  padding: 30px 30px;
   margin: auto;
 }
 
@@ -86,126 +111,181 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
-.profil {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.logo_area {
+.profil .logo_area {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.logo_area img {
-  width: 120px;
+.profil .logo_area img {
   border-radius: 50%;
+  /* border: 1px solid #fff; */
+  width: 150px;
+}
+
+.logo_area .logo_name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 1rem;
+  color: #fff;
+}
+
+.desc_area {
+  max-width: 320px;
+  margin-bottom: 1.25rem;
 }
 
 .desc_area p {
   color: #828282;
+  font-weight: 400;
   line-height: 28px;
-  text-align: center;
 }
 
 .social_media a {
   color: #828282;
-  margin-right: 20px;
+  margin-right: 22px;
   font-size: 24px;
-}
-
-.social_media a:hover,
-.social-icon:hover {
-  color: #fff;
 }
 
 .social-icon {
   width: 20px;
   fill: #828282;
-  transition: fill 0.3s;
+}
+
+.social-icon:hover {
+  fill: #fff;
+}
+
+.social_media a:hover {
+  color: #fff;
 }
 
 .service_area {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
 }
 
 .service_header {
-  margin-bottom: 20px;
+  margin-right: 40px;
 }
 
-.service_name {
+li.service_name {
   color: #fff;
   font-weight: 600;
-  margin-bottom: 8px;
 }
 
 .service_header li a {
   color: #828282;
+  padding-bottom: 1px;
+  font-weight: 400;
 }
 
 .service_header li a:hover {
   color: #fff;
 }
 
+.service_header li {
+  margin-bottom: 10px;
+}
+
 hr {
-  border: none;
   height: 1px;
+  border: none;
   background-color: #828282;
-  margin: 1rem 0;
+  margin-bottom: 1rem;
 }
 
 .footer_bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.875rem;
-  flex-wrap: wrap;
+  font-size: .875rem;
 }
 
-.copy_right,
+.copy_right {
+  color: #828282;
+  display: flex;
+  align-items: center;
+}
+
+.copy_right span {
+  margin-left: 8px;
+  font-weight: 400;
+  letter-spacing: 0.135rem;
+}
+
 .tou a {
   color: #828282;
+  margin-left: 1.5rem;
 }
 
 .tou a:hover {
   color: #fff;
 }
 
+/** */
+.footer-icon {
+  width: 50px;
+  height: 50px;
+  filter: brightness(0) saturate(100%) invert(62%) sepia(5%) saturate(0%) hue-rotate(177deg) brightness(88%) contrast(86%);
+  transition: filter 0.3s ease;
+}
+
+.footer-icon:hover {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg) brightness(100%) contrast(100%);
+}
+
 @media screen and (max-width: 768px) {
-  .service_area {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .content_footer {
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: left;
+    text-align: center;
   }
 
-  .footer_bottom {
-    flex-direction: column;
+  .service_area {
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+
+  .service_header {
+    margin-left: 0;
+    margin-right: 40px;
+  }
+  .desc_area {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .social_media {
+    margin-bottom: 1rem;
+    text-align: center; 
+  }
+  .profil{
+    width: 100%;
+  }
+   .logo_area {
+    width: 100%;
     align-items: center;
+    justify-content: center; 
+    text-align: center;
+    /* margin-bottom: 1rem; */
+  }
+  .footer_bottom {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .logo_area img {
-    width: 100px;
+@media screen and (max-width: 768px) {
+  .service_header {
+    margin-bottom: 8px;
   }
 
-  .desc_area p {
-    font-size: 14px;
-  }
-
-  .social_media a {
-    margin-right: 15px;
+  .copy_right {
+    margin-bottom: 8px;
   }
 }
 </style>

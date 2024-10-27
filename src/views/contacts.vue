@@ -1,11 +1,9 @@
 <script setup>
 import Header from './Header.vue'
 import Footer from './Footer.vue'
-
+import Boton from './Boton.vue'
 </script>
-<script>
 
-</script>
 <template>
     <Header />
     <div class="principal">
@@ -68,8 +66,12 @@ import Footer from './Footer.vue'
         </div>
 
     </div>
-    
-    <Footer />
+    <button id="icon-container" class="icon-container" @click="showModal">
+        <i class='bx bxs-calendar'></i>
+    </button>
+    <Modal :visible="isModalVisible" @close="hideModal"></Modal>
+    <Boton />
+    <Footer></Footer>
 </template>
 
 <style>
@@ -79,25 +81,24 @@ p {
 
 
 .map-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .mapa {
-  width: 100%;
-  height: 350px;
+    width: 100%;
+    height: 350px;
 }
 
 @media (max-width: 768px) {
-  .map-container {
-    padding: 0 10px;
-  }
+    .map-container {
+        padding: 0 10px;
+    }
 
-  .mapa {
-    height: 250px;
-  }
+    .mapa {
+        height: 250px;
+    }
 }
-
 </style>
-<style src="src/style.css"> </style>
+<style src="src/style.css"></style>
