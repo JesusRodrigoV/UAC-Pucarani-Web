@@ -3,7 +3,6 @@
 import Header from './Header.vue';
 import Footer from './Footer.vue';
 import Boton from './Boton.vue'
-import Calendar from './Calendar.vue';
 import { ref, onMounted } from 'vue';
 
 
@@ -24,11 +23,6 @@ import { ref, onMounted } from 'vue';
     <i class='bx bx-calendar calendar-icon'></i>
   </div>
 
-  <transition name="fade">
-    <div v-if="showCalendar" class="calendar-container">
-      <Calendar />
-    </div>
-  </transition>
 
   <Boton />
   <Footer />
