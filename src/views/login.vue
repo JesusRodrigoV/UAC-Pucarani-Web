@@ -94,7 +94,7 @@ body {
   }
 
   .btnLogin {
-    width: 100%;
+    width: 30%;
     font-size: 18px;
   }
 

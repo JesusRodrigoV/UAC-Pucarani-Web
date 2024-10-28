@@ -146,6 +146,7 @@ onMounted(() => {
   justify-content: center;
   gap: 20px;
   margin-top: 40px;
+  flex-wrap: wrap;
 }
 
 .info-card {
@@ -155,11 +156,24 @@ onMounted(() => {
   text-align: center;
   width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+.info-card:hover {
+  background-color: #e6f7ff;
+  border-color: #66b2ff;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .info-card h2 {
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 10px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.info-card:hover h2 {
+  color: #005c99;
 }
 
 .info-card p, .info-card ul {
@@ -168,8 +182,13 @@ onMounted(() => {
 }
 
 .info-icon {
-  width: 50px;
-  margin-bottom: 15px;
+  width: 60px;
+  height: auto;
+  transition: opacity 0.3s ease;
+}
+
+.info-card:hover .info-icon {
+  opacity: 0.85;
 }
 
 ul {
@@ -179,6 +198,7 @@ ul {
 
 ul li {
   margin: 5px 0;
+  color: #555;
 }
 
 

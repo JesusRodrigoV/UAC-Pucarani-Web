@@ -117,8 +117,8 @@ import { RouterLink } from 'vue-router';
 }
 
 .calendar-icon {
-  width: 50px;
-  height: 50px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   position: fixed;
   bottom: 20px;
