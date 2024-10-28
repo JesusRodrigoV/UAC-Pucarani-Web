@@ -1,13 +1,31 @@
 <script setup>
 import Header from './Header.vue';
 import Footer from './Footer.vue';
-import Boton from './Boton.vue'
-import { ref, onMounted } from 'vue';
-
 
 </script>
+<script>
+import Boton from './Boton.vue';
+import Modal from './Modal.vue';
 
-
+export default {
+  components: {
+    Modal
+  },
+  data() {
+    return {
+      isModalVisible: false
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    hideModal() {
+      this.isModalVisible = false;
+    }
+  }
+};
+</script>
 
 <template>
   <Header />
@@ -22,13 +40,10 @@ import { ref, onMounted } from 'vue';
     </div>
 
   </div>
-
-  <transition name="fade">
-    <div v-if="showCalendar" class="calendar-container">
-      <Calendar />
-    </div>
-  </transition>
-
+  <button id="icon-container" class="icon-container" @click="showModal">
+    <i class='bx bxs-calendar'></i>
+  </button>
+  <Modal :visible="isModalVisible" @close="hideModal"></Modal>
   <Boton />
   <Footer />
 </template>
@@ -77,55 +92,8 @@ import { ref, onMounted } from 'vue';
 }
 
 
-.icon-container {
-  position: fixed;
-  bottom: 80px;
-  padding: 5px;
-  right: 25px;
-  border-radius: 35%;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  z-index: 500;
-  background-color: #d3d3d3;
-}
-
-.icon-container:hover {
-  background-color: #0055a5;
-  color: white;
-}
-.calendar-icon {
-font-size: 31px;
-}
-
-
-/* Contenedor del calendario */
-.calendar-container {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-#small-calendar {
-  display: inline-block;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 15px;
-}
-
-.calendar-link {
-  margin-top: 10px;
-  display: inline-block;
-  color: #007BFF;
-  text-decoration: none;
-}
-
-.calendar-link:hover {
-  text-decoration: underline;
-}
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s;
 }
 
