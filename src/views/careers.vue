@@ -1,28 +1,31 @@
 <script setup>
 import Header from './Header.vue'
 import Footer from './Footer.vue'
-import { RouterLink } from 'vue-router';
-import { onMounted } from 'vue';
 import Boton from './Boton.vue'
-
-onMounted(() => {
-  const fadeElements = document.querySelectorAll('.fade-in-element');
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('fade-in-visible'); 
-        observer.unobserve(entry.target); 
-      }
-    });
-  }, {
-    threshold: 0.1 
-  });
-
-  fadeElements.forEach(el => observer.observe(el));
-});
+import { RouterLink } from 'vue-router';
 </script>
+<script>
+import Modal from './Modal.vue';
 
+export default {
+  components: {
+    Modal
+  },
+  data() {
+    return {
+      isModalVisible: false
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    hideModal() {
+      this.isModalVisible = false;
+    }
+  }
+};
+</script>
 <template>
   <Header />
 
@@ -47,7 +50,11 @@ onMounted(() => {
       </RouterLink>
     </div>
   </div>
-  <Boton />
+  <button id="icon-container" class="icon-container" @click="showModal">
+    <i class='bx bxs-calendar'></i>
+  </button>
+  <Modal :visible="isModalVisible" @close="hideModal"></Modal>
+  <Boton></Boton>
   <Footer />
 </template>
 
@@ -109,6 +116,7 @@ onMounted(() => {
 .link-image:hover {
   transform: scale(1.1);
 }
+
 
 @media (max-width: 768px) {
   .links-container {

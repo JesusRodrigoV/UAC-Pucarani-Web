@@ -15,7 +15,28 @@ onMounted(() => {
   getLibros()
 })
 </script>
+<script>
+import Modal from './Modal.vue';
 
+export default {
+  components: {
+    Modal
+  },
+  data() {
+    return {
+      isModalVisible: false
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    hideModal() {
+      this.isModalVisible = false;
+    }
+  }
+};
+</script>
 <template>
   <Header />
 
@@ -45,7 +66,10 @@ onMounted(() => {
       </div>
     </div>
   </div>
-
+  <button id="icon-container" class="icon-container" @click="showModal">
+    <i class='bx bxs-calendar'></i>
+  </button>
+  <Modal :visible="isModalVisible" @close="hideModal"></Modal>
   <Footer />
 </template>
 

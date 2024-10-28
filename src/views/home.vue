@@ -1,5 +1,4 @@
 <script setup>
-
 import Header from './Header.vue';
 import Footer from './Footer.vue';
 import Boton from './Boton.vue'
@@ -8,21 +7,27 @@ import { ref, onMounted } from 'vue';
 
 </script>
 
+
+
 <template>
   <Header />
-  <div class="home-container">
-    <div class="image-container">
-      <img src="@/assets/images/uac_inicio.jfif" alt="UAC Inicio" class="home-image" />
-      <div class="overlay">
-        <h1 class="overlay-text">UAC Pucarani</h1>
+  <div class="principal">
+    <div class="home-container">
+      <div class="image-container">
+        <img src="@/assets/images/uac_inicio.jfif" alt="UAC Inicio" class="home-image" />
+        <div class="overlay">
+          <h1 class="overlay-text">UAC Pucarani</h1>
+        </div>
       </div>
     </div>
+
   </div>
 
-  <div class="icon-container" @click="toggleCalendar">
-    <i class='bx bx-calendar calendar-icon'></i>
-  </div>
-
+  <transition name="fade">
+    <div v-if="showCalendar" class="calendar-container">
+      <Calendar />
+    </div>
+  </transition>
 
   <Boton />
   <Footer />
@@ -88,9 +93,8 @@ import { ref, onMounted } from 'vue';
   background-color: #0055a5;
   color: white;
 }
-
 .calendar-icon {
-  font-size: 31px;
+font-size: 31px;
 }
 
 
@@ -121,9 +125,7 @@ import { ref, onMounted } from 'vue';
 .calendar-link:hover {
   text-decoration: underline;
 }
-
-.fade-enter-active,
-.fade-leave-active {
+.fade-enter-active, .fade-leave-active {
   transition: opacity 0.5s;
 }
 
@@ -132,7 +134,6 @@ import { ref, onMounted } from 'vue';
   opacity: 0;
 }
 
-
 .logo-container {
   position: fixed;
   top: 25px;
@@ -140,15 +141,13 @@ import { ref, onMounted } from 'vue';
   z-index: 9999;
 }
 
-
-
 .uac-logo {
   width: 100px;
   height: auto;
   transition: transform 0.3s ease-in-out;
 }
 
-.icon-container:hover .uac-logo {
+ .uac-logo {
   transform: translateY(10px);
 }
 </style>
