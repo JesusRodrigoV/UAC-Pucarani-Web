@@ -70,6 +70,7 @@ import { RouterLink } from 'vue-router';
   <img src="@/assets/images/icono.png" alt="Calendario" class="calendar-icon" />
 </RouterLink>
 
+
   <Footer />
 </template>
 
@@ -115,8 +116,8 @@ import { RouterLink } from 'vue-router';
 }
 
 .calendar-icon {
-  width: 50px;
-  height: 50px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   position: fixed;
   bottom: 50px;
