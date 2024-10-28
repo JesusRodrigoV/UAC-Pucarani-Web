@@ -11,7 +11,7 @@ import Footer from './Footer.vue'
     <div class="image-container">
       <img src="@/assets/images/car_enfe.jfif" alt="Carreras UAC" class="main-image" />
       <div class="overlay">
-        <h1 class="overlay-text">Fisioterapia y Kinesiología</h1>
+        <h1 class="overlay-text">Enfermería</h1>
       </div>
     </div>
 
@@ -96,6 +96,8 @@ import Footer from './Footer.vue'
   justify-content: center;
   gap: 20px;
   margin-top: 40px;
+  flex-wrap: wrap;
+  row-gap: 20px;
 }
 
 .info-card {
@@ -105,11 +107,24 @@ import Footer from './Footer.vue'
   text-align: center;
   width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+.info-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: #66b2ff;
+  background-color: #e6f7ff;
 }
 
 .info-card h2 {
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 10px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.info-card:hover h2 {
+  color: #005c99;
 }
 
 .info-card p, .info-card ul {
@@ -120,6 +135,8 @@ import Footer from './Footer.vue'
 .info-icon {
   width: 50px;
   margin-bottom: 15px;
+  width: 60px;
+  height: auto;
 }
 
 ul {
@@ -140,8 +157,8 @@ ul li {
   }
 
   .info-card {
-    width: 100%;
-    max-width: 300px;
+    width: 90%;
+    max-width: 400px;
   }
 }
 

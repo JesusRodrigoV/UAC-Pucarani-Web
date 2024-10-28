@@ -24,20 +24,33 @@ export default {
       this.isModalVisible = false;
     }
   }
+/*Algo*/
+
+
+  calendarHTML += '</tr></table>';
+  
+
+  calendarDiv.innerHTML = calendarHTML;
+});
+
+import { RouterLink } from 'vue-router';
+
+/*Algo*/
 };
+
 </script>
 
 <template>
   <Header />
-  <div class="principal">
-    <div class="home-container">
-      <div class="image-container">
-        <img src="@/assets/images/uac_inicio.jfif" alt="UAC Inicio" class="home-image" />
-        <div class="overlay">
-          <h1 class="overlay-text">UAC Pucarani</h1>
-        </div>
+
+  <div class="home-container">
+    <div class="image-container">
+      <img src="@/assets/images/uac_inicio.jfif" alt="UAC Inicio" class="home-image" />
+      <div class="overlay">
+        <h1 class="overlay-text">UAC Pucarani</h1>
       </div>
     </div>
+  </div>
 
   </div>
   <button id="icon-container" class="icon-container" @click="showModal">
@@ -47,8 +60,6 @@ export default {
   <Boton />
   <Footer />
 </template>
-
-
 
 <style scoped>
 .home-container {
@@ -92,6 +103,17 @@ export default {
 }
 
 
+.calendar-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+}
+
+
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
@@ -118,4 +140,5 @@ export default {
  .uac-logo {
   transform: translateY(10px);
 }
+
 </style>
