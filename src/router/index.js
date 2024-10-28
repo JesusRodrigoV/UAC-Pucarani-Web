@@ -9,8 +9,8 @@ import content from "../views/content.vue"
 import contacts from "../views/contacts.vue"
 import jobBank from "../views/jobBank.vue"
 import fisio from "../views/fisio.vue"
+import boton from "../views/Boton.vue"
 import enfe from "../views/enfe.vue";
-import Boton from "../views/Boton.vue";
 import vac from "../views/vacio.vue";
 import Calendar from '../views/Calendar.vue';
 
@@ -54,7 +54,7 @@ const routes = [
     },
     {
         path: '/boton',
-        component: Boton,
+        component: boton,
     },
     {
         path: '/vac',

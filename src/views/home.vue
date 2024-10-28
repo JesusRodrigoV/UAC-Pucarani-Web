@@ -1,48 +1,30 @@
 <script setup>
-
 import Header from './Header.vue';
 import Footer from './Footer.vue';
-import Boton from './Boton.vue'
-import { ref, onMounted } from 'vue';
 
+</script>
+<script>
+import Boton from './Boton.vue';
+import Modal from './Modal.vue';
 
-const showCalendar = ref(false);
-
-
-function toggleCalendar() {
-  showCalendar.value = !showCalendar.value;
-  console.log('Toggling calendar', showCalendar.value);
-}
-
-onMounted(() => {
-  const calendarDiv = document.getElementById('small-calendar');
-  const today = new Date();
-  const month = today.toLocaleString('default', { month: 'long' });
-  const year = today.getFullYear();
-
-  const firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
-  const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-
-
-  let calendarHTML = `
-    <h4>${month} ${year}</h4>
-    <table>
-      <tr><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr>
-      <tr>
-  `;
-
-
-  for (let i = 0; i < firstDay; i++) {
-    calendarHTML += '<td></td>';
-  }
-
-
-  for (let day = 1; day <= daysInMonth; day++) {
-    calendarHTML += `<td>${day}</td>`;
-    if ((day + firstDay) % 7 === 0) {
-      calendarHTML += '</tr><tr>';
+export default {
+  components: {
+    Modal
+  },
+  data() {
+    return {
+      isModalVisible: false
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    hideModal() {
+      this.isModalVisible = false;
     }
   }
+/*Algo*/
 
 
   calendarHTML += '</tr></table>';
@@ -53,10 +35,14 @@ onMounted(() => {
 
 import { RouterLink } from 'vue-router';
 
+/*Algo*/
+};
+
 </script>
 
 <template>
   <Header />
+
   <div class="home-container">
     <div class="image-container">
       <img src="@/assets/images/uac_inicio.jfif" alt="UAC Inicio" class="home-image" />
@@ -65,12 +51,13 @@ import { RouterLink } from 'vue-router';
       </div>
     </div>
   </div>
+
+  </div>
+  <button id="icon-container" class="icon-container" @click="showModal">
+    <i class='bx bxs-calendar'></i>
+  </button>
+  <Modal :visible="isModalVisible" @close="hideModal"></Modal>
   <Boton />
-  <RouterLink to="/calendar">
-  <img src="@/assets/images/icono.png" alt="Calendario" class="calendar-icon" />
-</RouterLink>
-
-
   <Footer />
 </template>
 
@@ -115,6 +102,7 @@ import { RouterLink } from 'vue-router';
   text-align: center;
 }
 
+
 .calendar-icon {
   width: 20px;
   height: 20px;
@@ -122,6 +110,35 @@ import { RouterLink } from 'vue-router';
   position: fixed;
   bottom: 50px;
   right: 20px;
+}
+
+
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.logo-container {
+  position: fixed;
+  top: 25px;
+  left: 20px;
+  z-index: 9999;
+}
+
+.uac-logo {
+  width: 100px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+ .uac-logo {
+  transform: translateY(10px);
 }
 
 </style>

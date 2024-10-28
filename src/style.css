@@ -151,4 +151,35 @@ body {
 }
 
 /**/
-/* Estilos del botón flotante */
+
+
+.fade-in-element {
+  opacity: 0;
+  transition: opacity 2s ease-out, transform 1s ease-out;
+}
+
+.fade-in-visible {
+  opacity: 1;
+}
+/*Botones flotantes*/
+.icon-container {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  padding: 9px;
+  background-color: #d3d3d3;
+  color: #003366;
+  border: none;
+  border-radius: 30%;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  font-size: 25px;
+  transition: background-color 0.3s;
+  z-index: 100;
+}
+
+.icon-container:hover {
+  background-color: #0055a5;
+  color: white;
+}

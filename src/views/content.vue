@@ -20,7 +20,28 @@ onMounted(() => {
   fadeElements.forEach(el => observer.observe(el));
 });
 </script>
+<script>
+import Modal from './Modal.vue';
 
+export default {
+  components: {
+    Modal
+  },
+  data() {
+    return {
+      isModalVisible: false
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    hideModal() {
+      this.isModalVisible = false;
+    }
+  }
+};
+</script>
 <template>
   <Header />
 
@@ -55,60 +76,63 @@ onMounted(() => {
   </div>
 
 
-<div class="news-container fade-in-element">
-  <h2>Últimas Noticias</h2>
-  <div class="news-items">
-    <div class="news-item">
-      <div class="news-image">
-        <img src="@/assets/images/enfe.jfif" alt="Noticia Enfermería 1" />
+  <div class="news-container fade-in-element">
+    <h2>Últimas Noticias</h2>
+    <div class="news-items">
+      <div class="news-item">
+        <div class="news-image">
+          <img src="@/assets/images/enfe.jfif" alt="Noticia Enfermería 1" />
+        </div>
+        <h3>Clínica del Sur</h3>
+        <p>Descubre como la enfermería es crucial para los adultos mayores</p>
+        <a href="#">Leer más</a>
       </div>
-      <h3>Clínica del Sur</h3>
-      <p>Descubre como la enfermería es crucial para los adultos mayores</p>
-      <a href="#">Leer más</a>
-    </div>
-    <div class="news-item">
-      <div class="news-image">
-        <img src="@/assets/images/fisio.jfif" alt="Noticia Fisioterapia 1" />
+      <div class="news-item">
+        <div class="news-image">
+          <img src="@/assets/images/fisio.jfif" alt="Noticia Fisioterapia 1" />
+        </div>
+        <h3>Espacio de fisioterapia</h3>
+        <p>Como lidiar con dolores en la espalda mediante la fisioterapia</p>
+        <a href="#">Leer más</a>
       </div>
-      <h3>Espacio de fisioterapia</h3>
-      <p>Como lidiar con dolores en la espalda mediante la fisioterapia</p>
-      <a href="#">Leer más</a>
-    </div>
-    <div class="news-item">
-      <div class="news-image">
-        <img src="@/assets/images/enfe2.jfif" alt="Noticia Enfermería 2" />
+      <div class="news-item">
+        <div class="news-image">
+          <img src="@/assets/images/enfe2.jfif" alt="Noticia Enfermería 2" />
+        </div>
+        <h3>Hospital del niño</h3>
+        <p>Aprende como alimentar a tu hij@ correctamente</p>
+        <a href="#">Leer más</a>
       </div>
-      <h3>Hospital del niño</h3>
-      <p>Aprende como alimentar a tu hij@ correctamente</p>
-      <a href="#">Leer más</a>
-    </div>
-    <div class="news-item">
-      <div class="news-image">
-        <img src="@/assets/images/fisio2.jfif" alt="Noticia Fisioterapia 2" />
+      <div class="news-item">
+        <div class="news-image">
+          <img src="@/assets/images/fisio2.jfif" alt="Noticia Fisioterapia 2" />
+        </div>
+        <h3>Espacio de fisioterapia</h3>
+        <p>No te pierdas de los beneficios de la fisioterapia en los adultos mayores</p>
+        <a href="#">Leer más</a>
       </div>
-      <h3>Espacio de fisioterapia</h3>
-      <p>No te pierdas de los beneficios de la fisioterapia en los adultos mayores</p>
-      <a href="#">Leer más</a>
-    </div>
-    <div class="news-item">
-      <div class="news-image">
-        <img src="@/assets/images/fisio3.jfif" alt="Noticia Fisioterapia 3" />
+      <div class="news-item">
+        <div class="news-image">
+          <img src="@/assets/images/fisio3.jfif" alt="Noticia Fisioterapia 3" />
+        </div>
+        <h3>Espacio de fisioterapia</h3>
+        <p>No te pierdas de los beneficios de la fisioterapia en los bebés y niños</p>
+        <a href="#">Leer más</a>
       </div>
-      <h3>Espacio de fisioterapia</h3>
-      <p>No te pierdas de los beneficios de la fisioterapia en los bebés y niños</p>
-      <a href="#">Leer más</a>
-    </div>
-    <div class="news-item">
-      <div class="news-image">
-        <img src="@/assets/images/enfe3.jfif" alt="Noticia Enfermeria 3" />
+      <div class="news-item">
+        <div class="news-image">
+          <img src="@/assets/images/enfe3.jfif" alt="Noticia Enfermeria 3" />
+        </div>
+        <h3>Hospital de la mujer</h3>
+        <p>Recién graduada de Pucarani en enfermería ayuda a 10 embarazadas con el parto</p>
+        <a href="#">Leer más</a>
       </div>
-      <h3>Hospital de la mujer</h3>
-      <p>Recién graduada de Pucarani en enfermería ayuda a 10 embarazadas con el parto</p>
-      <a href="#">Leer más</a>
     </div>
   </div>
-</div>
-
+  <button id="icon-container" class="icon-container" @click="showModal">
+    <i class='bx bxs-calendar'></i>
+  </button>
+  <Modal :visible="isModalVisible" @close="hideModal"></Modal>
   <Footer />
 </template>
 
@@ -119,6 +143,7 @@ onMounted(() => {
   align-items: center;
   padding: 20px;
 }
+
 .fisio-container {
   display: flex;
   flex-direction: row-reverse;
@@ -166,14 +191,8 @@ onMounted(() => {
   font-family: Arial, sans-serif;
 }
 
-.fade-in-element {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
 
-.fade-in-visible {
-  opacity: 1;
-}.content-container {
+.content-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -281,6 +300,7 @@ onMounted(() => {
 .news-item a:hover {
   text-decoration: underline;
 }
+
 /* Estilo para las imágenes de las noticias */
 .news-image {
   width: 100%;
@@ -333,6 +353,4 @@ onMounted(() => {
     max-width: 250px;
   }
 }
-
-
 </style>

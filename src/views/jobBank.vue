@@ -1,6 +1,7 @@
 <script setup>
 import Header from './Header.vue'
 import Footer from './Footer.vue'
+import Boton from './Boton.vue'
 import { RouterLink } from 'vue-router';
 import { onMounted } from 'vue';
 
@@ -10,18 +11,39 @@ onMounted(() => {
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('fade-in-visible'); 
-        observer.unobserve(entry.target); 
+        entry.target.classList.add('fade-in-visible');
+        observer.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.1 
+    threshold: 0.1
   });
 
   fadeElements.forEach(el => observer.observe(el));
 });
 </script>
+<script>
+import Modal from './Modal.vue';
 
+export default {
+  components: {
+    Modal
+  },
+  data() {
+    return {
+      isModalVisible: false
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    hideModal() {
+      this.isModalVisible = false;
+    }
+  }
+};
+</script>
 <template>
   <Header />
 
@@ -32,7 +54,9 @@ onMounted(() => {
         <h1 class="overlay-text">Bolsa de trabajo</h1>
       </div>
     </div>
-<div><h1>Para enfermería</h1></div>
+    <div>
+      <h1>Para enfermería</h1>
+    </div>
     <div class="info-cards">
       <div class="info-card">
         <img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" />
@@ -48,9 +72,12 @@ onMounted(() => {
         <img src="@/assets/images/labor.png" alt="Labores" class="info-icon" />
         <h2>Labores</h2>
         <ul>
-          <li>Administrar medicamentos, monitorear signos vitales y brindar atención directa a pacientes en diversas unidades de salud.</li>
-          <li>Colaborar con médicos durante cirugías y otros procedimientos, asegurando que se sigan los protocolos adecuados.</li>
-          <li>Participar en campañas de vacunación, promoción de la salud y prevención de enfermedades en la comunidad.</li>
+          <li>Administrar medicamentos, monitorear signos vitales y brindar atención directa a pacientes en diversas
+            unidades de salud.</li>
+          <li>Colaborar con médicos durante cirugías y otros procedimientos, asegurando que se sigan los protocolos
+            adecuados.</li>
+          <li>Participar en campañas de vacunación, promoción de la salud y prevención de enfermedades en la comunidad.
+          </li>
         </ul>
       </div>
 
@@ -65,7 +92,9 @@ onMounted(() => {
     </div>
 
 
-  <div><h1>Para fisiología y kimioterapia</h1></div>
+    <div>
+      <h1>Para fisiología y kimioterapia</h1>
+    </div>
     <div class="info-cards">
       <div class="info-card">
         <img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" />
@@ -81,8 +110,10 @@ onMounted(() => {
         <img src="@/assets/images/labor.png" alt="Labores" class="info-icon" />
         <h2>Labores</h2>
         <ul>
-            <li>Evaluar y tratar lesiones musculoesqueléticas, utilizando técnicas como ejercicios terapéuticos, masajes y electroterapia.</li>
-            <li>Diseñar programas de prevención y acondicionamiento físico para atletas y personas en riesgo de lesiones.</li>
+          <li>Evaluar y tratar lesiones musculoesqueléticas, utilizando técnicas como ejercicios terapéuticos, masajes y
+            electroterapia.</li>
+          <li>Diseñar programas de prevención y acondicionamiento físico para atletas y personas en riesgo de lesiones.
+          </li>
         </ul>
       </div>
 
@@ -96,7 +127,12 @@ onMounted(() => {
       </div>
     </div>
 
-</div>
+  </div>
+  <button id="icon-container" class="icon-container" @click="showModal">
+    <i class='bx bxs-calendar'></i>
+  </button>
+  <Modal :visible="isModalVisible" @close="hideModal"></Modal>
+  <Boton />
   <Footer />
 </template>
 
@@ -176,7 +212,8 @@ onMounted(() => {
   color: #005c99;
 }
 
-.info-card p, .info-card ul {
+.info-card p,
+.info-card ul {
   font-size: 16px;
   color: #555;
 }
@@ -213,5 +250,4 @@ ul li {
     max-width: 300px;
   }
 }
-
 </style>

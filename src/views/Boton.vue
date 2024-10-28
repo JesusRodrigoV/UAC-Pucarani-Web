@@ -29,21 +29,19 @@ export default {
 .scroll-to-top-btn {
     position: fixed;
     bottom: 25px;
-    right: 25px;
+    right: 20px;
     padding: 10px;
     background-color: #d3d3d3;
     color: #003366;
     border: none;
-    border-radius: 35%;
+    border-radius: 30%;
     cursor: pointer;
     align-items: center;
     text-align: center;
     display: none;
-    /* Inicialmente oculto */
-    font-size: 20px;
-    /* Cambia el tamaño del icono */
-    transition: background-color 0.3s;
-    z-index: 100;
+    font-size: 25px;
+    transition: background-color 0.3s ease-in-out;
+    z-index: 50;
 }
 
 .scroll-to-top-btn:hover {
@@ -51,7 +49,6 @@ export default {
     color: white;
 }
 
-/* Animación suave de deslizamiento */
 html {
     scroll-behavior: smooth;
 }
