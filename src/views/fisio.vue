@@ -11,7 +11,7 @@ import Footer from './Footer.vue'
     <div class="image-container">
       <img src="@/assets/images/car_fisio.jfif" alt="Carreras UAC" class="main-image" />
       <div class="overlay">
-        <h1 class="overlay-text">Fisiologia y kimioterapia</h1>
+        <h1 class="overlay-text">Fisiologia y kinesiologia</h1>
       </div>
     </div>
 

@@ -10,11 +10,26 @@ const toggleMenu = () => {
 };
 </script>
 
+<script>
+export default {
+  data() {
+    return {
+      dropdownVisible: false
+    };
+  },
+  methods: {
+    toggleDropdown() {
+      this.dropdownVisible = !this.dropdownVisible;
+    }
+  }
+};
+</script>
+
 <template>
   <header class="header">
     <div class="header-left">
 
-   <RouterLink to="/"> 
+      <RouterLink to="/">
 
         <img src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
       </RouterLink>
@@ -34,6 +49,13 @@ const toggleMenu = () => {
       <RouterLink to="/contacts">Contactos</RouterLink>
     </nav>
 
+    <div>
+    <select v-model="$i18n.locale">
+      <option value="es">Español</option>
+      <option value="en">English</option>
+      <option value="ay">Aymara</option>
+    </select>
+  </div>
     <div class="header-right">
       <RouterLink to="/login">
         <i class='bx bxs-user-circle login-icon'></i>
@@ -53,7 +75,7 @@ const toggleMenu = () => {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  z-index: 1000;
+  z-index: 700;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 0 0 15px 15px;
 }
@@ -104,6 +126,10 @@ const toggleMenu = () => {
   color: #333;
 }
 
+i:hover {
+  color: #024a97;
+}
+
 @media screen and (max-width: 768px) {
   .nav-links {
     display: none;
@@ -115,7 +141,7 @@ const toggleMenu = () => {
     width: 100%;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 999;
+    z-index: 700;
   }
 
   .nav-links.show {
@@ -142,5 +168,22 @@ const toggleMenu = () => {
 
 body {
   margin-top: 80px;
+}
+.language-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.language-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  padding: 5px;
+  font-size: 16px;
 }
 </style>

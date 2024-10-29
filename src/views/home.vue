@@ -24,18 +24,7 @@ export default {
       this.isModalVisible = false;
     }
   }
-/*Algo*/
 
-
-  calendarHTML += '</tr></table>';
-  
-
-  calendarDiv.innerHTML = calendarHTML;
-});
-
-import { RouterLink } from 'vue-router';
-
-/*Algo*/
 };
 
 </script>
@@ -52,7 +41,7 @@ import { RouterLink } from 'vue-router';
     </div>
   </div>
 
-  </div>
+  
   <button id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
   </button>

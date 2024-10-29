@@ -35,7 +35,7 @@ import { RouterLink } from 'vue-router';
           </ul>
           <ul class="service_header">
             <li class="service_name">Industrias</li>
-            <li><a href="#">Johnson & Johnson, Bayer, y Rocha</a></li>
+            <li><a href="#">Johnson & Johnson</a></li>
           </ul>
           <ul class="service_header">
             <li class="service_name">Compañía</li>

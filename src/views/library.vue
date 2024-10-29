@@ -40,36 +40,37 @@ export default {
 <template>
   <Header />
 
-  <div class="library-container">
-    <div class="image-container">
-      <img src="@/assets/images/biblioteca.jpg" alt="UAC Biblioteca" class="home-image" />
-      <div class="overlay">
-        <h1 class="overlay-text">Biblioteca Digital</h1>
+    <div class="library-container">
+      <div class="image-container">
+        <img src="@/assets/images/biblioteca.jpg" alt="UAC Biblioteca" class="home-image" />
+        <div class="overlay">
+          <h1 class="overlay-text">Biblioteca Digital</h1>
+        </div>
       </div>
-    </div>
 
-    <div class="search-section">
-      <p class="search-text">Realiza tu búsqueda en este apartado:</p>
-      <div class="search-input-container">
-        <input type="text" placeholder="Coloca el nombre de un libro" class="search-input" />
-        <button class="search-button">Buscar</button>
+      <div class="search-section">
+        <p class="search-text">Realiza tu búsqueda en este apartado:</p>
+        <div class="search-input-container">
+          <input type="text" placeholder="Coloca el nombre de un libro" class="search-input" />
+          <button class="search-button">Buscar</button>
+        </div>
       </div>
-    </div>
 
-    <div class="results-section">
-      <div class="item-find" v-for="libro in libros" :key="libro.id">
-        <p class="item-text">{{ libro.tipo }}</p>
-        <p class="item-text">{{ libro.titulo }}</p>
-        <p class="item-text">{{ libro.autor }}</p>
-        <p class="item-text">{{ libro.descripcion }}</p>
-        <hr>
+      <div class="results-section">
+        <div class="item-find" v-for="libro in libros" :key="libro.id">
+          <p class="item-text">{{ libro.tipo }}</p>
+          <p class="item-text">{{ libro.titulo }}</p>
+          <p class="item-text">{{ libro.autor }}</p>
+          <p class="item-text">{{ libro.descripcion }}</p>
+          <hr>
+        </div>
       </div>
     </div>
-  </div>
-  <button id="icon-container" class="icon-container" @click="showModal">
-    <i class='bx bxs-calendar'></i>
-  </button>
-  <Modal :visible="isModalVisible" @close="hideModal"></Modal>
+    <button id="icon-container" class="icon-container" @click="showModal">
+      <i class='bx bxs-calendar'></i>
+    </button>
+    <Modal :visible="isModalVisible" @close="hideModal"></Modal>
+
   <Footer />
 </template>
 
@@ -133,16 +134,17 @@ export default {
   border-radius: 4px;
 }
 
-/*.search-input {
+.search-input {
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 10px;
-}*/
+}
 .search-input {
   transition: border-color 0.3s ease;
 }
+
 .search-input:focus {
   border-color: #333;
   outline: none;
@@ -204,7 +206,7 @@ export default {
 
 
 @media (max-width: 768px) {
-  .results-section{
+  .results-section {
     flex-direction: column;
     align-items: center;
   }
