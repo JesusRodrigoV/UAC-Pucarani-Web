@@ -24,6 +24,7 @@ onMounted(() => {
 
   observeFadeElements();
 });
+
 </script>
 <template>
 

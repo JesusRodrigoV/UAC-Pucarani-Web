@@ -1,12 +1,16 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router';
-
+import { useI18n } from 'vue-i18n';
 import { ref } from 'vue';
 
 const menuOpen = ref(false);
 
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value;
+};
+const { t, locale } = useI18n();
+const toggleLanguage = () => {
+  locale.value = locale.value === 'es' ? 'en' : locale.value === 'en' ? 'ay' : 'es';
 };
 </script>
 
@@ -41,21 +45,16 @@ export default {
 
     <!-- Enlaces de navegación -->
     <nav :class="['nav-links', menuOpen ? 'show' : '']">
-      <RouterLink to="/">Inicio</RouterLink>
-      <RouterLink to="/careers">Carreras</RouterLink>
-      <RouterLink to="/library">Biblioteca</RouterLink>
-      <RouterLink to="/content">Contenido</RouterLink>
-      <RouterLink to="/jobBank">Bolsa de trabajo</RouterLink>
-      <RouterLink to="/contacts">Contactos</RouterLink>
+      <RouterLink to="/">{{ t('titles.home') }}</RouterLink>
+      <RouterLink to="/careers">{{ t('titles.careers') }}</RouterLink>
+      <RouterLink to="/library">{{ t('titles.library') }}</RouterLink>
+      <RouterLink to="/content">{{ t('titles.content') }}</RouterLink>
+      <RouterLink to="/jobBank">{{ t('titles.jobBank') }}</RouterLink>
+      <RouterLink to="/pastoral">{{ t('titles.pastoral') }}</RouterLink>
+      <RouterLink to="/contacts">{{ t('titles.contacts') }}</RouterLink>
     </nav>
 
-    <div>
-    <select v-model="$i18n.locale">
-      <option value="es">Español</option>
-      <option value="en">English</option>
-      <option value="ay">Aymara</option>
-    </select>
-  </div>
+    
     <div class="header-right">
       <RouterLink to="/login">
         <i class='bx bxs-user-circle login-icon'></i>
@@ -169,6 +168,7 @@ i:hover {
 body {
   margin-top: 80px;
 }
+
 .language-selector {
   position: relative;
   display: inline-block;
