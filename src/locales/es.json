@@ -10,6 +10,7 @@
   },
   "footer": {
     "address": "Direcion: Av. Avaroa s/n, Pucarani, Provincia Los Andes, Bolivia.",
+    "phone": "Telefono",
     "privacyPolicy": "Política de Privacidad",
     "termsService": "Términos de Servicio",
     "cookiePolicy": "Política de Cookies",
@@ -18,7 +19,7 @@
   "careers": {
     "title": "Carreras",
     "enfermeria": "Enfermería",
-    "fisioterapia": "Fisioterapia y <br>kinesiologia"
+    "fisioterapia": "Fisioterapia y \nkinesiologia"
   },
   "industries": { 
     "title": "Industrias", 

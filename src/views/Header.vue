@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router';
-import { useI18n } from 'vue-i18n';
+
 import { ref } from 'vue';
 
 const menuOpen = ref(false);
@@ -8,6 +8,7 @@ const menuOpen = ref(false);
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value;
 };
+import { useI18n } from 'vue-i18n';
 const { t, locale } = useI18n();
 const toggleLanguage = () => {
   locale.value = locale.value === 'es' ? 'en' : locale.value === 'en' ? 'ay' : 'es';

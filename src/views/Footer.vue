@@ -1,5 +1,11 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+import Careers from './careers.vue';
+const { t, locale } = useI18n();
+const toggleLanguage = () => {
+  locale.value = locale.value === 'es' ? 'en' : locale.value === 'en' ? 'ay' : 'es';
+};
 </script>
 
 <template>
@@ -12,9 +18,9 @@ import { RouterLink } from 'vue-router';
             <span class="logo_name"></span>
           </div>
           <div class="desc_area">
-            <p>Teléfono: +591 78782060</p>
+            <p>{{ t('footer.phone') }}: +591 78782060</p>
             <p>Email: contacto@uacpucarani.edu.bo</p>
-            <p>Dirección: Av. Avaroa s/n, Pucarani, Provincia Los Andes, Bolivia.</p>
+            <p>{{ t('footer.address') }}</p>
           </div>
           <div class="social_media">
             <a href="https://www.youtube.com/@uacucb_catolica" target='_blank'><i class='bx bxl-youtube'></i></a>
@@ -32,20 +38,20 @@ import { RouterLink } from 'vue-router';
         </div>
         <div class="service_area">
           <ul class="service_header">
-            <li class="service_name">Carreras</li>
+            <li class="service_name">{{ t('careers.title') }}</li>
             <li>
-              <RouterLink to="/enfe">Enfermería</RouterLink>
+              <RouterLink to="/enfe">{{ t('careers.enfermeria')}}</RouterLink>
             </li>
             <li>
-              <RouterLink to="/fisio">Fisioterapia<br>Kinesiología</RouterLink>
+              <RouterLink to="/fisio">{{ t('careers.fisioterapia') }}</RouterLink>
             </li>
           </ul>
           <ul class="service_header">
-            <li class="service_name">Industrias</li>
+            <li class="service_name">{{ t('industries.title') }}</li>
             <li><a href="#">Johnson & Johnson</a></li>
           </ul>
           <ul class="service_header">
-            <li class="service_name">Compañía</li>
+            <li class="service_name">{{ t('company.title') }}</li>
             <li><a href="#">Ucbito</a></li>
           </ul>
         </div>
