@@ -1,23 +1,23 @@
 {
   "titles": {
-    "home": "Qallariy",
-    "careers": "Yatiqañani",
-    "library": "Yachay Wasa",
-    "content": "Saqirinaka",
-    "jobBank": "Irnaqañ Apnaqaña",
-    "pastoral": "Yatichirinaka",
-    "contacts": "Uñst'äwinaka"
+    "home": "Qaltaña",
+    "careers": "Jach’a Yatiqañ Uta Thakhinaka",
+    "library": "Pankanaka Uta",
+    "content": "Yatiyawinaka",
+    "jobBank": "Irnaqañ Wayaqa",
+    "pastoral": "Pastorala t’aqa",
+    "contacts": "Uñt’ayasiñanaka"
   },
   "footer": {
-    "address": "Direcion: Av. Avaroa s/n, Pucarani, Provincia Los Andes, Bolivia.",
-    "phone": "Telefono",
+    "address": "Uytawi/Utjawi/Direccionapa: Av. Avaroa s/n, Pucarani, Provincia Los Andes, Bolivia.",
+    "phone": "Celularapa",
     "privacyPolicy": "Política de Privacidad",
     "termsService": "Términos de Servicio",
     "cookiePolicy": "Política de Cookies",
     "copyright": "2024 UAC Pucarani | Desarrollado por Axl y sus amigos"
   },
   "careers": {
-    "title": "Carreras",
+    "title": "Jach’a Yatiqañ Uta Thakhinaka",
     "enfermeria": "Enfermería",
     "fisioterapia": "Fisioterapia y kinesiologia"
   },

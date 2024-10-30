@@ -129,17 +129,30 @@ export default {
 }
 
 .day, .day-blank {
+  border:none;
   width: 40px;
   height: 40px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s
+}
+.day:hover{
+  /* background-color: var(--blanco-lila); */
+  background-color: #A0ACAD;
 }
 
 .today {
-  background-color: #f0f0f0;
+  background-color: var(--azul-hover);
   font-weight: bold;
+  color: white;
+  transition: background-color 0.2s, color 0.2s
+}
+.today:hover {
+  background-color: white;
   color: red;
 }
 
