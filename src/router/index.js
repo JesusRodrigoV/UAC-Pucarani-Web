@@ -12,6 +12,7 @@ import fisio from "../views/fisio.vue";
 import home from "../views/home.vue";
 import jobBank from "../views/jobBank.vue";
 import library from "../views/library.vue";
+import MenuPage from "../views/MenuPage.vue";
 import pastoral from "../views/Pastoral.vue";
 import vac from "../views/vacio.vue";
 
@@ -68,6 +69,10 @@ const routes = [
     path: '/pastoral',
     component: pastoral,
 },
+{
+    path: '/menu',
+    component: MenuPage,
+  }  
 ];
 
 const router = createRouter({
