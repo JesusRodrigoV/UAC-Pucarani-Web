@@ -1,9 +1,8 @@
 <script setup>
-import Header from './Header.vue'
-import Footer from './Footer.vue'
-import Boton from './Boton.vue'
-import { RouterLink } from 'vue-router';
 import { onMounted } from 'vue';
+import Boton from './Boton.vue';
+import Footer from './Footer.vue';
+import Header from './Header.vue';
 
 onMounted(() => {
   const fadeElements = document.querySelectorAll('.fade-in-element');
@@ -49,7 +48,7 @@ export default {
 
   <div class="fisio-container">
     <div class="image-container">
-      <img src="@/assets/images/bolsa.jfif" alt="Carreras UAC" class="main-image" />
+      <img src="@/assets/images/bolsa3.jpg" alt="Carreras UAC" class="main-image" />
       <div class="overlay">
         <h1 class="overlay-text">Bolsa de trabajo</h1>
       </div>

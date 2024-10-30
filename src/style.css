@@ -183,3 +183,19 @@ body {
   background-color: #0055a5;
   color: white;
 }
+
+
+
+/* Estilo oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dark-mode .home-image {
+  filter: brightness(0.7);
+}

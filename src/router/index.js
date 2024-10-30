@@ -2,17 +2,18 @@ import { createRouter, createWebHistory } from "vue-router"
 
 import login from "../views/login.vue"
 
-import careers from "../views/careers.vue"
-import home from "../views/home.vue"
-import library from "../views/library.vue"
-import content from "../views/content.vue"
-import contacts from "../views/contacts.vue"
-import jobBank from "../views/jobBank.vue"
-import fisio from "../views/fisio.vue"
 import boton from "../views/Boton.vue"
-import enfe from "../views/enfe.vue";
-import vac from "../views/vacio.vue";
-import Calendar from '../views/Calendar.vue';
+import Calendar from '../views/Calendar.vue'
+import careers from "../views/careers.vue"
+import contacts from "../views/contacts.vue"
+import content from "../views/content.vue"
+import enfe from "../views/enfe.vue"
+import fisio from "../views/fisio.vue"
+import home from "../views/home.vue"
+import jobBank from "../views/jobBank.vue"
+import library from "../views/library.vue"
+import MenuPage from '../views/MenuPage.vue'
+import vac from "../views/vacio.vue"
 
 
 const routes = [
@@ -63,6 +64,10 @@ const routes = [
     {
         path: '/calendar',
         component: Calendar,
+      },
+      {
+        path: '/menu',
+        component: MenuPage,
       },
 ]
 
