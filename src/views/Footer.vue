@@ -1,5 +1,11 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+import Careers from './careers.vue';
+const { t, locale } = useI18n();
+const toggleLanguage = () => {
+  locale.value = locale.value === 'es' ? 'en' : locale.value === 'en' ? 'ay' : 'es';
+};
 </script>
 
 <template>
@@ -12,33 +18,40 @@ import { RouterLink } from 'vue-router';
             <span class="logo_name"></span>
           </div>
           <div class="desc_area">
-            <p>Teléfono: +591 78782060</p>
+            <p>{{ t('footer.phone') }}: +591 78782060</p>
             <p>Email: contacto@uacpucarani.edu.bo</p>
-            <p>Dirección: Av. Avaroa s/n, Pucarani, Provincia Los Andes, Bolivia.</p>
+            <p>{{ t('footer.address') }}</p>
           </div>
           <div class="social_media">
             <a href="https://www.youtube.com/@uacucb_catolica" target='_blank'><i class='bx bxl-youtube'></i></a>
             <a href="https://x.com/CatolicaUacs" target='_blank'>
-              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24">
-                <path d="m18.9,1.153h3.682l-8.042,9.189,9.46,12.506h-7.405l-5.804-7.583-6.634,7.583H.469l8.6-9.831L0,1.153h7.593l5.241,6.931,6.065-6.931Zm-1.293,19.494h2.039L6.482,3.239h-2.19l13.314,17.408Z" />
+              <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1"
+                viewBox="0 0 24 24">
+                <path
+                  d="m18.9,1.153h3.682l-8.042,9.189,9.46,12.506h-7.405l-5.804-7.583-6.634,7.583H.469l8.6-9.831L0,1.153h7.593l5.241,6.931,6.065-6.931Zm-1.293,19.494h2.039L6.482,3.239h-2.19l13.314,17.408Z" />
               </svg>
             </a>
-            <a href="https://www.tiktok.com/@enfe_fisioucb?is_from_webapp=1&sender_device=pc" target='_blank'><i class='bx bxl-tiktok'></i></a>
+            <a href="https://www.tiktok.com/@enfe_fisioucb?is_from_webapp=1&sender_device=pc" target='_blank'><i
+                class='bx bxl-tiktok'></i></a>
             <a href="#" target='_blank'><i class='bx bxl-whatsapp'></i></a>
           </div>
         </div>
         <div class="service_area">
           <ul class="service_header">
-            <li class="service_name">Carreras</li>
-            <li><RouterLink to="/enfe">Enfermería</RouterLink></li>
-            <li><RouterLink to="/fisio">Fisioterapia<br>Kinesiología</RouterLink></li>
+            <li class="service_name">{{ t('careers.title') }}</li>
+            <li>
+              <RouterLink to="/enfe">{{ t('careers.enfermeria')}}</RouterLink>
+            </li>
+            <li>
+              <RouterLink to="/fisio">{{ t('careers.fisioterapia') }}</RouterLink>
+            </li>
           </ul>
           <ul class="service_header">
-            <li class="service_name">Industrias</li>
+            <li class="service_name">{{ t('industries.title') }}</li>
             <li><a href="#">Johnson & Johnson</a></li>
           </ul>
           <ul class="service_header">
-            <li class="service_name">Compañía</li>
+            <li class="service_name">{{ t('company.title') }}</li>
             <li><a href="#">Ucbito</a></li>
           </ul>
         </div>
@@ -54,13 +67,21 @@ import { RouterLink } from 'vue-router';
           <a href="#">Términos de Servicio</a>
           <a href="#">Política de Cookies</a>
         </div>
+        <div class="language-select">
+          <div>
+            <select v-model="$i18n.locale">
+              <option value="es">Español</option>
+              <option value="en">English</option>
+              <option value="ay">Aymara</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
 </template>
 
 <style scoped>
-
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 * {
@@ -232,6 +253,21 @@ hr {
 .footer-icon:hover {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg) brightness(100%) contrast(100%);
 }
+.language-select select {
+  background-color: #036;
+  color: #828282;
+  border: 1px solid #828282;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 0.875rem;
+  margin-left: 1rem;
+}
+
+.language-select select:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
 
 @media screen and (max-width: 768px) {
   .content_footer {
@@ -250,25 +286,29 @@ hr {
     margin-left: 0;
     margin-right: 40px;
   }
+
   .desc_area {
     width: 100%;
     text-align: center;
   }
-  
+
   .social_media {
     margin-bottom: 1rem;
-    text-align: center; 
+    text-align: center;
   }
-  .profil{
+
+  .profil {
     width: 100%;
   }
-   .logo_area {
+
+  .logo_area {
     width: 100%;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     text-align: center;
     /* margin-bottom: 1rem; */
   }
+
   .footer_bottom {
     flex-wrap: wrap;
     justify-content: center;

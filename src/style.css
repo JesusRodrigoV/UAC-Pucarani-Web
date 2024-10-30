@@ -1,3 +1,15 @@
+:root{
+  --azul-principal: #036;
+  --azul-hover: #0055a5;
+  --amarillo: #ffd700;
+  /*Otros colores*/
+  --rojito: #9e2b25;
+  --celeste: #99d5c9;
+  --azulito-celeste: #80ADA0;
+  --blanco-lila: #f8f7ff;
+  --lavanda: #b8b8ff;
+  --moradito: #9881ff;
+}
 body {
   margin: 0;
   margin-top: 100px; 

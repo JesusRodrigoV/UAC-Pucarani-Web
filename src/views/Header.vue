@@ -1,26 +1,13 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
 const headerTransparent = ref(true);
 const headerHidden = ref(false);
 
-let lastScroll = 0;
-const handleScroll = () => {
-  const currentScroll = window.scrollY;
-  headerTransparent.value = currentScroll === 0;
-  headerHidden.value = currentScroll > lastScroll && currentScroll > 100;
-  lastScroll = currentScroll;
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value;
 };
-
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
 </script>
 
 
@@ -36,6 +23,27 @@ onUnmounted(() => {
       </RouterLink>
     </div>
 
+    <div class="menu-icon" @click="toggleMenu">
+      <i class='bx bx-menu'></i>
+    </div>
+
+    <!-- Enlaces de navegación -->
+    <nav :class="['nav-links', menuOpen ? 'show' : '']">
+      <RouterLink to="/">Inicio</RouterLink>
+      <RouterLink to="/careers">Carreras</RouterLink>
+      <RouterLink to="/library">Biblioteca</RouterLink>
+      <RouterLink to="/content">Contenido</RouterLink>
+      <RouterLink to="/jobBank">Bolsa de trabajo</RouterLink>
+      <RouterLink to="/contacts">Contactos</RouterLink>
+    </nav>
+
+    <div>
+    <select v-model="$i18n.locale">
+      <option value="es">Español</option>
+      <option value="en">English</option>
+      <option value="ay">Aymara</option>
+    </select>
+  </div>
     <div class="header-right">
       <RouterLink to="/login" class="button login-button">
         <i class='bx bxs-user-circle'></i>
@@ -109,13 +117,9 @@ onUnmounted(() => {
 .menu-button, .login-button {
   margin-right: 10px;
 }
-
-
-/* estil*/
-.header.transparent {
-  background-color: transparent;
-  box-shadow: none;
-  
+.language-selector {
+  position: relative;
+  display: inline-block;
 }
 
 .header.hidden {
