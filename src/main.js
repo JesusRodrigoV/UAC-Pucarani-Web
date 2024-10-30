@@ -2,6 +2,8 @@ import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
 import './style.css';
 import 'boxicons/css/boxicons.min.css'; 
+import vuetify from './plugins/vuetify';
+import { loadFonts } from './plugins/webfontloader';
 import App from './App.vue';
 import router from './router/index';
 
@@ -20,7 +22,14 @@ const i18n = createI18n({
   }
 });
 
+
+
+loadFonts();
+
+
+
 const app = createApp(App);
+app.use(vuetify);
 app.use(router);
 app.use(i18n);
 app.mount('#app');
