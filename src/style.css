@@ -1,42 +1,42 @@
-:root{
+:root {
   --azul-principal: #036;
   --azul-hover: #0055a5;
   --amarillo: #ffd700;
   /*Otros colores*/
   --rojito: #9e2b25;
   --celeste: #99d5c9;
-  --azulito-celeste: #80ADA0;
+  --azulito-celeste: #80ada0;
   --blanco-lila: #f8f7ff;
   --lavanda: #b8b8ff;
   --moradito: #9881ff;
 }
 body {
   margin: 0;
-  margin-top: 100px; 
+  margin-top: 100px;
 }
-.principal{
+.principal {
   text-align: center;
   align-items: center;
-  margin-top: 140px; 
+  margin-top: 140px;
   margin-bottom: 50px;
   margin-right: 100px;
   margin-left: 100px;
 }
-.mapa{
+.mapa {
   width: 1000px;
   height: 500px;
   border: 0;
   border-radius: 2%;
 }
 .fade-in-element {
-  opacity: 0; 
+  opacity: 0;
   transform: translateY(20px);
   transition: opacity 2s ease-out, transform 1s ease-out;
 }
 
 .fade-in-visible {
   opacity: 1;
-  transform: translateY(0); 
+  transform: translateY(0);
 }
 
 /* algo mas*/
@@ -153,17 +153,16 @@ body {
 /* Responsivo */
 @media (max-width: 768px) {
   .contact-info {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .contact-info .info-item {
-      text-align: center;
+    text-align: center;
   }
 }
 
 /**/
-
 
 .fade-in-element {
   opacity: 0;
@@ -194,4 +193,13 @@ body {
 .icon-container:hover {
   background-color: #0055a5;
   color: white;
+}
+/**/
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }

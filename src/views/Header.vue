@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router';
-
+import { useI18n } from 'vue-i18n';
 import { ref } from 'vue';
 
 const menuOpen = ref(false);
@@ -8,7 +8,7 @@ const menuOpen = ref(false);
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value;
 };
-import { useI18n } from 'vue-i18n';
+
 const { t, locale } = useI18n();
 const toggleLanguage = () => {
   locale.value = locale.value === 'es' ? 'en' : locale.value === 'en' ? 'ay' : 'es';
@@ -61,6 +61,7 @@ export default {
         <i class='bx bxs-user-circle login-icon'></i>
       </RouterLink>
     </div>
+    
   </header>
 </template>
 
@@ -124,6 +125,9 @@ export default {
   font-size: 2rem;
   cursor: pointer;
   color: #333;
+}
+i{
+  transition: color 0.3s;
 }
 
 i:hover {
