@@ -31,7 +31,7 @@ export default {
 
 <template>
   <Header />
-
+  
   <div class="home-container">
     <div class="image-container">
       <img src="@/assets/images/uac_inicio.jfif" alt="UAC Inicio" class="home-image" />

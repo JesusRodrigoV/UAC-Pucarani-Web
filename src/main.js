@@ -12,9 +12,9 @@ import ay from './locales/ay.json';
 import es from './locales/es.json';
 
 const i18n = createI18n({
-  legacy: false,           // Usa Composition API de vue-i18n
-  locale: 'es',            // Idioma predeterminado
-  fallbackLocale: 'en',    // Idioma de respaldo
+  legacy: false,
+  locale: 'es',
+  fallbackLocale: 'en',
   messages: {
     en,
     ay,
