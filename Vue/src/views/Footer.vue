@@ -1,6 +1,7 @@
 <script setup>
-import { useI18n } from 'vue-i18n';
 import { RouterLink } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+import Careers from './careers.vue';
 const { t, locale } = useI18n();
 const toggleLanguage = () => {
   locale.value = locale.value === 'es' ? 'en' : locale.value === 'en' ? 'ay' : 'es';
@@ -152,16 +153,12 @@ footer {
   font-weight: 700;
   margin: 0 1rem;
   color: #fff;
-  
 }
 
 .desc_area {
-  width: 100%;
-  text-align: center;
-  margin: 0 auto;
-  padding: 0 10px;
+  max-width: 320px;
+  margin-bottom: 1.25rem;
 }
-
 
 .desc_area p {
   color: #828282;
@@ -261,33 +258,21 @@ hr {
 .footer-icon:hover {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg) brightness(100%) contrast(100%);
 }
-<<<<<<< HEAD
-.language-select {
-  width: 100%;
-  text-align: center;
-  margin-top: 10px;
-}
-
-=======
->>>>>>> main
 
 .language-select select {
-  margin: 0 auto;
-  padding: 8px 15px;
   background-color: #036;
   color: #828282;
   border: 1px solid #828282;
   border-radius: 5px;
-  padding: 8px 15px;
+  padding: 5px 10px;
   font-size: 0.875rem;
-  transition: border-color 0.3s ease, color 0.3s ease;
+  margin-left: 1rem;
 }
 
 .language-select select:hover {
   color: #fff;
   border-color: #fff;
 }
-
 
 
 @media screen and (max-width: 768px) {
