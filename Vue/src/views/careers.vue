@@ -1,31 +1,45 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
 import { RouterLink } from 'vue-router';
 import Boton from './Boton.vue';
 import Footer from './Footer.vue';
 import Header from './Header.vue';
-</script>
-<script>
 import Modal from './Modal.vue';
 
-export default {
-  components: {
-    Modal
-  },
-  data() {
-    return {
-      isModalVisible: false
-    };
-  },
-  methods: {
-    showModal() {
-      this.isModalVisible = true;
-    },
-    hideModal() {
-      this.isModalVisible = false;
-    }
-  }
+const isModalVisible = ref(false);
+
+const showModal = () => {
+  isModalVisible.value = true;
 };
+
+const hideModal = () => {
+  isModalVisible.value = false;
+};
+
+onMounted(() => {
+  const fadeInElements = document.querySelectorAll('.fade-in-element');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in-visible');
+      }
+    });
+  });
+
+  fadeInElements.forEach((element) => {
+    observer.observe(element);
+  });
+
+  // Desmontar observer cuando el componente se desmonte
+  onUnmounted(() => {
+    fadeInElements.forEach((element) => {
+      observer.unobserve(element);
+    });
+  });
+});
 </script>
+
 <template>
   <Header />
 
@@ -104,13 +118,18 @@ export default {
   justify-content: center;
   gap: 175px;
   margin-top: 20px;
+
 }
 
 .link-image {
   width: 200px;
   height: auto;
   cursor: pointer;
+  filter: drop-shadow(
+    0 0 10px rgba(0, 0, 0, .4)
+  );
   transition: transform 0.3s ease;
+  background-color: transparent;
 }
 
 .link-image:hover {
@@ -142,22 +161,20 @@ export default {
 
 
 
-/* Añadir sombra suave y escala al pasar el cursor */
-.link-image {
+/* .link-image {
   width: 200px;
+  background-color: none;
   height: auto;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Escala y aumento de sombra al hacer hover */
 .link-image:hover {
   transform: scale(1.15);
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
-}
+} */
 
-/* Transiciones de aparición para los elementos */
 .fade-in-element {
   opacity: 0;
   transform: translateY(20px);
