@@ -26,7 +26,7 @@ onMounted(() => {
 <template>
 
   <transition name="fade">
-    <RouterView class="fade-in-element" />
+    <RouterView/>
   </transition>
 </template>
 

@@ -46,14 +46,14 @@ const toggleLanguage = () => {
               <RouterLink to="/fisio">{{ t('careers.fisioterapia') }}</RouterLink>
             </li>
           </ul>
-          <ul class="service_header">
+          <!-- <ul class="service_header">
             <li class="service_name">{{ t('industries.title') }}</li>
             <li><a href="#">Johnson & Johnson</a></li>
           </ul>
           <ul class="service_header">
             <li class="service_name">{{ t('company.title') }}</li>
             <li><a href="#">Ucbito</a></li>
-          </ul>
+          </ul> -->
         </div>
       </div>
       <hr>

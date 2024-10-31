@@ -77,6 +77,7 @@ const virtues = [
   { title: "Compromiso Social", description: "Fomentamos el compromiso y la responsabilidad social en todos nuestros estudiantes." },
   { title: "Desarrollo Integral", description: "Promovemos el crecimiento integral de nuestros estudiantes, preparándolos para los retos del futuro." },
   { title: "Desarrollo Social", description: "Promovemos el crecimiento integral de nuestros estudiantes, preparándolos para los retos del futuro." },
+  { title: "Desarrollo Social", description: "Promovemos el crecimiento integral de nuestros estudiantes, preparándolos para los retos del futuro." }
   // virtudes
 ];
 
@@ -138,7 +139,7 @@ const virtues = [
 
 .carousel-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   transition: opacity 1s ease-in-out; /* transición de opacidad */
 }
@@ -146,7 +147,7 @@ const virtues = [
 .carousel-control {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-10%);
   background: rgba(0, 0, 0, 0.7);
   color: white;
   font-size: 2rem;
@@ -167,7 +168,10 @@ const virtues = [
   background-color: rgba(23, 28, 47, 0.6);
 }
 
-
+.carousel{
+  height: 500px;
+  width: 1000px;
+}
 .carousel-control.prev {
   left: 10px;
 }

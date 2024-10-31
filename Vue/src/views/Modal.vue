@@ -158,8 +158,8 @@ export default {
 
 .cerrar {
   position: absolute; 
-  top: 130px; 
-  right: 565px; 
+  top: 160px; 
+  right: 580px; 
   font-size: 35px;
   cursor: pointer;
 }

@@ -53,42 +53,44 @@ function previousTestimonial() {
                 y comunitario en la UAC Pucarani.</p>
         </section>
 
+        <!-- Contenedor para el calendario y el formulario -->
+        <section class="calendar-registration-container">
+            <!-- Próximas Actividades -->
+            <div class="upcoming-events">
+                <h2>Calendario de Eventos Pastorales</h2>
+                <ul>
+                    <li>Misa de Bienvenida - <em>10 de Noviembre, 2024</em></li>
+                    <li>Retiro Espiritual - <em>18 de Noviembre, 2024</em></li>
+                    <li>Charla sobre valores - <em>25 de Noviembre, 2024</em></li>
+                </ul>
+                <button class="calendar-link" @click="showModal">
+                    Ver calendario completo
+                </button>
+            </div>
 
-        <!-- Próximas Actividades -->
-        <section class="upcoming-events">
-            <h2>Calendario de Eventos Pastorales</h2>
-            <ul>
-                <li>Misa de Bienvenida - <em>10 de Noviembre, 2024</em></li>
-                <li>Retiro Espiritual - <em>18 de Noviembre, 2024</em></li>
-                <li>Charla sobre valores - <em>25 de Noviembre, 2024</em></li>
-            </ul>
-            <button class="calendar-link" @click="showModal">
-                Ver calendario completo
-            </button>
+            <!-- Formulario de Inscripción -->
+            <div class="registration-form">
+                <h2>Formulario de Inscripción</h2>
+                <form @submit.prevent>
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" placeholder="Escribe tu nombre" required />
+
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" placeholder="correo@ejemplo.com" required />
+
+                    <label for="event">Selecciona el Evento</label>
+                    <select id="event" required>
+                        <option value="" disabled selected>Elige un evento...</option>
+                        <option>Misa de Bienvenida</option>
+                        <option>Retiro Espiritual</option>
+                        <option>Charla sobre valores</option>
+                    </select>
+
+                    <button type="submit" class="submit-button">Inscribirse</button>
+                </form>
+            </div>
         </section>
-
-        <!-- Formulario de Inscripción -->
-        <section class="registration-form">
-            <h2>Formulario de Inscripción</h2>
-            <form @submit.prevent>
-                <label for="name">Nombre Completo</label>
-                <input type="text" id="name" placeholder="Escribe tu nombre" required />
-
-                <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" placeholder="correo@ejemplo.com" required />
-
-                <label for="event">Selecciona el Evento</label>
-                <select id="event" required>
-                    <option value="" disabled selected>Elige un evento...</option>
-                    <option>Misa de Bienvenida</option>
-                    <option>Retiro Espiritual</option>
-                    <option>Charla sobre valores</option>
-                </select>
-
-                <button type="submit" class="submit-button">Inscribirse</button>
-            </form>
-        </section>
-
+<br><br>
         <!-- Testimonios -->
         <section class="testimonials">
             <h2>Testimonios</h2>
@@ -101,7 +103,7 @@ function previousTestimonial() {
                 <button @click="nextTestimonial" class="carousel-btn">&gt;</button>
             </div>
         </section>
-
+<br><br>
         <!-- Contacto de la Pastoral -->
         <section class="contact">
             <h2>Contacto de la Pastoral</h2>
@@ -109,16 +111,15 @@ function previousTestimonial() {
             <p><strong>Teléfono:</strong> +591 123 456789</p>
             <p><strong>Correo:</strong> pastoral@uacpucarani.edu.bo</p>
         </section>
-
+<br><br><br>
         <!-- Galería de Imágenes -->
-        <section class="gallery">
+        <!-- <section class="gallery">
             <h2>Galería de Imágenes</h2>
             <div class="gallery-grid">
-                <!-- <img src="@/assets/images/pastoral1.jpg" alt="Evento Pastoral" />
-                <img src="@/assets/images/pastoral2.jpg" alt="Actividades Comunitarias" />
-                <img src="@/assets/images/pastoral3.jpg" alt="Reuniones de Reflexión" /> -->
+                <img src="@/assets/images/enfe/enfe1.jpg" alt="Evento Pastoral" />
+                <img src="@/assets/images/enfe/enfe3.jpg" alt="Actividades Comunitarias" />
             </div>
-        </section>
+        </section> -->
     </div>
 
     <!-- Icono de calendario en pantalla flotante -->
@@ -131,6 +132,7 @@ function previousTestimonial() {
     <Boton />
     <Footer />
 </template>
+
 
 <style>
 
@@ -206,6 +208,10 @@ function previousTestimonial() {
     text-align: center;
     text-decoration: none;
 }
+.submit-button {
+    color: white;
+}
+
 .calendar-link:hover,
 .submit-button:hover {
     background-color: var(--azul-hover);
@@ -260,6 +266,26 @@ ul {
   list-style-type: none;
   padding: 10px;
   margin: 0;
+}
+.calendar-registration-container {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 50px; 
+    margin-bottom: 50px;
+}
+
+.upcoming-events,
+.registration-form {
+    flex: 1; 
+    margin: 0 10px; 
+}
+
+.registration-form {
+    max-width: 400px; 
+}
+
+.upcoming-events {
+    max-width: 400px; 
 }
 
 </style>
