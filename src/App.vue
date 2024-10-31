@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted } from 'vue';
 
+
 onMounted(() => {
   const observeFadeElements = () => {
     const fadeElements = document.querySelectorAll('.fade-in-element');

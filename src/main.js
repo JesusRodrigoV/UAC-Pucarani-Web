@@ -8,7 +8,8 @@ import './style.css';
 import ay from './locales/ay.json';
 import en from './locales/en.json';
 import es from './locales/es.json';
-import vuetify from './plugins/vuetify'; // Importación de Vuetify corregida
+import vuetify from './plugins/vuetify';
+
 
 const i18n = createI18n({
   legacy: false,
