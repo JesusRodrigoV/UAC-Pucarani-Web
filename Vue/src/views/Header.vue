@@ -1,8 +1,8 @@
 <script setup>
-<<<<<<< HEAD
 import { onMounted, onUnmounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
-
+import { useI18n } from 'vue-i18n'; 
+const { t } = useI18n();
 const headerTransparent = ref(true);
 const headerHidden = ref(false);
 
@@ -33,62 +33,10 @@ onUnmounted(() => {
     <header :class="['header', { 'transparent': headerTransparent, 'hidden': headerHidden }]">
     <div class="header-left">
       <RouterLink to="/">
-=======
-import { RouterLink, RouterView } from 'vue-router';
-import { useI18n } from 'vue-i18n';
-import { ref } from 'vue';
-
-const menuOpen = ref(false);
-
-const toggleMenu = () => {
-  menuOpen.value = !menuOpen.value;
-};
-
-const { t, locale } = useI18n();
-const toggleLanguage = () => {
-  locale.value = locale.value === 'es' ? 'en' : locale.value === 'en' ? 'ay' : 'es';
-};
-</script>
-
-<script>
-export default {
-  data() {
-    return {
-      dropdownVisible: false
-    };
-  },
-  methods: {
-    toggleDropdown() {
-      this.dropdownVisible = !this.dropdownVisible;
-    }
-  }
-};
-</script>
-
-<template>
-  <header class="header">
-    <div class="header-left">
-
-      <RouterLink to="/">
-
->>>>>>> main
         <img src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
       </RouterLink>
     </div>
 
-<<<<<<< HEAD
-    <div class="header-right">
-      <RouterLink to="/login" class="button login-button">
-        <i class='bx bxs-user-circle'></i>
-        <span>Login</span>
-      </RouterLink>
- 
-      <RouterLink to="/menu" class="button menu-button">
-        <i class='bx bx-menu'></i>
-        <span>Menú</span>
-      </RouterLink>
-    </div>
-=======
     <div class="menu-icon" @click="toggleMenu">
       <i class='bx bx-menu'></i>
     </div>
@@ -111,7 +59,6 @@ export default {
       </RouterLink>
     </div>
     
->>>>>>> main
   </header>
 </template>
 
@@ -129,10 +76,7 @@ export default {
   z-index: 700;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 0 0 15px 15px;
-<<<<<<< HEAD
   transition: background-color 0.3s ease, transform 0.3s ease;
-=======
->>>>>>> main
 }
 
 .header-left {
@@ -145,8 +89,6 @@ export default {
   margin-right: 20px;
 }
 
-<<<<<<< HEAD
-=======
 .nav-links {
   display: flex;
   gap: 30px;
@@ -163,13 +105,11 @@ export default {
   font-size: 17px;
 }
 
->>>>>>> main
 .header-right {
   display: flex;
   align-items: center;
 }
 
-<<<<<<< HEAD
 .button {
   display: flex;
   align-items: center;
@@ -218,8 +158,7 @@ export default {
 }
 
 
-</style>
-=======
+
 .login-icon {
   cursor: pointer;
   color: black;
@@ -300,4 +239,3 @@ body {
   font-size: 16px;
 }
 </style>
->>>>>>> main
