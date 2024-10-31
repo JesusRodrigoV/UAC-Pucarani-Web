@@ -1,8 +1,8 @@
 <script setup>
-import Header from './Header.vue'
-import Footer from './Footer.vue'
-import Boton from './Boton.vue'
 import { RouterLink } from 'vue-router';
+import Boton from './Boton.vue';
+import Footer from './Footer.vue';
+import Header from './Header.vue';
 </script>
 <script>
 import Modal from './Modal.vue';
@@ -138,4 +138,37 @@ export default {
     width: 120px;
   }
 }
+
+
+
+
+/* Añadir sombra suave y escala al pasar el cursor */
+.link-image {
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Escala y aumento de sombra al hacer hover */
+.link-image:hover {
+  transform: scale(1.15);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Transiciones de aparición para los elementos */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-element.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
 </style>
