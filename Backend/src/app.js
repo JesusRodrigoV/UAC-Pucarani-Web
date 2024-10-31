@@ -11,7 +11,7 @@ const corsOptions = {
 
 app.use(express.json());
 app.use(cors(corsOptions));
-app.use('/MATERIAL_BIBLIOGRAFICO', bookRoutes);
+app.use('/material_bibliografico', bookRoutes);
 
 app.use((error, req, res, next) => {
     console.error('Error stack:', error.stack);
