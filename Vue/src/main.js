@@ -11,6 +11,8 @@ import en from './locales/en.json';
 import ay from './locales/ay.json';
 import es from './locales/es.json';
 
+import { createPinia } from 'pinia';
+
 const i18n = createI18n({
   legacy: false,
   locale: 'es',
@@ -29,7 +31,9 @@ loadFonts();
 
 
 const app = createApp(App);
+const pinia = createPinia();
 app.use(vuetify);
 app.use(router);
 app.use(i18n);
+app.use(pinia);
 app.mount('#app');

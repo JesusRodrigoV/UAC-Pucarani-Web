@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import axios from 'axios';
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:3000/MATERIAL_BIBILIOGRAFICO',
+    baseURL: 'http://localhost:3000/material_bibliografico',
     withCredentials: false,
     headers:{
         Accept: 'application/json',
@@ -13,7 +13,7 @@ const apiClient = axios.create({
 export const useBookStore = defineStore
 ('book', {
     state: () => ({
-        MATERIAL_BIBILIOGRAFICO: [],
+        material_bibliografico: [],
         newBook: { type_matbib: '', title_matbib: '', author_matbib: '', description_matbib: '' },
         editingBook: null
     }),
@@ -21,7 +21,8 @@ export const useBookStore = defineStore
         async fetchBooks() {
             try {
                 const response = await apiClient.get('/');
-                this.MATERIAL_BIBILIOGRAFICO = response.data;
+                this.material_bibliografico = response.data;
+                console.log(this.material_bibliografico);
             } catch (error) {
                 console.error('Error fetching books:', error);
             }
