@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:3000/MATERIAL_BIBILIOGRAFICO',
+    baseURL: 'http://localhost:3000/material_bibliografico',
     withCredentials: false,
     headers:{
         Accept: 'application/json',

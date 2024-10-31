@@ -2,19 +2,14 @@
 import Header from './Header.vue'
 import Footer from './Footer.vue'
 import { ref, onMounted } from 'vue';
-import { supabase } from '../lib/supabase'
+import { useBookStore } from '../stores/library/bookStore';
 
-const libros = ref([])
-
-async function getLibros() {
-  const { data } = await supabase.from('libros').select()
-  libros.value = data
-}
-
-onMounted(() => {
-  getLibros()
-})
+const store = useBookStore();
+onMounted(async () => {
+  await store.fetchBooks();
+});
 </script>
+
 <script>
 import Modal from './Modal.vue';
 
@@ -37,6 +32,7 @@ export default {
   }
 };
 </script>
+
 <template>
   <Header />
 
@@ -57,11 +53,11 @@ export default {
       </div>
 
       <div class="results-section">
-        <div class="item-find" v-for="libro in libros" :key="libro.id">
-          <p class="item-text">{{ libro.tipo }}</p>
-          <p class="item-text">{{ libro.titulo }}</p>
-          <p class="item-text">{{ libro.autor }}</p>
-          <p class="item-text">{{ libro.descripcion }}</p>
+        <div class="item-find" v-for="book in store.material_bibliografico" :key="book.id_matbib">
+          <p class="item-text">{{ book.type_matbib }}</p>
+          <p class="item-text">{{ book.title_matbib }}</p>
+          <p class="item-text">{{ book.author_matbib }}</p>
+          <p class="item-text">{{ book.description_matbib }}</p>
           <hr>
         </div>
       </div>
