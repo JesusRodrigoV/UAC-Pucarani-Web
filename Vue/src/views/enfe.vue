@@ -2,7 +2,30 @@
 import Header from './Header.vue'
 import Footer from './Footer.vue'
 </script>
+<script>
+import Boton from './Boton.vue';
+import Modal from './Modal.vue';
 
+export default {
+  components: {
+    Modal
+  },
+  data() {
+    return {
+      isModalVisible: false
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    hideModal() {
+      this.isModalVisible = false;
+    }
+  }
+
+};
+</script>
 <template>
 
   <Header />
