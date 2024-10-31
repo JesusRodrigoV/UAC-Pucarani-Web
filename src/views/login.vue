@@ -1,21 +1,47 @@
 <template>
-    <div class="contenedor-form">
-        <form class="form-login">
-            <h1>Login</h1>
-            <div class="imgLogin">
-                <img src="@/assets/images/login.png" alt="">
-            </div>
-            <div>
-                <input type="text" name="email" id="email" class="txtLogin" placeholder="Correo electrónico" required />
-            </div>
-            <div>
-                <input type="password" name="password" id="password" class="txtLogin" placeholder="Contraseña"
-                    required />
-            </div>
-            <button type="submit" class="btnLogin">Login</button>
-        </form>
-    </div>
+  <div class="contenedor-form">
+      <form class="form-login" @submit.prevent="handleLogin">
+          <h1>Login</h1>
+          <div class="imgLogin">
+              <img src="@/assets/images/login.png" alt="">
+          </div>
+          <div>
+              <input type="text" v-model="email" class="txtLogin" placeholder="Correo electrónico" />
+          </div>
+          <div>
+              <input type="password" v-model="password" class="txtLogin" placeholder="Contraseña" />
+          </div>
+          <div>
+              <input type="checkbox" v-model="isAdmin" id="adminMode" />
+              <label for="adminMode">Modo Administrador</label>
+          </div>
+          <button type="submit" class="btnLogin">Login</button>
+      </form>
+  </div>
 </template>
+
+<script>
+export default {
+  data() {
+      return {
+          email: '',
+          password: '',
+          isAdmin: false
+      };
+  },
+  methods: {
+      handleLogin() {
+          if (this.isAdmin) {
+              // Redirige a la página de administración si el modo admin está activo
+              this.$router.push({ name: 'AdminPage' });
+          } else {
+              // Para manejar el login normal
+              alert('Login normal');
+          }
+      }
+  }
+};
+</script>
 
 <style scoped>
 * {

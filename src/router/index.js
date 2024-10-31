@@ -1,7 +1,6 @@
+// index.js
 import { createRouter, createWebHistory } from "vue-router";
-
-import login from "../views/login.vue";
-
+import admin from "../views/admin.vue";
 import boton from "../views/Boton.vue";
 import Calendar from "../views/Calendar.vue";
 import careers from "../views/careers.vue";
@@ -12,6 +11,7 @@ import fisio from "../views/fisio.vue";
 import home from "../views/home.vue";
 import jobBank from "../views/jobBank.vue";
 import library from "../views/library.vue";
+import login from "../views/login.vue";
 import MenuPage from "../views/MenuPage.vue";
 import pastoral from "../views/Pastoral.vue";
 import vac from "../views/vacio.vue";
@@ -68,11 +68,16 @@ const routes = [
   {
     path: '/pastoral',
     component: pastoral,
-},
-{
+  },
+  {
     path: '/menu',
     component: MenuPage,
-  }  
+  },
+  {
+    path: '/admin',
+    component: admin,
+    name: 'AdminPage' // Agregar nombre a la ruta
+  }
 ];
 
 const router = createRouter({
