@@ -1,18 +1,30 @@
 {
+<<<<<<< HEAD
   "hash": "2e2498cd",
   "configHash": "75a71548",
   "lockfileHash": "1264772e",
   "browserHash": "48a6e835",
+=======
+  "hash": "24ba0194",
+  "configHash": "008c8671",
+  "lockfileHash": "cfe04c1f",
+  "browserHash": "5d343856",
+>>>>>>> main
   "optimized": {
     "vue": {
       "src": "../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
+<<<<<<< HEAD
       "fileHash": "505c858d",
+=======
+      "fileHash": "b5b9ab6d",
+>>>>>>> main
       "needsInterop": false
     },
     "vue-i18n": {
       "src": "../../node_modules/vue-i18n/dist/vue-i18n.mjs",
       "file": "vue-i18n.js",
+<<<<<<< HEAD
       "fileHash": "0368a3e8",
       "needsInterop": false
     },
@@ -20,23 +32,35 @@
       "src": "../../node_modules/vue-router/dist/vue-router.mjs",
       "file": "vue-router.js",
       "fileHash": "29b5ff92",
+=======
+      "fileHash": "3c29b64e",
+>>>>>>> main
       "needsInterop": false
     },
     "vuetify": {
       "src": "../../node_modules/vuetify/lib/framework.mjs",
       "file": "vuetify.js",
+<<<<<<< HEAD
       "fileHash": "42107b00",
+=======
+      "fileHash": "f46b0de8",
+>>>>>>> main
       "needsInterop": false
     },
     "vuetify/components": {
       "src": "../../node_modules/vuetify/lib/components/index.mjs",
       "file": "vuetify_components.js",
+<<<<<<< HEAD
       "fileHash": "6159c419",
+=======
+      "fileHash": "b62c634f",
+>>>>>>> main
       "needsInterop": false
     },
     "vuetify/directives": {
       "src": "../../node_modules/vuetify/lib/directives/index.mjs",
       "file": "vuetify_directives.js",
+<<<<<<< HEAD
       "fileHash": "ccdb8339",
       "needsInterop": false
     }
@@ -50,12 +74,47 @@
     },
     "chunk-3ZD73WXD": {
       "file": "chunk-3ZD73WXD.js"
+=======
+      "fileHash": "9eb04fd7",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "src": "../../node_modules/vue-router/dist/vue-router.mjs",
+      "file": "vue-router.js",
+      "fileHash": "36905c75",
+      "needsInterop": false
+    },
+    "webfontloader": {
+      "src": "../../node_modules/webfontloader/webfontloader.js",
+      "file": "webfontloader.js",
+      "fileHash": "3e304b49",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-ZDAQSK7N": {
+      "file": "chunk-ZDAQSK7N.js"
+    },
+    "chunk-UOHIKLG6": {
+      "file": "chunk-UOHIKLG6.js"
+    },
+    "chunk-TGGZXZM7": {
+      "file": "chunk-TGGZXZM7.js"
+>>>>>>> main
     },
     "chunk-AYVSL3LM": {
       "file": "chunk-AYVSL3LM.js"
     },
+<<<<<<< HEAD
     "chunk-JSUVVRKD": {
       "file": "chunk-JSUVVRKD.js"
+=======
+    "chunk-SJGJBLN5": {
+      "file": "chunk-SJGJBLN5.js"
+    },
+    "chunk-BUSYA2B4": {
+      "file": "chunk-BUSYA2B4.js"
+>>>>>>> main
     }
   }
 }

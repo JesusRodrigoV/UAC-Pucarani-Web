@@ -39,7 +39,7 @@ const toggleLanguage = () => {
           <ul class="service_header">
             <li class="service_name">{{ t('careers.title') }}</li>
             <li>
-              <RouterLink to="/enfe">{{ t('careers.enfermeria')}}</RouterLink>
+              <RouterLink to="/enfe">{{ t('careers.enfermeria') }}</RouterLink>
             </li>
             <li>
               <RouterLink to="/fisio">{{ t('careers.fisioterapia') }}</RouterLink>
@@ -73,6 +73,11 @@ const toggleLanguage = () => {
               <option value="en">English</option>
               <option value="ay">Aymara</option>
             </select>
+            <transition name="fade">
+              <div v-if="currentLanguage" class="content">
+                <p>{{ content }}</p>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -256,12 +261,15 @@ hr {
 .footer-icon:hover {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg) brightness(100%) contrast(100%);
 }
+<<<<<<< HEAD
 .language-select {
   width: 100%;
   text-align: center;
   margin-top: 10px;
 }
 
+=======
+>>>>>>> main
 
 .language-select select {
   margin: 0 auto;

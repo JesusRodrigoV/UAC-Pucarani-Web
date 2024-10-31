@@ -1,4 +1,5 @@
 <script setup>
+<<<<<<< HEAD
 import Footer from './Footer.vue';
 import Header from './Header.vue';
 
@@ -20,11 +21,22 @@ import uacInicio from '@/assets/images/uac_inicio.jfif';
 
 
 const carouselImages = [uacInicio, inicio2, inicio3, inicio4];
+=======
+import Header from './Header.vue';
+import Footer from './Footer.vue';
+
+</script>
+<script>
+import Boton from './Boton.vue';
+import Modal from './Modal.vue';
+
+>>>>>>> main
 export default {
   components: {
     Modal
   },
   data() {
+<<<<<<< HEAD
    return {
       isModalVisible: false,
       currentImageIndex: 0
@@ -83,10 +95,27 @@ const virtues = [
 
 
 
+=======
+    return {
+      isModalVisible: false
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    hideModal() {
+      this.isModalVisible = false;
+    }
+  }
+
+};
+>>>>>>> main
 </script>
 
 <template>
   <Header />
+<<<<<<< HEAD
 
   <div class="home-container">
   <div class="carousel">
@@ -120,6 +149,19 @@ const virtues = [
 
 
 
+=======
+  
+  <div class="home-container">
+    <div class="image-container">
+      <img src="@/assets/images/uac_inicio.jfif" alt="UAC Inicio" class="home-image" />
+      <div class="overlay">
+        <h1 class="overlay-text">UAC Pucarani</h1>
+      </div>
+    </div>
+  </div>
+
+  
+>>>>>>> main
   <button id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
   </button>
@@ -129,6 +171,7 @@ const virtues = [
 </template>
 
 <style scoped>
+<<<<<<< HEAD
 .carousel {
   position: relative;
   max-width: 1200px;
@@ -190,6 +233,27 @@ const virtues = [
 
 
 
+=======
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.home-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+>>>>>>> main
 .overlay {
   position: absolute;
   top: 0;
@@ -209,6 +273,7 @@ const virtues = [
   font-family: 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: 2px;
   text-align: center;
+<<<<<<< HEAD
   transition: transform 0.5s ease-in-out; /* Transición de suavidad */
 }
 
@@ -217,6 +282,10 @@ const virtues = [
 }
 
 
+=======
+}
+
+>>>>>>> main
 
 .calendar-icon {
   width: 20px;
@@ -256,6 +325,7 @@ const virtues = [
   transform: translateY(10px);
 }
 
+<<<<<<< HEAD
 /*Testimonio*/
 .testimonials-container {
   display: flex;
@@ -397,4 +467,6 @@ const virtues = [
 
 
 
+=======
+>>>>>>> main
 </style>

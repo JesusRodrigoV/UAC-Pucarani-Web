@@ -1,4 +1,25 @@
 import {
+<<<<<<< HEAD
+=======
+  IconValue,
+  VClassIcon,
+  VComponentIcon,
+  VLigatureIcon,
+  VSvgIcon,
+  VuetifyLayoutKey,
+  createLayout,
+  getWeek,
+  makeLayoutItemProps,
+  makeLayoutProps,
+  useDate,
+  useGoTo,
+  useIcon,
+  useLayout,
+  useLayoutItem,
+  useResizeObserver
+} from "./chunk-ZDAQSK7N.js";
+import {
+>>>>>>> main
   MaybeTransition,
   Ripple,
   Touch,
@@ -25,6 +46,7 @@ import {
   useRouter,
   useScopeId,
   useTextColor
+<<<<<<< HEAD
 } from "./chunk-AJN476NS.js";
 import {
   IconValue,
@@ -44,6 +66,9 @@ import {
   useLayoutItem,
   useResizeObserver
 } from "./chunk-SVBJVROJ.js";
+=======
+} from "./chunk-UOHIKLG6.js";
+>>>>>>> main
 import {
   CircularBuffer,
   EventProp,
@@ -132,7 +157,11 @@ import {
   useTheme,
   useToggleScope,
   wrapInArray
+<<<<<<< HEAD
 } from "./chunk-3ZD73WXD.js";
+=======
+} from "./chunk-TGGZXZM7.js";
+>>>>>>> main
 import {
   Fragment,
   Text,
@@ -175,10 +204,18 @@ import {
   watchEffect,
   withDirectives,
   withModifiers
+<<<<<<< HEAD
 } from "./chunk-JSUVVRKD.js";
 
 // node_modules/vuetify/lib/components/VApp/VApp.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VApp/VApp.css";
+=======
+} from "./chunk-SJGJBLN5.js";
+import "./chunk-BUSYA2B4.js";
+
+// node_modules/vuetify/lib/components/VApp/VApp.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VApp/VApp.css";
+>>>>>>> main
 var makeVAppProps = propsFactory({
   ...makeComponentProps(),
   ...makeLayoutProps({
@@ -222,10 +259,17 @@ var VApp = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VAppBar/VAppBar.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VAppBar/VAppBar.css";
 
 // node_modules/vuetify/lib/components/VToolbar/VToolbar.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VToolbar/VToolbar.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VAppBar/VAppBar.css";
+
+// node_modules/vuetify/lib/components/VToolbar/VToolbar.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VToolbar/VToolbar.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/composables/tag.mjs
 var makeTagProps = propsFactory({
@@ -628,10 +672,17 @@ var VDefaultsProvider = genericComponent(false)({
 });
 
 // node_modules/vuetify/lib/components/VImg/VImg.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VImg/VImg.css";
 
 // node_modules/vuetify/lib/components/VResponsive/VResponsive.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VResponsive/VResponsive.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VImg/VImg.css";
+
+// node_modules/vuetify/lib/components/VResponsive/VResponsive.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VResponsive/VResponsive.css";
+>>>>>>> main
 function useAspectStyles(props) {
   return {
     aspectStyles: computed(() => {
@@ -1422,6 +1473,7 @@ var VAppBar = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VBtn/VBtn.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VBtn/VBtn.css";
 
 // node_modules/vuetify/lib/components/VBtnToggle/VBtnToggle.mjs
@@ -1429,6 +1481,15 @@ import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vueti
 
 // node_modules/vuetify/lib/components/VBtnGroup/VBtnGroup.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VBtnGroup/VBtnGroup.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VBtn/VBtn.css";
+
+// node_modules/vuetify/lib/components/VBtnToggle/VBtnToggle.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VBtnToggle/VBtnToggle.css";
+
+// node_modules/vuetify/lib/components/VBtnGroup/VBtnGroup.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VBtnGroup/VBtnGroup.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/composables/density.mjs
 var allowedDensities2 = [null, "default", "comfortable", "compact"];
@@ -1806,7 +1867,11 @@ var VBtnToggle = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VIcon/VIcon.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VIcon/VIcon.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VIcon/VIcon.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/composables/size.mjs
 var predefinedSizes = ["x-small", "small", "default", "large", "x-large"];
@@ -1905,7 +1970,11 @@ var VIcon = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VProgressCircular/VProgressCircular.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VProgressCircular/VProgressCircular.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VProgressCircular/VProgressCircular.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/composables/intersectionObserver.mjs
 function useIntersectionObserver(callback, options) {
@@ -2053,7 +2122,11 @@ var VProgressCircular = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VProgressLinear/VProgressLinear.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VProgressLinear/VProgressLinear.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VProgressLinear/VProgressLinear.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/composables/location.mjs
 var oppositeMap = {
@@ -2621,7 +2694,11 @@ var VAppBarTitle = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VAlert/VAlert.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VAlert/VAlert.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VAlert/VAlert.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VAlert/VAlertTitle.mjs
 var VAlertTitle = createSimpleFunctional("v-alert-title");
@@ -2817,10 +2894,17 @@ var VAlert = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VAutocomplete/VAutocomplete.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VAutocomplete/VAutocomplete.css";
 
 // node_modules/vuetify/lib/components/VAvatar/VAvatar.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VAvatar/VAvatar.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VAutocomplete/VAutocomplete.css";
+
+// node_modules/vuetify/lib/components/VAvatar/VAvatar.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VAvatar/VAvatar.css";
+>>>>>>> main
 var makeVAvatarProps = propsFactory({
   start: Boolean,
   end: Boolean,
@@ -2901,6 +2985,7 @@ var VAvatar = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VCheckbox/VCheckbox.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VCheckbox/VCheckbox.css";
 
 // node_modules/vuetify/lib/components/VSelectionControl/VSelectionControl.mjs
@@ -2908,6 +2993,15 @@ import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vueti
 
 // node_modules/vuetify/lib/components/VLabel/VLabel.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VLabel/VLabel.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VCheckbox/VCheckbox.css";
+
+// node_modules/vuetify/lib/components/VSelectionControl/VSelectionControl.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSelectionControl/VSelectionControl.css";
+
+// node_modules/vuetify/lib/components/VLabel/VLabel.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VLabel/VLabel.css";
+>>>>>>> main
 var makeVLabelProps = propsFactory({
   text: String,
   onClick: EventProp(),
@@ -2936,7 +3030,11 @@ var VLabel = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VSelectionControlGroup/VSelectionControlGroup.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VSelectionControlGroup/VSelectionControlGroup.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSelectionControlGroup/VSelectionControlGroup.css";
+>>>>>>> main
 var VSelectionControlGroupSymbol = Symbol.for("vuetify:selection-control-group");
 var makeSelectionControlGroupProps = propsFactory({
   color: String,
@@ -3292,7 +3390,11 @@ var VCheckboxBtn = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VInput/VInput.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VInput/VInput.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VInput/VInput.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VInput/InputIcon.mjs
 function useInputIcon(props) {
@@ -3324,7 +3426,11 @@ function useInputIcon(props) {
 }
 
 // node_modules/vuetify/lib/components/VMessages/VMessages.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VMessages/VMessages.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VMessages/VMessages.css";
+>>>>>>> main
 var makeVMessagesProps = propsFactory({
   active: Boolean,
   color: String,
@@ -3904,6 +4010,7 @@ var VCheckbox = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VChip/VChip.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VChip/VChip.css";
 
 // node_modules/vuetify/lib/components/VChipGroup/VChipGroup.mjs
@@ -3911,6 +4018,15 @@ import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vueti
 
 // node_modules/vuetify/lib/components/VSlideGroup/VSlideGroup.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VSlideGroup/VSlideGroup.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VChip/VChip.css";
+
+// node_modules/vuetify/lib/components/VChipGroup/VChipGroup.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VChipGroup/VChipGroup.css";
+
+// node_modules/vuetify/lib/components/VSlideGroup/VSlideGroup.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSlideGroup/VSlideGroup.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VSlideGroup/helpers.mjs
 function calculateUpdatedTarget(_ref) {
@@ -4617,7 +4733,11 @@ var VChip = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VList/VList.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VList/VList.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VList/VList.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VList/list.mjs
 var DepthKey = Symbol.for("vuetify:depth");
@@ -5379,7 +5499,11 @@ var VListGroup = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VList/VListItem.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VList/VListItem.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VList/VListItem.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VList/VListItemSubtitle.mjs
 var makeVListItemSubtitleProps = propsFactory({
@@ -5738,7 +5862,11 @@ var VListSubheader = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VDivider/VDivider.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VDivider/VDivider.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VDivider/VDivider.css";
+>>>>>>> main
 var makeVDividerProps = propsFactory({
   color: String,
   inset: Boolean,
@@ -6258,7 +6386,11 @@ var VListItemMedia = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VMenu/VMenu.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VMenu/VMenu.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VMenu/VMenu.css";
+>>>>>>> main
 var makeVMenuProps = propsFactory({
   // TODO
   // disableKeys: Boolean,
@@ -6434,6 +6566,7 @@ var VMenu = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VSelect/VSelect.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VSelect/VSelect.css";
 
 // node_modules/vuetify/lib/components/VTextField/VTextField.mjs
@@ -6441,6 +6574,15 @@ import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vueti
 
 // node_modules/vuetify/lib/components/VCounter/VCounter.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VCounter/VCounter.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSelect/VSelect.css";
+
+// node_modules/vuetify/lib/components/VTextField/VTextField.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VTextField/VTextField.css";
+
+// node_modules/vuetify/lib/components/VCounter/VCounter.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VCounter/VCounter.css";
+>>>>>>> main
 var makeVCounterProps = propsFactory({
   active: Boolean,
   disabled: Boolean,
@@ -6486,7 +6628,11 @@ var VCounter = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VField/VField.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VField/VField.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VField/VField.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VField/VFieldLabel.mjs
 var makeVFieldLabelProps = propsFactory({
@@ -7016,7 +7162,11 @@ var VTextField = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VVirtualScroll/VVirtualScroll.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VVirtualScroll/VVirtualScroll.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VVirtualScroll/VVirtualScroll.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VVirtualScroll/VVirtualScrollItem.mjs
 var makeVVirtualScrollItemProps = propsFactory({
@@ -8463,7 +8613,11 @@ var VAutocomplete = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VBadge/VBadge.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VBadge/VBadge.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VBadge/VBadge.css";
+>>>>>>> main
 var makeVBadgeProps = propsFactory({
   bordered: Boolean,
   color: String,
@@ -8566,7 +8720,11 @@ var VBadge = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VBanner/VBanner.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VBanner/VBanner.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VBanner/VBanner.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VBanner/VBannerActions.mjs
 var makeVBannerActionsProps = propsFactory({
@@ -8728,7 +8886,11 @@ var VBanner = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VBottomNavigation/VBottomNavigation.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VBottomNavigation/VBottomNavigation.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VBottomNavigation/VBottomNavigation.css";
+>>>>>>> main
 var makeVBottomNavigationProps = propsFactory({
   baseColor: String,
   bgColor: String,
@@ -8841,10 +9003,17 @@ var VBottomNavigation = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VBottomSheet/VBottomSheet.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VBottomSheet/VBottomSheet.css";
 
 // node_modules/vuetify/lib/components/VDialog/VDialog.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VDialog/VDialog.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VBottomSheet/VBottomSheet.css";
+
+// node_modules/vuetify/lib/components/VDialog/VDialog.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VDialog/VDialog.css";
+>>>>>>> main
 var makeVDialogProps = propsFactory({
   fullscreen: Boolean,
   retainFocus: {
@@ -9006,7 +9175,11 @@ var VBottomSheet = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VBreadcrumbs/VBreadcrumbs.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VBreadcrumbs/VBreadcrumbs.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VBreadcrumbs/VBreadcrumbs.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VBreadcrumbs/VBreadcrumbsDivider.mjs
 var makeVBreadcrumbsDividerProps = propsFactory({
@@ -9212,7 +9385,11 @@ var VBreadcrumbs = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VCard/VCard.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VCard/VCard.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VCard/VCard.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VCard/VCardActions.mjs
 var VCardActions = genericComponent()({
@@ -9547,10 +9724,17 @@ var VCard = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VCarousel/VCarousel.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VCarousel/VCarousel.css";
 
 // node_modules/vuetify/lib/components/VWindow/VWindow.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VWindow/VWindow.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VCarousel/VCarousel.css";
+
+// node_modules/vuetify/lib/components/VWindow/VWindow.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VWindow/VWindow.css";
+>>>>>>> main
 var VWindowSymbol = Symbol.for("vuetify:v-window");
 var VWindowGroupSymbol = Symbol.for("vuetify:v-window-group");
 var makeVWindowProps = propsFactory({
@@ -9982,6 +10166,7 @@ var VCarouselItem = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VCode/index.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VCode/VCode.css";
 var VCode = createSimpleFunctional("v-code");
 
@@ -9990,6 +10175,16 @@ import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vueti
 
 // node_modules/vuetify/lib/components/VColorPicker/VColorPickerCanvas.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VColorPicker/VColorPickerCanvas.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VCode/VCode.css";
+var VCode = createSimpleFunctional("v-code");
+
+// node_modules/vuetify/lib/components/VColorPicker/VColorPicker.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VColorPicker/VColorPicker.css";
+
+// node_modules/vuetify/lib/components/VColorPicker/VColorPickerCanvas.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VColorPicker/VColorPickerCanvas.css";
+>>>>>>> main
 var makeVColorPickerCanvasProps = propsFactory({
   color: {
     type: Object
@@ -10175,7 +10370,11 @@ var VColorPickerCanvas = defineComponent({
 });
 
 // node_modules/vuetify/lib/components/VColorPicker/VColorPickerEdit.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VColorPicker/VColorPickerEdit.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VColorPicker/VColorPickerEdit.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VColorPicker/util/index.mjs
 function stripAlpha(color, stripAlpha2) {
@@ -10433,6 +10632,7 @@ var VColorPickerEdit = defineComponent({
 });
 
 // node_modules/vuetify/lib/components/VColorPicker/VColorPickerPreview.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VColorPicker/VColorPickerPreview.css";
 
 // node_modules/vuetify/lib/components/VSlider/VSlider.mjs
@@ -10440,6 +10640,15 @@ import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vueti
 
 // node_modules/vuetify/lib/components/VSlider/VSliderThumb.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VSlider/VSliderThumb.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VColorPicker/VColorPickerPreview.css";
+
+// node_modules/vuetify/lib/components/VSlider/VSlider.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSlider/VSlider.css";
+
+// node_modules/vuetify/lib/components/VSlider/VSliderThumb.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSlider/VSliderThumb.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VSlider/slider.mjs
 var VSliderSymbol = Symbol.for("vuetify:v-slider");
@@ -10884,7 +11093,11 @@ var VSliderThumb = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VSlider/VSliderTrack.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VSlider/VSliderTrack.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSlider/VSliderTrack.css";
+>>>>>>> main
 var makeVSliderTrackProps = propsFactory({
   start: {
     type: Number,
@@ -11240,7 +11453,11 @@ var VColorPickerPreview = defineComponent({
 });
 
 // node_modules/vuetify/lib/components/VColorPicker/VColorPickerSwatches.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VColorPicker/VColorPickerSwatches.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VColorPicker/VColorPickerSwatches.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/util/colors.mjs
 var red = {
@@ -11619,7 +11836,11 @@ var VColorPickerSwatches = defineComponent({
 });
 
 // node_modules/vuetify/lib/components/VSheet/VSheet.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VSheet/VSheet.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSheet/VSheet.css";
+>>>>>>> main
 var makeVSheetProps = propsFactory({
   color: String,
   ...makeBorderProps(),
@@ -11824,7 +12045,11 @@ var VColorPicker = defineComponent({
 });
 
 // node_modules/vuetify/lib/components/VCombobox/VCombobox.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VCombobox/VCombobox.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VCombobox/VCombobox.css";
+>>>>>>> main
 function highlightResult2(text, matches, length) {
   if (matches == null) return text;
   if (Array.isArray(matches)) throw new Error("Multiple matches is not implemented");
@@ -13283,6 +13508,7 @@ var VDataIterator = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VDataTable/VDataTable.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VDataTable/VDataTable.css";
 
 // node_modules/vuetify/lib/components/VDataTable/VDataTableFooter.mjs
@@ -13290,6 +13516,15 @@ import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vueti
 
 // node_modules/vuetify/lib/components/VPagination/VPagination.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VPagination/VPagination.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VDataTable/VDataTable.css";
+
+// node_modules/vuetify/lib/components/VDataTable/VDataTableFooter.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VDataTable/VDataTableFooter.css";
+
+// node_modules/vuetify/lib/components/VPagination/VPagination.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VPagination/VPagination.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/composables/refs.mjs
 function useRefs() {
@@ -14611,7 +14846,11 @@ var VDataTableRows = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VTable/VTable.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VTable/VTable.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VTable/VTable.css";
+>>>>>>> main
 var makeVTableProps = propsFactory({
   fixedHeader: Boolean,
   fixedFooter: Boolean,
@@ -15333,6 +15572,7 @@ var VDataTableServer = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VDatePicker/VDatePicker.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VDatePicker/VDatePicker.css";
 
 // node_modules/vuetify/lib/components/VDatePicker/VDatePickerControls.mjs
@@ -15340,6 +15580,15 @@ import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vueti
 
 // node_modules/vuetify/lib/components/VGrid/VContainer.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VGrid/VGrid.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VDatePicker/VDatePicker.css";
+
+// node_modules/vuetify/lib/components/VDatePicker/VDatePickerControls.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VDatePicker/VDatePickerControls.css";
+
+// node_modules/vuetify/lib/components/VGrid/VContainer.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VGrid/VGrid.css";
+>>>>>>> main
 var makeVContainerProps = propsFactory({
   fluid: {
     type: Boolean,
@@ -15373,7 +15622,11 @@ var VContainer = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VGrid/VCol.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VGrid/VGrid.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VGrid/VGrid.css";
+>>>>>>> main
 var breakpointProps = (() => {
   return breakpoints.reduce((props, val) => {
     props[val] = {
@@ -15490,7 +15743,11 @@ var VCol = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VGrid/VRow.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VGrid/VGrid.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VGrid/VGrid.css";
+>>>>>>> main
 var ALIGNMENT = ["start", "end", "center"];
 var SPACE = ["space-between", "space-around", "space-evenly"];
 function makeRowProps(prefix, def) {
@@ -15604,7 +15861,11 @@ var VRow = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VGrid/VSpacer.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VGrid/VGrid.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VGrid/VGrid.css";
+>>>>>>> main
 var VSpacer = createSimpleFunctional("v-spacer", "div", "VSpacer");
 
 // node_modules/vuetify/lib/components/VDatePicker/VDatePickerControls.mjs
@@ -15713,7 +15974,11 @@ var VDatePickerControls = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VDatePicker/VDatePickerHeader.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VDatePicker/VDatePickerHeader.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VDatePicker/VDatePickerHeader.css";
+>>>>>>> main
 var makeVDatePickerHeaderProps = propsFactory({
   appendIcon: String,
   color: String,
@@ -15794,7 +16059,11 @@ var VDatePickerHeader = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VDatePicker/VDatePickerMonth.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VDatePicker/VDatePickerMonth.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VDatePicker/VDatePickerMonth.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/composables/calendar.mjs
 var makeCalendarProps = propsFactory({
@@ -16108,7 +16377,11 @@ var VDatePickerMonth = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VDatePicker/VDatePickerMonths.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VDatePicker/VDatePickerMonths.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VDatePicker/VDatePickerMonths.css";
+>>>>>>> main
 var makeVDatePickerMonthsProps = propsFactory({
   color: String,
   height: [String, Number],
@@ -16187,7 +16460,11 @@ var VDatePickerMonths = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VDatePicker/VDatePickerYears.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VDatePicker/VDatePickerYears.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VDatePicker/VDatePickerYears.css";
+>>>>>>> main
 var makeVDatePickerYearsProps = propsFactory({
   color: String,
   height: [String, Number],
@@ -16277,7 +16554,11 @@ var VDatePickerYears = genericComponent()({
 });
 
 // node_modules/vuetify/lib/labs/VPicker/VPicker.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/labs/VPicker/VPicker.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/labs/VPicker/VPicker.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/labs/VPicker/VPickerTitle.mjs
 var VPickerTitle = createSimpleFunctional("v-picker-title");
@@ -16600,7 +16881,11 @@ var VDatePicker = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VEmptyState/VEmptyState.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VEmptyState/VEmptyState.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VEmptyState/VEmptyState.css";
+>>>>>>> main
 var makeVEmptyStateProps = propsFactory({
   actionText: String,
   bgColor: String,
@@ -16737,7 +17022,11 @@ var VEmptyState = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VExpansionPanel/VExpansionPanels.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VExpansionPanel/VExpansionPanel.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VExpansionPanel/VExpansionPanel.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VExpansionPanel/shared.mjs
 var VExpansionPanelSymbol = Symbol.for("vuetify:v-expansion-panel");
@@ -17027,7 +17316,11 @@ var VExpansionPanels = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VFab/VFab.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VFab/VFab.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VFab/VFab.css";
+>>>>>>> main
 var makeVFabProps = propsFactory({
   app: Boolean,
   appear: Boolean,
@@ -17129,7 +17422,11 @@ var VFab = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VFileInput/VFileInput.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VFileInput/VFileInput.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VFileInput/VFileInput.css";
+>>>>>>> main
 var makeVFileInputProps = propsFactory({
   chips: Boolean,
   counter: Boolean,
@@ -17354,7 +17651,11 @@ var VFileInput = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VFooter/VFooter.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VFooter/VFooter.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VFooter/VFooter.css";
+>>>>>>> main
 var makeVFooterProps = propsFactory({
   app: Boolean,
   color: String,
@@ -17525,7 +17826,11 @@ var VHover = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VInfiniteScroll/VInfiniteScroll.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VInfiniteScroll/VInfiniteScroll.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VInfiniteScroll/VInfiniteScroll.css";
+>>>>>>> main
 var makeVInfiniteScrollProps = propsFactory({
   color: String,
   direction: {
@@ -17756,7 +18061,11 @@ var VInfiniteScroll = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VItemGroup/VItemGroup.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VItemGroup/VItemGroup.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VItemGroup/VItemGroup.css";
+>>>>>>> main
 var VItemGroupSymbol = Symbol.for("vuetify:v-item-group");
 var makeVItemGroupProps = propsFactory({
   ...makeComponentProps(),
@@ -17838,11 +18147,19 @@ var VItem = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VKbd/index.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VKbd/VKbd.css";
 var VKbd = createSimpleFunctional("v-kbd");
 
 // node_modules/vuetify/lib/components/VLayout/VLayout.mjs
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VLayout/VLayout.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VKbd/VKbd.css";
+var VKbd = createSimpleFunctional("v-kbd");
+
+// node_modules/vuetify/lib/components/VLayout/VLayout.mjs
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VLayout/VLayout.css";
+>>>>>>> main
 var makeVLayoutProps = propsFactory({
   ...makeComponentProps(),
   ...makeDimensionProps(),
@@ -17881,7 +18198,11 @@ var VLayout = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VLayout/VLayoutItem.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VLayout/VLayoutItem.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VLayout/VLayoutItem.css";
+>>>>>>> main
 var makeVLayoutItemProps = propsFactory({
   position: {
     type: String,
@@ -17986,7 +18307,11 @@ var VLazy = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VLocaleProvider/VLocaleProvider.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VLocaleProvider/VLocaleProvider.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VLocaleProvider/VLocaleProvider.css";
+>>>>>>> main
 var makeVLocaleProviderProps = propsFactory({
   locale: String,
   fallbackLocale: String,
@@ -18019,7 +18344,11 @@ var VLocaleProvider = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VMain/VMain.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VMain/VMain.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VMain/VMain.css";
+>>>>>>> main
 var makeVMainProps = propsFactory({
   scrollable: Boolean,
   ...makeComponentProps(),
@@ -18062,7 +18391,11 @@ var VMain = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VNavigationDrawer/VNavigationDrawer.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VNavigationDrawer/VNavigationDrawer.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VNavigationDrawer/VNavigationDrawer.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VNavigationDrawer/sticky.mjs
 function useSticky(_ref) {
@@ -18632,7 +18965,11 @@ var VNoSsr = defineComponent({
 });
 
 // node_modules/vuetify/lib/components/VOtpInput/VOtpInput.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VOtpInput/VOtpInput.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VOtpInput/VOtpInput.css";
+>>>>>>> main
 var makeVOtpInputProps = propsFactory({
   autofocus: Boolean,
   divider: String,
@@ -18863,7 +19200,11 @@ var VOtpInput = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VParallax/VParallax.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VParallax/VParallax.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VParallax/VParallax.css";
+>>>>>>> main
 function floor(val) {
   return Math.floor(Math.abs(val)) * Math.sign(val);
 }
@@ -18980,7 +19321,11 @@ var VRadio = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VRadioGroup/VRadioGroup.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VRadioGroup/VRadioGroup.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VRadioGroup/VRadioGroup.css";
+>>>>>>> main
 var makeVRadioGroupProps = propsFactory({
   height: {
     type: [Number, String],
@@ -19069,7 +19414,11 @@ var VRadioGroup = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VRangeSlider/VRangeSlider.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VSlider/VSlider.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSlider/VSlider.css";
+>>>>>>> main
 var makeVRangeSliderProps = propsFactory({
   ...makeFocusProps(),
   ...makeVInputProps(),
@@ -19278,7 +19627,11 @@ var VRangeSlider = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VRating/VRating.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VRating/VRating.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VRating/VRating.css";
+>>>>>>> main
 var makeVRatingProps = propsFactory({
   name: String,
   itemAriaLabel: {
@@ -19479,7 +19832,11 @@ var VRating = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VSkeletonLoader/VSkeletonLoader.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VSkeletonLoader/VSkeletonLoader.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSkeletonLoader/VSkeletonLoader.css";
+>>>>>>> main
 var rootTypes = {
   actions: "button@2",
   article: "heading, paragraph",
@@ -19624,7 +19981,11 @@ var VSlideGroupItem = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VSnackbar/VSnackbar.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VSnackbar/VSnackbar.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSnackbar/VSnackbar.css";
+>>>>>>> main
 function useCountdown(milliseconds) {
   const time = shallowRef(milliseconds());
   let timer = -1;
@@ -20260,7 +20621,11 @@ var VSparkline = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VSpeedDial/VSpeedDial.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VSpeedDial/VSpeedDial.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSpeedDial/VSpeedDial.css";
+>>>>>>> main
 var makeVSpeedDialProps = propsFactory({
   ...makeComponentProps(),
   ...makeVMenuProps({
@@ -20330,7 +20695,11 @@ var VSpeedDial = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VStepper/VStepper.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VStepper/VStepper.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VStepper/VStepper.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VStepper/shared.mjs
 var VStepperSymbol = Symbol.for("vuetify:v-stepper");
@@ -20422,7 +20791,11 @@ var VStepperActions = genericComponent()({
 var VStepperHeader = createSimpleFunctional("v-stepper-header");
 
 // node_modules/vuetify/lib/components/VStepper/VStepperItem.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VStepper/VStepperItem.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VStepper/VStepperItem.css";
+>>>>>>> main
 var makeStepperItemProps = propsFactory({
   color: String,
   title: String,
@@ -20762,7 +21135,11 @@ var VStepper = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VSwitch/VSwitch.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VSwitch/VSwitch.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSwitch/VSwitch.css";
+>>>>>>> main
 var makeVSwitchProps = propsFactory({
   indeterminate: Boolean,
   inset: Boolean,
@@ -20933,7 +21310,11 @@ var VSwitch = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VSystemBar/VSystemBar.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VSystemBar/VSystemBar.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VSystemBar/VSystemBar.css";
+>>>>>>> main
 var makeVSystemBarProps = propsFactory({
   color: String,
   height: [Number, String],
@@ -20991,7 +21372,11 @@ var VSystemBar = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VTabs/VTab.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VTabs/VTab.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VTabs/VTab.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VTabs/shared.mjs
 var VTabsSymbol = Symbol.for("vuetify:v-tabs");
@@ -21095,7 +21480,11 @@ var VTab = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VTabs/VTabs.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VTabs/VTabs.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VTabs/VTabs.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VTabs/VTabsWindow.mjs
 var makeVTabsWindowProps = propsFactory({
@@ -21301,8 +21690,13 @@ var VTabs = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VTextarea/VTextarea.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VTextarea/VTextarea.css";
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VTextField/VTextField.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VTextarea/VTextarea.css";
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VTextField/VTextField.css";
+>>>>>>> main
 var makeVTextareaProps = propsFactory({
   autoGrow: Boolean,
   autofocus: Boolean,
@@ -21554,7 +21948,11 @@ var VTextarea = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VThemeProvider/VThemeProvider.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VThemeProvider/VThemeProvider.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VThemeProvider/VThemeProvider.css";
+>>>>>>> main
 var makeVThemeProviderProps = propsFactory({
   withBackground: Boolean,
   ...makeComponentProps(),
@@ -21588,7 +21986,11 @@ var VThemeProvider = genericComponent()({
 });
 
 // node_modules/vuetify/lib/components/VTimeline/VTimeline.mjs
+<<<<<<< HEAD
 import "C:/Users/Axl/OneDrive/Documentos/uac/UAC-Pucarani-Web/node_modules/vuetify/lib/components/VTimeline/VTimeline.css";
+=======
+import "E:/Archivos y tareas UCB/Tecnologias Web/Aa  Proyecto UAC/UAC-Pucarani-Web/Vue/node_modules/vuetify/lib/components/VTimeline/VTimeline.css";
+>>>>>>> main
 
 // node_modules/vuetify/lib/components/VTimeline/VTimelineDivider.mjs
 var makeVTimelineDividerProps = propsFactory({
