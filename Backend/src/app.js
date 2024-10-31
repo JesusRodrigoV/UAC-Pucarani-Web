@@ -1,9 +1,16 @@
 const express = require('express');
 const bookRoutes = require('./api/routes/library/bookRoutes');
 
+const cors = require('cors');
 const app = express();
 
+const corsOptions = {
+    origin: 'http://localhost:5173',
+    optionsSuccessStatus: 200
+};
+
 app.use(express.json());
+app.use(cors(corsOptions));
 app.use('/MATERIAL_BIBLIOGRAFICO', bookRoutes);
 
 app.use((error, req, res, next) => {
