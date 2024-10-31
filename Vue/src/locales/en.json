@@ -1,0 +1,32 @@
+{
+  "titles": {
+    "home": "Home",
+    "careers": "Careers",
+    "library": "Library",
+    "content": "Content",
+    "jobBank": "Job Bank",
+    "pastoral": "Pastoral",
+    "contacts": "Contacts"
+  },
+  "footer": {
+    "address": "Address: Av. Avaroa s/n, Pucarani, Provincia Los Andes, Bolivia.",
+    "phone": "Phone",
+    "privacyPolicy": "Política de Privacidad",
+    "termsService": "Términos de Servicio",
+    "cookiePolicy": "Política de Cookies",
+    "copyright": "2024 UAC Pucarani | Desarrollado por Axl y sus amigos"
+  },
+  "careers": {
+    "title": "Careers",
+    "enfermeria": "Nursing",
+    "fisioterapia": "Physiotherapy and\n Kinesiology"
+  },
+  "industries": { 
+    "title": "Industries", 
+    "johnson": "Johnson & Johnson" 
+  },
+  "company": {
+     "title": "Company", 
+     "ucbito": "Ucbito" 
+    }
+}
