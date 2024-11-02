@@ -54,11 +54,19 @@ export default {
 
       <div class="results-section">
         <div class="item-find" v-for="book in store.material_bibliografico" :key="book.id_matbib">
-          <p class="item-text">{{ book.type_matbib }}</p>
-          <p class="item-text">{{ book.title_matbib }}</p>
-          <p class="item-text">{{ book.author_matbib }}</p>
-          <p class="item-text">{{ book.description_matbib }}</p>
-          <hr>
+          <div class="item-content">
+            <div class="container-buttons">
+              <button class="button-item-library">
+                <i class='bx bxs-bookmark-plus' id="button-icon"></i>
+              </button>
+            </div>
+            <div class="item-details">
+              <p class="item-text">{{ book.type_matbib }}</p>
+              <p class="item-text">{{ book.title_matbib }}</p>
+              <p class="item-text">{{ book.author_matbib }}</p>
+              <p class="item-text">{{ book.description_matbib }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -106,7 +114,6 @@ export default {
   color: white;
   font-size: 48px;
   font-weight: 300;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: 2px;
   text-align: center;
 }
@@ -131,6 +138,7 @@ export default {
 }
 
 .search-input {
+  width: 500px;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -172,12 +180,60 @@ export default {
 
 .item-find {
   padding: 15px;
+  width: 1000px;
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+}
+
+.item-content {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.item-details {
+  padding: 1em 1.5em;
+    padding-left: 1.5em;
+  z-index: 10;
+  background-color: transparent;
+  position: relative;
+  transition: all .4s cubic-bezier(.25,.8,.25,1);
+  transform: translateZ(0);
+}
+
+.container-buttons {
+  min-width: 0;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  transition: transform .3s cubic-bezier(.23,1,.32,1),opacity .2s;
+  transform: translate(-4px);
+  margin-right: 4px;
+}
+
+.button-item-library {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+}
+
+#button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: blue;
+  font-size: 25px;
+  width: 40px;
+  height: 40px;
 }
 
 .item-text {
