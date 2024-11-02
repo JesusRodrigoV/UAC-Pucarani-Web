@@ -32,7 +32,7 @@ export default {
   methods: {
       handleLogin() {
           if (this.isAdmin) {
-              // Redirige a la página de administración si el modo admin está activo
+              // Redirige a la página de administración solo si el modo admin está activo
               this.$router.push({ name: 'AdminPage' });
           } else {
               // Para manejar el login normal
