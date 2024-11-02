@@ -234,3 +234,17 @@ body.dark-mode {
   font-size: 65px;
   margin-bottom: 15px;
 }
+/*Botones*/
+.button-primary {
+  background: linear-gradient(90deg, #0055a5, #0077cc); 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.5s ease-in-out;
+}
+
+.button-primary:hover {
+  background: linear-gradient(90deg, #0077cc, #0055a5);
+}

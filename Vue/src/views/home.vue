@@ -1,7 +1,6 @@
 <script setup>
 import Footer from './Footer.vue';
 import Header from './Header.vue';
-
 </script>
 <script>
 import studentImage1 from '@/assets/images/student.jfif';
@@ -10,8 +9,6 @@ import studentImage3 from '@/assets/images/student3.jpg';
 
 import Boton from './Boton.vue';
 import Modal from './Modal.vue';
-
-
 
 import inicio2 from '@/assets/images/inicio2.jpg';
 import inicio3 from '@/assets/images/inicio3.jpg';
@@ -25,33 +22,32 @@ export default {
     Modal
   },
   data() {
-   return {
+    return {
       isModalVisible: false,
       currentImageIndex: 0
-   };
-},
+    };
+  },
 
   methods: {
-   showModal() {
+    showModal() {
       this.isModalVisible = true;
-   },
-   hideModal() {
+    },
+    hideModal() {
       this.isModalVisible = false;
-   },
-   nextImage() {
+    },
+    nextImage() {
       this.currentImageIndex = (this.currentImageIndex + 1) % carouselImages.length;
-   },
-   prevImage() {
+    },
+    prevImage() {
       this.currentImageIndex = (this.currentImageIndex - 1 + carouselImages.length) % carouselImages.length;
-   }
-},
+    }
+  },
 
   mounted() {
     setInterval(this.nextImage, 8000);
   },
 
 };
-
 
 const testimonials = [
   {
@@ -71,55 +67,49 @@ const testimonials = [
   }
 ];
 
-
 const virtues = [
   { title: "Excelencia Académica", description: "La universidad se destaca por su alto nivel académico y programas innovadores." },
   { title: "Compromiso Social", description: "Fomentamos el compromiso y la responsabilidad social en todos nuestros estudiantes." },
   { title: "Desarrollo Integral", description: "Promovemos el crecimiento integral de nuestros estudiantes, preparándolos para los retos del futuro." },
   { title: "Desarrollo Social", description: "Promovemos el crecimiento integral de nuestros estudiantes, preparándolos para los retos del futuro." },
   { title: "Desarrollo Social", description: "Promovemos el crecimiento integral de nuestros estudiantes, preparándolos para los retos del futuro." }
-  // virtudes
 ];
-
-
-
-
 </script>
 
 <template>
   <Header />
 
   <div class="home-container">
-  <div class="carousel">
-    <button class="carousel-control prev" @click="prevImage">‹</button>
-    <img :src="carouselImages[currentImageIndex]" alt="UAC Carrusel" class="carousel-image" />
-    <button class="carousel-control next" @click="nextImage">›</button>
-    <div class="overlay">
-      <h1 class="overlay-text">UAC Pucarani</h1>
+    <div class="carousel">
+      <button class="carousel-control prev" @click="prevImage">
+        <i class='bx bx-chevron-left'></i>
+      </button>
+      <img :src="carouselImages[currentImageIndex]" alt="UAC Carrusel" class="carousel-image" />
+      <button class="carousel-control next" @click="nextImage">
+        <i class='bx bx-chevron-right'></i>
+      </button>
+      <div class="overlay">
+        <h1 class="overlay-text">UAC Pucarani</h1>
+      </div>
     </div>
   </div>
-</div>
-
 
   <div class="testimonials-container">
-  <div class="testimonial-card" v-for="(testimonial, index) in testimonials" :key="index">
-    <img :src="testimonial.image" :alt="testimonial.name" class="testimonial-image" />
-    <div class="testimonial-content">
-      <h3>{{ testimonial.name }}</h3>
-      <p>{{ testimonial.text }}</p>
+    <div class="testimonial-card" v-for="(testimonial, index) in testimonials" :key="index">
+      <img :src="testimonial.image" :alt="testimonial.name" class="testimonial-image" />
+      <div class="testimonial-content">
+        <h3>{{ testimonial.name }}</h3>
+        <p>{{ testimonial.text }}</p>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="virtues-container">
-  <div class="virtue-card" v-for="(virtue, index) in virtues" :key="index">
-    <h3>{{ virtue.title }}</h3>
-    <p>{{ virtue.description }}</p>
+  <div class="virtues-container">
+    <div class="virtue-card" v-for="(virtue, index) in virtues" :key="index">
+      <h3>{{ virtue.title }}</h3>
+      <p>{{ virtue.description }}</p>
+    </div>
   </div>
-</div>
-
-
-
 
   <button id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
@@ -141,7 +131,8 @@ const virtues = [
   width: 100%;
   height: 100%;
   display: block;
-  transition: opacity 1s ease-in-out; /* transición de opacidad */
+  transition: opacity 1s ease-in-out;
+  /* transición de opacidad */
 }
 
 .carousel-control {
@@ -156,24 +147,28 @@ const virtues = [
   cursor: pointer;
   z-index: 1;
   transition: background 0.3s ease, transform 0.3s ease;
-  border-radius: 40%; /* Redondea los bordes para dar un aspecto de círculo */
+  border-radius: 40%;
+  /* Redondea los bordes para dar un aspecto de círculo */
 }
 
 .carousel-control:hover {
-  background: rgba(255, 215, 0, 0.8); /* Cambia el fondo al pasar el cursor */
-  transform: scale(1.1); /* Aumenta el tamaño ligeramente */
+  /* background: rgba(255, 215, 0, 0.8); */
+  background: var(--amarillo);
+  transform: scale(1.1);
+  color:var(--azul-principal);
 }
 
 .carousel:hover .overlay {
   background-color: rgba(23, 28, 47, 0.6);
 }
 
-.carousel{
+.carousel {
   height: 500px;
   width: 1000px;
   /* width: 100%;
   height: 750px; */
 }
+
 .carousel-control.prev {
   left: 10px;
 }
@@ -189,8 +184,11 @@ const virtues = [
   transition: opacity 1s ease-in-out;
 }
 
-.carousel-image-enter, 
-.carousel-image-leave-to /* .carousel-image-leave-active en Vue 2 */ {
+.carousel-image-enter,
+.carousel-image-leave-to
+
+/* .carousel-image-leave-active en Vue 2 */
+  {
   opacity: 0;
 }
 
@@ -234,11 +232,12 @@ const virtues = [
   font-family: 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: 2px;
   text-align: center;
-  transition: transform 0.5s ease-in-out; /* Transición de suavidad */
+  transition: transform 0.5s ease-in-out;
 }
 
 .overlay:hover .overlay-text {
-  transform: translateY(-10px); /* Efecto de elevación del texto */
+  transform: translateY(-10px);
+  /* Efecto de elevación del texto */
 }
 
 
@@ -277,7 +276,7 @@ const virtues = [
   transition: transform 0.3s ease-in-out;
 }
 
- .uac-logo {
+.uac-logo {
   transform: translateY(10px);
 }
 
@@ -307,7 +306,7 @@ const virtues = [
   width: 300px;
   text-align: center;
   position: relative;
-  
+
   cursor: default;
 }
 
@@ -421,7 +420,4 @@ const virtues = [
   color: #555;
   line-height: 1.4;
 }
-
-
-
 </style>

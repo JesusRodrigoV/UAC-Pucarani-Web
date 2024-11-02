@@ -86,7 +86,7 @@ function previousTestimonial() {
                         <option>Charla sobre valores</option>
                     </select>
 
-                    <button type="submit" class="submit-button">Inscribirse</button>
+                    <button type="submit" class="button-primary">Inscribirse</button>
                 </form>
             </div>
         </section>

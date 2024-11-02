@@ -117,7 +117,8 @@ footer {
   width: 100%;
   bottom: 0;
   left: 0;
-  background-color: #036;
+  /* background-color: #036; */
+  background: linear-gradient(180deg, var(--azul-hover), var(--azul-principal));
   box-shadow: 0 16px 70px -8px rgba(0, 0, 0, 0.25);
   border-radius: 15px 15px 0 0;
   transition: background 0.3s linear;

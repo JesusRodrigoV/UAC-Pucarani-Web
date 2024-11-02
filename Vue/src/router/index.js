@@ -14,6 +14,7 @@ import library from "../views/library.vue";
 import login from "../views/login.vue";
 import MenuPage from "../views/MenuPage.vue";
 import pastoral from "../views/Pastoral.vue";
+import feed from "../views/SocialFeed.vue";
 import vac from "../views/vacio.vue";
 
 const routes = [
@@ -76,7 +77,11 @@ const routes = [
   {
     path: '/admin',
     component: admin,
-    name: 'AdminPage' // Agregar nombre a la ruta
+    name: 'AdminPage' 
+  },
+  {
+    path: '/feed',
+    component: feed
   }
 ];
 
