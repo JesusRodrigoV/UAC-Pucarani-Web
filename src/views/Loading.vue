@@ -23,7 +23,7 @@
   };
   </script>
   
-  <style scoped>
+  <style>
   @keyframes blinkCursor {
     50% {
       border-right-color: transparent;
@@ -88,7 +88,7 @@
   }
   
   .control.close {
-    background-color: #e33;
+    background-color: rgb(29, 81, 141);
   }
   
   .control.minimize {
@@ -96,7 +96,7 @@
   }
   
   .control.maximize {
-    background-color: #0b0;
+    background-color: rgb(255, 255, 255);
   }
   
   .terminal-title {
@@ -113,5 +113,10 @@
     animation: typeAndDelete 4s steps(11) infinite, blinkCursor 0.5s step-end infinite alternate;
     margin-top: 1.5em;
   }
+
+  body, #app {
+  background-color: #1a1a1a;
+}
+
   </style>
   
