@@ -3,12 +3,13 @@ import { onMounted, onUnmounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import { useI18n } from 'vue-i18n'; 
 const { t } = useI18n();
+const headerTransparent = ref(true);
 const headerHidden = ref(false);
 
 let lastScroll = 0;
 const handleScroll = () => {
   const currentScroll = window.scrollY;
-  headerTransparent.value = currentScroll === 0;
+  headerTransparent.value = currentScroll === 1;
   headerHidden.value = currentScroll > lastScroll && currentScroll > 100;
   lastScroll = currentScroll;
 };
@@ -25,7 +26,7 @@ onUnmounted(() => {
 
 
 <template>
-    <header :class="['header', { 'hidden': headerHidden }]">
+    <header :class="['header', {'transparent': headerTransparent, 'hidden': headerHidden }]">
     <div class="header-left">
       <RouterLink to="/">
         <img src="@/assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
@@ -148,7 +149,7 @@ onUnmounted(() => {
 
 /* estil*/
 .header.transparent {
-  background-color: transparent;
+  background-color: white;
   box-shadow: none;
 }
 

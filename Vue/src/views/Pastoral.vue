@@ -3,7 +3,7 @@ import Header from './Header.vue';
 import Footer from './Footer.vue';
 import Boton from './Boton.vue';
 import Modal from './Modal.vue';
-import { ref } from 'vue'; 
+import { ref } from 'vue';
 
 const testimonials = ref([
     { text: "La pastoral me ha ayudado a fortalecer mi fe y encontrar un grupo de apoyo increíble.", author: "Juan Pérez, Estudiante" },
@@ -63,7 +63,7 @@ function previousTestimonial() {
                     <li>Retiro Espiritual - <em>18 de Noviembre, 2024</em></li>
                     <li>Charla sobre valores - <em>25 de Noviembre, 2024</em></li>
                 </ul>
-                <button class="calendar-link" @click="showModal">
+                <button class="button-a" @click="showModal">
                     Ver calendario completo
                 </button>
             </div>
@@ -86,11 +86,11 @@ function previousTestimonial() {
                         <option>Charla sobre valores</option>
                     </select>
 
-                    <button type="submit" class="button-primary">Inscribirse</button>
+                    <button type="submit" class="">Inscribirse</button>
                 </form>
             </div>
         </section>
-<br><br>
+        <br><br>
         <!-- Testimonios -->
         <section class="testimonials">
             <h2>Testimonios</h2>
@@ -100,10 +100,10 @@ function previousTestimonial() {
                     <p>"{{ testimonials[currentIndex].text }}"</p>
                     <span>– {{ testimonials[currentIndex].author }}</span>
                 </div>
-                <button @click="nextTestimonial" class="carousel-btn">&gt;</button>
+                <button @click="nextTestimonial" class="">&gt;</button>
             </div>
         </section>
-<br><br>
+        <br><br>
         <!-- Contacto de la Pastoral -->
         <section class="contact">
             <h2>Contacto de la Pastoral</h2>
@@ -111,7 +111,7 @@ function previousTestimonial() {
             <p><strong>Teléfono:</strong> +591 123 456789</p>
             <p><strong>Correo:</strong> pastoral@uacpucarani.edu.bo</p>
         </section>
-<br><br><br>
+        <br><br><br>
         <!-- Galería de Imágenes -->
         <!-- <section class="gallery">
             <h2>Galería de Imágenes</h2>
@@ -135,8 +135,6 @@ function previousTestimonial() {
 
 
 <style>
-
-
 .home-container {
     display: flex;
     justify-content: center;
@@ -196,6 +194,7 @@ function previousTestimonial() {
 .submit-button {
     margin-bottom: 10px;
 }
+
 .calendar-link,
 .submit-button {
     display: inline-block;
@@ -208,6 +207,7 @@ function previousTestimonial() {
     text-align: center;
     text-decoration: none;
 }
+
 .submit-button {
     color: white;
 }
@@ -262,30 +262,31 @@ function previousTestimonial() {
 .gallery-grid img {
     border-radius: 8px;
 }
+
 ul {
-  list-style-type: none;
-  padding: 10px;
-  margin: 0;
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
 }
+
 .calendar-registration-container {
     display: flex;
-    justify-content: space-between; 
-    margin-top: 50px; 
+    justify-content: space-between;
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 
 .upcoming-events,
 .registration-form {
-    flex: 1; 
-    margin: 0 10px; 
+    flex: 1;
+    margin: 0 10px;
 }
 
 .registration-form {
-    max-width: 400px; 
+    max-width: 400px;
 }
 
 .upcoming-events {
-    max-width: 400px; 
+    max-width: 400px;
 }
-
 </style>

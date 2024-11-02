@@ -74,6 +74,30 @@ const virtues = [
   { title: "Desarrollo Social", description: "Promovemos el crecimiento integral de nuestros estudiantes, preparándolos para los retos del futuro." },
   { title: "Desarrollo Social", description: "Promovemos el crecimiento integral de nuestros estudiantes, preparándolos para los retos del futuro." }
 ];
+
+
+document.querySelectorAll('button').forEach(button => {
+  const glow = document.createElement('div');
+  glow.classList.add('glow');
+  button.appendChild(glow);
+
+  button.addEventListener('mouseenter', () => {
+    glow.style.opacity = '1';
+  });
+
+  button.addEventListener('mouseleave', () => {
+    glow.style.opacity = '0';
+  });
+
+  button.addEventListener('mousemove', (e) => {
+    const rect = button.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    glow.style.left = `${x}px`;
+    glow.style.top = `${y}px`;
+  });
+});
+
 </script>
 
 <template>
@@ -94,6 +118,56 @@ const virtues = [
     </div>
   </div>
 
+
+  <section class="informacion-institucional">
+    <!-- Descripción Institucional -->
+    <div class="descripcion">
+      <h2>Descripción Institucional</h2>
+      <p>
+        La Unidad Académica Campesina (UAC) de Pucarani de la Universidad Católica Boliviana "San Pablo"
+        se dedica a ofrecer educación superior de calidad en un contexto rural, promoviendo el desarrollo
+        integral y sostenible de las comunidades campesinas. Nuestra misión es formar profesionales
+        comprometidos con el bienestar social, el desarrollo económico y el cuidado ambiental.
+      </p>
+      <div class="mision-vision-valores">
+        <div>
+          <h3>Misión</h3>
+          <p>Transformar vidas a través de la educación integral en valores cristianos, enfocada en el servicio y el
+            desarrollo comunitario.</p>
+        </div>
+        <div>
+          <h3>Visión</h3>
+          <p>Ser un referente nacional e internacional en educación para el desarrollo rural.</p>
+        </div>
+        <div>
+          <h3>Valores</h3>
+          <ul>
+            <li>Compromiso con la comunidad</li>
+            <li>Respeto por el medio ambiente</li>
+            <li>Justicia social</li>
+            <li>Excelencia académica</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carreras Ofrecidas -->
+    <div class="carreras">
+      <h2>Carreras Ofrecidas</h2>
+      <div class="carrera">
+        <h3>Enfermería</h3>
+        <p>Formación en competencias clínicas y comunitarias para el cuidado de la salud, con un enfoque en
+          comunidades
+          rurales y vulnerables.</p>
+      </div>
+      <div class="carrera">
+        <h3>Fisioterapia y Kinesiología</h3>
+        <p>Capacitación para mejorar la salud física de personas a través de rehabilitación y tratamiento en áreas
+          rurales y urbanas.</p>
+      </div>
+    </div>
+  </section>
+
   <div class="testimonials-container">
     <div class="testimonial-card" v-for="(testimonial, index) in testimonials" :key="index">
       <img :src="testimonial.image" :alt="testimonial.name" class="testimonial-image" />
@@ -110,6 +184,8 @@ const virtues = [
       <p>{{ virtue.description }}</p>
     </div>
   </div>
+
+
 
   <button id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
@@ -155,7 +231,7 @@ const virtues = [
   /* background: rgba(255, 215, 0, 0.8); */
   background: var(--amarillo);
   transform: scale(1.1);
-  color:var(--azul-principal);
+  color: var(--azul-principal);
 }
 
 .carousel:hover .overlay {
@@ -419,5 +495,84 @@ const virtues = [
   font-size: 16px;
   color: #555;
   line-height: 1.4;
+}
+
+.informacion-institucional {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.descripcion h2,
+.carreras h2 {
+  color: #2a4d69;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.descripcion p,
+.carrera p {
+  text-align: justify;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.mision-vision-valores {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.mision-vision-valores div {
+  flex: 1;
+  background-color: #e9f5f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mision-vision-valores h3 {
+  color: #1b3b5f;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.mision-vision-valores p,
+.mision-vision-valores ul {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #555;
+}
+
+.mision-vision-valores ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.mision-vision-valores li {
+  padding: 0.2rem 0;
+}
+
+.carreras {
+  margin-top: 2rem;
+}
+
+.carrera {
+  background-color: #f4f9fc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carrera h3 {
+  color: #1b3b5f;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
 }
 </style>
