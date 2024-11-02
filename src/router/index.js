@@ -11,6 +11,7 @@ import fisio from "../views/fisio.vue";
 import home from "../views/home.vue";
 import jobBank from "../views/jobBank.vue";
 import library from "../views/library.vue";
+import Loading from '../views/Loading.vue';
 import login from "../views/login.vue";
 import MenuPage from "../views/MenuPage.vue";
 import pastoral from "../views/Pastoral.vue";
@@ -76,8 +77,13 @@ const routes = [
   {
     path: '/admin',
     component: admin,
-    name: 'AdminPage' // Agregar nombre a la ruta
-  }
+    name: 'AdminPage'
+  },
+  {
+    path: '/loading',
+    name: 'Loading',
+    component: Loading,
+  },
 ];
 
 const router = createRouter({
