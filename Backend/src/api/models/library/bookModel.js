@@ -2,7 +2,11 @@ const db = require('../../../config/database');
 
 const BookModel = {
     getAll: async () => {
-        const query = 'SELECT * FROM material_bibliografico';
+        const query = {
+            text: `
+            SELECT * FROM material_bibliografico
+            `
+        }
         const { rows } = await db.query(query);
         return rows;
     },
@@ -13,22 +17,28 @@ const BookModel = {
         return rows[0];
     },
 
-    create: async ({ type, title, author, description }) => {
-        const query = `
+    create: async({ type_matbib, title_matbib, author_matbib, description_matbib }) => {
+        const query = {
+            text: `
             INSERT INTO material_bibliografico (type_matbib, title_matbib, author_matbib, description_matbib)
             VALUES ($1, $2, $3, $4) RETURNING *
-        `;
-        const { rows } = await db.query(query, [type, title, author, description]);
+            `,
+            values: [type_matbib, title_matbib, author_matbib, description_matbib]
+        }
+        const { rows } = await db.query(query);
         return rows[0];
     },
 
-    update: async (id, { type, title, author, description }) => {
-        const query = `
+    update: async (id_matbib, { type_matbib, title_matbib, author_matbib, description_matbib }) => {
+        const query = {
+            text: `
             UPDATE material_bibliografico
             SET type_matbib = $1, title_matbib = $2, author_matbib = $3, description_matbib = $4
             WHERE id_matbib = $5 RETURNING *
-        `;
-        const { rows } = await db.query(query, [type, title, author, description, id]);
+            `,
+            values: [type_matbib, title_matbib, author_matbib, description_matbib, id_matbib]
+        }
+        const { rows } = await db.query(query);
         return rows[0];
     },
 

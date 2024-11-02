@@ -1,5 +1,5 @@
 const express = require('express');
-const bookRoutes = require('./api/routes/library/bookRoutes');
+const bookRoutes = require('./api/routes/library/bookRoutes.js');
 
 const cors = require('cors');
 const app = express();

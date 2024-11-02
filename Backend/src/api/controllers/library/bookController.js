@@ -1,4 +1,4 @@
-const BookModel = require('../../models/library/bookModel');
+const BookModel = require('../../models/library/bookModel.js');
 
 const BookController = {
     getAllBooks: async (req, res) => {
@@ -22,8 +22,11 @@ const BookController = {
 
     createBook: async (req, res) => {
         try {
-            const newBook = await BookModel.create(req.body);
-            res.status(201).json(newBook);
+            const { type_matbib, title_matbib, author_matbib, description_matbib } = req.body;
+
+            const newBook = await BookModel.create({type_matbib, title_matbib, author_matbib, description_matbib})
+
+            return res.status(200).json({ ok: true, msg: "book adding" })
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
