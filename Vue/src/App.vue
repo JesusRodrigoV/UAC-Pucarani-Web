@@ -21,25 +21,31 @@ onMounted(() => {
   };
   observeFadeElements();
 });
+document.addEventListener('contextmenu', function (event) { event.preventDefault(); });
 </script>
 
 <template>
 
   <transition name="fade">
-    <RouterView/>
+    <RouterView />
   </transition>
 </template>
 
 <style scoped>
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter-from, .fade-leave-to {
+
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
+
 .fade-in-element {
   opacity: 0;
 }
+
 .fade-in-visible {
   opacity: 1;
   transition: opacity 0.5s;

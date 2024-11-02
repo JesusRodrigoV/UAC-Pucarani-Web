@@ -171,6 +171,8 @@ const virtues = [
 .carousel{
   height: 500px;
   width: 1000px;
+  /* width: 100%;
+  height: 750px; */
 }
 .carousel-control.prev {
   left: 10px;
@@ -305,7 +307,8 @@ const virtues = [
   width: 300px;
   text-align: center;
   position: relative;
-  cursor: pointer;
+  
+  cursor: default;
 }
 
 .testimonial-card:hover {
@@ -361,6 +364,7 @@ const virtues = [
 
 /*Virtudes*/
 .virtues-container {
+  cursor: default;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;

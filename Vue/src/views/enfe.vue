@@ -40,13 +40,13 @@ export default {
 
     <div class="info-cards">
       <div class="info-card">
-        <img src="@/assets/images/duracion.png" alt="Duración de la carrera" class="info-icon" />
+        <i class='bx bx-time info-icon'></i>
         <h2>Duración de la carrera</h2>
         <p>10 semestres</p>
       </div>
 
       <div class="info-card">
-        <img src="@/assets/images/estudio.png" alt="Áreas de estudio" class="info-icon" />
+        <i class='bx bx-book info-icon'  alt="Áreas de estudio"></i>
         <h2>Áreas de estudio</h2>
         <ul>
           <li>Área 1</li>
@@ -57,7 +57,7 @@ export default {
       </div>
 
       <div class="info-card">
-        <img src="@/assets/images/graduacion.png" alt="Modalidades de graduación" class="info-icon" />
+        <i class='bx bxs-bookmark info-icon' alt="Modalidades de graduación"></i>
         <h2>Modalidades de graduación</h2>
         <ul>
           <li>Graduación por excelencia</li>
@@ -155,12 +155,7 @@ export default {
   color: #555;
 }
 
-.info-icon {
-  width: 50px;
-  margin-bottom: 15px;
-  width: 60px;
-  height: auto;
-}
+
 
 ul {
   list-style-type: none;

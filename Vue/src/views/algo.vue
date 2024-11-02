@@ -3,6 +3,7 @@ import { onMounted, onUnmounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import { useI18n } from 'vue-i18n'; 
 const { t } = useI18n();
+const headerTransparent = ref(true);
 const headerHidden = ref(false);
 
 let lastScroll = 0;
@@ -25,11 +26,14 @@ onUnmounted(() => {
 
 
 <template>
-    <header :class="['header', { 'hidden': headerHidden }]">
+
+
+
+
+    <header :class="['header', { 'transparent': headerTransparent, 'hidden': headerHidden }]">
     <div class="header-left">
       <RouterLink to="/">
-        <img src="@/assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
-        <!-- <img src="@/assets/images/logoAzulUAC.png" alt="Logo UAC" class="logo-uac" /> -->
+        <img src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
       </RouterLink>
     </div>
 
@@ -61,23 +65,18 @@ onUnmounted(() => {
 <style scoped>
 /* Estilo base del header */
 .header {
-  align-items: center;
-  text-align: center;
   position: fixed;
-  top: 10px;
-  width: 98%;
+  top: 0;
+  width: 100%;
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
+  padding: 10px 20px;
   z-index: 700;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-  border-radius: 15px 15px 15px 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 15px 15px;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-left: auto;
-  left: 50%; 
-  transform: translateX(-50%);
 }
 
 .header-left {
@@ -86,14 +85,8 @@ onUnmounted(() => {
 }
 
 .logo-uac {
-  height: 80px;
+  height: 90px;
   margin-right: 20px;
-  /* filter: drop-shadow(
-    0 0 10px rgba(0, 85, 165, 0.4)
-  ); */
-  /* filter: drop-shadow(
-    0 0 10px rgba(0, 0, 0, 0.4)
-  ); */
 }
 
 .nav-links {
@@ -153,9 +146,8 @@ onUnmounted(() => {
 }
 
 .header.hidden {
-  transform: translateY(-700px);
-  
-  transition: transform 0.5s ease-in-out;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease-in-out;
 }
 
 
@@ -169,13 +161,10 @@ onUnmounted(() => {
 
 .login-icon {
   cursor: pointer;
-  color: var(--azul-principal);
+  color: black;
   margin-right: 100px;
   font-size: 48px;
   width: 50px;
-}
-.login-icon:hover{
-  color: var(--amarillo);
 }
 
 .menu-icon {
