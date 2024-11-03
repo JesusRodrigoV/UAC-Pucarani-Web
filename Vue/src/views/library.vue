@@ -1,6 +1,6 @@
 <script setup>
-import Header from './Header.vue'
-import Footer from './Footer.vue'
+import Header from './Header.vue';
+import Footer from './Footer.vue';
 import { ref, onMounted } from 'vue';
 import { useBookStore } from '../stores/library/bookStore';
 
@@ -12,14 +12,18 @@ onMounted(async () => {
 
 <script>
 import Modal from './Modal.vue';
+import Modal_library from '../components/Modal_library.vue';
 
 export default {
   components: {
-    Modal
+    Modal,
+    Modal_library
   },
   data() {
     return {
-      isModalVisible: false
+      isModalVisible: false,
+      isModalOpen: false,
+      selectedBook: null, // Variable para el libro seleccionado
     };
   },
   methods: {
@@ -28,57 +32,75 @@ export default {
     },
     hideModal() {
       this.isModalVisible = false;
+    },
+    openModal(book) {
+      this.selectedBook = book; // Asigna el libro seleccionado
+      this.isModalOpen = true;
+    },
+    closeModal() {
+      this.isModalOpen = false;
+      this.selectedBook = null; // Limpia el libro seleccionado al cerrar el modal
+    },
+    methods: {
+      preventScroll(event) {
+        event.preventDefault();
+      }
     }
   }
 };
 </script>
 
 <template>
-  <Header />
-
-    <div class="library-container">
-      <div class="image-container">
-        <img src="@/assets/images/biblioteca.jpg" alt="UAC Biblioteca" class="home-image" />
-        <div class="overlay">
-          <h1 class="overlay-text">Biblioteca Digital</h1>
-        </div>
+  <Header v-if="!isModalOpen" />
+  <div class="library-container">
+    <div class="image-container">
+      <img src="@/assets/images/biblioteca.jpg" alt="UAC Biblioteca" class="home-image" />
+      <div class="overlay">
+        <h1 class="overlay-text">Biblioteca Digital</h1>
       </div>
+    </div>
 
-      <div class="search-section">
-        <p class="search-text">Realiza tu búsqueda en este apartado:</p>
-        <div class="search-input-container">
-          <input type="text" placeholder="Coloca el nombre de un libro" class="search-input" />
-          <button class="search-button">Buscar</button>
-        </div>
+    <div class="search-section">
+      <p class="search-text">Realiza tu búsqueda en este apartado:</p>
+      <div class="search-input-container">
+        <input type="text" placeholder="Coloca el nombre de un libro" class="search-input" />
+        <button class="search-button">Buscar</button>
       </div>
+    </div>
 
-      <div class="results-section">
-        <div class="item-find" v-for="book in store.material_bibliografico" :key="book.id_matbib">
-          <div class="item-content">
-            <div class="container-buttons">
-              <button class="button-item-library">
-                <i class='bx bxs-bookmark-plus' id="button-icon"></i>
-              </button>
-            </div>
-            <div class="item-details">
-              <p class="item-text">{{ book.type_matbib }}</p>
-              <p class="item-text">{{ book.title_matbib }}</p>
-              <p class="item-text">{{ book.author_matbib }}</p>
-              <p class="item-text">{{ book.description_matbib }}</p>
-            </div>
+    <div class="results-section">
+      <div class="item-find" v-for="book in store.material_bibliografico" :key="book.id_matbib">
+        <div class="item-content" @click="openModal(book)">
+          <div class="container-buttons">
+            <button class="button-item-library">
+              <i class='bx bxs-bookmark-plus' id="button-icon"></i>
+            </button>
+          </div>
+          <div class="item-details">
+            <p class="type-item">{{ book.type_matbib }}</p>
+            <p class="title-item">{{ book.title_matbib }}</p>
+            <p class="item-text">{{ book.author_matbib }}</p>
+            <p class="item-text">{{ book.description_matbib }}</p>
           </div>
         </div>
       </div>
     </div>
-    <button id="icon-container" class="icon-container" @click="showModal">
-      <i class='bx bxs-calendar'></i>
-    </button>
-    <Modal :visible="isModalVisible" @close="hideModal"></Modal>
+  </div>
+
+  <button v-if="!isModalOpen" id="icon-container" class="icon-container" @click="showModal">
+    <i class='bx bxs-calendar'></i>
+  </button>
+  <Modal :visible="isModalVisible" @close="hideModal"></Modal>
+  <Modal_library v-if="isModalOpen" :book="selectedBook" @close="closeModal" />
 
   <Footer />
 </template>
 
 <style scoped>
+.no-scroll {
+    overflow: hidden;
+}
+
 .library-container {
   display: flex;
   flex-direction: column;
@@ -196,7 +218,7 @@ export default {
 
 .item-details {
   padding: 1em 1.5em;
-    padding-left: 1.5em;
+  padding-left: 1.5em;
   z-index: 10;
   background-color: transparent;
   position: relative;
@@ -204,10 +226,22 @@ export default {
   transform: translateZ(0);
 }
 
+.item-details .type-item {
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #666;
+  font-weight: 600;
+}
+
+.item-details .title-item {
+  font-weight: bold;
+  color: #44707b;
+  font-size: 20px;
+}
+
 .container-buttons {
   min-width: 0;
   z-index: 10;
-  position: absolute;
   top: 0;
   right: 0;
   display: -ms-flexbox;
@@ -238,17 +272,12 @@ export default {
 
 .item-text {
   color: #333;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   margin: 5px 0;
 }
 
-.item-find:hover {
-  background-color: #f0f8ff;
-  border-color: #b0c4de;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-4px);
-}
+
 
 .search-button:hover {
   background-color: #666;
