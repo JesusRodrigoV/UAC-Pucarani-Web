@@ -24,5 +24,5 @@ export default {
     },
     deleteBook(id) {
         return apiClient.delete('/' + id);
-    }
+    },
 }

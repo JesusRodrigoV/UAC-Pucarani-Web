@@ -1,5 +1,6 @@
 const express = require('express');
 const bookRoutes = require('./api/routes/library/bookRoutes.js');
+const pdfRoutes = require('./api/routes/pdf/pdfRoutes'); // Asegúrate de que la ruta sea correcta
 
 const cors = require('cors');
 const app = express();
@@ -12,6 +13,7 @@ const corsOptions = {
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use('/material_bibliografico', bookRoutes);
+app.use('/pdfs', pdfRoutes);
 
 app.use((error, req, res, next) => {
     console.error('Error stack:', error.stack);
