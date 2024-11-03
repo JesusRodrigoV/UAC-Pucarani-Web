@@ -1,126 +1,758 @@
 <template>
+  <div class="container">
+    <div class="left">
+      <div class="calendar">
+        <div class="month">
+          <i class="fas fa-angle-left prev" @click="prevMonth"></i>
+          <div class="date">{{ months[month] }} {{ year }}</div>
+<i class="fas fa-angle-right next" @click="nextMonth"></i>
 
-    <div class="calendar-container">
-      <h1>Calendario</h1>
-      <div class="calendar-header">
-        <button @click="prevMonth">Anterior</button>
-        <h2>{{ months[currentMonth] }} {{ currentYear }}</h2>
-        <button @click="nextMonth">Siguiente</button>
-      </div>
-      <div class="calendar-grid">
-        <div class="day-name" v-for="day in days" :key="day">{{ day }}</div>
-        <div
-          v-for="blank in blankDays"
-          :key="'blank-' + blank"
-          class="day-blank"
-        ></div>
-        <div
-          v-for="day in daysInMonth"
-          :key="day"
-          class="day"
-          :class="{ today: isToday(day) }"
-        >
-          {{ day }}
+        </div>
+        <div class="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="days">
+  <div
+    v-for="day in calendarDays"
+    :key="day.date"
+    :class="['day', { event: day.hasEvent, today: day.isToday }]"
+    @click="selectDay(day)"
+  >
+    {{ day.date }}
+  </div>
+</div>
+
+        <div class="goto-today">
+          <div class="goto">
+            <input type="text" placeholder="mm/yyyy" class="date-input" />
+            <button class="goto-btn">Go</button>
+          </div>
+          <button class="today-btn">Today</button>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        currentDate: new Date(),
-        currentMonth: new Date().getMonth(),
-        currentYear: new Date().getFullYear(),
-        days: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
-        months: [
-          'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-          'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-        ],
-      };
-    },
-    computed: {
-      daysInMonth() {
-        const days = new Date(this.currentYear, this.currentMonth + 1, 0).getDate();
-        return Array.from({ length: days }, (v, k) => k + 1);
-      },
-      blankDays() {
-        const firstDay = new Date(this.currentYear, this.currentMonth, 1).getDay();
-        return Array.from({ length: firstDay }, (v, k) => k);
-      }
-    },
-    methods: {
-      nextMonth() {
-        if (this.currentMonth === 11) {
-          this.currentMonth = 0;
-          this.currentYear++;
-        } else {
-          this.currentMonth++;
-        }
-      },
-      prevMonth() {
-        if (this.currentMonth === 0) {
-          this.currentMonth = 11;
-          this.currentYear--;
-        } else {
-          this.currentMonth--;
-        }
-      },
-      isToday(day) {
-        const today = new Date();
-        return (
-          today.getDate() === day &&
-          today.getMonth() === this.currentMonth &&
-          today.getFullYear() === this.currentYear
-        );
-      }
-    }
+    <div class="right">
+      <div class="today-date">
+        <div class="event-day">Wed</div>
+          <div class="date">{{ months[month] }} {{ year }}</div>
+      </div>
+      <div class="events"></div>
+      <div class="add-event-wrapper">
+        <div class="add-event-header">
+          <div class="title">Add Event</div>
+          <i class="fas fa-times close"></i>
+        </div>
+        <div class="add-event-body">
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Name" class="event-name" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Time From" class="event-time-from" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Time To" class="event-time-to" />
+          </div>
+        </div>
+        <div class="add-event-footer">
+          <button class="add-event-btn">Add Event</button>
+        </div>
+      </div>
+    </div>
+    <div>
+  <button class="add-event" @click="addEvent">
+    Add Event
+    <i class="fas fa-plus"></i>
+  </button>
+</div>
+
+  </div>
+</template>
+
+
+<script>
+export default {
+  data() {
+  return {
+    today: new Date(),
+    month: new Date().getMonth(),
+    year: new Date().getFullYear(),
+    activeDay: null,
+    eventsArr: [
+      // Estructura de eventos de ejemplo
+      { day: 12, month: 12, year: 2022, events: [{ name: "Evento de prueba", time: "10:00" }] }
+    ],
+    months: [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ],
+    newEvent: { name: "", timeFrom: "", timeTo: "" }  // Nueva estructura para eventos
+    
   };
-  </script>
+},
+
+  computed: {
+    calendarDays() {
+  const days = [];
+  const firstDay = new Date(this.year, this.month, 1).getDay();
+  const lastDate = new Date(this.year, this.month + 1, 0).getDate();
+
+  for (let i = 1; i <= lastDate; i++) {
+    const isToday = i === this.today.getDate() &&
+      this.year === this.today.getFullYear() &&
+      this.month === this.today.getMonth();
+
+    const hasEvent = this.eventsArr.some(event =>
+      event.day === i && event.month === this.month + 1 && event.year === this.year
+    );
+
+    days.push({
+      date: i,
+      isToday,
+      hasEvent,
+    });
+  }
+
+  return days;
+}
+,
+    activeEvents() {
+      if (!this.activeDay) return [];
+      return this.eventsArr
+        .filter(event => event.day === this.activeDay.date && event.month === this.month + 1 && event.year === this.year)
+        .flatMap(event => event.events);
+    }
+  },
+  methods: {
+  prevMonth() {
+    this.month--;
+    if (this.month < 0) {
+      this.month = 11;
+      this.year--;
+    }
+    this.$forceUpdate();
+
+  },
+  nextMonth() {
+    this.month++;
+    if (this.month > 11) {
+      this.month = 0;
+      this.year++;
+    }
+    this.$forceUpdate();
+
+  },
+  selectDay(day) {
+    this.activeDay = day;
+  },
+  addEvent() {
+    if (this.activeDay && this.newEvent.name && this.newEvent.timeFrom) {
+      // Buscar si ya existe un evento para el día activo
+      const existingEvent = this.eventsArr.find(event => 
+        event.day === this.activeDay.date && 
+        event.month === this.month + 1 &&
+        event.year === this.year
+      );
+
+      if (existingEvent) {
+        // Agregar el nuevo evento a los eventos existentes del día
+        existingEvent.events.push({
+          name: this.newEvent.name,
+          time: `${this.newEvent.timeFrom} - ${this.newEvent.timeTo}`
+        });
+      } else {
+        // Crear una nueva entrada para el día si no existe
+        this.eventsArr.push({
+          day: this.activeDay.date,
+          month: this.month + 1,
+          year: this.year,
+          events: [{
+            name: this.newEvent.name,
+            time: `${this.newEvent.timeFrom} - ${this.newEvent.timeTo}`
+          }]
+        });
+      }
+
+      // Limpiar el formulario después de agregar el evento
+      this.newEvent = { name: "", timeFrom: "", timeTo: "" };
+    }
+}
+
+}
+
+};
+</script>
+
+
+<style scoped>
+:root {
+  --primary-clr: #b38add;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/* nice scroll bar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-clr);
+  border-radius: 50px;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30px;
+  background-color: #e2e1dc;
+}
+.container {
+  position: relative;
+  width: 1200px;
+  min-height: 850px;
+  margin: 0 auto;
+  padding: 5px;
+  color: #fff;
+  display: flex;
+
+  border-radius: 10px;
+  background-color: #373c4f;
+}
+.left {
+  width: 60%;
+  padding: 20px;
+}
+.calendar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: #878895;
+  border-radius: 5px;
+  background-color: #fff;
+}
+/* set after behind the main element */
+.calendar::before,
+.calendar::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 12px;
+  height: 97%;
+  border-radius: 0 5px 5px 0;
+  background-color: #d3d4d6d7;
+  transform: translateY(-50%);
+}
+.calendar::before {
+  height: 94%;
+  left: calc(100% + 12px);
+  background-color: rgb(153, 153, 153);
+}
+.calendar .month {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.calendar .month .prev,
+.calendar .month .next {
+  cursor: pointer;
+}
+.calendar .month .prev:hover,
+.calendar .month .next:hover {
+  color: var(--primary-clr);
+}
+.calendar .weekdays {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.weekdays div {
+  width: 14.28%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calendar .days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.calendar .days .day {
+  width: 14.28%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--primary-clr);
+  border: 1px solid #f5f5f5;
+}
+.calendar .days .day:nth-child(7n + 1) {
+  border-left: 2px solid #f5f5f5;
+}
+.calendar .days .day:nth-child(7n) {
+  border-right: 2px solid #f5f5f5;
+}
+.calendar .days .day:nth-child(-n + 7) {
+  border-top: 2px solid #f5f5f5;
+}
+.calendar .days .day:nth-child(n + 29) {
+  border-bottom: 2px solid #f5f5f5;
+}
+
+.calendar .days .day:not(.prev-date, .next-date):hover {
+  color: #fff;
+  background-color: var(--primary-clr);
+}
+.calendar .days .prev-date,
+.calendar .days .next-date {
+  color: #b3b3b3;
+}
+.calendar .days .active {
+  position: relative;
+  font-size: 2rem;
+  color: #fff;
+  background-color: var(--primary-clr);
+}
+.calendar .days .active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 10px 2px var(--primary-clr);
+}
+.calendar .days .today {
+  font-size: 2rem;
+}
+.calendar .days .event {
+  position: relative;
+}
+.calendar .days .event::after {
+  content: "";
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 75%;
+  height: 6px;
+  border-radius: 30px;
+  transform: translateX(-50%);
+  background-color: var(--primary-clr);
+}
+.calendar .days .day:hover.event::after {
+  background-color: #fff;
+}
+.calendar .days .active.event::after {
+  background-color: #fff;
+  bottom: 20%;
+}
+.calendar .days .active.event {
+  padding-bottom: 10px;
+}
+.calendar .goto-today {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  color: var(--primary-clr);
+}
+.calendar .goto-today .goto {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid var(--primary-clr);
+}
+.calendar .goto-today .goto input {
+  width: 100%;
+  height: 30px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0 20px;
+  color: var(--primary-clr);
+  border-radius: 5px;
+}
+.calendar .goto-today button {
+  padding: 5px 10px;
+  border: 1px solid var(--primary-clr);
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--primary-clr);
+}
+.calendar .goto-today button:hover {
+  color: #fff;
+  background-color: var(--primary-clr);
+}
+.calendar .goto-today .goto button {
+  border: none;
+  border-left: 1px solid var(--primary-clr);
+  border-radius: 0;
+}
+.container .right {
+  position: relative;
+  width: 40%;
+  min-height: 100%;
+  padding: 20px 0;
+}
+
+.right .today-date {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  padding-left: 70px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+.right .today-date .event-day {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.right .today-date .event-date {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #878895;
+}
+.events {
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding-left: 4px;
+}
+.events .event {
+  position: relative;
+  width: 95%;
+  min-height: 70px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 20px;
+  padding-left: 50px;
+  color: #fff;
+  background: linear-gradient(90deg, #3f4458, transparent);
+  cursor: pointer;
+}
+/* even event */
+.events .event:nth-child(even) {
+  background: transparent;
+}
+.events .event:hover {
+  background: linear-gradient(90deg, var(--primary-clr), transparent);
+}
+.events .event .title {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.events .event .title .event-title {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 20px;
+}
+.events .event i {
+  color: var(--primary-clr);
+  font-size: 0.5rem;
+}
+.events .event:hover i {
+  color: #fff;
+}
+.events .event .event-time {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #878895;
+  margin-left: 15px;
+  pointer-events: none;
+}
+.events .event:hover .event-time {
+  color: #fff;
+}
+/* add tick in event after */
+.events .event::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 3rem;
+  line-height: 1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+  color: var(--primary-clr);
+  transform: translateY(-50%);
+}
+.events .event:hover::after {
+  display: flex;
+}
+.add-event {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #878895;
+  border: 2px solid #878895;
+  opacity: 0.5;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
   
-  <style scoped>
-  .calendar-container {
-    display: flex;
+}
+.add-event:hover {
+  opacity: 1;
+}
+.add-event i {
+  pointer-events: none;
+}
+.events .no-event {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #878895;
+}
+.add-event-wrapper {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  width: 90%;
+  max-height: 0;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: #fff;
+  transform: translateX(-50%);
+  transition: max-height 0.5s ease;
+}
+.add-event-wrapper.active {
+  max-height: 300px;
+}
+.add-event-header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: #373c4f;
+  border-bottom: 1px solid #f5f5f5;
+}
+.add-event-header .close {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.add-event-header .close:hover {
+  color: var(--primary-clr);
+}
+.add-event-header .title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.add-event-body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px;
+}
+.add-event-body .add-event-input {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.add-event-body .add-event-input input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #373c4f;
+}
+.add-event-body .add-event-input input::placeholder {
+  color: #a5a5a5;
+}
+.add-event-body .add-event-input input:focus {
+  border-bottom: 1px solid var(--primary-clr);
+}
+.add-event-body .add-event-input input:focus::placeholder {
+  color: var(--primary-clr);
+}
+.add-event-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.add-event-footer .add-event-btn {
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  color: #fff;
+  background-color: var(--primary-clr);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid var(--primary-clr);
+}
+.add-event-footer .add-event-btn:hover {
+  background-color: transparent;
+  color: var(--primary-clr);
+}
+
+/* media queries */
+
+@media screen and (max-width: 1000px) {
+  body {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .container {
+    min-height: 100vh;
     flex-direction: column;
-    align-items: center;
+    border-radius: 0;
+  }
+  .container .left {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+  }
+  .container .right {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+  }
+  .calendar::before,
+  .calendar::after {
+    top: 100%;
+    left: 50%;
+    width: 97%;
+    height: 12px;
+    border-radius: 0 0 5px 5px;
+    transform: translateX(-50%);
+  }
+  .calendar::before {
+    width: 94%;
+    top: calc(100% + 12px);
+  }
+  .events {
+    padding-bottom: 340px;
+  }
+  .add-event-wrapper {
+    bottom: 100px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .calendar .month {
+    height: 75px;
+  }
+  .calendar .weekdays {
+    height: 50px;
+  }
+  .calendar .days .day {
+    height: 40px;
+    font-size: 0.8rem;
+  }
+  .calendar .days .day.active,
+  .calendar .days .day.today {
+    font-size: 1rem;
+  }
+  .right .today-date {
     padding: 20px;
   }
-  
-  .calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
-    margin-bottom: 20px;
-  }
-  
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-    max-width: 400px;
-  }
-  
-  .day-name {
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .day, .day-blank {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ddd;
-  }
-  
-  .today {
-    background-color: #f0f0f0;
-    font-weight: bold;
-    color: red;
-  }
-  </style>
- 
+}
+
+.credits {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #b38add;
+}
+.credits a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.credits a:hover {
+  text-decoration: underline;
+}
+
+.calendar .days .event {
+  background-color: #ffd700;
+  border-radius: 50%;
+}
+
+</style>

@@ -94,7 +94,7 @@ const virtues = [
     <img :src="carouselImages[currentImageIndex]" alt="UAC Carrusel" class="carousel-image" />
     <button class="carousel-control next" @click="nextImage">›</button>
     <div class="overlay">
-      <h1 class="overlay-text">UAC Pucarani</h1>
+      <h1 class="overlay-text">Unidad Académica Campesina Pucarani</h1>
     </div>
   </div>
 </div>

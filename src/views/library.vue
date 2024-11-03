@@ -157,7 +157,7 @@ export default {
 
 .search-button {
   padding: 10px 20px;
-  background-color: black;
+  background-color: #1a4aa2;
   color: white;
   border: none;
   border-radius: 4px;
