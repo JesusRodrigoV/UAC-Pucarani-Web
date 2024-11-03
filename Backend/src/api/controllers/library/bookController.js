@@ -22,9 +22,9 @@ const BookController = {
 
     createBook: async (req, res) => {
         try {
-            const { type_matbib, title_matbib, author_matbib, description_matbib } = req.body;
+            const { id_matbib, type_matbib, title_matbib, author_matbib, isbn_matbib, filename, lenguage_matbib, description_matbib, summary_matbib, content_matbib, collaborators } = req.body;
 
-            const newBook = await BookModel.create({type_matbib, title_matbib, author_matbib, description_matbib})
+            const newBook = await BookModel.create({id_matbib, type_matbib, title_matbib, author_matbib, isbn_matbib, filename, lenguage_matbib, description_matbib, summary_matbib, content_matbib, collaborators})
 
             return res.status(200).json({ ok: true, msg: "book adding" })
         } catch (error) {
