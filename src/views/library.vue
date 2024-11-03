@@ -1,8 +1,8 @@
 <script setup>
-import Header from './Header.vue'
-import Footer from './Footer.vue'
-import { ref, onMounted } from 'vue';
-import { supabase } from '../lib/supabase'
+import { onMounted, ref } from 'vue';
+import { supabase } from '../lib/supabase';
+import Footer from './Footer.vue';
+import Header from './Header.vue';
 
 const libros = ref([])
 
@@ -62,9 +62,14 @@ export default {
           <p class="item-text">{{ libro.titulo }}</p>
           <p class="item-text">{{ libro.autor }}</p>
           <p class="item-text">{{ libro.descripcion }}</p>
+          <div class="button-container">
+  <button class="buttonDownload">Descargar PDF</button>
+</div>
           <hr>
         </div>
       </div>
+
+
     </div>
     <button id="icon-container" class="icon-container" @click="showModal">
       <i class='bx bxs-calendar'></i>
@@ -214,6 +219,97 @@ export default {
   .results-section {
     width: 100%;
     max-width: 400px;
+  }
+
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+
+
+/*boton*/
+::v-deep .buttonDownload {
+  /* Todos los estilos del botón aquí */
+}
+
+/* From Uiverse.io by G4b413l */ 
+.buttonDownload {
+  display: inline-block;
+  position: relative;
+  padding: 10px 25px;
+  background-color: #1a4aa2;
+  color: white;
+  font-family: sans-serif;
+  text-decoration: none;
+  font-size: 0.9em;
+  text-align: center;
+  text-indent: 15px;
+  border: none;
+}
+
+.buttonDownload:hover {
+  background-color: #1b4bb2;
+  color: rgb(178, 209, 209);
+}
+
+.buttonDownload:before, .buttonDownload:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 15px;
+  top: 52%;
+}
+
+.buttonDownload:before {
+  width: 10px;
+  height: 2px;
+  border-style: solid;
+  border-width: 0 2px 2px;
+}
+
+.buttonDownload:after {
+  width: 0;
+  height: 0;
+  margin-left: 3px;
+  margin-top: -7px;
+  border-style: solid;
+  border-width: 4px 4px 0 4px;
+  border-color: transparent;
+  border-top-color: inherit;
+  animation: downloadArrow 1s linear infinite;
+  animation-play-state: paused;
+}
+
+.buttonDownload:hover:before {
+  border-color: rgb(178, 209, 209);
+}
+
+.buttonDownload:hover:after {
+  border-top-color: rgb(178, 209, 209);
+  animation-play-state: running;
+}
+
+@keyframes downloadArrow {
+  0% {
+    margin-top: -7px;
+    opacity: 1;
+  }
+  0.001% {
+    margin-top: -15px;
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 0.4;
   }
 }
 </style>

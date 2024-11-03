@@ -17,13 +17,13 @@
     props: {
       isLoading: {
         type: Boolean,
-        default: true,
+        default: false, //cambio
       },
     },
   };
   </script>
   
-  <style>
+  <style scoped>
   @keyframes blinkCursor {
     50% {
       border-right-color: transparent;
