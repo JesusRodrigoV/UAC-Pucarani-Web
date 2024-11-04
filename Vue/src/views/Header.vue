@@ -109,6 +109,8 @@ onUnmounted(() => {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
 .nav-links a:hover {
