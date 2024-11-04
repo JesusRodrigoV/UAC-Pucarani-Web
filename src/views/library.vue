@@ -1,13 +1,25 @@
 <script setup>
 import Header from './Header.vue';
 import Footer from './Footer.vue';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useBookStore } from '../stores/library/bookStore';
 
 const store = useBookStore();
+const searchTerm = ref('');  // El término de búsqueda
+const filteredBooks = ref([]);  // Libros filtrados
+
 onMounted(async () => {
   await store.fetchBooks();
+  filteredBooks.value = store.material_bibliografico;  // Inicializamos la lista con todos los libros
 });
+
+// Función de búsqueda solo cuando se presiona el botón
+const performSearch = () => {
+  filteredBooks.value = store.material_bibliografico.filter(book => 
+    book.title_matbib.toLowerCase().includes(searchTerm.value.toLowerCase()) ||
+    book.author_matbib.toLowerCase().includes(searchTerm.value.toLowerCase())
+  );
+};
 </script>
 
 <script>
@@ -44,11 +56,6 @@ export default {
       this.isModalOpen = false;
       this.selectedBook = null; // Limpia el libro seleccionado al cerrar el modal
     },
-    methods: {
-      preventScroll(event) {
-        event.preventDefault();
-      }
-    }
   }
 };
 </script>
@@ -57,28 +64,39 @@ export default {
   <Header v-if="!isModalOpen" />
   <Carousel :images="carouselImages" carouselText="Biblioteca digital" />
   <div class="library-container">
-
-
-    <div class="search-section">
-      <p class="search-text">Realiza tu búsqueda en este apartado:</p>
-      <div class="search-input-container">
-        <input type="text" placeholder="Coloca el nombre de un libro" class="search-input" />
-        <button class="search-button">Buscar</button>
+    <div class="image-container">
+      <img src="@/assets/images/biblioteca.jpg" alt="UAC Biblioteca" class="home-image" />
+      <div class="overlay">
+        <h1 class="overlay-text">Biblioteca Digital</h1>
       </div>
     </div>
 
-    <div class="results-section">
-      <div class="item-find" v-for="libro in libros" :key="libro.id">
-        <p class="item-text">{{ libro.tipo }}</p>
-        <p class="item-text">{{ libro.titulo }}</p>
-        <p class="item-text">{{ libro.autor }}</p>
-        <p class="item-text">{{ libro.descripcion }}</p>
-        <div class="button-container">
-          <button class="buttonDownload">Descargar PDF</button>
-        </div>
-        <hr>
+    <!-- Sección de búsqueda -->
+    <div class="search-section">
+      <p class="search-text">Realiza tu búsqueda en este apartado:</p>
+      <div class="search-input-container">
+        <input type="text" v-model="searchTerm" placeholder="Coloca el nombre de un libro" class="search-input" />
+        <button class="search-button" @click="performSearch">Buscar</button>
       </div>
-      <hr>
+    </div>
+
+    <!-- Resultados de la búsqueda -->
+    <div class="results-section">
+      <div class="item-find" v-for="book in filteredBooks" :key="book.id_matbib">
+        <div class="item-content" @click="openModal(book)">
+          <div class="container-buttons">
+            <button class="button-item-library">
+              <i class='bx bxs-bookmark-plus' id="button-icon"></i>
+            </button>
+          </div>
+          <div class="item-details">
+            <p class="type-item">{{ book.type_matbib }}</p>
+            <p class="title-item">{{ book.title_matbib }}</p>
+            <p class="item-text">{{ book.author_matbib }}</p>
+            <p class="item-text">{{ book.description_matbib }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -90,6 +108,7 @@ export default {
 
   <Footer />
 </template>
+
 
 <style scoped>
 .no-scroll {
