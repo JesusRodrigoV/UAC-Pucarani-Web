@@ -39,31 +39,35 @@ onMounted(() => {
   });
 });
 </script>
-
+<script>
+import img1 from '@/assets/images/carreras.jpg';
+import Carousel from '../components/Carousel.vue';
+export default {
+    data() {
+        return {
+            carouselImages: [img1]
+        };
+    },
+};
+</script>
 <template>
   <Header />
+  <Carousel :images="carouselImages" carouselText="Carreras" />
 
-  <div class="careers-container">
-    <div class="image-container">
-      <img src="@/assets/images/carreras.jpg" alt="Carreras UAC" class="main-image" />
-      <div class="overlay">
-        <h1 class="overlay-text">Carreras</h1>
+
+  <div class="links-container">
+    <RouterLink to="/fisio">
+      <div class="fade-in-element">
+        <img src="@/assets/images/logoFisioKineLetra.png" alt="Fisioterapia" class="link-image" />
       </div>
-    </div>
-
-    <div class="links-container">
-      <RouterLink to="/fisio">
-        <div class="fade-in-element">
-          <img src="@/assets/images/logoFisioKineLetra.png" alt="Fisioterapia" class="link-image" />
-        </div>
-      </RouterLink>
-      <RouterLink to="/enfe">
-        <div class="fade-in-element">
-          <img src="@/assets/images/logoEnfermeriaLetra.png" alt="Enfermería" class="link-image" />
-        </div>
-      </RouterLink>
-    </div>
+    </RouterLink>
+    <RouterLink to="/enfe">
+      <div class="fade-in-element">
+        <img src="@/assets/images/logoEnfermeriaLetra.png" alt="Enfermería" class="link-image" />
+      </div>
+    </RouterLink>
   </div>
+  
   <button id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
   </button>
@@ -125,9 +129,7 @@ onMounted(() => {
   width: 200px;
   height: auto;
   cursor: pointer;
-  filter: drop-shadow(
-    0 0 10px rgba(0, 0, 0, .4)
-  );
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, .4));
   transition: transform 0.3s ease;
   background-color: transparent;
 }
@@ -185,7 +187,4 @@ onMounted(() => {
   opacity: 1;
   transform: translateY(0);
 }
-
-
-
 </style>

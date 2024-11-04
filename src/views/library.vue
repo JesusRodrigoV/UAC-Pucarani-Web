@@ -13,6 +13,8 @@ onMounted(async () => {
 <script>
 import Modal from './Modal.vue';
 import Modal_library from '../components/Modal_library.vue';
+import img1 from '@/assets/images/biblioteca.jpg';
+import Carousel from '../components/Carousel.vue';
 
 export default {
   components: {
@@ -23,7 +25,8 @@ export default {
     return {
       isModalVisible: false,
       isModalOpen: false,
-      selectedBook: null, // Variable para el libro seleccionado
+      selectedBook: null,
+      carouselImages: [img1],
     };
   },
   methods: {
@@ -52,13 +55,9 @@ export default {
 
 <template>
   <Header v-if="!isModalOpen" />
+  <Carousel :images="carouselImages" carouselText="Biblioteca digital" />
   <div class="library-container">
-    <div class="image-container">
-      <img src="@/assets/images/biblioteca.jpg" alt="UAC Biblioteca" class="home-image" />
-      <div class="overlay">
-        <h1 class="overlay-text">Biblioteca Digital</h1>
-      </div>
-    </div>
+
 
     <div class="search-section">
       <p class="search-text">Realiza tu búsqueda en este apartado:</p>
@@ -68,20 +67,20 @@ export default {
       </div>
     </div>
 
-      <div class="results-section">
-        <div class="item-find" v-for="libro in libros" :key="libro.id">
-          <p class="item-text">{{ libro.tipo }}</p>
-          <p class="item-text">{{ libro.titulo }}</p>
-          <p class="item-text">{{ libro.autor }}</p>
-          <p class="item-text">{{ libro.descripcion }}</p>
-          <div class="button-container">
-  <button class="buttonDownload">Descargar PDF</button>
-</div>
-          <hr>
+    <div class="results-section">
+      <div class="item-find" v-for="libro in libros" :key="libro.id">
+        <p class="item-text">{{ libro.tipo }}</p>
+        <p class="item-text">{{ libro.titulo }}</p>
+        <p class="item-text">{{ libro.autor }}</p>
+        <p class="item-text">{{ libro.descripcion }}</p>
+        <div class="button-container">
+          <button class="buttonDownload">Descargar PDF</button>
         </div>
         <hr>
       </div>
+      <hr>
     </div>
+  </div>
 
   <button v-if="!isModalOpen" id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
@@ -94,7 +93,7 @@ export default {
 
 <style scoped>
 .no-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .library-container {
@@ -163,6 +162,7 @@ export default {
   border-radius: 4px;
   margin-right: 10px;
 }
+
 .search-input {
   transition: border-color 0.3s ease;
 }
@@ -218,7 +218,7 @@ export default {
   z-index: 10;
   background-color: transparent;
   position: relative;
-  transition: all .4s cubic-bezier(.25,.8,.25,1);
+  transition: all .4s cubic-bezier(.25, .8, .25, 1);
   transform: translateZ(0);
 }
 
@@ -244,7 +244,7 @@ export default {
   display: flex;
   -ms-flex-align: start;
   align-items: flex-start;
-  transition: transform .3s cubic-bezier(.23,1,.32,1),opacity .2s;
+  transition: transform .3s cubic-bezier(.23, 1, .32, 1), opacity .2s;
   transform: translate(-4px);
   margin-right: 4px;
 }

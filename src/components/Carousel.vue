@@ -5,6 +5,10 @@ export default {
       type: Array,
       required: true,
     },
+    carouselText: {
+      type: String,
+      default: "Texto del Carrusel",
+    },
   },
   data() {
     return {
@@ -36,7 +40,7 @@ export default {
       <i class='bx bx-chevron-right'></i>
     </button>
     <div class="overlay">
-      <h1 class="overlay-text">UAC Pucarani</h1>
+      <h1 class="overlay-text">{{ carouselText }}</h1>
     </div>
   </div>
 </template>
@@ -46,15 +50,18 @@ export default {
 .carousel {
   position: relative;
   width: 100%;
+  height: 100vh;
   margin: auto;
   overflow: hidden;
 }
 
 .carousel-image {
   width: 100%;
-  height: 100%;
-  display: block;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
   transition: opacity 1s ease-in-out;
+  display: block;
 }
 
 .carousel-control {
@@ -68,7 +75,7 @@ export default {
   padding: 15px;
   cursor: pointer;
   border-radius: 50%;
-  transition: background 0.5s ease-in-out, color 0.5s ease-in-out ;
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 .carousel-control.prev {
@@ -78,16 +85,18 @@ export default {
 .carousel-control.next {
   right: 10px;
 }
-.carousel-control:hover{
+
+.carousel-control:hover {
   background-color: var(--amarillo);
   color: var(--azul-principal);
 }
+
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 50%;
-  height: 100%;
+  height: 100vh;
   background-color: rgba(23, 28, 47, 0.6);
   display: flex;
   justify-content: center;
@@ -101,7 +110,18 @@ export default {
   text-align: center;
   transition: transform 0.5s ease-in-out;
 }
-button{
+
+button {
   z-index: 100;
+}
+
+.carousel-image-enter-active,
+.carousel-image-leave-active {
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-image-enter,
+.carousel-image-leave-to {
+  opacity: 0;
 }
 </style>

@@ -23,13 +23,15 @@ onMounted(() => {
 </script>
 <script>
 import Modal from './Modal.vue';
-
+import img1 from '@/assets/images/bolsa3.jpg';
+import Carousel from '../components/Carousel.vue';
 export default {
   components: {
     Modal
   },
   data() {
     return {
+      carouselImages: [img1],
       isModalVisible: false
     };
   },
@@ -45,14 +47,9 @@ export default {
 </script>
 <template>
   <Header />
-
+  <Carousel :images="carouselImages" carouselText="Bolsa de trabajo" />
   <div class="fisio-container">
-    <div class="image-container">
-      <img src="@/assets/images/bolsa3.jpg" alt="Carreras UAC" class="main-image" />
-      <div class="overlay">
-        <h1 class="overlay-text">Bolsa de trabajo</h1>
-      </div>
-    </div>
+
     <div>
       <h1>Para enfermería</h1>
     </div>
@@ -193,6 +190,7 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
+
 .info-card:hover {
   background-color: #e6f7ff;
   border-color: #66b2ff;

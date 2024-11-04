@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, onUnmounted, ref, computed } from 'vue';
 import { RouterLink } from 'vue-router';
-import { useI18n } from 'vue-i18n'; 
+import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 const headerTransparent = ref(true);
@@ -28,7 +28,7 @@ onUnmounted(() => {
 
 
 <template>
-    <header :class="['header', {'transparent': headerTransparent, 'hidden': headerHidden }]">
+  <header :class="['header', { 'transparent': headerTransparent, 'hidden': headerHidden }]">
     <div class="header-left">
       <RouterLink to="/">
         <img src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
@@ -36,7 +36,7 @@ onUnmounted(() => {
       </RouterLink>
     </div>
 
-    
+
 
     <!-- Enlaces de navegación -->
     <nav :class="['nav-links', menuOpen ? 'show' : '']">
@@ -49,16 +49,16 @@ onUnmounted(() => {
       <RouterLink to="/contacts">{{ t('titles.contacts') }}</RouterLink>
     </nav>
 
-    
+
     <div class="header-right">
-      <RouterLink to="/login">
-        <i class='bx bxs-user-circle login-icon'></i>
+      <RouterLink to="/login" >
+        <i :class="['bx', 'bxs-user-circle','login-icon', { 'no-shadow': headerTransparent }]"></i>
       </RouterLink>
     </div>
     <div class="menu-icon" @click="toggleMenu">
       <i class='bx bx-menu'></i>
     </div>
-    
+
   </header>
 </template>
 
@@ -80,7 +80,7 @@ onUnmounted(() => {
   border-radius: 15px 15px 15px 15px;
   transition: background-color 0.3s ease, transform 0.3s ease;
   margin-left: auto;
-  left: 50%; 
+  left: 50%;
   transform: translateX(-50%);
 }
 
@@ -95,10 +95,10 @@ onUnmounted(() => {
   /* filter: drop-shadow(
     0 0 10px rgba(0, 85, 165, 0.4)
   ); */
-  /* filter: drop-shadow(
-    0 0 10px rgba(0, 0, 0, 0.4)
-  ); */
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
 }
+
+
 
 .nav-links {
   display: flex;
@@ -111,6 +111,7 @@ onUnmounted(() => {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 14px;
+
 }
 
 .nav-links a:hover {
@@ -147,7 +148,8 @@ onUnmounted(() => {
   margin-right: 8px;
 }
 
-.menu-button, .login-button {
+.menu-button,
+.login-button {
   margin-right: 10px;
 }
 
@@ -156,7 +158,10 @@ onUnmounted(() => {
 .header.transparent {
   background-color: transparent;
   box-shadow: none;
-  
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9), -1px -1px 3px rgba(0, 0, 0, 0.8);
+}
+.header.transparent.nav-links:hover{
+  color:var(--azul-principal);
 }
 
 .header.hidden {
@@ -180,21 +185,33 @@ onUnmounted(() => {
   color: white;
 }
 
-.login-button, .menu-button {
+.login-button,
+.menu-button {
   text-decoration: none;
   box-shadow: none;
 }
+.login-button{
+  height: 80px;
+  margin-right: 20px;
+  
+}
 
-
-
+.login-button.no-shadow {
+  filter: none;
+}
+.login-icon.no-shadow {
+  filter: none;
+}
 .login-icon {
   cursor: pointer;
   color: var(--azul-principal);
   margin-right: 100px;
   font-size: 48px;
   width: 50px;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
 }
-.login-icon:hover{
+
+.login-icon:hover {
   color: var(--amarillo);
 }
 
@@ -204,7 +221,8 @@ onUnmounted(() => {
   cursor: pointer;
   color: #333;
 }
-i{
+
+i {
   transition: color 0.3s;
 }
 

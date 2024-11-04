@@ -47,15 +47,8 @@ export default {
 </script>
 <template>
     <Header />
-    <Carousel :images="carouselImages" />
-    <div class="home-container">
-        <div class="image-container">
-            <img src="@/assets/images/enfe/enfe1.jpg" alt="Actividades Pastorales" class="home-image" />
-            <div class="overlay">
-                <h1 class="overlay-text">Actividades Pastorales</h1>
-            </div>
-        </div>
-    </div>
+    <Carousel :images="carouselImages" carouselText="Actividades Pastorales"/>
+    
 
     <div class="principal">
         <section class="info-pastoral">

@@ -1,8 +1,15 @@
 <script setup>
 import Footer from './Footer.vue';
 import Header from './Header.vue';
+import Calendar from './Calendar.vue';
 </script>
 <script>
+import inicio2 from '@/assets/images/inicio2.jpg';
+import inicio3 from '@/assets/images/inicio3.jpg';
+import inicio4 from '@/assets/images/inicio4.jfif';
+import uacInicio from '@/assets/images/uac_inicio.jfif';
+import Carousel from '../components/Carousel.vue';
+
 import studentImage1 from '@/assets/images/student.jfif';
 import studentImage2 from '@/assets/images/student2.jfif';
 import studentImage3 from '@/assets/images/student3.jpg';
@@ -10,13 +17,6 @@ import studentImage3 from '@/assets/images/student3.jpg';
 import Boton from './Boton.vue';
 import Modal from './Modal.vue';
 
-import inicio2 from '@/assets/images/inicio2.jpg';
-import inicio3 from '@/assets/images/inicio3.jpg';
-import inicio4 from '@/assets/images/inicio4.jfif';
-import uacInicio from '@/assets/images/uac_inicio.jfif';
-
-
-const carouselImages = [uacInicio, inicio2, inicio3, inicio4];
 export default {
   components: {
     Modal
@@ -24,6 +24,7 @@ export default {
   data() {
     return {
       isModalVisible: false,
+      carouselImages: [uacInicio, inicio2, inicio3, inicio4],
       currentImageIndex: 0
     };
   },
@@ -34,17 +35,7 @@ export default {
     },
     hideModal() {
       this.isModalVisible = false;
-    },
-    nextImage() {
-      this.currentImageIndex = (this.currentImageIndex + 1) % carouselImages.length;
-    },
-    prevImage() {
-      this.currentImageIndex = (this.currentImageIndex - 1 + carouselImages.length) % carouselImages.length;
     }
-  },
-
-  mounted() {
-    setInterval(this.nextImage, 8000);
   },
 
 };
@@ -102,120 +93,48 @@ document.querySelectorAll('button').forEach(button => {
 
 <template>
   <Header />
+<Carousel  :images="carouselImages" carouselText="UAC Pucarani"/>
 
-  <div class="home-container">
-  <div class="carousel">
-    <button class="carousel-control prev" @click="prevImage">‹</button>
-    <img :src="carouselImages[currentImageIndex]" alt="UAC Carrusel" class="carousel-image" />
-    <button class="carousel-control next" @click="nextImage">›</button>
-    <div class="overlay">
-      <h1 class="overlay-text">Unidad Académica Campesina Pucarani</h1>
+  <!-- <div class="home-container">
+    <div class="carousel">
+      <button class="carousel-control prev" @click="prevImage">‹</button>
+      <img :src="carouselImages[currentImageIndex]" alt="UAC Carrusel" class="carousel-image" />
+      <button class="carousel-control next" @click="nextImage">›</button>
+      <div class="overlay">
+        <h1 class="overlay-text">Unidad Académica Campesina Pucarani</h1>
+      </div>
     </div>
-  </div>
-</div>
+  </div> -->
 
 
   <div class="testimonials-container">
-  <div class="testimonial-card" v-for="(testimonial, index) in testimonials" :key="index">
-    <img :src="testimonial.image" :alt="testimonial.name" class="testimonial-image" />
-    <div class="testimonial-content">
-      <h3>{{ testimonial.name }}</h3>
-      <p>{{ testimonial.text }}</p>
+    <div class="testimonial-card" v-for="(testimonial, index) in testimonials" :key="index">
+      <img :src="testimonial.image" :alt="testimonial.name" class="testimonial-image" />
+      <div class="testimonial-content">
+        <h3>{{ testimonial.name }}</h3>
+        <p>{{ testimonial.text }}</p>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="virtues-container">
-  <div class="virtue-card" v-for="(virtue, index) in virtues" :key="index">
-    <h3>{{ virtue.title }}</h3>
-    <p>{{ virtue.description }}</p>
+  <div class="virtues-container">
+    <div class="virtue-card" v-for="(virtue, index) in virtues" :key="index">
+      <h3>{{ virtue.title }}</h3>
+      <p>{{ virtue.description }}</p>
+    </div>
   </div>
-</div>
 
 
 
-    <button id="icon-container" class="icon-container" @click="showModal">
-      <i class='bx bxs-calendar'></i>
-    </button>
-    <Modal :visible="isModalVisible" @close="hideModal"></Modal>
-    <Boton />
-    <Footer />
+  <button id="icon-container" class="icon-container" @click="showModal">
+    <i class='bx bxs-calendar'></i>
+  </button>
+  <Modal :visible="isModalVisible" @close="hideModal"></Modal>
+  <Boton />
+  <Footer />
 </template>
 
 <style scoped>
-.carousel {
-  position: relative;
-  max-width: 1200px;
-  margin: auto;
-  overflow: hidden;
-}
-
-.carousel-image {
-  width: 100%;
-  height: 100%;
-  display: block;
-  transition: opacity 1s ease-in-out;
-  /* transición de opacidad */
-}
-
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-10%);
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  font-size: 2rem;
-  border: none;
-  padding: 15px;
-  cursor: pointer;
-  z-index: 1;
-  transition: background 0.3s ease, transform 0.3s ease;
-  border-radius: 40%;
-}
-
-.carousel-control:hover {
-  /* background: rgba(255, 215, 0, 0.8); */
-  background: var(--amarillo);
-  transform: scale(1.1);
-  color: var(--azul-principal);
-}
-
-.carousel:hover .overlay {
-  background-color: rgba(23, 28, 47, 0.6);
-}
-
-.carousel {
-  height: 500px;
-  width: 1000px;
-  /* width: 100%;
-  height: 750px; */
-}
-
-.carousel-control.prev {
-  left: 10px;
-}
-
-.carousel-control.next {
-  right: 10px;
-}
-
-/*carousel eff*/
-
-.carousel-image-enter-active,
-.carousel-image-leave-active {
-  transition: opacity 1s ease-in-out;
-}
-
-.carousel-image-enter,
-.carousel-image-leave-to
-
-/* .carousel-image-leave-active en Vue 2 */
-  {
-  opacity: 0;
-}
-
-
-
 .home-container {
   display: flex;
   justify-content: center;
@@ -275,10 +194,10 @@ document.querySelectorAll('button').forEach(button => {
 
 
 
-.fade-enter-active,
+/* .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
-}
+} */
 
 .fade-enter,
 .fade-leave-to {

@@ -23,12 +23,16 @@ onMounted(() => {
 <script>
 import Modal from './Modal.vue';
 
+import uacInicio from '@/assets/images/infra/principal.jpg';
+import Carousel from '../components/Carousel.vue';
+
 export default {
   components: {
     Modal
   },
   data() {
     return {
+      carouselImages: [uacInicio],
       isModalVisible: false
     };
   },
@@ -44,7 +48,7 @@ export default {
 </script>
 <template>
   <Header />
-
+  <Carousel :images="carouselImages" carouselText="Noticias" />
   <div class="content-container fade-in-element">
     <div class="image-info-container">
       <img src="@/assets/images/enfermeria.jpg" alt="Carrera de Enfermería" class="career-image" />

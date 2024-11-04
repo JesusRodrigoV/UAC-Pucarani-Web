@@ -3,9 +3,20 @@ import Header from './Header.vue'
 import Footer from './Footer.vue'
 import Boton from './Boton.vue'
 </script>
-
+<script>
+import uacInicio from '@/assets/images/infra/principal.jpg';
+import Carousel from '../components/Carousel.vue';
+export default {
+    data() {
+        return {
+            carouselImages: [uacInicio],
+        };
+    },
+};
+</script>
 <template>
     <Header />
+    <Carousel :images="carouselImages" carouselText="Contactos" />
     <div class="principal">
         <h1>UAC Pucarani</h1>
         <h2>Contactos</h2>
