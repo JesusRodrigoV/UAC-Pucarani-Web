@@ -27,7 +27,6 @@ import Modal from './Modal.vue';
 import Modal_library from '../components/Modal_library.vue';
 import img1 from '@/assets/images/biblioteca.jpg';
 import Carousel from '../components/Carousel.vue';
-
 export default {
   components: {
     Modal,
@@ -37,7 +36,7 @@ export default {
     return {
       isModalVisible: false,
       isModalOpen: false,
-      selectedBook: null,
+      selectedBook: null, 
       carouselImages: [img1],
     };
   },
@@ -64,12 +63,7 @@ export default {
   <Header v-if="!isModalOpen" />
   <Carousel :images="carouselImages" carouselText="Biblioteca digital" />
   <div class="library-container">
-    <div class="image-container">
-      <img src="@/assets/images/biblioteca.jpg" alt="UAC Biblioteca" class="home-image" />
-      <div class="overlay">
-        <h1 class="overlay-text">Biblioteca Digital</h1>
-      </div>
-    </div>
+    
 
     <!-- Sección de búsqueda -->
     <div class="search-section">
