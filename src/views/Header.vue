@@ -31,7 +31,7 @@ onUnmounted(() => {
     <header :class="['header', {'transparent': headerTransparent, 'hidden': headerHidden }]">
     <div class="header-left">
       <RouterLink to="/">
-        <img :src="logoSrc" alt="Logo UAC" class="logo-uac" />
+        <img src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
         <!-- <img src="@/assets/images/logoAzulUAC.png" alt="Logo UAC" class="logo-uac" /> -->
       </RouterLink>
     </div>
