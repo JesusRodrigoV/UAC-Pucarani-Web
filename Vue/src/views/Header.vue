@@ -1,7 +1,8 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref, computed } from 'vue';
 import { RouterLink } from 'vue-router';
 import { useI18n } from 'vue-i18n'; 
+
 const { t } = useI18n();
 const headerTransparent = ref(true);
 const headerHidden = ref(false);
@@ -9,11 +10,10 @@ const headerHidden = ref(false);
 let lastScroll = 0;
 const handleScroll = () => {
   const currentScroll = window.scrollY;
-  headerTransparent.value = currentScroll === 1;
+  headerTransparent.value = currentScroll === 0;
   headerHidden.value = currentScroll > lastScroll && currentScroll > 100;
   lastScroll = currentScroll;
 };
-
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
@@ -22,21 +22,21 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
+
 </script>
+
 
 
 <template>
     <header :class="['header', {'transparent': headerTransparent, 'hidden': headerHidden }]">
     <div class="header-left">
       <RouterLink to="/">
-        <img src="@/assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
+        <img :src="logoSrc" alt="Logo UAC" class="logo-uac" />
         <!-- <img src="@/assets/images/logoAzulUAC.png" alt="Logo UAC" class="logo-uac" /> -->
       </RouterLink>
     </div>
 
-    <div class="menu-icon" @click="toggleMenu">
-      <i class='bx bx-menu'></i>
-    </div>
+    
 
     <!-- Enlaces de navegación -->
     <nav :class="['nav-links', menuOpen ? 'show' : '']">
@@ -54,6 +54,9 @@ onUnmounted(() => {
       <RouterLink to="/login">
         <i class='bx bxs-user-circle login-icon'></i>
       </RouterLink>
+    </div>
+    <div class="menu-icon" @click="toggleMenu">
+      <i class='bx bx-menu'></i>
     </div>
     
   </header>
@@ -149,17 +152,31 @@ onUnmounted(() => {
 
 /* estil*/
 .header.transparent {
-  background-color: white;
+  background-color: transparent;
   box-shadow: none;
+  
 }
 
 .header.hidden {
   transform: translateY(-700px);
-  
   transition: transform 0.5s ease-in-out;
 }
 
+.light-text {
+  color: white;
+}
 
+.light-icon {
+  color: white;
+}
+
+.header.transparent .nav-links a {
+  color: white;
+}
+
+.header.transparent .menu-icon {
+  color: white;
+}
 
 .login-button, .menu-button {
   text-decoration: none;

@@ -31,22 +31,33 @@ function previousTestimonial() {
     currentIndex.value = (currentIndex.value - 1 + testimonials.value.length) % testimonials.value.length;
 }
 </script>
-
+<script>
+import uacInicio from '@/assets/images/enfe/enfe1.jpg';
+import inicio2 from '@/assets/images/enfe/enfe2.jpg';
+import inicio3 from '@/assets/images/enfe/enfe3.jpg';
+import inicio4 from '@/assets/images/enfe/enfe4.jpg';
+import Carousel from '../components/Carousel.vue';
+export default {
+    data() {
+        return {
+            carouselImages: [uacInicio, inicio2, inicio3, inicio4],
+        };
+    },
+};
+</script>
 <template>
     <Header />
-
-    <div class="principal">
-        <!-- Banner con imagen y texto de bienvenida -->
-        <div class="home-container">
-            <div class="image-container">
-                <img src="@/assets/images/enfe/enfe1.jpg" alt="Actividades Pastorales" class="home-image" />
-                <div class="overlay">
-                    <h1 class="overlay-text">Actividades Pastorales</h1>
-                </div>
+    <Carousel :images="carouselImages" />
+    <div class="home-container">
+        <div class="image-container">
+            <img src="@/assets/images/enfe/enfe1.jpg" alt="Actividades Pastorales" class="home-image" />
+            <div class="overlay">
+                <h1 class="overlay-text">Actividades Pastorales</h1>
             </div>
         </div>
+    </div>
 
-        <!-- Sección de información pastoral -->
+    <div class="principal">
         <section class="info-pastoral">
             <h2>Información Pastoral</h2>
             <p>Descubre nuestras actividades y únete a nosotros en eventos significativos para el crecimiento espiritual
@@ -111,16 +122,17 @@ function previousTestimonial() {
             <p><strong>Teléfono:</strong> +591 123 456789</p>
             <p><strong>Correo:</strong> pastoral@uacpucarani.edu.bo</p>
         </section>
-        <br><br><br>
-        <!-- Galería de Imágenes -->
-        <!-- <section class="gallery">
+    </div>
+
+    <br><br><br>
+    <!-- Galería de Imágenes -->
+    <!-- <section class="gallery">
             <h2>Galería de Imágenes</h2>
             <div class="gallery-grid">
                 <img src="@/assets/images/enfe/enfe1.jpg" alt="Evento Pastoral" />
                 <img src="@/assets/images/enfe/enfe3.jpg" alt="Actividades Comunitarias" />
             </div>
         </section> -->
-    </div>
 
     <!-- Icono de calendario en pantalla flotante -->
     <button class="icon-container" @click="showModal">
@@ -139,20 +151,22 @@ function previousTestimonial() {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    /* padding: 20px; */
+    width: 100%;
 }
 
 .image-container {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    height: auto;
+    /* max-width: 1200px; */
 }
 
 .home-image {
     width: 100%;
     height: auto;
-    display: block;
-    border-radius: 8px;
+    /* display: block; */
+    /* border-radius: 8px; */
 }
 
 .overlay {
@@ -165,7 +179,7 @@ function previousTestimonial() {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
+    /* border-radius: 8px; */
 }
 
 .overlay-text {
