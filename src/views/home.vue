@@ -171,7 +171,6 @@ document.querySelectorAll('button').forEach(button => {
   z-index: 1;
   transition: background 0.3s ease, transform 0.3s ease;
   border-radius: 40%;
-  /* Redondea los bordes para dar un aspecto de círculo */
 }
 
 .carousel-control:hover {
