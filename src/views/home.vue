@@ -104,95 +104,42 @@ document.querySelectorAll('button').forEach(button => {
   <Header />
 
   <div class="home-container">
-    <div class="carousel">
-      <button class="carousel-control prev" @click="prevImage">
-        <i class='bx bx-chevron-left'></i>
-      </button>
-      <img :src="carouselImages[currentImageIndex]" alt="UAC Carrusel" class="carousel-image" />
-      <button class="carousel-control next" @click="nextImage">
-        <i class='bx bx-chevron-right'></i>
-      </button>
-      <div class="overlay">
-        <h1 class="overlay-text">UAC Pucarani</h1>
-      </div>
+  <div class="carousel">
+    <button class="carousel-control prev" @click="prevImage">‹</button>
+    <img :src="carouselImages[currentImageIndex]" alt="UAC Carrusel" class="carousel-image" />
+    <button class="carousel-control next" @click="nextImage">›</button>
+    <div class="overlay">
+      <h1 class="overlay-text">Unidad Académica Campesina Pucarani</h1>
     </div>
   </div>
+</div>
 
-
-  <section class="informacion-institucional">
-    <!-- Descripción Institucional -->
-    <div class="descripcion">
-      <h2>Descripción Institucional</h2>
-      <p>
-        La Unidad Académica Campesina (UAC) de Pucarani de la Universidad Católica Boliviana "San Pablo"
-        se dedica a ofrecer educación superior de calidad en un contexto rural, promoviendo el desarrollo
-        integral y sostenible de las comunidades campesinas. Nuestra misión es formar profesionales
-        comprometidos con el bienestar social, el desarrollo económico y el cuidado ambiental.
-      </p>
-      <div class="mision-vision-valores">
-        <div>
-          <h3>Misión</h3>
-          <p>Transformar vidas a través de la educación integral en valores cristianos, enfocada en el servicio y el
-            desarrollo comunitario.</p>
-        </div>
-        <div>
-          <h3>Visión</h3>
-          <p>Ser un referente nacional e internacional en educación para el desarrollo rural.</p>
-        </div>
-        <div>
-          <h3>Valores</h3>
-          <ul>
-            <li>Compromiso con la comunidad</li>
-            <li>Respeto por el medio ambiente</li>
-            <li>Justicia social</li>
-            <li>Excelencia académica</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Carreras Ofrecidas -->
-    <div class="carreras">
-      <h2>Carreras Ofrecidas</h2>
-      <div class="carrera">
-        <h3>Enfermería</h3>
-        <p>Formación en competencias clínicas y comunitarias para el cuidado de la salud, con un enfoque en
-          comunidades
-          rurales y vulnerables.</p>
-      </div>
-      <div class="carrera">
-        <h3>Fisioterapia y Kinesiología</h3>
-        <p>Capacitación para mejorar la salud física de personas a través de rehabilitación y tratamiento en áreas
-          rurales y urbanas.</p>
-      </div>
-    </div>
-  </section>
 
   <div class="testimonials-container">
-    <div class="testimonial-card" v-for="(testimonial, index) in testimonials" :key="index">
-      <img :src="testimonial.image" :alt="testimonial.name" class="testimonial-image" />
-      <div class="testimonial-content">
-        <h3>{{ testimonial.name }}</h3>
-        <p>{{ testimonial.text }}</p>
-      </div>
+  <div class="testimonial-card" v-for="(testimonial, index) in testimonials" :key="index">
+    <img :src="testimonial.image" :alt="testimonial.name" class="testimonial-image" />
+    <div class="testimonial-content">
+      <h3>{{ testimonial.name }}</h3>
+      <p>{{ testimonial.text }}</p>
     </div>
   </div>
+</div>
 
-  <div class="virtues-container">
-    <div class="virtue-card" v-for="(virtue, index) in virtues" :key="index">
-      <h3>{{ virtue.title }}</h3>
-      <p>{{ virtue.description }}</p>
-    </div>
+<div class="virtues-container">
+  <div class="virtue-card" v-for="(virtue, index) in virtues" :key="index">
+    <h3>{{ virtue.title }}</h3>
+    <p>{{ virtue.description }}</p>
   </div>
+</div>
 
 
 
-  <button id="icon-container" class="icon-container" @click="showModal">
-    <i class='bx bxs-calendar'></i>
-  </button>
-  <Modal :visible="isModalVisible" @close="hideModal"></Modal>
-  <Boton />
-  <Footer />
+    <button id="icon-container" class="icon-container" @click="showModal">
+      <i class='bx bxs-calendar'></i>
+    </button>
+    <Modal :visible="isModalVisible" @close="hideModal"></Modal>
+    <Boton />
+    <Footer />
 </template>
 
 <style scoped>

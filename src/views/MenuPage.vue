@@ -14,6 +14,8 @@ import Header from './Header.vue';
         <RouterLink to="/content" class="nav-link">Contenido</RouterLink>
         <RouterLink to="/jobBank" class="nav-link">Bolsa de trabajo</RouterLink>
         <RouterLink to="/contacts" class="nav-link">Contactos</RouterLink>
+        <RouterLink to="/contacts" class="nav-link">Becas</RouterLink>
+        <RouterLink to="/contacts" class="nav-link">Actividades pastorales</RouterLink>
       </nav>
     </div>
   </div>

@@ -5,10 +5,15 @@ import App from './App.vue';
 import router from './router/index';
 import './style.css';
 
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
 import ay from './locales/ay.json';
 import en from './locales/en.json';
 import es from './locales/es.json';
 import vuetify from './plugins/vuetify';
+
+
 
 
 import { createPinia } from 'pinia';

@@ -68,24 +68,20 @@ export default {
       </div>
     </div>
 
-    <div class="results-section">
-      <div class="item-find" v-for="book in store.material_bibliografico" :key="book.id_matbib">
-        <div class="item-content" @click="openModal(book)">
-          <div class="container-buttons">
-            <button class="button-item-library">
-              <i class='bx bxs-bookmark-plus' id="button-icon"></i>
-            </button>
-          </div>
-          <div class="item-details">
-            <p class="type-item">{{ book.type_matbib }}</p>
-            <p class="title-item">{{ book.title_matbib }}</p>
-            <p class="item-text">{{ book.author_matbib }}</p>
-            <p class="item-text">{{ book.description_matbib }}</p>
-          </div>
+      <div class="results-section">
+        <div class="item-find" v-for="libro in libros" :key="libro.id">
+          <p class="item-text">{{ libro.tipo }}</p>
+          <p class="item-text">{{ libro.titulo }}</p>
+          <p class="item-text">{{ libro.autor }}</p>
+          <p class="item-text">{{ libro.descripcion }}</p>
+          <div class="button-container">
+  <button class="buttonDownload">Descargar PDF</button>
+</div>
+          <hr>
         </div>
+        <hr>
       </div>
     </div>
-  </div>
 
   <button v-if="!isModalOpen" id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
@@ -178,7 +174,7 @@ export default {
 
 .search-button {
   padding: 10px 20px;
-  background-color: black;
+  background-color: #1a4aa2;
   color: white;
   border: none;
   border-radius: 4px;
