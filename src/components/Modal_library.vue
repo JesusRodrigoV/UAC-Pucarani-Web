@@ -3,7 +3,7 @@
     <div class="container-buttons">
       <div class="close-button">
         <button class="button-close-modal-overlay" @click="closeModal">
-          <i class='bx bx-window-close'></i>
+          <i class='bx bx-x'></i>
         </button>
       </div>
     </div>
@@ -19,7 +19,8 @@
         </div>
       </button>
 
-      <p class="title-details">Detalles </p> <hr>
+      <p class="title-details">Detalles </p>
+      <hr>
       <p class="item-text">Título: {{ book.title_matbib }}</p>
     </div>
   </div>
@@ -36,93 +37,105 @@ export default {
   methods: {
     closeModal() {
       this.$emit('close');
+      document.body.classList.remove('no-scroll');
     },
     downloadPdf(filename) {
       const url = `http://localhost:3000/pdfs/download/${filename}`;
       window.open(url, '_blank');
     },
+    closeModal() {
+      document.body.classList.remove('no-scroll'); // Quitar clase al cerrar modal
+      this.$emit('close');
+    },
+    openModal() {
+      document.body.classList.add('no-scroll'); // Agregar clase al abrir modal
+    },
   },
+
 };
 </script>
 
 <style scoped>
 .modal-overlay {
-    background-color: rgba(100, 100, 100, 0.1);
-    height: 100% !important;
-    position: fixed !important;
-    top: 0 !important;
-    display: flex;
-    left: 0;
-    width: 100%;
-    z-index: 80;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh !important;
+  position: fixed !important;
+  top: 0 !important;
+  display: flex;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
 }
 
+
 .container-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .close-button {
-    display: flex;
-    width: 130px;
+  display: flex;
+  width: 130px;
 }
 
 .button-close-modal-overlay {
-    width: 130px;
-    height: 130px;
-    border-radius: 70px;
+  font-size: 100px;
+  color: rgb(255, 0, 0);
+  transition: color 0.5s ease-in-out;
 }
 
 .button-close-modal-overlay:hover {
-    background-color: #858585;
-    color: #fff;
+  color: rgb(150, 0, 0);
 }
 
 .modal-overlay .button-close-modal-overlay {
-    display: flex;
-    width: 400px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bx.bx-window-close {
-    font-size: 100px;
+  font-size: 100px;
 }
 
 .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    height: auto; /* Cambiado a auto para ajustarse al contenido */
-    max-width: 870px; /* Añadido un max-width para evitar que se extienda demasiado */
-    margin: auto; /* Centra el modal en la pantalla */
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  height: auto;
+  width: 90%;
+  max-width: 870px;
+  margin: 0 ;
+  position: relative;
 }
 
 .modal-content .type-item {
-    text-transform: uppercase;
-    font-size: 15px;
-    color: #666;
-    font-weight: 600;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #666;
+  font-weight: 600;
 }
 
 .modal-content .title-item {
-    font-weight: bold;
-    color: #44707b;
-    font-size: 20px;
+  font-weight: bold;
+  color: #44707b;
+  font-size: 20px;
 }
 
 .modal-content .item-text {
-    color: #333;
-    font-size: 18px;
-    font-weight: 500;
-    margin: 5px 0;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 5px 0;
 }
 
 /* Estilos para los botones de subir y descargar */
 .pdf-buttons {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .modal-content .button-download {
@@ -150,8 +163,8 @@ export default {
 }
 
 .button-upload {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
 }
 
 .button-download:hover {
@@ -159,8 +172,12 @@ export default {
 }
 
 .status-message {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #333;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+body.no-scroll {
+  overflow: hidden;
 }
 </style>

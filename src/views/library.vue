@@ -50,10 +50,12 @@ export default {
     openModal(book) {
       this.selectedBook = book; // Asigna el libro seleccionado
       this.isModalOpen = true;
+      document.body.classList.add('no-scroll');
     },
     closeModal() {
       this.isModalOpen = false;
       this.selectedBook = null; // Limpia el libro seleccionado al cerrar el modal
+      document.body.classList.remove('no-scroll');
     },
   }
 };
@@ -305,5 +307,8 @@ export default {
     width: 100%;
     max-width: 400px;
   }
+}
+.no-scroll {
+  overflow: hidden; /* Desactiva el scroll en la página */
 }
 </style>
