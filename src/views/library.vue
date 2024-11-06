@@ -15,7 +15,7 @@ onMounted(async () => {
 
 // Función de búsqueda solo cuando se presiona el botón
 const performSearch = () => {
-  filteredBooks.value = store.material_bibliografico.filter(book => 
+  filteredBooks.value = store.material_bibliografico.filter(book =>
     book.title_matbib.toLowerCase().includes(searchTerm.value.toLowerCase()) ||
     book.author_matbib.toLowerCase().includes(searchTerm.value.toLowerCase())
   );
@@ -36,7 +36,7 @@ export default {
     return {
       isModalVisible: false,
       isModalOpen: false,
-      selectedBook: null, 
+      selectedBook: null,
       carouselImages: [img1],
     };
   },
@@ -65,7 +65,7 @@ export default {
   <Header v-if="!isModalOpen" />
   <Carousel :images="carouselImages" carouselText="Biblioteca digital" />
   <div class="library-container">
-    
+
 
     <!-- Sección de búsqueda -->
     <div class="search-section">
@@ -80,16 +80,16 @@ export default {
     <div class="results-section">
       <div class="item-find" v-for="book in filteredBooks" :key="book.id_matbib">
         <div class="item-content" @click="openModal(book)">
-          <div class="container-buttons">
-            <button class="button-item-library">
-              <i class='bx bxs-bookmark-plus' id="button-icon"></i>
-            </button>
-          </div>
           <div class="item-details">
             <p class="type-item">{{ book.type_matbib }}</p>
             <p class="title-item">{{ book.title_matbib }}</p>
             <p class="item-text">{{ book.author_matbib }}</p>
             <p class="item-text">{{ book.description_matbib }}</p>
+          </div>
+          <div class="container-buttons">
+            <button class="button-item-library">
+              <i class='bx bxs-bookmark-plus' id="button-icon"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -308,7 +308,9 @@ export default {
     max-width: 400px;
   }
 }
+
 .no-scroll {
-  overflow: hidden; /* Desactiva el scroll en la página */
+  overflow: hidden;
+  /* Desactiva el scroll en la página */
 }
 </style>
