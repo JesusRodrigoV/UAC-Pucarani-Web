@@ -263,7 +263,7 @@ export default {
 
   
 <style scoped>
-/* Contenedor principal */
+
 .admin-page {
   display: flex;
   flex-direction: column;
