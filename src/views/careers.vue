@@ -31,7 +31,6 @@ onMounted(() => {
     observer.observe(element);
   });
 
-  // Desmontar observer cuando el componente se desmonte
   onUnmounted(() => {
     fadeInElements.forEach((element) => {
       observer.unobserve(element);
@@ -40,32 +39,59 @@ onMounted(() => {
 });
 </script>
 <script>
-import img1 from '@/assets/images/carreras.jpg';
+import img2 from '@/assets/images/fisio/fisio6.jpg';
+import img1 from '@/assets/images/enfe/enfe5.jpg';
+
+import imgfisio from '@/assets/images/logoFisioKineLetra.png';
+import imgenfe from '@/assets/images/logoEnfermeriaLetra.png';
 import Carousel from '../components/Carousel.vue';
 export default {
-    data() {
-        return {
-            carouselImages: [img1]
-        };
-    },
+  data() {
+    return {
+      carouselImages: [img1, img2]
+    };
+  },
 };
+const careers = ref([
+  {
+    id: 1,
+    name: 'Fisioterapia y kinesiologia',
+    description: 'Descripción',
+    image: imgfisio,
+    link: '/fisio',
+  },
+  {
+    id: 2,
+    name: 'Enfermería',
+    description: 'Descripción',
+    image: imgenfe,
+    link: '/enfe',
+  },
+]);
 </script>
 <template>
   <Header />
   <Carousel :images="carouselImages" carouselText="Carreras" />
-
+  <section class="welcome-text">
+    <h1>Bienvenidos a Nuestra Comunidad Académica</h1>
+    <p>
+      La Unidad Académica Campesina de Pucarani te invita a ser parte de una experiencia educativa única. Descubre programas diseñados para impulsar tu formación profesional, con un compromiso profundo hacia el bienestar de nuestra sociedad. Nos enorgullece formar futuros profesionales que no solo destacan por su conocimiento, sino también por su vocación de servicio.
+    </p>
+  </section>
 
   <div class="links-container">
-    <RouterLink to="/fisio">
-      <div class="fade-in-element">
-        <img src="@/assets/images/logoFisioKineLetra.png" alt="Fisioterapia" class="link-image" />
-      </div>
-    </RouterLink>
-    <RouterLink to="/enfe">
-      <div class="fade-in-element">
-        <img src="@/assets/images/logoEnfermeriaLetra.png" alt="Enfermería" class="link-image" />
-      </div>
-    </RouterLink>
+    <div class="career-card" v-for="career in careers" :key="career.id">
+      <RouterLink :to="career.link" class="sin">
+        <img :src="career.image" :alt="career.name" class="link-image" />
+        <h3>{{ career.name }}</h3>
+        <p>{{ career.description }}</p>
+        <!-- <p class="button">Más Información</p> -->
+      </RouterLink>
+    </div>
+  </div>
+
+  <div class="careers-container">
+
   </div>
   
   <button id="icon-container" class="icon-container" @click="showModal">
@@ -122,12 +148,12 @@ export default {
   justify-content: center;
   gap: 175px;
   margin-top: 20px;
-
+  width: 100%;
 }
 
 .link-image {
-  width: 200px;
-  height: auto;
+  width: 100%;
+  height: 200px;
   cursor: pointer;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, .4));
   transition: transform 0.3s ease;
@@ -187,4 +213,43 @@ export default {
   opacity: 1;
   transform: translateY(0);
 }
+
+.careers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.career-card {
+  width: 250px;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.sin{
+  text-decoration: none;
+}
+.career-card:hover {
+  transform: scale(1.05);
+}
+
+.career-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 15px;
+}
+
 </style>

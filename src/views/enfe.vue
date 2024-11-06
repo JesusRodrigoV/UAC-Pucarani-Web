@@ -5,6 +5,19 @@ import Footer from './Footer.vue'
 <script>
 import Boton from './Boton.vue';
 import Modal from './Modal.vue';
+import img1 from '@/assets/images/enfe/enfe1.jpg';
+import img2 from '@/assets/images/enfe/enfe2.jpg';
+import img3 from '@/assets/images/enfe/enfe3.jpg';
+import img4 from '@/assets/images/enfe/enfe4.jpg';
+import img5 from '@/assets/images/enfe/enfe5.jpg';
+import img6 from '@/assets/images/enfe/enfe6.jpg';
+import img7 from '@/assets/images/enfe/enfe7.jpg';
+import img8 from '@/assets/images/enfe/enfe8.jpg';
+import img9 from '@/assets/images/enfe/enfe9.jpg';
+import img10 from '@/assets/images/enfe/enfe10.jpg';
+import img11 from '@/assets/images/enfe/enfe11.jpg';
+import img12 from '@/assets/images/enfe/enfe12.jpg';
+import Carousel from '../components/Carousel.vue';
 
 export default {
   components: {
@@ -12,6 +25,7 @@ export default {
   },
   data() {
     return {
+      carouselImages: [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12],
       isModalVisible: false
     };
   },
@@ -26,17 +40,18 @@ export default {
 
 };
 </script>
+
 <template>
 
   <Header />
-
+  <Carousel :images="carouselImages" carouselText="Enfermeria" />
   <div class="fisio-container">
-    <div class="image-container">
+    <!-- <div class="image-container">
       <img src="@/assets/images/car_enfe.jfif" alt="Carreras UAC" class="main-image" />
       <div class="overlay">
         <h1 class="overlay-text">Enfermería</h1>
       </div>
-    </div>
+    </div> -->
 
     <div class="info-cards">
       <div class="info-card">
@@ -69,7 +84,13 @@ export default {
       </div>
     </div>
   </div>
-
+  <section class="admissions-call-to-action">
+    <h2>¿Listo para unirte a nuestra familia académica?</h2>
+    <p>
+      Da el primer paso hacia tu futuro en la UAC Pucarani. Explora las opciones de admisión y conoce el proceso para formar parte de una institución que valora la excelencia, el respeto y el compromiso con nuestra comunidad.
+    </p>
+    <RouterLink to="/admisiones" class="admissions-button">Ir a Admisiones</RouterLink>
+  </section>
   <Footer />
 </template>
 

@@ -24,7 +24,7 @@ export default {
     },
   },
   mounted() {
-    setInterval(this.nextImage, 2000);
+    setInterval(this.nextImage, 3000);
   },
 };
 </script>
