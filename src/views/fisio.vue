@@ -1,52 +1,9 @@
-<script setup>
-import Footer from './Footer.vue';
-import Header from './Header.vue';
-</script>
-<script>
-import img7 from '@/assets/images/fisio/fisio10.jpg';
-import img1 from '@/assets/images/fisio/fisio3.jpg';
-import img2 from '@/assets/images/fisio/fisio5.jpg';
-import img3 from '@/assets/images/fisio/fisio6.jpg';
-import img4 from '@/assets/images/fisio/fisio7.jpg';
-import img5 from '@/assets/images/fisio/fisio8.jpg';
-import img6 from '@/assets/images/fisio/fisio9.jpg';
-import Carousel from '../components/Carousel.vue';
-import Modal from './Modal.vue';
-
-export default {
-  components: {
-    Modal
-  },
-  data() {
-    return {
-      carouselImages: [img1, img2, img3, img4, img5, img6, img7],
-      isModalVisible: false
-    };
-  },
-  methods: {
-    showModal() {
-      this.isModalVisible = true;
-    },
-    hideModal() {
-      this.isModalVisible = false;
-    }
-  }
-
-};
-</script>
-
 <template>
-
   <Header />
   <Carousel :images="carouselImages" carouselText="Fisioterapia y kinesiología" />
-  <div class="fisio-container">
-    <!-- <div class="image-container">
-      <img src="@/assets/images/car_enfe.jfif" alt="Carreras UAC" class="main-image" />
-      <div class="overlay">
-        <h1 class="overlay-text">Enfermería</h1>
-      </div>
-    </div> -->
 
+  <div class="fisio-container">
+    <!-- Info Cards -->
     <div class="info-cards">
       <div class="info-card">
         <i class='bx bx-time info-icon'></i>
@@ -55,7 +12,7 @@ export default {
       </div>
 
       <div class="info-card">
-        <i class='bx bx-book info-icon'  alt="Áreas de estudio"></i>
+        <i class='bx bx-book info-icon'></i>
         <h2>Áreas de estudio</h2>
         <ul>
           <li>Área 1</li>
@@ -66,7 +23,7 @@ export default {
       </div>
 
       <div class="info-card">
-        <i class='bx bxs-bookmark info-icon' alt="Modalidades de graduación"></i>
+        <i class='bx bxs-bookmark info-icon'></i>
         <h2>Modalidades de graduación</h2>
         <ul>
           <li>Graduación por excelencia</li>
@@ -77,7 +34,22 @@ export default {
         </ul>
       </div>
     </div>
+
+    <!-- Cards de beneficios -->
+    <div class="cards-container">
+      <div class="cardil" v-for="(benefit, index) in benefits" :key="index">
+        <div class="cardil-inner">
+          <div class="cardil-front">
+            <p>{{ benefit.title }}</p>
+          </div>
+          <div class="cardil-back">
+            <p>{{ benefit.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
   <section class="admissions-call-to-action">
     <h2>¿Listo para unirte a nuestra familia académica?</h2>
     <p>
@@ -85,8 +57,43 @@ export default {
     </p>
     <RouterLink to="/admisiones" class="admissions-button">Ir a Admisiones</RouterLink>
   </section>
+
   <Footer />
 </template>
+
+<script>
+import img7 from '@/assets/images/fisio/fisio10.jpg';
+import img1 from '@/assets/images/fisio/fisio3.jpg';
+import img2 from '@/assets/images/fisio/fisio5.jpg';
+import img3 from '@/assets/images/fisio/fisio6.jpg';
+import img4 from '@/assets/images/fisio/fisio7.jpg';
+import img5 from '@/assets/images/fisio/fisio8.jpg';
+import img6 from '@/assets/images/fisio/fisio9.jpg';
+
+import Carousel from '../components/Carousel.vue';
+import Footer from './Footer.vue';
+import Header from './Header.vue';
+
+export default {
+  components: {
+    Footer,
+    Header,
+    Carousel
+  },
+  data() {
+    return {
+      carouselImages: [img1, img2, img3, img4, img5, img6, img7],
+      benefits: [
+        { title: "Lucrativa", description: "Se cobra mucho por cada operación." },
+        { title: "Alta Demanda", description: "La necesidad de enfermeros crece cada año." },
+        { title: "Flexibilidad Horaria", description: "Es posible encontrar turnos que se adapten." },
+        { title: "Crecimiento Profesional", description: "Existen muchas oportunidades de ascenso." },
+        { title: "Estabilidad Laboral", description: "Es una carrera con poca volatilidad en el empleo." }
+      ]
+    };
+  }
+};
+</script>
 
 <style scoped>
 .fisio-container {
@@ -94,39 +101,6 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-}
-
-.image-container {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-}
-
-.main-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background-color: rgba(23, 28, 47, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.overlay-text {
-  color: white;
-  font-size: 48px;
-  font-weight: 300;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  letter-spacing: 2px;
-  text-align: center;
 }
 
 .info-cards {
@@ -147,6 +121,7 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
+
 .info-card:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -170,8 +145,6 @@ export default {
   color: #555;
 }
 
-
-
 ul {
   list-style-type: none;
   padding: 0;
@@ -181,18 +154,91 @@ ul li {
   margin: 5px 0;
 }
 
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
 
+.cardil {
+  width: 250px;
+  height: 150px;
+  perspective: 1000px;
+}
+
+.cardil-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.cardil:hover .cardil-inner {
+  transform: rotateY(180deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.cardil-front, .cardil-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.cardil-front {
+  background-color: #005a99;
+  border: 4px solid #005796;
+}
+
+.cardil-back {
+  background-color: #f3c701;
+  border: 4px solid #f3c701;
+  transform: rotateY(180deg);
+}
+
+.cardil:hover .cardil-front, .cardil:hover .cardil-back {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.admissions-call-to-action {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.admissions-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #005a99;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.admissions-button:hover {
+  background-color: #003f6d;
+}
 
 @media (max-width: 768px) {
-  .info-cards {
+  .info-cards, .cards-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .info-card {
+  .info-card, .cardil {
     width: 90%;
     max-width: 400px;
   }
 }
-
 </style>
