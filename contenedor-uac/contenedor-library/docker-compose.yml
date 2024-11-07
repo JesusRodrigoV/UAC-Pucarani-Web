@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - "9000:9000"    # Puerto para la API de MinIO
+      - "9001:9001"    # Puerto para la consola web
+    environment:
+      MINIO_ROOT_USER: minioadmin       # Usuario de administrador
+      MINIO_ROOT_PASSWORD: minioadmin   # Contraseña de administrador
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio-data:/data
+
+volumes:
+  minio-data:

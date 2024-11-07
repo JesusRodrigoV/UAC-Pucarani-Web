@@ -2,6 +2,7 @@
 import Header from './Header.vue'
 import Footer from './Footer.vue'
 import { onMounted } from 'vue';
+import { useNewsStore } from '../stores/news/newsStore.js';
 
 onMounted(() => {
   const fadeElements = document.querySelectorAll('.fade-in-element');
@@ -18,6 +19,11 @@ onMounted(() => {
   });
 
   fadeElements.forEach(el => observer.observe(el));
+});
+
+const store = useNewsStore();
+onMounted(async () => {
+  await store.fetchNews();
 });
 </script>
 <script>
@@ -83,53 +89,13 @@ export default {
   <div class="news-container fade-in-element">
     <h2>Últimas Noticias</h2>
     <div class="news-items">
-      <div class="news-item">
+      <div class="news-item" v-for="newss in store.news" :key="newss.id_news">
         <div class="news-image">
           <img src="@/assets/images/enfe.jfif" alt="Noticia Enfermería 1" />
         </div>
-        <h3>Clínica del Sur</h3>
-        <p>Descubre como la enfermería es crucial para los adultos mayores</p>
-        <a href="#">Leer más</a>
-      </div>
-      <div class="news-item">
-        <div class="news-image">
-          <img src="@/assets/images/fisio.jfif" alt="Noticia Fisioterapia 1" />
-        </div>
-        <h3>Espacio de fisioterapia</h3>
-        <p>Como lidiar con dolores en la espalda mediante la fisioterapia</p>
-        <a href="#">Leer más</a>
-      </div>
-      <div class="news-item">
-        <div class="news-image">
-          <img src="@/assets/images/enfe2.jfif" alt="Noticia Enfermería 2" />
-        </div>
-        <h3>Hospital del niño</h3>
-        <p>Aprende como alimentar a tu hij@ correctamente</p>
-        <a href="#">Leer más</a>
-      </div>
-      <div class="news-item">
-        <div class="news-image">
-          <img src="@/assets/images/fisio2.jfif" alt="Noticia Fisioterapia 2" />
-        </div>
-        <h3>Espacio de fisioterapia</h3>
-        <p>No te pierdas de los beneficios de la fisioterapia en los adultos mayores</p>
-        <a href="#">Leer más</a>
-      </div>
-      <div class="news-item">
-        <div class="news-image">
-          <img src="@/assets/images/fisio3.jfif" alt="Noticia Fisioterapia 3" />
-        </div>
-        <h3>Espacio de fisioterapia</h3>
-        <p>No te pierdas de los beneficios de la fisioterapia en los bebés y niños</p>
-        <a href="#">Leer más</a>
-      </div>
-      <div class="news-item">
-        <div class="news-image">
-          <img src="@/assets/images/enfe3.jfif" alt="Noticia Enfermeria 3" />
-        </div>
-        <h3>Hospital de la mujer</h3>
-        <p>Recién graduada de Pucarani en enfermería ayuda a 10 embarazadas con el parto</p>
-        <a href="#">Leer más</a>
+        <h3>{{ newss.holder_news }}</h3>
+        <p>{{ newss.date_news }}</p>
+        <p>{{ newss.summary_news }}</p>
       </div>
     </div>
   </div>

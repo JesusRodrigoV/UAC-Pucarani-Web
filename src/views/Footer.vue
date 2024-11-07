@@ -1,7 +1,6 @@
 <script setup>
-import { RouterLink } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import Careers from './careers.vue';
+import { RouterLink } from 'vue-router';
 const { t, locale } = useI18n();
 const toggleLanguage = () => {
   locale.value = locale.value === 'es' ? 'en' : locale.value === 'en' ? 'ay' : 'es';
@@ -280,13 +279,13 @@ hr {
   .content_footer {
     width: 100%;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
     text-align: center;
   }
 
   .service_area {
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
   }
 
   .service_header {
@@ -295,9 +294,17 @@ hr {
   }
 
   .desc_area {
-    width: 100%;
-    text-align: center;
-  }
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
 
   .social_media {
     margin-bottom: 1rem;
@@ -306,6 +313,7 @@ hr {
 
   .profil {
     width: 100%;
+    
   }
 
   .logo_area {

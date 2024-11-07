@@ -1,9 +1,9 @@
 <script setup>
-import Header from './Header.vue';
-import Footer from './Footer.vue';
-import Boton from './Boton.vue';
-import Modal from './Modal.vue';
 import { ref } from 'vue';
+import Boton from './Boton.vue';
+import Footer from './Footer.vue';
+import Header from './Header.vue';
+import Modal from './Modal.vue';
 
 const testimonials = ref([
     { text: "La pastoral me ha ayudado a fortalecer mi fe y encontrar un grupo de apoyo increíble.", author: "Juan Pérez, Estudiante" },
@@ -140,6 +140,8 @@ export default {
 
 
 <style>
+
+
 .home-container {
     display: flex;
     justify-content: center;
