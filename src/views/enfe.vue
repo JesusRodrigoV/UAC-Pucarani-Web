@@ -154,7 +154,7 @@ export default {
   color: #333;
 }
 
-.info-card p, .info-card ul {
+.info-card p, .info-card ul 
 .info-card h2 {
   font-size: 24px;
   margin-bottom: 10px;
