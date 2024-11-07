@@ -1,10 +1,10 @@
 <script setup>
-import Header from './Header.vue'
-import Footer from './Footer.vue'
-import Boton from './Boton.vue'
+import Boton from './Boton.vue';
+import Footer from './Footer.vue';
+import Header from './Header.vue';
 </script>
 <script>
-import uacInicio from '@/assets/images/infra/principal.jpg';
+import uacInicio from '@/assets/images/inicio.jpg';
 import Carousel from '../components/Carousel.vue';
 export default {
     data() {

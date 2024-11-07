@@ -1,59 +1,99 @@
-<script setup>
-import { onMounted } from 'vue';
-import Boton from './Boton.vue';
-import Footer from './Footer.vue';
-import Header from './Header.vue';
-
-onMounted(() => {
-  const fadeElements = document.querySelectorAll('.fade-in-element');
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('fade-in-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  fadeElements.forEach(el => observer.observe(el));
-});
-</script>
-<script>
-import Modal from './Modal.vue';
-import img1 from '@/assets/images/bolsa3.jpg';
-import Carousel from '../components/Carousel.vue';
-export default {
-  components: {
-    Modal
-  },
-  data() {
-    return {
-      carouselImages: [img1],
-      isModalVisible: false
-    };
-  },
-  methods: {
-    showModal() {
-      this.isModalVisible = true;
-    },
-    hideModal() {
-      this.isModalVisible = false;
-    }
-  }
-};
-</script>
 <template>
   <Header />
-  <Carousel :images="carouselImages" carouselText="Bolsa de trabajo" />
-  <div class="fisio-container">
 
-    <div>
-      <h1>Para enfermería</h1>
+  <div class="fisio-container">
+    <div class="image-container">
+      <img src="@/assets/images/bolsa3.jpg" alt="Carreras UAC" class="main-image" />
+      <div class="overlay">
+        <h1 class="overlay-text">Bolsa de trabajo</h1>
+      </div>
     </div>
-    <div class="info-cards">
+
+    <!-- Contenedor de las opciones de selección -->
+    <div class="container-group">
+
+      <div class="container noselect" @click="selectOption('enfermeria')">
+        <div class="canvas">
+          <div class="tracker tr-1"></div>
+          <div class="tracker tr-2"></div>
+          <div class="tracker tr-3"></div>
+          <div class="tracker tr-4"></div>
+          <div class="tracker tr-5"></div>
+          <div class="tracker tr-6"></div>
+          <div class="tracker tr-7"></div>
+          <div class="tracker tr-8"></div>
+          <div class="tracker tr-9"></div>
+          <div class="tracker tr-10"></div>
+          <div class="tracker tr-11"></div>
+          <div class="tracker tr-12"></div>
+          <div class="tracker tr-13"></div>
+          <div class="tracker tr-14"></div>
+          <div class="tracker tr-15"></div>
+          <div class="tracker tr-16"></div>
+          <div class="tracker tr-17"></div>
+          <div class="tracker tr-18"></div>
+          <div class="tracker tr-19"></div>
+          <div class="tracker tr-20"></div>
+          <div class="tracker tr-21"></div>
+          <div class="tracker tr-22"></div>
+          <div class="tracker tr-23"></div>
+          <div class="tracker tr-24"></div>
+          <div class="tracker tr-25"></div>
+          <div id="card">
+            <p id="prompt">Para enfermería</p>
+            <div class="title">Experiencia de 2 años,<br>Inglés C3</div>
+            <div class="subtitle">POSTGRADO</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Opción Fisioterapia -->
+      <div class="container noselect" @click="selectOption('fisioterapia')">
+        <div class="canvas">
+          <div class="tracker tr-1"></div>
+          <div class="tracker tr-2"></div>
+          <div class="tracker tr-3"></div>
+          <div class="tracker tr-4"></div>
+          <div class="tracker tr-5"></div>
+          <div class="tracker tr-6"></div>
+          <div class="tracker tr-7"></div>
+          <div class="tracker tr-8"></div>
+          <div class="tracker tr-9"></div>
+          <div class="tracker tr-10"></div>
+          <div class="tracker tr-11"></div>
+          <div class="tracker tr-12"></div>
+          <div class="tracker tr-13"></div>
+          <div class="tracker tr-14"></div>
+          <div class="tracker tr-15"></div>
+          <div class="tracker tr-16"></div>
+          <div class="tracker tr-17"></div>
+          <div class="tracker tr-18"></div>
+          <div class="tracker tr-19"></div>
+          <div class="tracker tr-20"></div>
+          <div class="tracker tr-21"></div>
+          <div class="tracker tr-22"></div>
+          <div class="tracker tr-23"></div>
+          <div class="tracker tr-24"></div>
+          <div class="tracker tr-25"></div>
+          <!-- Más trackers -->
+          <div id="card">
+            <p id="prompt">Para fisioterapia</p>
+            <div class="title"><img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" /></div>
+            <div class="title">Requisitos</div>
+            <div class="title">Título</div>
+            <div class="title">Experiencia de 2 años</div>
+            <div class="title">Inglés C3</div>
+            <div class="subtitle">POSTGRADO</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+      <!-- Sección de Enfermería -->
+    <div class="info-cards" v-if="showEnfermeria">
       <div class="info-card">
         <img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" />
         <h2>Requisitos</h2>
@@ -63,20 +103,15 @@ export default {
           <li>Inglés C3</li>
         </ul>
       </div>
-
       <div class="info-card">
         <img src="@/assets/images/labor.png" alt="Labores" class="info-icon" />
         <h2>Labores</h2>
         <ul>
-          <li>Administrar medicamentos, monitorear signos vitales y brindar atención directa a pacientes en diversas
-            unidades de salud.</li>
-          <li>Colaborar con médicos durante cirugías y otros procedimientos, asegurando que se sigan los protocolos
-            adecuados.</li>
-          <li>Participar en campañas de vacunación, promoción de la salud y prevención de enfermedades en la comunidad.
-          </li>
+          <li>Administrar medicamentos, monitorear signos vitales y brindar atención directa a pacientes en diversas unidades de salud.</li>
+          <li>Colaborar con médicos durante cirugías y otros procedimientos, asegurando que se sigan los protocolos adecuados.</li>
+          <li>Participar en campañas de vacunación, promoción de la salud y prevención de enfermedades en la comunidad.</li>
         </ul>
       </div>
-
       <div class="info-card">
         <img src="@/assets/images/duracion.png" alt="Horarios y lugar" class="info-icon" />
         <h2>Horarios y lugar</h2>
@@ -87,11 +122,9 @@ export default {
       </div>
     </div>
 
+    <!-- Sección de Fisioterapia -->
 
-    <div>
-      <h1>Para fisiología y kimioterapia</h1>
-    </div>
-    <div class="info-cards">
+    <div class="info-cards" v-if="showFisioterapia">
       <div class="info-card">
         <img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" />
         <h2>Requisitos</h2>
@@ -101,18 +134,14 @@ export default {
           <li>Conocimiento básico en Inglés y Aymara</li>
         </ul>
       </div>
-
       <div class="info-card">
         <img src="@/assets/images/labor.png" alt="Labores" class="info-icon" />
         <h2>Labores</h2>
         <ul>
-          <li>Evaluar y tratar lesiones musculoesqueléticas, utilizando técnicas como ejercicios terapéuticos, masajes y
-            electroterapia.</li>
-          <li>Diseñar programas de prevención y acondicionamiento físico para atletas y personas en riesgo de lesiones.
-          </li>
+          <li>Evaluar y tratar lesiones musculoesqueléticas, utilizando técnicas como ejercicios terapéuticos, masajes y electroterapia.</li>
+          <li>Diseñar programas de prevención y acondicionamiento físico para atletas y personas en riesgo de lesiones.</li>
         </ul>
       </div>
-
       <div class="info-card">
         <img src="@/assets/images/duracion.png" alt="Horarios y lugar" class="info-icon" />
         <h2>Horarios y lugar</h2>
@@ -123,7 +152,7 @@ export default {
       </div>
     </div>
 
-  </div>
+
   <button id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
   </button>
@@ -131,6 +160,40 @@ export default {
   <Boton />
   <Footer />
 </template>
+
+<script setup>
+import { ref } from 'vue';
+import Boton from './Boton.vue';
+import Footer from './Footer.vue';
+import Header from './Header.vue';
+import Modal from './Modal.vue';
+
+const isModalVisible = ref(false);
+const showEnfermeria = ref(false);
+const showFisioterapia = ref(false);
+
+function showModal() {
+  isModalVisible.value = true;
+}
+
+function hideModal() {
+  isModalVisible.value = false;
+}
+
+function selectOption(option) {
+  showEnfermeria.value = option === 'enfermeria';
+  showFisioterapia.value = option === 'fisioterapia';
+}
+
+
+</script>
+
+
+
+
+
+
+
 
 <style scoped>
 .fisio-container {
@@ -190,7 +253,6 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
-
 .info-card:hover {
   background-color: #e6f7ff;
   border-color: #66b2ff;
@@ -247,4 +309,394 @@ ul li {
     max-width: 300px;
   }
 }
+
+
+
+
+/* From Uiverse.io by kennyotsu */ 
+/*works janky on mobile :<*/
+
+
+.container {
+  position: relative;
+  width: 300px; /* Cambia el ancho para que coincida con .info-card */
+  height: 254px;
+  transition: 200ms;
+}
+
+
+.container:active {
+  width: 180px;
+  height: 245px;
+}
+
+#card {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transition: 700ms;
+  background: linear-gradient(43deg, rgb(29, 81, 141) 0%, rgb(255, 255, 180) 50%, rgb(29, 81, 141) 100%);
+}
+
+
+.subtitle {
+  transform: translateY(160px);
+  color: rgb(29, 81, 141);
+  text-align: center;
+  width: 100%;
+}
+
+.title {
+  opacity: 0;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out-out;
+  transition-delay: 100ms;
+  position: absolute;
+  font-size: x-large;
+  font-weight: bold;
+  color: white;
+}
+
+.tracker:hover ~ #card .title {
+  opacity: 1;
+}
+
+#prompt {
+  bottom: 8px;
+  left: 12px;
+  z-index: 20;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 300ms ease-in-out-out;
+  position: absolute;
+  max-width: 110px;
+  color: rgb(255, 255, 255);
+}
+
+.tracker {
+  position: absolute;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+}
+
+.tracker:hover {
+  cursor: pointer;
+}
+
+.tracker:hover ~ #card #prompt {
+  opacity: 0;
+}
+
+.tracker:hover ~ #card {
+  transition: 300ms;
+  filter: brightness(1.1);
+}
+
+.container:hover #card::before {
+  transition: 200ms;
+  content: '';
+  opacity: 80%;
+}
+
+.canvas {
+  perspective: 800px;
+  inset: 0;
+  z-index: 200;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "tr-1 tr-2 tr-3 tr-4 tr-5"
+    "tr-6 tr-7 tr-8 tr-9 tr-10"
+    "tr-11 tr-12 tr-13 tr-14 tr-15"
+    "tr-16 tr-17 tr-18 tr-19 tr-20"
+    "tr-21 tr-22 tr-23 tr-24 tr-25";
+}
+
+#card::before {
+  content: '';
+  filter: blur(2rem);
+  opacity: 30%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  transition: 200ms;
+}
+
+.tr-1 {
+  grid-area: tr-1;
+}
+
+.tr-2 {
+  grid-area: tr-2;
+}
+
+.tr-3 {
+  grid-area: tr-3;
+}
+
+.tr-4 {
+  grid-area: tr-4;
+}
+
+.tr-5 {
+  grid-area: tr-5;
+}
+
+.tr-6 {
+  grid-area: tr-6;
+}
+
+.tr-7 {
+  grid-area: tr-7;
+}
+
+.tr-8 {
+  grid-area: tr-8;
+}
+
+.tr-9 {
+  grid-area: tr-9;
+}
+
+.tr-10 {
+  grid-area: tr-10;
+}
+
+.tr-11 {
+  grid-area: tr-11;
+}
+
+.tr-12 {
+  grid-area: tr-12;
+}
+
+.tr-13 {
+  grid-area: tr-13;
+}
+
+.tr-14 {
+  grid-area: tr-14;
+}
+
+.tr-15 {
+  grid-area: tr-15;
+}
+
+.tr-16 {
+  grid-area: tr-16;
+}
+
+.tr-17 {
+  grid-area: tr-17;
+}
+
+.tr-18 {
+  grid-area: tr-18;
+}
+
+.tr-19 {
+  grid-area: tr-19;
+}
+
+.tr-20 {
+  grid-area: tr-20;
+}
+
+.tr-21 {
+  grid-area: tr-21;
+}
+
+.tr-22 {
+  grid-area: tr-22;
+}
+
+.tr-23 {
+  grid-area: tr-23;
+}
+
+.tr-24 {
+  grid-area: tr-24;
+}
+
+.tr-25 {
+  grid-area: tr-25;
+}
+
+.tr-1:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.tr-2:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.tr-3:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.tr-4:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.tr-5:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.tr-6:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.tr-7:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.tr-8:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.tr-9:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.tr-10:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.tr-11:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.tr-12:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.tr-13:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.tr-14:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.tr-15:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.tr-16:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.tr-17:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.tr-18:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.tr-19:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.tr-20:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.tr-21:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.tr-22:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.tr-23:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.tr-24:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.tr-25:hover ~ #card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+   /* iOS Safari */
+  -webkit-user-select: none;
+   /* Safari */
+   /* Konqueror HTML */
+  -moz-user-select: none;
+   /* Old versions of Firefox */
+  -ms-user-select: none;
+   /* Internet Explorer/Edge */
+  user-select: none;
+   /* Non-prefixed version, currently
+									supported by Chrome, Edge, Opera and Firefox */
+}
+
+.container-group {
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+
+.container-group .title {
+  color: rgb(29, 81, 141); /* Cambia el color del título */
+}
+
+
+.container-group #prompt {
+  color: #fff; /* Cambia el color del texto del prompt */
+}
+
+.info-cards {
+  opacity: 0;
+  transform: translateY(-50px); /* Inicia desde arriba */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Ajusta duración y efecto de transición */
+}
+
+.info-cards.show {
+  opacity: 1;
+  transform: translateY(0); /* Al estar visible, se coloca en su posición */
+}
+
 </style>

@@ -1,8 +1,8 @@
 <script setup>
-import Header from './Header.vue';
-import Footer from './Footer.vue';
-import { ref, onMounted, computed } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useBookStore } from '../stores/library/bookStore';
+import Footer from './Footer.vue';
+import Header from './Header.vue';
 
 const store = useBookStore();
 const searchTerm = ref('');  // El término de búsqueda
@@ -23,10 +23,10 @@ const performSearch = () => {
 </script>
 
 <script>
-import Modal from './Modal.vue';
-import Modal_library from '../components/Modal_library.vue';
-import img1 from '@/assets/images/biblioteca.jpg';
+import img1 from '@/assets/images/biblio.jpg';
 import Carousel from '../components/Carousel.vue';
+import Modal_library from '../components/Modal_library.vue';
+import Modal from './Modal.vue';
 export default {
   components: {
     Modal,

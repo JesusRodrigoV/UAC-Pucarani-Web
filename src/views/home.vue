@@ -1,13 +1,12 @@
 <script setup>
 import Footer from './Footer.vue';
 import Header from './Header.vue';
-import Calendar from './Calendar.vue';
 </script>
 <script>
+import uacInicio from '@/assets/images/infra/principal.jpg';
 import inicio2 from '@/assets/images/inicio2.jpg';
 import inicio3 from '@/assets/images/inicio3.jpg';
 import inicio4 from '@/assets/images/inicio4.jfif';
-import uacInicio from '@/assets/images/uac_inicio.jfif';
 import Carousel from '../components/Carousel.vue';
 
 import studentImage1 from '@/assets/images/student.jfif';

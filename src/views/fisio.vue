@@ -1,9 +1,16 @@
 <script setup>
-import Header from './Header.vue'
-import Footer from './Footer.vue'
+import Footer from './Footer.vue';
+import Header from './Header.vue';
 </script>
 <script>
-import Boton from './Boton.vue';
+import img7 from '@/assets/images/fisio/fisio10.jpg';
+import img1 from '@/assets/images/fisio/fisio3.jpg';
+import img2 from '@/assets/images/fisio/fisio5.jpg';
+import img3 from '@/assets/images/fisio/fisio6.jpg';
+import img4 from '@/assets/images/fisio/fisio7.jpg';
+import img5 from '@/assets/images/fisio/fisio8.jpg';
+import img6 from '@/assets/images/fisio/fisio9.jpg';
+import Carousel from '../components/Carousel.vue';
 import Modal from './Modal.vue';
 
 export default {
@@ -12,6 +19,7 @@ export default {
   },
   data() {
     return {
+      carouselImages: [img1, img2, img3, img4, img5, img6, img7],
       isModalVisible: false
     };
   },
@@ -26,17 +34,18 @@ export default {
 
 };
 </script>
+
 <template>
 
   <Header />
-
+  <Carousel :images="carouselImages" carouselText="Fisioterapia y kinesiología" />
   <div class="fisio-container">
-    <div class="image-container">
-      <img src="@/assets/images/car_fisio.jfif" alt="Carreras UAC" class="main-image" />
+    <!-- <div class="image-container">
+      <img src="@/assets/images/car_enfe.jfif" alt="Carreras UAC" class="main-image" />
       <div class="overlay">
-        <h1 class="overlay-text">Fisiologia y kinesiologia</h1>
+        <h1 class="overlay-text">Enfermería</h1>
       </div>
-    </div>
+    </div> -->
 
     <div class="info-cards">
       <div class="info-card">
@@ -69,7 +78,13 @@ export default {
       </div>
     </div>
   </div>
-
+  <section class="admissions-call-to-action">
+    <h2>¿Listo para unirte a nuestra familia académica?</h2>
+    <p>
+      Da el primer paso hacia tu futuro en la UAC Pucarani. Explora las opciones de admisión y conoce el proceso para formar parte de una institución que valora la excelencia, el respeto y el compromiso con nuestra comunidad.
+    </p>
+    <RouterLink to="/admisiones" class="admissions-button">Ir a Admisiones</RouterLink>
+  </section>
   <Footer />
 </template>
 
@@ -155,12 +170,7 @@ export default {
   color: #555;
 }
 
-.info-icon {
-  width: 50px;
-  margin-bottom: 15px;
-  width: 60px;
-  height: auto;
-}
+
 
 ul {
   list-style-type: none;
