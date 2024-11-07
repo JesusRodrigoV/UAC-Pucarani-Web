@@ -3,50 +3,60 @@
   <Carousel :images="carouselImages" carouselText="Enfermería" />
 
   <div class="fisio-container">
-    <!-- Info Cards -->
-    <div class="info-cards">
-      <div class="info-card">
-        <i class='bx bx-time info-icon'></i>
-        <h2>Duración de la carrera</h2>
-        <p>10 semestres</p>
-      </div>
-
-      <div class="info-card">
-        <i class='bx bx-book info-icon'></i>
-        <h2>Áreas de estudio</h2>
-        <ul>
-          <li>Fundamentos de Enfermería</li>
+    <!-- Características -->
+    <div class="characteristics-section">
+      <h2>Características</h2>
+      <div class="info-cards">
+        <div class="info-card">
+          <i class='bx bx-time info-icon'></i>
+          <h3>Duración de la carrera</h3>
+          <p>10 semestres</p>
+        </div>
+        <div class="info-card">
+          <i class='bx bx-book info-icon'></i>
+          <h3>Áreas de estudio</h3>
+          <ul>
+            <li>Fundamentos de Enfermería</li>
           <li>Cuidado del Paciente Crítico</li>
           <li>Salud Pública y Comunitaria</li>
           <li>Enfermería Materno-Infantil</li>
-        </ul>
-      </div>
-
-      <div class="info-card">
-        <i class='bx bxs-bookmark info-icon'></i>
-        <h2>Modalidades de graduación</h2>
-        <ul>
-          <li>Graduación por excelencia</li>
-          <li>Tesis de grado</li>
-          <li>Trabajo dirigido</li>
-          <li>Proyecto de grado</li>
-          <li>Graduación por diplomado</li>
-        </ul>
+          </ul>
+        </div>
+        <div class="info-card">
+          <i class='bx bxs-bookmark info-icon'></i>
+          <h3>Modalidades de graduación</h3>
+          <ul>
+            <li>Graduación por excelencia</li>
+            <li>Tesis de grado</li>
+            <li>Trabajo dirigido</li>
+            <li>Proyecto de grado</li>
+            <li>Graduación por diplomado</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <!-- Cards de beneficios -->
-    <div class="benefits-container">
-      <div class="benefit-card" v-for="(benefit, index) in benefits" :key="index">
-        <div class="benefit-card-inner">
-          <div class="benefit-card-front">
-            <p>{{ benefit.title }}</p>
-          </div>
-          <div class="benefit-card-back">
-            <p>{{ benefit.description }}</p>
+    <!-- Ventajas -->
+    <div class="advantages-section">
+      <h2>Ventajas</h2>
+      <div class="cards-container">
+        <div class="cardil" v-for="(benefit, index) in benefits" :key="index">
+          <div class="cardil-inner">
+            <div class="cardil-front">
+              <p>{{ benefit.title }}</p>
+            </div>
+            <div class="cardil-back">
+              <p>{{ benefit.description }}</p>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Malla Curricular -->
+    <div class="curriculum-section">
+      <h2>Malla Curricular</h2>
+      <button class="curriculum-button" @click="downloadCurriculum">Descargar Malla</button>
     </div>
   </div>
 
@@ -79,11 +89,20 @@ export default {
         { title: "Estabilidad Laboral", description: "Es una carrera con poca volatilidad en el empleo." }
       ]
     };
+  },
+  methods: {
+    downloadCurriculum() {
+      const link = document.createElement('a');
+      link.href = '/mallac_enf-1.pdf';
+      link.download = 'mallac_enf-1.pdf';
+      link.click();
+    }
   }
 };
 </script>
 
 <style scoped>
+/* Contenedor Principal */
 .fisio-container {
   display: flex;
   flex-direction: column;
@@ -91,11 +110,24 @@ export default {
   padding: 20px;
 }
 
+/* Sección de Características */
+.characteristics-section {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.characteristics-section h2 {
+  font-size: 28px;
+  color: #005a99;
+  margin-bottom: 20px;
+}
+
 .info-cards {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 40px;
   flex-wrap: wrap;
   row-gap: 20px;
 }
@@ -117,6 +149,12 @@ export default {
   background-color: #e6f7ff;
 }
 
+.info-card h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+.info-card p, .info-card ul {
 .info-card h2 {
   font-size: 24px;
   margin-bottom: 10px;
@@ -139,13 +177,33 @@ ul li {
   margin: 5px 0;
 }
 
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+/* Sección de Ventajas */
+.advantages-section {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.advantages-section h2 {
+  font-size: 28px;
+  color: #005a99;
+  margin-bottom: 20px;
+}
+
 /* Estilos para las tarjetas de beneficios */
 .benefits-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  margin-top: 20px;
 }
 
 .benefit-card {
@@ -201,6 +259,37 @@ ul li {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
 
+/* Sección de Malla Curricular */
+.curriculum-section {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.curriculum-section h2 {
+  font-size: 28px;
+  color: #005a99;
+  margin-bottom: 20px;
+}
+
+.curriculum-button {
+  padding: 10px 20px;
+  background-color: #005a99;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.curriculum-button:hover {
+  background-color: #003f6d;
+}
+
+/* Sección de Llamado a la Acción */
 .admissions-call-to-action {
   text-align: center;
   margin-top: 40px;
@@ -220,6 +309,7 @@ ul li {
   background-color: #003f6d;
 }
 
+/* Estilos Responsivos */
 @media (max-width: 768px) {
 
   .info-cards,

@@ -61,7 +61,6 @@ import img3 from '@/assets/images/fisio/fisio6.jpg';
 import img4 from '@/assets/images/fisio/fisio7.jpg';
 import img5 from '@/assets/images/fisio/fisio8.jpg';
 import img6 from '@/assets/images/fisio/fisio9.jpg';
-
 import Carousel from '../components/Carousel.vue';
 import Footer from './Footer.vue';
 import Header from './Header.vue';
@@ -76,18 +75,28 @@ export default {
     return {
       carouselImages: [img1, img2, img3, img4, img5, img6, img7],
       benefits: [
-        { title: "Lucrativa", description: "Se cobra mucho por cada operación." },
-        { title: "Alta Demanda", description: "La necesidad de enfermeros crece cada año." },
-        { title: "Flexibilidad Horaria", description: "Es posible encontrar turnos que se adapten." },
-        { title: "Crecimiento Profesional", description: "Existen muchas oportunidades de ascenso." },
-        { title: "Estabilidad Laboral", description: "Es una carrera con poca volatilidad en el empleo." }
+      { title: "Buena Remuneración", description: "Se puede obtener una remuneración competitiva por consultas y tratamientos." },
+{ title: "Alta Demanda", description: "La demanda de fisioterapeutas y kinesiólogos crece junto al envejecimiento de la población." },
+{ title: "Flexibilidad Laboral", description: "Existe la posibilidad de trabajar en diferentes entornos y ajustar horarios según necesidades personales." },
+{ title: "Desarrollo Profesional", description: "Hay múltiples oportunidades de especialización y actualización en técnicas." },
+{ title: "Estabilidad Laboral", description: "La fisioterapia y kinesiología son áreas esenciales en la salud y poco vulnerables a cambios en el mercado." }
+
       ]
     };
+  },
+  methods: {
+    downloadCurriculum() {
+      const link = document.createElement('a');
+      link.href = '/mallac_enf-1.pdf';
+      link.download = 'mallac_enf-1.pdf';
+      link.click();
+    }
   }
 };
 </script>
 
 <style scoped>
+/* Contenedor Principal */
 .fisio-container {
   display: flex;
   flex-direction: column;
@@ -95,11 +104,24 @@ export default {
   padding: 20px;
 }
 
+/* Sección de Características */
+.characteristics-section {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.characteristics-section h2 {
+  font-size: 28px;
+  color: #005a99;
+  margin-bottom: 20px;
+}
+
 .info-cards {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 40px;
   flex-wrap: wrap;
   row-gap: 20px;
 }
@@ -121,15 +143,9 @@ export default {
   background-color: #e6f7ff;
 }
 
-.info-card h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
+.info-card h3 {
+  font-size: 20px;
   color: #333;
-  transition: color 0.3s ease;
-}
-
-.info-card:hover h2 {
-  color: #005c99;
 }
 
 .info-card p,
@@ -147,12 +163,25 @@ ul li {
   margin: 5px 0;
 }
 
+/* Sección de Ventajas */
+.advantages-section {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.advantages-section h2 {
+  font-size: 28px;
+  color: #005a99;
+  margin-bottom: 20px;
+}
+
 .cards-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  margin-top: 20px;
 }
 
 .cardil {
@@ -208,6 +237,37 @@ ul li {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
 
+/* Sección de Malla Curricular */
+.curriculum-section {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.curriculum-section h2 {
+  font-size: 28px;
+  color: #005a99;
+  margin-bottom: 20px;
+}
+
+.curriculum-button {
+  padding: 10px 20px;
+  background-color: #005a99;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.curriculum-button:hover {
+  background-color: #003f6d;
+}
+
+/* Sección de Llamado a la Acción */
 .admissions-call-to-action {
   text-align: center;
   margin-top: 40px;
@@ -227,6 +287,7 @@ ul li {
   background-color: #003f6d;
 }
 
+/* Estilos Responsivos */
 @media (max-width: 768px) {
 
   .info-cards,
