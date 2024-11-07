@@ -4,9 +4,11 @@ import Header from './Header.vue';
 </script>
 <script>
 import uacInicio from '@/assets/images/infra/principal.jpg';
-import inicio2 from '@/assets/images/inicio2.jpg';
-import inicio3 from '@/assets/images/inicio3.jpg';
-import inicio4 from '@/assets/images/inicio4.jfif';
+import inicio2 from '@/assets/images/uac_inicio.jfif';
+import i4 from '@/assets/images/enfe/enfe5.jpg';
+import i5 from '@/assets/images/enfe/enfe6.jpg';
+
+import i6 from '@/assets/images/fisio/fisio6.jpg';
 import Carousel from '../components/Carousel.vue';
 
 import studentImage1 from '@/assets/images/student.jfif';
@@ -23,7 +25,7 @@ export default {
   data() {
     return {
       isModalVisible: false,
-      carouselImages: [uacInicio, inicio2, inicio3, inicio4],
+      carouselImages: [uacInicio, inicio2, i4,i5,i6],
       currentImageIndex: 0
     };
   },
@@ -58,12 +60,13 @@ const testimonials = [
 ];
 
 const virtues = [
-  { title: "Excelencia Académica", description: "La universidad se destaca por su alto nivel académico y programas innovadores." },
-  { title: "Compromiso Social", description: "Fomentamos el compromiso y la responsabilidad social en todos nuestros estudiantes." },
-  { title: "Desarrollo Integral", description: "Promovemos el crecimiento integral de nuestros estudiantes, preparándolos para los retos del futuro." },
-  { title: "Desarrollo Social", description: "Promovemos el crecimiento integral de nuestros estudiantes, preparándolos para los retos del futuro." },
-  { title: "Desarrollo Social", description: "Promovemos el crecimiento integral de nuestros estudiantes, preparándolos para los retos del futuro." }
+  { title: "Excelencia Académica", description: "Nos enfocamos en la excelencia académica a través de programas innovadores, impulsando el pensamiento crítico y la investigación." },
+  { title: "Compromiso Social", description: "Fomentamos en nuestros estudiantes un sentido de responsabilidad social, alentándolos a contribuir activamente a sus comunidades." },
+  { title: "Desarrollo Integral", description: "Promovemos el crecimiento integral de nuestros estudiantes, desarrollando habilidades tanto profesionales como personales para enfrentar los desafíos del mañana." },
+  { title: "Inclusión y Diversidad", description: "Celebramos la diversidad cultural y promovemos un entorno inclusivo que respeta y valora a cada individuo." },
+  { title: "Ética y Valores", description: "Formamos líderes con una sólida base ética, orientados a actuar con integridad y respeto en todos los aspectos de su vida." }
 ];
+
 
 
 document.querySelectorAll('button').forEach(button => {
@@ -94,16 +97,28 @@ document.querySelectorAll('button').forEach(button => {
   <Header />
 <Carousel  :images="carouselImages" carouselText="UAC Pucarani"/>
 
-  <!-- <div class="home-container">
-    <div class="carousel">
-      <button class="carousel-control prev" @click="prevImage">‹</button>
-      <img :src="carouselImages[currentImageIndex]" alt="UAC Carrusel" class="carousel-image" />
-      <button class="carousel-control next" @click="nextImage">›</button>
-      <div class="overlay">
-        <h1 class="overlay-text">Unidad Académica Campesina Pucarani</h1>
-      </div>
+<section class="welcome-section">
+    <div class="welcome-banner">
+      <h1>Bienvenido a la UAC Pucarani</h1>
+      <p>Explora un mundo de oportunidades educativas y de desarrollo personal en nuestra comunidad.</p>
     </div>
-  </div> -->
+    
+    <div class="welcome-content">
+      <h2>Comprometidos con tu futuro</h2>
+      <p>
+        La Unidad Académica Campesina de Pucarani, parte de la Universidad Católica Boliviana "San Pablo", tiene la misión de formar
+        profesionales comprometidos con el bienestar social, el desarrollo sostenible y la preservación de los valores comunitarios. Nuestro portal web
+        ha sido diseñado para facilitar el acceso a recursos académicos, información institucional y servicios estudiantiles.
+      </p>
+
+      <h2>¡Únete a nuestra comunidad!</h2>
+      <p>
+        Ser parte de la UAC Pucarani es mucho más que estudiar. Es formar lazos, contribuir al desarrollo social, y construir un futuro mejor para todos.
+        Explora nuestro portal, infórmate sobre nuestras actividades y servicios, y forma parte de nuestra misión de hacer del mundo un lugar mejor.
+      </p>
+
+    </div>
+  </section>
 
 
   <div class="testimonials-container">
@@ -438,5 +453,77 @@ document.querySelectorAll('button').forEach(button => {
   color: #1b3b5f;
   margin-bottom: 0.5rem;
   font-size: 1.3rem;
+}
+
+.welcome-section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.welcome-banner {
+  background-color: var(--azul-principal);
+  color: white;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.welcome-banner h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.welcome-banner p {
+  font-size: 1.2rem;
+  color:white;
+  margin-top: 10px;
+}
+
+.welcome-content h2 {
+  color: var(--azul-principal);
+  font-size: 1.8rem;
+  margin-top: 20px;
+}
+
+.welcome-content p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.welcome-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.welcome-content ul li {
+  background-color: #f0f8ff;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  color: #333;
+}
+
+.welcome-content ul li strong {
+  color: var(--azul-principal);
+}
+
+.explore-button {
+  background-color: var(--azul-principal);
+  color: white;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.explore-button:hover {
+  background-color: var(--azul-hover);
 }
 </style>

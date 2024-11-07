@@ -56,14 +56,14 @@ const careers = ref([
   {
     id: 1,
     name: 'Fisioterapia y kinesiologia',
-    description: 'Descripción',
+    description: 'La carrera de Fisioterapia y Kinesiología se centra en la prevención, diagnóstico y tratamiento de lesiones físicas y trastornos del movimiento. Los estudiantes se capacitan en técnicas de rehabilitación para mejorar la calidad de vida de los pacientes y optimizar su recuperación física.',
     image: imgfisio,
     link: '/fisio',
   },
   {
     id: 2,
     name: 'Enfermería',
-    description: 'Descripción',
+    description: 'Esta carrera prepara a los estudiantes para el cuidado integral de pacientes en diferentes entornos de salud. Los egresados adquieren habilidades en técnicas de atención médica, promoción de la salud, y cuidado preventivo, además de una formación en ética y responsabilidad social.',
     image: imgenfe,
     link: '/enfe',
   },

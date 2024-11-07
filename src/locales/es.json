@@ -28,5 +28,13 @@
   "company": {
      "title": "Compañía", 
      "ucbito": "Ucbito" 
-    }
+    },
+    
+  "bienvenido": "Bienvenido a la UAC Pucarani",
+  "explora": "Explora un mundo de oportunidades educativas y de desarrollo personal en nuestra comunidad.",
+  "compromiso": "Comprometidos con tu futuro",
+  "descripcion": "La Unidad Académica Campesina de Pucarani, parte de la Universidad Católica Boliviana \"San Pablo\", tiene la misión de formar profesionales comprometidos con el bienestar social, el desarrollo sostenible y la preservación de los valores comunitarios. Nuestro portal web ha sido diseñado para facilitar el acceso a recursos académicos, información institucional y servicios estudiantiles.",
+  "unete": "¡Únete a nuestra comunidad!",
+  "union": "Ser parte de la UAC Pucarani es mucho más que estudiar. Es formar lazos, contribuir al desarrollo social, y construir un futuro mejor para todos. Explora nuestro portal, infórmate sobre nuestras actividades y servicios, y forma parte de nuestra misión de hacer del mundo un lugar mejor."
+
 }

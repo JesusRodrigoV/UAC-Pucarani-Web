@@ -15,10 +15,10 @@
         <i class='bx bx-book info-icon'></i>
         <h2>Áreas de estudio</h2>
         <ul>
-          <li>Área 1</li>
-          <li>Área 2</li>
-          <li>Área 3</li>
-          <li>Área 4</li>
+          <li>Fundamentos de Enfermería</li>
+          <li>Cuidado del Paciente Crítico</li>
+          <li>Salud Pública y Comunitaria</li>
+          <li>Enfermería Materno-Infantil</li>
         </ul>
       </div>
 
@@ -36,27 +36,19 @@
     </div>
 
     <!-- Cards de beneficios -->
-    <div class="cards-container">
-      <div class="cardil" v-for="(benefit, index) in benefits" :key="index">
-        <div class="cardil-inner">
-          <div class="cardil-front">
+    <div class="benefits-container">
+      <div class="benefit-card" v-for="(benefit, index) in benefits" :key="index">
+        <div class="benefit-card-inner">
+          <div class="benefit-card-front">
             <p>{{ benefit.title }}</p>
           </div>
-          <div class="cardil-back">
+          <div class="benefit-card-back">
             <p>{{ benefit.description }}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <section class="admissions-call-to-action">
-    <h2>¿Listo para unirte a nuestra familia académica?</h2>
-    <p>
-      Da el primer paso hacia tu futuro en la UAC Pucarani. Explora las opciones de admisión y conoce el proceso para formar parte de una institución que valora la excelencia, el respeto y el compromiso con nuestra comunidad.
-    </p>
-    <RouterLink to="/admisiones" class="admissions-button">Ir a Admisiones</RouterLink>
-  </section>
 
   <Footer />
 </template>
@@ -128,17 +120,14 @@ export default {
 .info-card h2 {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #333;
+  color: #005c99;
   transition: color 0.3s ease;
 }
 
-.info-card:hover h2 {
-  color: #005c99;
-}
-
-.info-card p, .info-card ul {
+.info-card p,
+.info-card ul {
   font-size: 16px;
-  color: #555;
+  color: #333;
 }
 
 ul {
@@ -150,7 +139,8 @@ ul li {
   margin: 5px 0;
 }
 
-.cards-container {
+/* Estilos para las tarjetas de beneficios */
+.benefits-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -158,13 +148,13 @@ ul li {
   margin-top: 20px;
 }
 
-.cardil {
+.benefit-card {
   width: 250px;
   height: 150px;
   perspective: 1000px;
 }
 
-.cardil-inner {
+.benefit-card-inner {
   width: 100%;
   height: 100%;
   position: relative;
@@ -172,12 +162,13 @@ ul li {
   transition: transform 0.8s ease;
 }
 
-.cardil:hover .cardil-inner {
+.benefit-card:hover .benefit-card-inner {
   transform: rotateY(180deg);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.cardil-front, .cardil-back {
+.benefit-card-front,
+.benefit-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -192,18 +183,21 @@ ul li {
   transition: box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-.cardil-front {
-  background-color: #005a99;
-  border: 4px solid #005796;
+.benefit-card-front {
+  /* background-color: #005a99;
+  border: 4px solid #005796; */
+  background-color: var(--amarillo);
+  border: 4px solid var(--amarillo);
 }
 
-.cardil-back {
-  background-color: #f3c701;
-  border: 4px solid #f3c701;
+.benefit-card-back {
+  background-color: #cce7ff;
+  border: 4px solid #cce7ff;
   transform: rotateY(180deg);
 }
 
-.cardil:hover .cardil-front, .cardil:hover .cardil-back {
+.benefit-card:hover .benefit-card-front,
+.benefit-card:hover .benefit-card-back {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
 
@@ -227,12 +221,15 @@ ul li {
 }
 
 @media (max-width: 768px) {
-  .info-cards, .cards-container {
+
+  .info-cards,
+  .benefits-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .info-card, .cardil {
+  .info-card,
+  .benefit-card {
     width: 90%;
     max-width: 400px;
   }

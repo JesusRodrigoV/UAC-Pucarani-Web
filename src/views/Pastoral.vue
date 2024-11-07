@@ -31,6 +31,7 @@ function previousTestimonial() {
     currentIndex.value = (currentIndex.value - 1 + testimonials.value.length) % testimonials.value.length;
 }
 </script>
+
 <script>
 import uacInicio from '@/assets/images/enfe/enfe1.jpg';
 import inicio2 from '@/assets/images/enfe/enfe2.jpg';
@@ -45,10 +46,10 @@ export default {
     },
 };
 </script>
+
 <template>
     <Header />
-    <Carousel :images="carouselImages" carouselText="Actividades Pastorales"/>
-    
+    <Carousel :images="carouselImages" carouselText="Actividades Pastorales" />
 
     <div class="principal">
         <section class="info-pastoral">
@@ -59,7 +60,6 @@ export default {
 
         <!-- Contenedor para el calendario y el formulario -->
         <section class="calendar-registration-container">
-            <!-- Próximas Actividades -->
             <div class="upcoming-events">
                 <h2>Calendario de Eventos Pastorales</h2>
                 <ul>
@@ -67,12 +67,11 @@ export default {
                     <li>Retiro Espiritual - <em>18 de Noviembre, 2024</em></li>
                     <li>Charla sobre valores - <em>25 de Noviembre, 2024</em></li>
                 </ul>
-                <button class="button-a" @click="showModal">
+                <button class="primary-button" @click="showModal">
                     Ver calendario completo
                 </button>
             </div>
 
-            <!-- Formulario de Inscripción -->
             <div class="registration-form">
                 <h2>Formulario de Inscripción</h2>
                 <form @submit.prevent>
@@ -90,24 +89,24 @@ export default {
                         <option>Charla sobre valores</option>
                     </select>
 
-                    <button type="submit" class="">Inscribirse</button>
+                    <button type="submit" class="primary-button">Inscribirse</button>
                 </form>
             </div>
         </section>
-        <br><br>
+
         <!-- Testimonios -->
         <section class="testimonials">
             <h2>Testimonios</h2>
-            <div class="carousel">
+            <div class="testimonial-carousel">
                 <button @click="previousTestimonial" class="carousel-btn">&lt;</button>
                 <div class="testimonial-card">
                     <p>"{{ testimonials[currentIndex].text }}"</p>
                     <span>– {{ testimonials[currentIndex].author }}</span>
                 </div>
-                <button @click="nextTestimonial" class="">&gt;</button>
+                <button @click="nextTestimonial" class="carousel-btn">&gt;</button>
             </div>
         </section>
-        <br><br>
+
         <!-- Contacto de la Pastoral -->
         <section class="contact">
             <h2>Contacto de la Pastoral</h2>
@@ -117,79 +116,53 @@ export default {
         </section>
     </div>
 
-    <br><br><br>
-    <!-- Galería de Imágenes -->
-    <!-- <section class="gallery">
-            <h2>Galería de Imágenes</h2>
-            <div class="gallery-grid">
-                <img src="@/assets/images/enfe/enfe1.jpg" alt="Evento Pastoral" />
-                <img src="@/assets/images/enfe/enfe3.jpg" alt="Actividades Comunitarias" />
-            </div>
-        </section> -->
-
-    <!-- Icono de calendario en pantalla flotante -->
-    <button class="icon-container" @click="showModal">
-        <i class="bx bxs-calendar"></i>
-    </button>
-
     <!-- Modal para el calendario completo -->
     <Modal :visible="isModalVisible" @close="hideModal" />
     <Boton />
     <Footer />
 </template>
 
-
-<style>
-
-
-.home-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* padding: 20px; */
-    width: 100%;
+<style scoped>
+/* Contenedor principal */
+.principal {
+    padding: 20px;
 }
 
-.image-container {
-    position: relative;
-    width: 100%;
-    height: auto;
-    /* max-width: 1200px; */
-}
-
-.home-image {
-    width: 100%;
-    height: auto;
-    /* display: block; */
-    /* border-radius: 8px; */
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 45%;
-    height: 100%;
-    background-color: rgba(23, 28, 47, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border-radius: 8px; */
-}
-
-.overlay-text {
-    color: white;
-    font-size: 48px;
-    font-weight: bold;
-    letter-spacing: 2px;
+/* Información Pastoral */
+.info-pastoral {
     text-align: center;
+    margin-bottom: 30px;
 }
 
+.info-pastoral h2 {
+    color: var(--azul-principal);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Botones primarios */
+.primary-button {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: var(--azul-principal);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.primary-button:hover {
+    background-color: var(--azul-hover);
+}
 
 /* Formulario de Inscripción */
 .registration-form {
-    max-width: 600px;
+    max-width: 400px;
     margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .registration-form form {
@@ -197,58 +170,69 @@ export default {
     flex-direction: column;
 }
 
-.registration-form label,
+.registration-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
 .registration-form input,
-.registration-form select,
-.submit-button {
-    margin-bottom: 10px;
+.registration-form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
-.calendar-link,
-.submit-button {
-    display: inline-block;
-    padding: 10px 20px;
-    color: white;
-    background-color: var(--azul-principal);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
+/* Contenedor del calendario y formulario */
+.calendar-registration-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin: 50px 0;
 }
 
-.submit-button {
-    color: white;
+.upcoming-events {
+    max-width: 400px;
 }
 
-.calendar-link:hover,
-.submit-button:hover {
-    background-color: var(--azul-hover);
+.upcoming-events h2 {
+    font-size: 1.5rem;
+    color: var(--azul-principal);
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+}
 
+ul li {
+    margin: 10px 0;
+}
+
+/* Testimonios */
 .testimonials {
-    max-width: 600px;
-    margin: 0 auto;
     text-align: center;
+    margin-top: 50px;
 }
 
-.carousel {
+.testimonial-carousel {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 20px;
 }
 
 .testimonial-card {
-    flex: 1;
-    padding: 20px;
     background-color: #f0f0f0;
-    border-radius: 5px;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-btn {
     font-size: 24px;
-    color: #555;
+    color: var(--azul-principal);
     background: none;
     border: none;
     cursor: pointer;
@@ -256,46 +240,18 @@ export default {
 }
 
 .carousel-btn:hover {
-    color: #007bff;
+    color: var(--azul-hover);
 }
 
-
-
-/* Galería */
-.gallery-grid {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.gallery-grid img {
-    border-radius: 8px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 10px;
-    margin: 0;
-}
-
-.calendar-registration-container {
-    display: flex;
-    justify-content: space-between;
+/* Contacto */
+.contact {
+    text-align: center;
     margin-top: 50px;
-    margin-bottom: 50px;
+    padding: 20px;
 }
 
-.upcoming-events,
-.registration-form {
-    flex: 1;
-    margin: 0 10px;
-}
-
-.registration-form {
-    max-width: 400px;
-}
-
-.upcoming-events {
-    max-width: 400px;
+.contact h2 {
+    color: var(--azul-principal);
+    font-size: 1.8rem;
 }
 </style>
