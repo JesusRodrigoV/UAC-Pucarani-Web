@@ -298,4 +298,121 @@ ul {
 .upcoming-events {
     max-width: 400px;
 }
+
+
+
+
+/* Formulario de Inscripción */
+.registration-form input,
+.registration-form select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al enfocar los campos */
+.registration-form input:focus,
+.registration-form select:focus {
+    border-color: #66b2ff;
+    box-shadow: 0 0 5px rgba(102, 178, 255, 0.5);
+    outline: none;
+}
+
+/* Estilo del botón de envío */
+.registration-form .submit-button {
+    padding: 12px 20px;
+    background-color: #005a99;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el cursor sobre el botón */
+.registration-form .submit-button:hover {
+    background-color: #003f6d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/* Estilos generales para el formulario */
+.registration-form {
+    background: linear-gradient(135deg, #f0f4f8, #d9e7f1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los campos de entrada y selección */
+.registration-form input,
+.registration-form select {
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Efecto de sombra y color al enfocar los campos */
+.registration-form input:focus,
+.registration-form select:focus {
+    border-color: #66b2ff;
+    box-shadow: 0 4px 8px rgba(102, 178, 255, 0.4);
+    outline: none;
+}
+
+/* Iconos dentro de los campos de formulario */
+.registration-form input[type="text"]::before,
+.registration-form input[type="email"]::before,
+.registration-form select::before {
+    content: "✎"; /* Cambia este símbolo según el campo */
+    position: absolute;
+    left: 10px;
+    color: #aaa;
+    font-size: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Aumenta el padding para dejar espacio a los iconos */
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form select {
+    padding-left: 35px;
+}
+
+/* Botón de envío mejorado */
+.registration-form .submit-button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #005a99, #003f6d);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Efecto de flotación en el botón */
+.registration-form .submit-button:hover {
+    background: linear-gradient(135deg, #66b2ff, #003f6d);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
 </style>
