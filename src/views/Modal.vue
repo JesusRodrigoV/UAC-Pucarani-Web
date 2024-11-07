@@ -12,10 +12,35 @@
         <div class="calendar-grid">
           <div class="day-name" v-for="day in days" :key="day">{{ day }}</div>
           <div v-for="blank in blankDays" :key="'blank-' + blank" class="day-blank"></div>
-          <div v-for="day in daysInMonth" :key="day" class="day" :class="{ today: isToday(day) }">{{ day }}</div>
+          <div v-for="day in daysInMonth" :key="day" class="day" :class="{ today: isToday(day) }" 
+               @click="openDayEvents(day)">
+            {{ day }}
+
+          </div>
         </div>
       </div>
-      
+
+      <!-- Modal para añadir eventos -->
+      <div v-if="showEventModal" class="event-modal">
+        <h3>Añadir Evento para el {{ selectedDay }} {{ months[currentMonth] }} {{ currentYear }}</h3>
+        <label>Hora:</label>
+        <input type="time" v-model="eventTime" />
+        <label>Descripción:</label>
+        <input type="text" v-model="eventDescription" />
+        <button @click="addEvent">Añadir Evento</button>
+        <button @click="closeEventModal">Cancelar</button>
+      </div>
+
+      <!-- Modal para ver eventos del día -->
+      <div v-if="showDayEventsModal" class="event-modal">
+        <h3>Eventos para el {{ selectedDay }} {{ months[currentMonth] }} {{ currentYear }}</h3>
+        <ul>
+          <li v-for="(event, index) in events[selectedDay]" :key="index">
+            {{ event.time }} - {{ event.description }}
+          </li>
+        </ul>
+        <button @click="closeDayEventsModal">Cerrar</button>
+      </div>
     </div>
   </div>
 </template>
@@ -33,6 +58,12 @@ export default {
         'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
         'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
       ],
+      events: {}, // Objeto para almacenar eventos
+      showEventModal: false,
+      showDayEventsModal: false,
+      selectedDay: null,
+      eventTime: '',
+      eventDescription: '',
     };
   },
   computed: {
@@ -72,10 +103,41 @@ export default {
         today.getMonth() === this.currentMonth &&
         today.getFullYear() === this.currentYear
       );
-    }
+    },
+    openEventModal(day) {
+      this.selectedDay = day;
+      this.eventTime = '';
+      this.eventDescription = '';
+      this.showEventModal = true;
+    },
+    closeEventModal() {
+      this.showEventModal = false;
+    },
+    addEvent() {
+      if (!this.events[this.selectedDay]) {
+        this.events[this.selectedDay] = [];
+      }
+      this.events[this.selectedDay].push({
+        time: this.eventTime,
+        description: this.eventDescription,
+      });
+      this.showEventModal = false;
+    },
+    openDayEvents(day) {
+      this.selectedDay = day;
+      if (this.events[day]) {
+        this.showDayEventsModal = true;
+      } else {
+        this.openEventModal(day); // Si no hay eventos, abre el modal para añadir
+      }
+    },
+    closeDayEventsModal() {
+      this.showDayEventsModal = false;
+    },
   }
 };
 </script>
+
 
 <style scoped>
 .modal-overlay {
@@ -158,8 +220,8 @@ export default {
 
 .cerrar {
   position: absolute; 
-  top: 160px; 
-  right: 580px; 
+  top: 120px; 
+  right: 500px; 
   font-size: 35px;
   cursor: pointer;
 }
@@ -171,5 +233,42 @@ i{
 }
 i:hover {
   color: #0055a5;
+}
+
+
+
+.event-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  max-width: 300px;
+  width: 90%;
+}
+
+.event-modal h3 {
+  margin-top: 0;
+}
+
+.event-modal label {
+  display: block;
+  margin-top: 10px;
+}
+
+.event-modal input {
+  width: 100%;
+  margin-top: 5px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.event-modal button {
+  margin-top: 10px;
+  padding: 8px 16px;
 }
 </style>

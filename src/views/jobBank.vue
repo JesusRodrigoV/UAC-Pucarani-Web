@@ -41,7 +41,34 @@
           <div class="tracker tr-25"></div>
           <div id="card">
             <p id="prompt">Para enfermería</p>
-            <div class="title">Experiencia de 2 años,<br>Inglés C3</div>
+            <div class="title">
+  <div class="title-row">
+    <div><img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" /></div>
+    <div><img src="@/assets/images/labor.png" alt="Labores" class="info-icon" /></div>
+    <div><img src="@/assets/images/relojj.png" alt="Horarios y lugar" class="info-icon" /></div>
+  </div>
+  <div class="title-row">
+    <div>Requisitos</div>
+    <div>Labores</div>
+    <div>Horarios y lugar</div>
+  </div>
+  <div class="title-row">
+    <div>Título</div>
+    <div>Control medicamentos</div>
+    <div>Horarios: 8:30-13:00</div>
+  </div>
+  <div class="title-row">
+    <div>Experiencia de 2 años</div>
+    <div>Colaborar en cirugías</div>
+    <div>Lugar: Hospital Obrero</div>
+  </div>
+  <div class="title-row">
+    <div>Inglés C3</div>
+    <div>Participar en campañas</div>
+    <div></div>
+  </div>
+</div>
+
             <div class="subtitle">POSTGRADO</div>
           </div>
         </div>
@@ -78,80 +105,39 @@
           <!-- Más trackers -->
           <div id="card">
             <p id="prompt">Para fisioterapia</p>
-            <div class="title"><img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" /></div>
-            <div class="title">Requisitos</div>
-            <div class="title">Título</div>
-            <div class="title">Experiencia de 2 años</div>
-            <div class="title">Inglés C3</div>
+            <div class="title">
+  <div class="title-row">
+    <div><img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" /></div>
+    <div><img src="@/assets/images/labor.png" alt="Labores" class="info-icon" /></div>
+    <div><img src="@/assets/images/relojj.png" alt="Horarios y lugar" class="info-icon" /></div>
+  </div>
+  <div class="title-row">
+    <div>Requisitos</div>
+    <div>Labores</div>
+    <div>Horarios y lugar</div>
+  </div>
+  <div class="title-row">
+    <div>Tener título</div>
+    <div>Análisis y tratamiento</div>
+    <div>Horarios: 13:30-19:00</div>
+  </div>
+  <div class="title-row">
+    <div>Experiencia de 1 año</div>
+    <div>Evaluar lesiones</div>
+    <div>Lugar: Avenida Avaroa</div>
+  </div>
+  <div class="title-row">
+    <div>Inglés y Aymara</div>
+    <div>Tratar lesiones</div>
+    <div></div>
+  </div>
+</div>
             <div class="subtitle">POSTGRADO</div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-
-
-      <!-- Sección de Enfermería -->
-    <div class="info-cards" v-if="showEnfermeria">
-      <div class="info-card">
-        <img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" />
-        <h2>Requisitos</h2>
-        <ul>
-          <li>Título</li>
-          <li>Experiencia de 2 años</li>
-          <li>Inglés C3</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <img src="@/assets/images/labor.png" alt="Labores" class="info-icon" />
-        <h2>Labores</h2>
-        <ul>
-          <li>Administrar medicamentos, monitorear signos vitales y brindar atención directa a pacientes en diversas unidades de salud.</li>
-          <li>Colaborar con médicos durante cirugías y otros procedimientos, asegurando que se sigan los protocolos adecuados.</li>
-          <li>Participar en campañas de vacunación, promoción de la salud y prevención de enfermedades en la comunidad.</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <img src="@/assets/images/duracion.png" alt="Horarios y lugar" class="info-icon" />
-        <h2>Horarios y lugar</h2>
-        <ul>
-          <li>8:30-13:00</li>
-          <li>Hospital Obrero</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Sección de Fisioterapia -->
-
-    <div class="info-cards" v-if="showFisioterapia">
-      <div class="info-card">
-        <img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" />
-        <h2>Requisitos</h2>
-        <ul>
-          <li>Título</li>
-          <li>Experiencia de 1 año</li>
-          <li>Conocimiento básico en Inglés y Aymara</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <img src="@/assets/images/labor.png" alt="Labores" class="info-icon" />
-        <h2>Labores</h2>
-        <ul>
-          <li>Evaluar y tratar lesiones musculoesqueléticas, utilizando técnicas como ejercicios terapéuticos, masajes y electroterapia.</li>
-          <li>Diseñar programas de prevención y acondicionamiento físico para atletas y personas en riesgo de lesiones.</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <img src="@/assets/images/duracion.png" alt="Horarios y lugar" class="info-icon" />
-        <h2>Horarios y lugar</h2>
-        <ul>
-          <li>13:30-19:00</li>
-          <li>Av. Avaroa</li>
-        </ul>
-      </div>
-    </div>
-
 
   <button id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
@@ -196,6 +182,10 @@ function selectOption(option) {
 
 
 <style scoped>
+
+
+
+
 .fisio-container {
   display: flex;
   flex-direction: column;
@@ -312,16 +302,13 @@ ul li {
 
 
 
-
-/* From Uiverse.io by kennyotsu */ 
-/*works janky on mobile :<*/
-
-
 .container {
   position: relative;
-  width: 300px; /* Cambia el ancho para que coincida con .info-card */
-  height: 254px;
+  width: 850px; /* Ajusta según el tamaño deseado */
+  height: 500px;
   transition: 200ms;
+  overflow: hidden; /* Limita el contenido dentro del contenedor */
+  border-radius: 20px; /* Si tienes bordes redondeados, asegúrate de que este coincida */
 }
 
 
@@ -344,21 +331,63 @@ ul li {
 
 
 .subtitle {
-  transform: translateY(160px);
+  transform: translateY(-30px);
   color: rgb(29, 81, 141);
   text-align: center;
   width: 100%;
+  opacity: 1; /* Visible por defecto */
+  transition: opacity 300ms ease-in-out;
+  
 }
+.container:hover .subtitle {
+  opacity: 0; /* Desaparece cuando el mouse está encima del contenedor */
+}
+
+.subtitle, .title-row {
+  font-family: AgencyFB; /* Cambia al tipo de letra deseado */
+  font-size: 20px; /* Ajusta el tamaño según sea necesario */
+  font-weight: bold; /* O el peso que prefieras */
+}
+
 
 .title {
   opacity: 0;
   transition-duration: 300ms;
-  transition-timing-function: ease-in-out-out;
-  transition-delay: 100ms;
+  transition-timing-function: ease-in-out;
   position: absolute;
   font-size: x-large;
   font-weight: bold;
   color: white;
+  text-align: center;
+  padding: 10px; /* Añade espacio alrededor del texto */
+  word-wrap: break-word; /* Fuerza que el texto se ajuste al ancho del contenedor */
+  max-width: 100%; /* Limita el ancho máximo al del contenedor */
+  display: table;
+  width: 100%;
+  
+}
+
+.title-row {
+  display: table-row;
+}
+
+.title-row div {
+  display: table-cell;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+.title-row img {
+  display: table-cell;
+  vertical-align: middle;
+  margin-left: 100px; /* Ajusta el valor según la distancia deseada */
+}
+
+
+.info-icon {
+  max-width: 60px;
+  height: auto;
+  overflow: hidden; /* Limita el logo dentro del contenedor */
 }
 
 .tracker:hover ~ #card .title {
@@ -673,9 +702,24 @@ ul li {
 .container-group {
   display: flex;
   justify-content: center;
-  gap: 200px;
+  align-items: center;
+  gap: 20px; /* Ajusta el espacio entre contenedores */
+  width: 100%; /* Ancho completo */
+  max-width: 1200px; /* Ancho máximo para pantallas grandes */
+  height: auto; /* Altura automática */
+  padding: 20px; /* Espacio interior */
   margin-top: 40px;
-  flex-wrap: wrap;
+  margin-bottom: 40px;
+  flex-wrap: wrap; /* Permite que se ajuste en pantallas pequeñas */
+}
+
+@media (max-width: 768px) {
+  .container-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Reduce el espacio entre contenedores en pantallas pequeñas */
+    padding: 10px;
+  }
 }
 
 
@@ -698,5 +742,7 @@ ul li {
   opacity: 1;
   transform: translateY(0); /* Al estar visible, se coloca en su posición */
 }
+
+
 
 </style>
