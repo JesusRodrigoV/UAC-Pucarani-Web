@@ -1,165 +1,266 @@
 <template>
-  <div class="contenedor-form">
-      <form class="form-login" @submit.prevent="handleLogin">
-          <h1>Login</h1>
-          <div class="imgLogin">
-              <img src="@/assets/images/login.png" alt="">
-          </div>
-          <div>
-              <input type="text" v-model="email" class="txtLogin" placeholder="Correo electrónico" />
-          </div>
-          <div>
-              <input type="password" v-model="password" class="txtLogin" placeholder="Contraseña" />
-          </div>
-          <div>
-              <input type="checkbox" v-model="isAdmin" id="adminMode" />
-              <label for="adminMode">Modo Administrador</label>
-          </div>
-          <button type="submit" class="btnLogin">Login</button>
-      </form>
-  </div>
+    <div class="wrapper">
+        <!-- Sección de Bienvenida e Iniciar Sesión -->
+        <div class="container main">
+            <div class="row">
+                <!-- Lado de Bienvenida -->
+                <div class="side-image">
+                    <div class="text">
+                        <h4 class="text-white">Bienvenido</h4>
+                    </div>
+                </div>
+
+                <!-- Lado de Iniciar Sesión -->
+                <div class="right">
+                    <div class="input-box">
+                        <header>Inicia Sesión</header>
+                    </div>
+                    <form @submit.prevent="handleSubmit">
+                        <div class="form-control">
+                            <input type="email" v-model="email" required="">
+                            <label>
+                                <span style="transition-delay:0ms">E</span><span
+                                    style="transition-delay:40ms">m</span><span
+                                    style="transition-delay:80ms">a</span><span
+                                    style="transition-delay:120ms">i</span><span style="transition-delay:200ms">l</span>
+                                 </label>
+                        </div>
+                        <div class="form-control">
+                            <input type="password" v-model="password" required="">
+                            <label>
+                                <span style="transition-delay:0ms">C</span><span
+                                    style="transition-delay:40ms">o</span><span
+                                    style="transition-delay:80ms">n</span><span
+                                    style="transition-delay:120ms">t</span><span
+                                    style="transition-delay:160ms">r</span><span
+                                    style="transition-delay:200ms">a</span><span
+                                    style="transition-delay:240ms">s</span><span
+                                    style="transition-delay:280ms">e</span><span
+                                    style="transition-delay:320ms">ñ</span><span style="transition-delay:360ms">a</span>
+                                 </label>
+                        </div>
+                        <div class="input-field">
+                            <input type="submit" class="submit" value="Iniciar Sesión" />
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal de error -->
+        <div v-if="errorMessage" class="modal">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h5>{{ errorMessage }}</h5>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" @click="closeModal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerta -->
+        <div v-if="alertMessage" class="alert-container">
+            <div class="alert" :class="`alert-${alertType}`">
+                {{ alertMessage }}
+                <button @click="closeAlert"><i class='bx bx-x'></i></button>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
 export default {
-  data() {
-      return {
-          email: '',
-          password: '',
-          isAdmin: false
-      };
-  },
-  methods: {
-      handleLogin() {
-          if (this.isAdmin) {
-              // Redirige a la página de administración solo si el modo admin está activo
-              this.$router.push({ name: 'AdminPage' });
-          } else {
-              // Para manejar el login normal
-              alert('Login normal');
-          }
-      }
-  }
+    data() {
+        return {
+            email: "",
+            password: "",
+            errorMessage: "",
+            alertMessage: "",
+            alertType: "success",
+        };
+    },
+    methods: {
+        handleSubmit() {
+            if (this.email !== "test@example.com" || this.password !== "password") {
+                this.errorMessage = "Credenciales incorrectas. Por favor, verifica tus datos.";
+            } else {
+                this.alertMessage = "Inicio de sesión exitoso.";
+                this.alertType = "success";
+            }
+        },
+        closeModal() {
+            this.errorMessage = "";
+        },
+        closeAlert() {
+            this.alertMessage = "";
+        },
+    },
 };
 </script>
 
 <style scoped>
-* {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
+/* General */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f6fa;
+  padding: 20px;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+.container {
+  /* display: flex;
+  max-width: 900px;
+  width: 100%;*/
+  background: #ffffff; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  /* overflow: hidden; */
 }
 
-.contenedor-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+/* Lado de Bienvenida */
+.side-image {
+  flex: 1;
+  /* background: url("src/assets/images/infra/principal.jpg") center/cover no-repeat; */
+  background-color: var(--azul-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
-.form-login {
-    display: flex;
-    width: 90%;
-    max-width: 500px;
+.side-image .text h4 {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Lado de Iniciar Sesión */
+.right {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-box {
+  text-align: center;
+}
+
+.input-box header {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-control {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 190px;
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px var(--azul-principal) solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: var(--azul-principal);
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: var(--azul-principal);
+}
+
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  color: var(--azul-principal);
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+  color: var(--azul-principal);
+  transform: translateY(-30px);
+}
+
+/* Botón de envío */
+.submit {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.submit:hover {
+  background: #0056b3;
+}
+
+/* Modal de error */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #f8d7da;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .container {
     flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    border-radius: 15px;
-    background-color: #fff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    gap: 20px;
-    transform: scale(1);
-    transition: transform 0.3s ease;
+  }
+  .side-image {
+    height: 200px;
+  }
 }
-
-.form-login:hover {
-    transform: scale(1.05);
-}
-
-h1 {
-    color: #333;
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.imgLogin img {
-    width: 150px;
-    height: auto;
-    animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.txtLogin {
-    width: 100%;
-    font-size: 1rem;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-.txtLogin:focus {
-    border-color: #2575fc;
-    box-shadow: 0 0 8px rgba(37, 117, 252, 0.3);
-}
-
-.btnLogin {
-    width: 100%;
-    max-width: 250px;
-    font-size: 1rem;
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    background-color: #000000;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(37, 117, 252, 0.4);
-}
-
-.btnLogin:hover {
-    background-color: #0a2b97;
-    box-shadow: 0 6px 14px rgba(3, 5, 114, 0.5);
-}
-
-input[type="checkbox"] {
-    margin-right: 8px;
-}
-
-label {
-    color: #555;
-}
-
-@media (max-width: 750px) {
-    .form-login {
-        width: 90%;
-        padding: 20px;
-    }
-
-    .txtLogin, .btnLogin {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .txtLogin, .btnLogin {
-        font-size: 0.85rem;
-    }
-}
-
 </style>
