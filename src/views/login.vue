@@ -1,59 +1,103 @@
 <template>
-    <v-container>
-        <v-row align="center" justify="center">
-            <v-col cols="12" sm="10">
-                <v-card class="elevation-6 mt-10">
-                    <v-window v-model="step">
-                        <v-window-item :value="1">
-                            <v-row>
-                                <v-col cols="12" md="6">
-                                    <v-card-text class="mt-12">
-                                        <h4 class="text-center">Inicia Sesion</h4>
-                                        <v-row align="center" justify="center">
-                                            <v-col cols="12" sm="8">
-
-                                                <v-text-field label="Email" outlined dense color="blue"
-                                                    autocomplete="false" class="mt-16" />
-                                                <v-text-field label="Password" outlined dense color="blue"
-                                                    autocomplete="false" type="password" />
-                                                <v-btn color="blue" dark block tile>Log in</v-btn>
-
-                                            </v-col>
-                                        </v-row>
-                                    </v-card-text>
-                                </v-col>
-                                <v-col cols="12" md="6" class="blue rounded-bl-xl">
-                                    <div style="text-align: center; padding: 30px 0;">
-                                        <!-- Ajustamos el tamaño de la imagen -->
-                                        <img src="@/assets/images/infra/principal.jpg" alt="" style="max-width: 70%; height: auto; max-height: 150px; padding:0; margin:0;">
-                                    </div>
-                                </v-col>
-                            </v-row>
-                        </v-window-item>
-                    </v-window>
-                </v-card>
-            </v-col>
-        </v-row>
-    </v-container>
-</template>
-
-<script>
-export default {
-    data: () => ({
-        step: 1
-    }),
-    props: {
-        source: String
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Login</h2>
+        <input v-model="email" type="email" placeholder="Email" class="login-input" />
+        <input v-model="password" type="password" placeholder="Password" class="login-input" />
+        <button @click="handleLogin" class="login-button">Login</button>
+        <p v-if="authStore.error" class="error-message">{{ authStore.error }}</p>
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  import { ref } from 'vue';
+  import { useAuthStore } from '../stores/login/loginStore';
+  import { useRouter } from 'vue-router';
+  
+  export default {
+    setup() {
+      const authStore = useAuthStore();
+      const router = useRouter();
+      const email = ref('');
+      const password = ref('');
+  
+      const handleLogin = async () => {
+        await authStore.login(email.value, password.value);
+        if (authStore.token) {
+          console.log("Usuario autenticado con éxito");
+          router.push('/');
+        }
+      };
+  
+      return {
+        email,
+        password,
+        handleLogin,
+        authStore
+      };
     }
-}
-</script>
-
-<style scoped>
-.v-application .rounded-bl-xl {
-    border-bottom-left-radius: 300px !important;
-}
-
-.v-application .rounded-br-xl {
-    border-bottom-right-radius: 300px !important;
-}
-</style>
+  };
+  </script>
+  
+  <style scoped>
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f4f6;
+  }
+  
+  .login-box {
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #333333;
+  }
+  
+  .login-input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .login-input:focus {
+    border-color: #4a90e2;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #4a90e2;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #357ab7;
+  }
+  
+  .error-message {
+    margin-top: 10px;
+    color: #d9534f;
+    font-size: 14px;
+  }
+  </style>
