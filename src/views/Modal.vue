@@ -2,7 +2,10 @@
   <div v-if="visible" class="modal-overlay">
     <div class="modal-content">
       <div class="calendar-container">
-        <i class='bx bx-x cerrar' @click="closeModal"></i>
+        <div class="cerrar">
+          <i class='bx bx-x ' @click="closeModal"></i>
+        </div>
+
         <h1>Calendario</h1>
         <div class="calendar-header">
           <i class='bx bx-chevron-left' @click="prevMonth"></i>
@@ -12,8 +15,8 @@
         <div class="calendar-grid">
           <div class="day-name" v-for="day in days" :key="day">{{ day }}</div>
           <div v-for="blank in blankDays" :key="'blank-' + blank" class="day-blank"></div>
-          <div v-for="day in daysInMonth" :key="day" class="day" :class="{ today: isToday(day) }" 
-               @click="openDayEvents(day)">
+          <div v-for="day in daysInMonth" :key="day" class="day" :class="{ today: isToday(day) }"
+            @click="openDayEvents(day)">
             {{ day }}
 
           </div>
@@ -190,8 +193,9 @@ export default {
   text-align: center;
 }
 
-.day, .day-blank {
-  border:none;
+.day,
+.day-blank {
+  border: none;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -202,7 +206,8 @@ export default {
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s
 }
-.day:hover{
+
+.day:hover {
   /* background-color: var(--blanco-lila); */
   background-color: #A0ACAD;
 }
@@ -213,27 +218,36 @@ export default {
   color: white;
   transition: background-color 0.2s, color 0.2s
 }
+
 .today:hover {
   background-color: white;
   color: red;
 }
 
 .cerrar {
-  position: absolute; 
-  top: 120px; 
-  right: 500px; 
-  font-size: 35px;
+  display: flex;
+  width: 25%;
+  justify-content: flex-end;
+  border: 1px solid black;
+  position: absolute;
   cursor: pointer;
 }
-.cerrar:hover{
+.cerrar i{
+  align-items: flex-end;
+  font-size: 35px;
+}
+
+.cerrar:hover {
   color: red;
 }
-i{
+
+/* i {
   font-size: 40px;
 }
+
 i:hover {
   color: #0055a5;
-}
+} */
 
 
 

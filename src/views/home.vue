@@ -238,6 +238,7 @@ document.querySelectorAll('button').forEach(button => {
 /*Testimonio*/
 .testimonials-container {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 20px;
   margin-top: 40px;
@@ -319,8 +320,8 @@ document.querySelectorAll('button').forEach(button => {
 /*Virtudes*/
 .virtues-container {
   cursor: default;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  justify-content: space-around;
   gap: 20px;
   padding: 40px;
   background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
@@ -525,5 +526,15 @@ document.querySelectorAll('button').forEach(button => {
 
 .explore-button:hover {
   background-color: var(--azul-hover);
+}
+
+
+@media (max-width: 768px) {
+  .virtues-container{
+    flex-direction: column;
+  }
+  .testimonials-container{
+    flex-direction: column;
+  }
 }
 </style>
