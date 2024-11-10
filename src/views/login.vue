@@ -42,7 +42,7 @@
 
                         </div>
                         <div class="input-field">
-                            <input type="submit" class="submit" value="Iniciar Sesión" />
+                            <button @click="handleLogin" type="submit" class="submit">Iniciar Sesión</button>
                         </div>
                         <div class="enlace">
                             <RouterLink to="/" class="volver">Continuar como invitado</RouterLink>
@@ -50,6 +50,9 @@
                     </form>
                 </div>
             </div>
+            
+        </div>
+        <div class="login-box">
             <p v-if="authStore.error" class="error-message">{{ authStore.error }}</p>
         </div>
     </div>
@@ -347,7 +350,19 @@ i {
     width: 100%;
     left: 0;
 }
-
+.error-message {
+    margin-top: 10px;
+    color: #d9534f;
+    font-size: 14px;
+  }
+  .login-box {
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    text-align: center;
+  }
 @media (max-width: 768px) {
     .container {
         height: 75%;
