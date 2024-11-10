@@ -1,6 +1,7 @@
 <template>
     <div class="fondo">
         <div class="container">
+
             <div class="izquierda"> Bienvenido </div>
             <div class="derecha">
                 <h3>Iniciar Sesion</h3>
@@ -49,6 +50,7 @@
                     </form>
                 </div>
             </div>
+            <p v-if="authStore.error" class="error-message">{{ authStore.error }}</p>
         </div>
     </div>
 
@@ -56,6 +58,9 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+import { useAuthStore } from '../stores/login/loginStore';
+import { useRouter } from 'vue-router';
 export default {
     data() {
         return {
@@ -67,8 +72,31 @@ export default {
         togglePassword() {
             this.showPassword = !this.showPassword;
         }
+    },
+    setup() {
+        const authStore = useAuthStore();
+        const router = useRouter();
+        const email = ref('');
+        const password = ref('');
+
+        const handleLogin = async () => {
+            await authStore.login(email.value, password.value);
+            if (authStore.token) {
+                console.log("Usuario autenticado con éxito");
+                router.push('/');
+            }
+        };
+
+        return {
+            email,
+            password,
+            handleLogin,
+            authStore
+        };
     }
 };
+
+
 </script>
 
 <style scoped>
