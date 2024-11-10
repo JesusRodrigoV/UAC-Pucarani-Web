@@ -68,14 +68,17 @@ export default {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.7);
   color: white;
-  font-size: 2rem;
+  
   border: none;
   padding: 15px;
   cursor: pointer;
   border-radius: 50%;
+  font-size: 30px;
   transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+.carousel-control i{
+  font-size: 40px;
 }
 
 .carousel-control.prev {
@@ -87,8 +90,7 @@ export default {
 }
 
 .carousel-control:hover {
-  background-color: var(--amarillo);
-  color: var(--azul-principal);
+  color: var(--succes-verde);
 }
 
 .overlay {

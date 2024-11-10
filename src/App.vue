@@ -32,6 +32,9 @@ document.addEventListener('contextmenu', function (event) { event.preventDefault
 </template>
 
 <style scoped>
+body{
+  font-family: 'Roboto', sans-serif;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;

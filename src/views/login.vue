@@ -40,11 +40,11 @@
 
 
                         </div>
-                        <div>
-                            <RouterLink to="/"class="volver">Continuar como invitado</RouterLink>
-                        </div>
                         <div class="input-field">
                             <input type="submit" class="submit" value="Iniciar Sesión" />
+                        </div>
+                        <div class="enlace">
+                            <RouterLink to="/" class="volver">Continuar como invitado</RouterLink>
                         </div>
                     </form>
                 </div>
@@ -192,10 +192,10 @@ export default {
 /* Botón de envío */
 .submit {
     width: 80%;
-    margin-top: 30px;
+    margin-top: 15px;
     padding: 15px;
     background: var(--azul-principal);
-    color: white;
+    color: #f2f2f2;
     border: none;
     border-radius: 25px;
     cursor: pointer;
@@ -207,6 +207,7 @@ export default {
 .submit:hover {
     background: var(--amarillo);
     color: var(--azul-principal);
+
 }
 
 /* Modal de error */
@@ -273,18 +274,52 @@ i {
 .password-container input {
     flex: 1;
 }
-.volver{
+
+.enlace {
     display: flex;
     justify-content: center;
+    /* Centra horizontalmente */
     align-items: center;
+    /* Centra verticalmente */
+}
+
+.volver {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    position: relative;
+    display: inline-block;
     text-align: center;
     text-decoration: none;
     color: var(--azul-principal);
-    transition: color 0.5s ease-in-out;
+    transition: color 0.5s ease-in-out, text-decoration 0.5s ease-in-out;
+    margin: 15px;
 }
-.volver:hover{
+
+/* .volver:hover {
+    text-decoration: underline;
+    color: var(--azul-hover);
+} */
+.volver:hover {
     color: var(--azul-hover);
 }
+
+.volver::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--azul-hover);
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.volver:hover::after {
+    width: 100%;
+    left: 0;
+}
+
 @media (max-width: 768px) {
     .container {
         height: 75%;

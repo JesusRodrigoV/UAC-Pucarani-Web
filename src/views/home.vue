@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       isModalVisible: false,
-      carouselImages: [uacInicio, inicio2, i4,i5,i6],
+      carouselImages: [uacInicio, inicio2, i4, i5, i6],
       currentImageIndex: 0
     };
   },
@@ -95,26 +95,31 @@ document.querySelectorAll('button').forEach(button => {
 
 <template>
   <Header />
-<Carousel  :images="carouselImages" carouselText="UAC Pucarani"/>
+  <Carousel :images="carouselImages" carouselText="UAC Pucarani" />
 
-<section class="welcome-section">
+  <section class="welcome-section">
     <div class="welcome-banner">
       <h1>Bienvenido a la UAC Pucarani</h1>
       <p>Explora un mundo de oportunidades educativas y de desarrollo personal en nuestra comunidad.</p>
     </div>
-    
+
     <div class="welcome-content">
       <h2>Comprometidos con tu futuro</h2>
       <p>
-        La Unidad Académica Campesina de Pucarani, parte de la Universidad Católica Boliviana "San Pablo", tiene la misión de formar
-        profesionales comprometidos con el bienestar social, el desarrollo sostenible y la preservación de los valores comunitarios. Nuestro portal web
-        ha sido diseñado para facilitar el acceso a recursos académicos, información institucional y servicios estudiantiles.
+        La Unidad Académica Campesina de Pucarani, parte de la Universidad Católica Boliviana "San Pablo", tiene la
+        misión de formar
+        profesionales comprometidos con el bienestar social, el desarrollo sostenible y la preservación de los valores
+        comunitarios. Nuestro portal web
+        ha sido diseñado para facilitar el acceso a recursos académicos, información institucional y servicios
+        estudiantiles.
       </p>
 
       <h2>¡Únete a nuestra comunidad!</h2>
       <p>
-        Ser parte de la UAC Pucarani es mucho más que estudiar. Es formar lazos, contribuir al desarrollo social, y construir un futuro mejor para todos.
-        Explora nuestro portal, infórmate sobre nuestras actividades y servicios, y forma parte de nuestra misión de hacer del mundo un lugar mejor.
+        Ser parte de la UAC Pucarani es mucho más que estudiar. Es formar lazos, contribuir al desarrollo social, y
+        construir un futuro mejor para todos.
+        Explora nuestro portal, infórmate sobre nuestras actividades y servicios, y forma parte de nuestra misión de
+        hacer del mundo un lugar mejor.
       </p>
 
     </div>
@@ -138,7 +143,18 @@ document.querySelectorAll('button').forEach(button => {
     </div>
   </div>
 
-
+  <div class="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+    <div>
+      <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
+        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" aria-hidden="true"><!-- ... --></svg>
+      </span>
+    </div>
+    <h3 class="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">Writes Upside-Down</h3>
+    <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+      The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+    </p>
+  </div>
 
   <button id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
@@ -477,7 +493,7 @@ document.querySelectorAll('button').forEach(button => {
 
 .welcome-banner p {
   font-size: 1.2rem;
-  color:white;
+  color: white;
   margin-top: 10px;
 }
 
@@ -530,10 +546,11 @@ document.querySelectorAll('button').forEach(button => {
 
 
 @media (max-width: 768px) {
-  .virtues-container{
+  .virtues-container {
     flex-direction: column;
   }
-  .testimonials-container{
+
+  .testimonials-container {
     flex-direction: column;
   }
 }

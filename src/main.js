@@ -5,13 +5,15 @@ import App from './App.vue';
 import router from './router/index';
 import './style.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 
 import ay from './locales/ay.json';
 import en from './locales/en.json';
 import es from './locales/es.json';
 import { createVuetify } from 'vuetify';
-import 'vuetify/styles'; // Importa los estilos de Vuetify
-import { aliases, fa } from 'vuetify/iconsets/fa'; // Para los iconos
+import 'vuetify/styles'; 
+import { aliases, fa } from 'vuetify/iconsets/fa'; 
 
 import { createPinia } from 'pinia';
 

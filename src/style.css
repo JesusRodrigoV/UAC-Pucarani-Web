@@ -1,5 +1,6 @@
+
 * {
-  font-family: Source Sans Pro, Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 :root {
@@ -16,9 +17,18 @@
   --moradito: #9881ff;
   --mint-green: #cbf3f0;
   --ligth-sea-green: #2ec4b6;
+  --gris-claro: #f2f2f2;
+  --azul-oscuro: #013a78;
+  --amarillo-dorado: #ffc107;
+  --amarillo-oscuro: #e0a800;
+  --succes-verde: #28a745;
+  --succes-verde-hover: #218838;
+
 }
 body {
   margin: 0;
+  /* font-family: Source Sans Pro, Arial, sans-serif; */
+  font-family: 'Roboto', sans-serif;
   /* margin-top: 100px; */
 }
 .principal {
@@ -58,6 +68,7 @@ body {
   font-size: 32px;
   margin-bottom: 20px;
   color: #003366;
+  color: 
 }
 
 .contact-section p {
