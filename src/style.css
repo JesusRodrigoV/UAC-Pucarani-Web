@@ -347,3 +347,6 @@ body.dark-mode {
   background-color: #0056b3;
   color: #fff;
 }
+.no-scroll {
+  overflow: hidden;
+}

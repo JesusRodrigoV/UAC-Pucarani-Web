@@ -25,19 +25,60 @@ const store = useNewsStore();
 onMounted(async () => {
   await store.fetchNews();
 });
+
+// Disable and Enable Scroll Functions
+function disableScroll() {
+  window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+  window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+  window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+}
+
+function enableScroll() {
+  window.removeEventListener('DOMMouseScroll', preventDefault, false);
+  window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+  window.removeEventListener('touchmove', preventDefault, wheelOpt);
+  window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+}
+
+var keys = { 37: 1, 38: 1, 39: 1, 40: 1 }; // Arrow keys
+function preventDefault(e) {
+  e.preventDefault();
+}
+
+function preventDefaultForScrollKeys(e) {
+  if (keys[e.keyCode]) {
+    preventDefault(e);
+    return false;
+  }
+}
+
+var supportsPassive = false;
+try {
+  window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+    get: function () { supportsPassive = true; }
+  }));
+} catch (e) { }
+
+var wheelOpt = supportsPassive ? { passive: false } : false;
+var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
 </script>
+
 <script>
 import Modal from './Modal.vue';
-
+import NoticiasForm from '../components/AdminForms/NoticiasForm.vue';
 import uacInicio from '@/assets/images/infra/principal.jpg';
 import Carousel from '../components/Carousel.vue';
 
 export default {
   components: {
-    Modal
+    Modal,
+    NoticiasForm
   },
   data() {
     return {
+      mostrarModal: false,
       carouselImages: [uacInicio],
       isModalVisible: false
     };
@@ -45,13 +86,16 @@ export default {
   methods: {
     showModal() {
       this.isModalVisible = true;
+      disableScroll(); // Deshabilita el scroll al mostrar el modal
     },
     hideModal() {
       this.isModalVisible = false;
+      enableScroll(); // Habilita el scroll al cerrar el modal
     }
   }
 };
 </script>
+
 <template>
   <Header />
   <Carousel :images="carouselImages" carouselText="Noticias" />
@@ -87,7 +131,15 @@ export default {
 
 
   <div class="news-container fade-in-element">
-    <h2>Últimas Noticias</h2>
+    <div class="titu-agregar">
+      <h2>Últimas Noticias</h2>
+      <v-btn color="primary" @click="mostrarModal = true">
+        <v-icon left><i class="bx bx-plus"></i></v-icon>
+        Añadir Nueva Noticia
+      </v-btn>
+    </div>
+
+
     <div class="news-items">
       <div class="news-item" v-for="newss in store.news" :key="newss.id_news">
         <div class="news-image">
@@ -96,12 +148,28 @@ export default {
         <h3>{{ newss.holder_news }}</h3>
         <p>{{ newss.date_news }}</p>
         <p>{{ newss.summary_news }}</p>
+        <div class="bloque-editar">
+          <div class="iconos">
+            <div class="editar">
+              <button @click="mostrarModal = true"><i class='bx bxs-edit'></i></button>
+
+            </div>
+
+            <div class="eliminar">
+              <button @click="borrar"><i class='bx bxs-trash'></i></button>
+
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
   <button id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
   </button>
+
+  <NoticiasForm v-if="mostrarModal" :show="mostrarModal" @close="mostrarModal = false" />
   <Modal :visible="isModalVisible" @close="hideModal"></Modal>
   <Footer />
 </template>
@@ -310,7 +378,61 @@ export default {
   transform: translateY(-10px);
 }
 
-/* Responsive styling for images */
+i {
+  font-size: 30px;
+}
+
+.bloque-editar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.iconos {
+  display: inline-block;
+}
+
+.editar .eliminar {
+  margin: 15px;
+  padding: 15px;
+}
+
+.editar {
+  margin: 15px;
+  display: inline;
+  transition: color 0.3s ease-in-out;
+}
+
+.editar:hover {
+  color: var(--succes-verde);
+}
+
+.eliminar {
+  margin: 15px;
+  display: inline;
+  transition: color 0.3s ease-in-out;
+}
+
+.eliminar:hover {
+  color: red;
+}
+
+.titu-agregar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titu-agregar h2 {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.titu-agregar v-btn {
+  margin-left: auto;
+}
+
+
 @media (max-width: 768px) {
   .career-image {
     width: 300px;

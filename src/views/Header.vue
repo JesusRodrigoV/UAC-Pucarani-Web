@@ -27,7 +27,21 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
+</script>
 
+<script>
+import { useAuth } from '../composables/useAuth';
+
+export default {
+  setup() {
+    const { isAuthenticated, logout } = useAuth();
+
+    return {
+      isAuthenticated,
+      logout
+    };
+  }
+};
 </script>
 
 <template>
@@ -49,9 +63,11 @@ onUnmounted(() => {
       <RouterLink to="/contacts">{{ t('titles.contacts') }}</RouterLink>
     </nav>
 
+
     <div class="header-right">
-      <RouterLink to="/login">
-        <i :class="['bx', 'bxs-user-circle','login-icon', { 'no-shadow': headerTransparent }]"></i>
+      <i v-if="isAuthenticated" class="bx bxs-exit" @click="logout"></i>
+      <RouterLink v-else to="/login">
+        <i :class="['bx', 'bxs-user-circle', 'login-icon', { 'no-shadow': headerTransparent }]"></i>
       </RouterLink>
     </div>
     <div class="menu-icon" @click="toggleMenu">
@@ -157,8 +173,9 @@ onUnmounted(() => {
   box-shadow: none;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9), -1px -1px 3px rgba(0, 0, 0, 0.8);
 }
-.header.transparent.nav-links:hover{
-  color:var(--azul-principal);
+
+.header.transparent.nav-links:hover {
+  color: var(--azul-principal);
 }
 
 .header.hidden {
@@ -187,18 +204,21 @@ onUnmounted(() => {
   text-decoration: none;
   box-shadow: none;
 }
-.login-button{
+
+.login-button {
   height: 80px;
   margin-right: 20px;
-  
+
 }
 
 .login-button.no-shadow {
   filter: none;
 }
+
 .login-icon.no-shadow {
   filter: none;
 }
+
 .login-icon {
   cursor: pointer;
   color: var(--azul-principal);
@@ -284,6 +304,7 @@ body {
   padding: 5px;
   font-size: 16px;
 }
+
 @media screen and (max-width: 768px) {
   .nav-links {
     display: none;

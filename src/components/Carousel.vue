@@ -69,15 +69,18 @@ export default {
   top: 50%;
   transform: translateY(-50%);
   color: white;
-  
+
   border: none;
   padding: 15px;
   cursor: pointer;
   border-radius: 50%;
   font-size: 30px;
-  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+  
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.3s;
 }
-.carousel-control i{
+
+.carousel-control i {
+  transform-origin: center center;
   font-size: 40px;
 }
 
