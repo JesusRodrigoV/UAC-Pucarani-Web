@@ -21,20 +21,63 @@
     "enfermeria": "Enfermería",
     "fisioterapia": "Fisioterapia y \nkinesiologia"
   },
-  "industries": { 
-    "title": "Industrias", 
-    "johnson": "Johnson & Johnson" 
+  "industries": {
+    "title": "Industrias",
+    "johnson": "Johnson & Johnson"
   },
   "company": {
-     "title": "Compañía", 
-     "ucbito": "Ucbito" 
-    },
-    
+    "title": "Compañía",
+    "ucbito": "Ucbito"
+  },
+  "secciones": {
+    "inicio": "UAC Pucarani",
+    "carreras": "Carreras",
+    "biblioteca": "Biblioteca",
+    "contenido": "Contenido",
+    "bankjob": "Bolsa de Trabajo",
+    "pastoral": "Pastoral",
+    "contactos": "Contactos"
+  },
   "bienvenido": "Bienvenido a la UAC Pucarani",
   "explora": "Explora un mundo de oportunidades educativas y de desarrollo personal en nuestra comunidad.",
   "compromiso": "Comprometidos con tu futuro",
   "descripcion": "La Unidad Académica Campesina de Pucarani, parte de la Universidad Católica Boliviana \"San Pablo\", tiene la misión de formar profesionales comprometidos con el bienestar social, el desarrollo sostenible y la preservación de los valores comunitarios. Nuestro portal web ha sido diseñado para facilitar el acceso a recursos académicos, información institucional y servicios estudiantiles.",
   "unete": "¡Únete a nuestra comunidad!",
-  "union": "Ser parte de la UAC Pucarani es mucho más que estudiar. Es formar lazos, contribuir al desarrollo social, y construir un futuro mejor para todos. Explora nuestro portal, infórmate sobre nuestras actividades y servicios, y forma parte de nuestra misión de hacer del mundo un lugar mejor."
-
+  "union": "Ser parte de la UAC Pucarani es mucho más que estudiar. Es formar lazos, contribuir al desarrollo social, y construir un futuro mejor para todos. Explora nuestro portal, infórmate sobre nuestras actividades y servicios, y forma parte de nuestra misión de hacer del mundo un lugar mejor.",
+  "testimonials": [
+    {
+      "name": "Alejandro Auza",
+      "text": "Ser parte de la comunidad de la U.C.B. es ¡súper! Es como una gran familia. Hay apoyo, no solo entre paralelos o compañeros, sino también del personal administrativo. Siento que es como una casa, y eso es muy bonito. La relación que tengo con los docentes es muy buena. Gracias a Dios, la universidad se ha encargado de seleccionar docentes súper capacitados, que saben realmente cómo hacer que te enamores de la carrera. Estoy muy agradecida con ellos."
+    },
+    {
+      "name": "Fernanda Alexandra Flores",
+      "text": "La UCB me ha brindado oportunidades increíbles para crecer tanto académica como personalmente. Los recursos y el apoyo que recibimos son excepcionales. He podido participar en investigaciones que me han permitido destacar en el ámbito internacional. Estoy muy orgulloso de ser parte de esta universidad."
+    },
+    {
+      "name": "Carolina Viscarra Pabon",
+      "text": "Estudiar en la UCB ha sido una experiencia transformadora. Los profesores son muy dedicados y siempre están dispuestos a ayudarte a alcanzar tu máximo potencial. Además, la universidad ofrece muchas oportunidades para mostrar tu trabajo y conectarte con profesionales del campo."
+    }
+  ],
+  "virtues": [
+    {
+      "title": "Excelencia Académica",
+      "description": "Nos enfocamos en la excelencia académica..."
+    },
+    {
+      "title": "Compromiso Social",
+      "description": "Fomentamos en nuestros estudiantes un sentido de responsabilidad social..."
+    },
+    {
+      "title": "Desarrollo Integral",
+      "description": "Promovemos el crecimiento integral de nuestros estudiantes..."
+    },
+    {
+      "title": "Inclusión y Diversidad",
+      "description": "Celebramos la diversidad cultural y promovemos un entorno inclusivo..."
+    },
+    {
+      "title": "Ética y Valores",
+      "description": "Formamos líderes con una sólida base ética..."
+    }
+  ]
 }

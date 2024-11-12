@@ -5,7 +5,9 @@ import Boton from './Boton.vue';
 import Footer from './Footer.vue';
 import Header from './Header.vue';
 import Modal from './Modal.vue';
-
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+const { t } = useI18n();
 const isModalVisible = ref(false);
 
 const showModal = () => {
@@ -71,7 +73,7 @@ const careers = ref([
 </script>
 <template>
   <Header />
-  <Carousel :images="carouselImages" carouselText="Carreras" />
+  <Carousel :images="carouselImages" :carouselText="t('secciones.carreras')" />
   <section class="welcome-text">
     <h1>Bienvenidos a Nuestra Comunidad Académica</h1>
     <p>

@@ -21,12 +21,57 @@
     "enfermeria": "Enfermería",
     "fisioterapia": "Fisioterapia y kinesiologia"
   },
-  "industries": { 
-    "title": "Industrias", 
-    "johnson": "Johnson & Johnson" 
+  "industries": {
+    "title": "Industrias",
+    "johnson": "Johnson & Johnson"
   },
   "company": {
-     "title": "Compañía", 
-     "ucbito": "Ucbito" 
+    "title": "Compañía",
+    "ucbito": "Ucbito"
+  },
+  "secciones": {
+    "inicio": "UAC Pucarani",
+    "carreras": "Jach’a Yatiqañ Uta Thakhinaka",
+    "biblioteca": "Pankanaka Uta",
+    "contenido": "Yatiyawinaka",
+    "bankjob": "Irnaqañ Wayaqa",
+    "pastoral": "Pastorala t’aqa",
+    "contactos": "Uñt’ayasiñanaka"
+  },
+  "bienvenido": "UAC Pucarani taypita jumanakar yuspajaraña",
+  "explora": "Yatiqawi ukanakatpacha suma yanapt’ata, waynata yatiqirinakar yanapt’awi",
+  "compromiso": "Kimsachasiña jumanakar yanapt’añataki",
+  "descripcion": "Pucarani UAC, Universidad Católica Boliviana \"San Pablo\" uka mayachinisa, aski yatiqirinak lurir aruskipt’asiwa, qamana k’umap nayrar sartañatak yatiqirinakar uñjatastiwa, jupanakpacha ch’amacht’ataña. Kamachiyarakiwayatakiwa yatiqawi yanapt’añataki, markar utjañataki, estudiante yanapt’añataki",
+  "unete": "Jichhajj markanakar yanapt’añataki!",
+  "union": "Pucarani UAC ukankañajj juk’a chuymampi qillqatawa, yatiñataki janiw khithipun arusuñataki. Sawitapacha jupanak khithimp yatiqiwaya, markar ch’amacht’aniwayarakitasa, ukata mundo wakispaña suma jakawi",
+  "testimonials": [
+    {
+      "name": "Alejandro Auza",
+      "text": "U.C.B. comunidadapan jiwxtasax wali sumawa. Maymarakiw familiakjam utji..."
+    },
+    {
+      "name": "Fernanda Alexandra Flores",
+      "text": "UCBax nayaruw ch'iqt'ayañatak yanapt'atayna akademikampi sarnaqäwinxa..."
+    },
+    {
+      "name": "Carolina Viscarra Pabon",
+      "text": "UCB taypina yatichañax mayacht'asiñamwa..."
     }
+  ],
+  "virtues": [
+    {
+      "title": "Akademika Ch'iqt'aña",
+      "description": "Akademikax ch'iqt'ayañatakiw thakhisina..."
+    },
+    {
+      "title": "Social Ch'iqt'aña",
+      "description": "Yatichasirinakaruw ch'iqt'ayaña amtañ arka..."
+    },
+    {
+      "title": "Jach'a Ch'iqt'aña",
+      "description": "Yatichasirinakar yanapt'añatak yatiqayäwi..."
+    },
+    { "title": "Uñjatäwi", "description": "Qullqi askit jan wali uñjatäwi..." },
+    { "title": "Amuyt'aña Ch'iqt'aña", "description": "Uñjatäwinakapakiw" }
+  ]
 }

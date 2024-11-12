@@ -21,12 +21,63 @@
     "enfermeria": "Nursing",
     "fisioterapia": "Physiotherapy and\n Kinesiology"
   },
-  "industries": { 
-    "title": "Industries", 
-    "johnson": "Johnson & Johnson" 
+  "industries": {
+    "title": "Industries",
+    "johnson": "Johnson & Johnson"
   },
   "company": {
-     "title": "Company", 
-     "ucbito": "Ucbito" 
+    "title": "Company",
+    "ucbito": "Ucbito"
+  },
+  "secciones": {
+    "inicio": "UAC Pucarani",
+    "carreras": "Careers",
+    "biblioteca": "Library",
+    "contenido": "Content",
+    "bankjob": "Job Bank",
+    "pastoral": "Pastoral",
+    "contactos": "Contacts"
+  },
+  "bienvenido": "Welcome to UAC Pucarani",
+  "explora": "Explore a world of educational opportunities and personal development in our community.",
+  "compromiso": "Committed to your future",
+  "descripcion": "The Unidad Académica Campesina de Pucarani, part of the Universidad Católica Boliviana \"San Pablo\", has the mission of training professionals committed to social well-being, sustainable development, and the preservation of community values. Our website has been designed to facilitate access to academic resources, institutional information, and student services.",
+  "unete": "Join our community!",
+  "union": "Being part of UAC Pucarani is much more than studying. It is about forming bonds, contributing to social development, and building a better future for everyone. Explore our portal, learn about our activities and services, and be part of our mission to make the world a better place.",
+  "testimonials": [
+    {
+      "name": "Alejandro Auza",
+      "text": "Being part of the U.C.B. community is amazing! It feels like a big family..."
+    },
+    {
+      "name": "Fernanda Alexandra Flores",
+      "text": "UCB has provided me with incredible opportunities to grow both academically and personally..."
+    },
+    {
+      "name": "Carolina Viscarra Pabon",
+      "text": "Studying at UCB has been a transformative experience..."
     }
+  ],
+  "virtues": [
+    {
+      "title": "Academic Excellence",
+      "description": "We focus on academic excellence through innovative programs..."
+    },
+    {
+      "title": "Social Commitment",
+      "description": "We encourage our students to develop a sense of social responsibility..."
+    },
+    {
+      "title": "Holistic Development",
+      "description": "We promote the holistic growth of our students, developing both professional..."
+    },
+    {
+      "title": "Inclusion and Diversity",
+      "description": "We celebrate cultural diversity and promote an inclusive environment..."
+    },
+    {
+      "title": "Ethics and Values",
+      "description": "We cultivate leaders with a strong ethical foundation..."
+    }
+  ]
 }

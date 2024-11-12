@@ -62,7 +62,11 @@
 
   <Footer />
 </template>
-
+<script setup>
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+const { t } = useI18n();
+</script>
 <script>
 import img6 from '@/assets/images/enfe/enfe6.jpg';
 import img7 from '@/assets/images/enfe/enfe7.jpg';

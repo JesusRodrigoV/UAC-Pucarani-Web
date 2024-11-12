@@ -4,6 +4,9 @@ import Boton from './Boton.vue';
 import Footer from './Footer.vue';
 import Header from './Header.vue';
 import Modal from './Modal.vue';
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+const { t } = useI18n();
 
 const testimonials = ref([
     { text: "La pastoral me ha ayudado a fortalecer mi fe y encontrar un grupo de apoyo increíble.", author: "Juan Pérez, Estudiante" },
@@ -49,7 +52,7 @@ export default {
 
 <template>
     <Header />
-    <Carousel :images="carouselImages" carouselText="Actividades Pastorales" />
+    <Carousel :images="carouselImages" :carouselText="t('secciones.pastoral')" />
 
     <div class="principal">
         <section class="info-pastoral">

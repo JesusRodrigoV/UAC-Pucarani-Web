@@ -3,7 +3,9 @@ import Header from './Header.vue'
 import Footer from './Footer.vue'
 import { onMounted } from 'vue';
 import { useNewsStore } from '../stores/news/newsStore.js';
-
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+const { t } = useI18n();
 onMounted(() => {
   const fadeElements = document.querySelectorAll('.fade-in-element');
 
@@ -98,7 +100,7 @@ export default {
 
 <template>
   <Header />
-  <Carousel :images="carouselImages" carouselText="Noticias" />
+  <Carousel :images="carouselImages" :carouselText="t('secciones.contenido')" />
   <div class="content-container fade-in-element">
     <div class="image-info-container">
       <img src="@/assets/images/enfermeria.jpg" alt="Carrera de Enfermería" class="career-image" />

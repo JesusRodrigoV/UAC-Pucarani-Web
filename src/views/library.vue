@@ -3,6 +3,9 @@ import { onMounted, ref } from 'vue';
 import { useBookStore } from '../stores/library/bookStore';
 import Footer from './Footer.vue';
 import Header from './Header.vue';
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+const { t } = useI18n();
 
 const store = useBookStore();
 const searchTerm = ref('');  // El término de búsqueda
@@ -63,7 +66,7 @@ export default {
 
 <template>
   <Header v-if="!isModalOpen" />
-  <Carousel :images="carouselImages" carouselText="Biblioteca digital" />
+  <Carousel :images="carouselImages" :carouselText="t('secciones.biblioteca')" />
   <div class="library-container">
 
 

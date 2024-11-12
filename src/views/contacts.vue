@@ -2,6 +2,9 @@
 import Boton from './Boton.vue';
 import Footer from './Footer.vue';
 import Header from './Header.vue';
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+const { t } = useI18n();
 </script>
 <script>
 import uacInicio from '@/assets/images/inicio.jpg';
@@ -16,7 +19,7 @@ export default {
 </script>
 <template>
     <Header />
-    <Carousel :images="carouselImages" carouselText="Contactos" />
+    <Carousel :images="carouselImages" :carouselText="t('secciones.contactos')" />
     <div class="principal">
         <h1>UAC Pucarani</h1>
         <h2>Contactos</h2>

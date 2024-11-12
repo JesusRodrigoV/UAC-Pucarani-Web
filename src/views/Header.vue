@@ -48,7 +48,8 @@ export default {
   <header :class="['header', { 'transparent': headerTransparent, 'hidden': headerHidden }]">
     <div class="header-left">
       <RouterLink to="/">
-        <img src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
+        <img v-if="headerTransparent" src="../assets/images/logoHorizontalBlancoUAC.png" alt="Logo UAC" class="logo-uac" />
+        <img v-if="!headerTransparent" src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
       </RouterLink>
     </div>
 

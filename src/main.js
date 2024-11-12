@@ -1,6 +1,6 @@
 import 'boxicons/css/boxicons.min.css';
 import { createApp } from 'vue';
-import { createI18n } from 'vue-i18n';
+import i18n from './i18n';
 import App from './App.vue';
 import router from './router/index';
 import './style.css';
@@ -8,16 +8,13 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 
-import ay from './locales/ay.json';
-import en from './locales/en.json';
-import es from './locales/es.json';
+
 import { createVuetify } from 'vuetify';
 import 'vuetify/styles'; 
 import { aliases, fa } from 'vuetify/iconsets/fa'; 
 
 import { createPinia } from 'pinia';
 
-// Configuración de Vuetify
 const vuetify = createVuetify({
   icons: {
     defaultSet: 'fa',
@@ -28,12 +25,6 @@ const vuetify = createVuetify({
   },
 });
 
-const i18n = createI18n({
-  legacy: false,
-  locale: 'es',
-  fallbackLocale: 'en',
-  messages: { en, ay, es },
-});
 
 const app = createApp(App);
 const pinia = createPinia();

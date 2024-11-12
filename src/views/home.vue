@@ -1,8 +1,52 @@
 <script setup>
 import Footer from './Footer.vue';
 import Header from './Header.vue';
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+const { t } = useI18n();
+const testimonials = computed(() => [
+  {
+    name: t('testimonials[0].name'),
+    text: t('testimonials[0].text'),
+    image: studentImage1
+  },
+  {
+    name: t('testimonials[1].name'),
+    text: t('testimonials[1].text'),
+    image: studentImage2
+  },
+  {
+    name: t('testimonials[2].name'),
+    text: t('testimonials[2].text'),
+    image: studentImage3
+  }
+]);
+const virtues = computed(() => [
+  {
+    title: t('virtues[0].title'),
+    description: t('virtues[0].description')
+  },
+  {
+    title: t('virtues[1].title'),
+    description: t('virtues[1].description')
+  },
+  {
+    title: t('virtues[2].title'),
+    description: t('virtues[2].description')
+  },
+  {
+    title: t('virtues[3].title'),
+    description: t('virtues[3].description')
+  },
+  {
+    title: t('virtues[4].title'),
+    description: t('virtues[4].description')
+  }
+]);
 </script>
 <script>
+
+
 import uacInicio from '@/assets/images/infra/principal.jpg';
 import inicio2 from '@/assets/images/uac_inicio.jfif';
 import i4 from '@/assets/images/enfe/enfe5.jpg';
@@ -41,31 +85,6 @@ export default {
 
 };
 
-const testimonials = [
-  {
-    name: "Alejandro Auza",
-    text: "Ser parte de la comunidad de la U.C.B. es ¡súper! Es como una gran familia. Hay apoyo, no solo entre paralelos o compañeros, sino también del personal administrativo. Siento que es como una casa, y eso es muy bonito. La relación que tengo con los docentes es muy buena. Gracias a Dios, la universidad se ha encargado de seleccionar docentes súper capacitados, que saben realmente cómo hacer que te enamores de la carrera. Estoy muy agradecida con ellos.",
-    image: studentImage1
-  },
-  {
-    name: "Fernanda Alexandra Flores",
-    text: "La UCB me ha brindado oportunidades increíbles para crecer tanto académica como personalmente. Los recursos y el apoyo que recibimos son excepcionales. He podido participar en investigaciones que me han permitido destacar en el ámbito internacional. Estoy muy orgulloso de ser parte de esta universidad.",
-    image: studentImage2
-  },
-  {
-    name: "Carolina Viscarra Pabon",
-    text: "Estudiar en la UCB ha sido una experiencia transformadora. Los profesores son muy dedicados y siempre están dispuestos a ayudarte a alcanzar tu máximo potencial. Además, la universidad ofrece muchas oportunidades para mostrar tu trabajo y conectarte con profesionales del campo.",
-    image: studentImage3
-  }
-];
-
-const virtues = [
-  { title: "Excelencia Académica", description: "Nos enfocamos en la excelencia académica a través de programas innovadores, impulsando el pensamiento crítico y la investigación." },
-  { title: "Compromiso Social", description: "Fomentamos en nuestros estudiantes un sentido de responsabilidad social, alentándolos a contribuir activamente a sus comunidades." },
-  { title: "Desarrollo Integral", description: "Promovemos el crecimiento integral de nuestros estudiantes, desarrollando habilidades tanto profesionales como personales para enfrentar los desafíos del mañana." },
-  { title: "Inclusión y Diversidad", description: "Celebramos la diversidad cultural y promovemos un entorno inclusivo que respeta y valora a cada individuo." },
-  { title: "Ética y Valores", description: "Formamos líderes con una sólida base ética, orientados a actuar con integridad y respeto en todos los aspectos de su vida." }
-];
 
 
 
@@ -95,32 +114,20 @@ document.querySelectorAll('button').forEach(button => {
 
 <template>
   <Header />
-  <Carousel :images="carouselImages" carouselText="UAC Pucarani" />
+  <Carousel :images="carouselImages" :carouselText="t('secciones.inicio')" />
 
   <section class="welcome-section">
     <div class="welcome-banner">
-      <h1>Bienvenido a la UAC Pucarani</h1>
-      <p>Explora un mundo de oportunidades educativas y de desarrollo personal en nuestra comunidad.</p>
+      <h1>{{t('bienvenido')}}</h1>
+      <p>{{t('explora')}}</p>
     </div>
 
     <div class="welcome-content">
-      <h2>Comprometidos con tu futuro</h2>
-      <p>
-        La Unidad Académica Campesina de Pucarani, parte de la Universidad Católica Boliviana "San Pablo", tiene la
-        misión de formar
-        profesionales comprometidos con el bienestar social, el desarrollo sostenible y la preservación de los valores
-        comunitarios. Nuestro portal web
-        ha sido diseñado para facilitar el acceso a recursos académicos, información institucional y servicios
-        estudiantiles.
-      </p>
+      <h2>{{t('compromiso')}}</h2>
+      <p>{{t('descripcion')}}</p>
 
-      <h2>¡Únete a nuestra comunidad!</h2>
-      <p>
-        Ser parte de la UAC Pucarani es mucho más que estudiar. Es formar lazos, contribuir al desarrollo social, y
-        construir un futuro mejor para todos.
-        Explora nuestro portal, infórmate sobre nuestras actividades y servicios, y forma parte de nuestra misión de
-        hacer del mundo un lugar mejor.
-      </p>
+      <h2>{{t('unete')}}</h2>
+      <p>{{t('union')}}</p>
 
     </div>
   </section>
@@ -141,19 +148,6 @@ document.querySelectorAll('button').forEach(button => {
       <h3>{{ virtue.title }}</h3>
       <p>{{ virtue.description }}</p>
     </div>
-  </div>
-
-  <div class="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
-    <div>
-      <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
-        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" aria-hidden="true"><!-- ... --></svg>
-      </span>
-    </div>
-    <h3 class="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">Writes Upside-Down</h3>
-    <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-      The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
-    </p>
   </div>
 
   <button id="icon-container" class="icon-container" @click="showModal">
@@ -254,7 +248,9 @@ document.querySelectorAll('button').forEach(button => {
 /*Testimonio*/
 .testimonials-container {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+
+  align-items: strech;
   justify-content: center;
   gap: 20px;
   margin-top: 40px;
@@ -275,7 +271,7 @@ document.querySelectorAll('button').forEach(button => {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  width: 300px;
+  width: 25%;
   text-align: center;
   position: relative;
 
@@ -337,7 +333,9 @@ document.querySelectorAll('button').forEach(button => {
 .virtues-container {
   cursor: default;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: stretch;
   gap: 20px;
   padding: 40px;
   background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
@@ -362,6 +360,7 @@ document.querySelectorAll('button').forEach(button => {
 
 .virtue-card {
   background-color: #fff;
+  width: 18%;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -547,11 +546,24 @@ document.querySelectorAll('button').forEach(button => {
 
 @media (max-width: 768px) {
   .virtues-container {
+    display: flex;
+    border: 1px solid black;
     flex-direction: column;
+    justify-content:space-between;
+    text-align: center;
   }
-
+  .virtue-card{
+    width: 90%;
+    
+  }
   .testimonials-container {
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .testimonial-card{
+    
+    width: 90%;
   }
 }
 </style>

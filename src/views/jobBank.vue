@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <Carousel :images="carouselImages" carouselText="Bolsa de trabajo" />
+  <Carousel :images="carouselImages" :carouselText="t('secciones.bankjob')" />
   <div class="fisio-container">
     
 
@@ -60,6 +60,9 @@ import Boton from './Boton.vue';
 import Footer from './Footer.vue';
 import Header from './Header.vue';
 import Modal from './Modal.vue';
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+const { t } = useI18n();
 
 const isModalVisible = ref(false);
 const showEnfermeria = ref(false);

@@ -53,6 +53,12 @@
   <Footer />
 </template>
 
+<script setup>
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+const { t } = useI18n();
+</script>
+
 <script>
 import img7 from '@/assets/images/fisio/fisio10.jpg';
 import img1 from '@/assets/images/fisio/fisio3.jpg';
@@ -75,11 +81,11 @@ export default {
     return {
       carouselImages: [img1, img2, img3, img4, img5, img6, img7],
       benefits: [
-      { title: "Buena Remuneración", description: "Se puede obtener una remuneración competitiva por consultas y tratamientos." },
-{ title: "Alta Demanda", description: "La demanda de fisioterapeutas y kinesiólogos crece junto al envejecimiento de la población." },
-{ title: "Flexibilidad Laboral", description: "Existe la posibilidad de trabajar en diferentes entornos y ajustar horarios según necesidades personales." },
-{ title: "Desarrollo Profesional", description: "Hay múltiples oportunidades de especialización y actualización en técnicas." },
-{ title: "Estabilidad Laboral", description: "La fisioterapia y kinesiología son áreas esenciales en la salud y poco vulnerables a cambios en el mercado." }
+        { title: "Buena Remuneración", description: "Se puede obtener una remuneración competitiva por consultas y tratamientos." },
+        { title: "Alta Demanda", description: "La demanda de fisioterapeutas y kinesiólogos crece junto al envejecimiento de la población." },
+        { title: "Flexibilidad Laboral", description: "Existe la posibilidad de trabajar en diferentes entornos y ajustar horarios según necesidades personales." },
+        { title: "Desarrollo Profesional", description: "Hay múltiples oportunidades de especialización y actualización en técnicas." },
+        { title: "Estabilidad Laboral", description: "La fisioterapia y kinesiología son áreas esenciales en la salud y poco vulnerables a cambios en el mercado." }
 
       ]
     };
