@@ -8,24 +8,62 @@ import { computed } from 'vue';
 const { t } = useI18n();
 
 const store = useBookStore();
-const searchTerm = ref('');  // El término de búsqueda
-const filteredBooks = ref([]);  // Libros filtrados
+const searchTerm = ref('');
+const filteredBooks = ref([]);
 
 onMounted(async () => {
   await store.fetchBooks();
-  filteredBooks.value = store.material_bibliografico;  // Inicializamos la lista con todos los libros
+  filteredBooks.value = store.material_bibliografico;
 });
 
-// Función de búsqueda solo cuando se presiona el botón
+
 const performSearch = () => {
   filteredBooks.value = store.material_bibliografico.filter(book =>
     book.title_matbib.toLowerCase().includes(searchTerm.value.toLowerCase()) ||
     book.author_matbib.toLowerCase().includes(searchTerm.value.toLowerCase())
   );
 };
+function disableScroll() {
+  window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+  window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+  window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+}
+
+function enableScroll() {
+  window.removeEventListener('DOMMouseScroll', preventDefault, false);
+  window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+  window.removeEventListener('touchmove', preventDefault, wheelOpt);
+  window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+}
+
+var keys = { 37: 1, 38: 1, 39: 1, 40: 1 }; // Arrow keys
+function preventDefault(e) {
+  e.preventDefault();
+}
+
+function preventDefaultForScrollKeys(e) {
+  if (keys[e.keyCode]) {
+    preventDefault(e);
+    return false;
+  }
+}
+
+var supportsPassive = false;
+try {
+  window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+    get: function () { supportsPassive = true; }
+  }));
+} catch (e) { }
+
+var wheelOpt = supportsPassive ? { passive: false } : false;
+var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
 </script>
 
 <script>
+import LibrosForm from '../components/AdminForms/LibrosForm.vue';
+
 import img1 from '@/assets/images/biblio.jpg';
 import Carousel from '../components/Carousel.vue';
 import Modal_library from '../components/Modal_library.vue';
@@ -33,7 +71,8 @@ import Modal from './Modal.vue';
 export default {
   components: {
     Modal,
-    Modal_library
+    Modal_library,
+    LibrosForm
   },
   data() {
     return {
@@ -41,6 +80,8 @@ export default {
       isModalOpen: false,
       selectedBook: null,
       carouselImages: [img1],
+      mostrarModal: false,
+      isModalVisible: false
     };
   },
   methods: {
@@ -51,15 +92,23 @@ export default {
       this.isModalVisible = false;
     },
     openModal(book) {
-      this.selectedBook = book; // Asigna el libro seleccionado
+      this.selectedBook = book;
       this.isModalOpen = true;
       document.body.classList.add('no-scroll');
     },
     closeModal() {
       this.isModalOpen = false;
-      this.selectedBook = null; // Limpia el libro seleccionado al cerrar el modal
+      this.selectedBook = null;
       document.body.classList.remove('no-scroll');
     },
+    showModal() {
+      this.isModalVisible = true;
+      disableScroll();
+    },
+    hideModal() {
+      this.isModalVisible = false;
+      enableScroll();
+    }
   }
 };
 </script>
@@ -76,6 +125,10 @@ export default {
       <div class="search-input-container">
         <input type="text" v-model="searchTerm" placeholder="Coloca el nombre de un libro" class="search-input" />
         <button class="search-button" @click="performSearch">Buscar</button>
+        <v-btn color="primary" @click="mostrarModal = true">
+          <v-icon left><i class="bx bx-plus"></i></v-icon>
+          Añadir Nuevo Libro
+        </v-btn>
       </div>
     </div>
 
@@ -89,11 +142,15 @@ export default {
             <p class="item-text">{{ book.author_matbib }}</p>
             <p class="item-text">{{ book.description_matbib }}</p>
           </div>
-          <div class="container-buttons">
-            <button class="button-item-library">
-              <i class='bx bxs-bookmark-plus' id="button-icon"></i>
-            </button>
-          </div>
+        </div>
+        <div class="container-buttons">
+
+          <button class="button-icon-editar" @click="mostrarModal = true">
+            <i class='bx bxs-edit'></i>
+          </button>
+          <button class="button-icon-eliminar">
+            <i class='bx bxs-trash'></i>
+          </button>
         </div>
       </div>
     </div>
@@ -102,6 +159,7 @@ export default {
   <button v-if="!isModalOpen" id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
   </button>
+  <LibrosForm v-if="mostrarModal" :show="mostrarModal" @close="mostrarModal = false" />
   <Modal :visible="isModalVisible" @close="hideModal"></Modal>
   <Modal_library v-if="isModalOpen" :book="selectedBook" @close="closeModal" />
 
@@ -265,6 +323,40 @@ export default {
   transition: transform .3s cubic-bezier(.23, 1, .32, 1), opacity .2s;
   transform: translate(-4px);
   margin-right: 4px;
+}
+
+.button-item-library {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+}
+
+.button-icon-editar {
+  font-size: 30px;
+  color: var(--azul-principal);
+  transition: color 0.3s ease-in-out;
+}
+
+.button-icon-eliminar {
+  font-size: 30px;
+  color: var(--azul-principal);
+  transition: color 0.3s ease-in-out;
+}
+
+.button-icon-eliminar:hover {
+  color: red;
+}
+
+.button-icon-editar:hover {
+  color: var(--succes-verde)
+}
+
+.button-item-library {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
 }
 
 .button-item-library {

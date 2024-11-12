@@ -1,116 +1,193 @@
 <template>
-    <v-card class="pa-5">
-        <v-form ref="form" v-model="isFormValid" @submit.prevent="createBook">
-            <v-text-field v-model="title" label="Título" :rules="[v => !!v || 'Título requerido']" required></v-text-field>
-            <v-text-field v-model="author" label="Autor" :rules="[v => !!v || 'Autor requerido']" required></v-text-field>
-            <v-text-field v-model="isbn" label="ISBN" :rules="[v => !!v || 'ISBN requerido']" required></v-text-field>
-            <v-text-field v-model="language" label="Idioma" required></v-text-field>
-            <v-textarea v-model="description" label="Descripción" required></v-textarea>
-            <v-textarea v-model="summary" label="Resumen" required></v-textarea>
-            <v-textarea v-model="collaborators" label="Colaboradores" required></v-textarea>
-            <v-file-input v-model="file" label="Subir PDF" accept=".pdf" :rules="[v => !!v || 'Archivo requerido']" required></v-file-input>
+    <div v-if="show" class="modal-overlay" @click.self="closeModal">
+        <div class="modal-content">
+            <v-card class="pa-5">
+                <div class="cerrar">
+                    <button @click="closeModal"><i class='bx bx-x'></i></button>
+                </div>
 
-            <v-btn type="submit" color="primary" :disabled="!isFormValid">Subir Libro</v-btn>
-        </v-form>
-    </v-card>
+                <v-form ref="form" v-model="isFormValid" @submit.prevent="createBook">
+                    <h2>Agregar Nuevo Libro</h2>
+                    <div class="container-id">
+                        <div class="iz-der">
+                            <div class="izquierda">
+                                <v-text-field v-model="title" label="Título" :rules="[v => !!v || 'Título requerido']"
+                                    required></v-text-field>
+
+                                <v-text-field v-model="author" label="Autor" :rules="[v => !!v || 'Autor requerido']"
+                                    required></v-text-field>
+
+                                <v-text-field v-model="isbn" label="ISBN" :rules="[v => !!v || 'ISBN requerido']"
+                                    required></v-text-field>
+
+                                <v-text-field v-model="language" label="Idioma" required></v-text-field>
+                                <v-textarea v-model="description" label="Descripción" required></v-textarea>
+                            </div>
+                            <div class="derecha">
+                                
+
+                                <v-textarea v-model="summary" label="Resumen" required></v-textarea>
+
+                                <v-textarea v-model="collaborators" label="Colaboradores" required></v-textarea>
+
+                                <v-file-input v-model="file" label="Subir PDF" accept=".pdf"
+                                    :rules="[v => !!v || 'Archivo requerido']" required></v-file-input>
+                            </div>
+                        </div>
+                        <div class="centered">
+                            <v-btn type="submit" color="primary" :disabled="!isFormValid">
+                                Subir Libro
+                            </v-btn>
+                        </div>
+                    </div>
+
+
+                </v-form>
+            </v-card>
+        </div>
+    </div>
 </template>
 
 <script>
-import axios from 'axios';
+// Disable and Enable Scroll Functions
+function disableScroll() {
+    window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+    window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+    window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+    window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+}
+
+function enableScroll() {
+    window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+    window.removeEventListener('touchmove', preventDefault, wheelOpt);
+    window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+}
+
+var keys = { 37: 1, 38: 1, 39: 1, 40: 1 }; // Arrow keys
+function preventDefault(e) {
+    e.preventDefault();
+}
+
+function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+    }
+}
+
+var supportsPassive = false;
+try {
+    window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+        get: function () { supportsPassive = true; }
+    }));
+} catch (e) { }
+
+var wheelOpt = supportsPassive ? { passive: false } : false;
+var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
 
 export default {
+    props: ['show'],
     data() {
         return {
-            isFormValid: false, // Control de validez del formulario
-            type: '',
             title: '',
             author: '',
             isbn: '',
             language: '',
             description: '',
             summary: '',
-            content: '',
             collaborators: '',
-            file: null, // Archivo de libro
+            file: null,
+            isFormValid: false,
         };
     },
     methods: {
-        // Método para manejar el formulario de creación de libro
-        async createBook() {
-            const formData = new FormData();
-
-            // Agrega los datos del libro
-            formData.append('type', this.type);
-            formData.append('title', this.title);
-            formData.append('author', this.author);
-            formData.append('isbn', this.isbn);
-            formData.append('language', this.language);
-            formData.append('description', this.description);
-            formData.append('summary', this.summary);
-            formData.append('content', this.content);
-            formData.append('collaborators', this.collaborators);
-
-            // Si hay un archivo, agrégalo al FormData
-            if (this.file) {
-                formData.append('file', this.file);
-            }
-
-            try {
-                // Realiza la solicitud POST al servidor
-                const response = await axios.post('http://localhost:3000/material_bibliografico/', formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',  // Necesario para enviar archivos
-                    },
-                });
-
-                // Maneja la respuesta
-                console.log('Libro creado:', response.data.message);
-            } catch (error) {
-                console.error('Error al crear el libro:', error);
-            }
+        closeModal() {
+            this.$emit('close');
         },
+        createBook() {
+            // Lógica para agregar el libro
+            console.log("Libro agregado:", {
+                title: this.title,
+                author: this.author,
+                isbn: this.isbn,
+                language: this.language,
+                description: this.description,
+                summary: this.summary,
+                collaborators: this.collaborators,
+                file: this.file
+            });
+            this.closeModal();
+        }
+    },
+    mounted() {
+        disableScroll();
+        document.body.classList.add('no-scroll');
+    },
+    beforeUnmount() {
+        enableScroll();
+        document.body.classList.remove('no-scroll');
     }
 };
 </script>
 
 <style scoped>
-.v-card {
-    max-width: 600px;
-    margin: auto;
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
 }
 
-
-.book-form {
-    max-width: 600px;
-    margin: auto;
-}
-
-.book-form label {
-    display: block;
-    margin-top: 10px;
-}
-
-.book-form input,
-.book-form textarea {
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 50%;
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 20000;
 }
 
-.book-form button {
-    margin-top: 20px;
+.cerrar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 30px;
+    transition: color 0.3s ease-in-out;
+}
+
+.cerrar:hover {
+    color: red;
+}
+
+.container-id {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iz-der {
+    display: flex;
+    width: 100%;
+}
+
+.izquierda,
+.derecha {
+    flex: 1;
     padding: 10px;
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    text-align: center;
 }
 
-.book-form button:hover {
-    background-color: #45a049;
+.centered {
+    margin-top: 5px;
+    padding: 5px;
+    text-align: center;
 }
 </style>
