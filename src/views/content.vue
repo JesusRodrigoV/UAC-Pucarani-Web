@@ -6,6 +6,7 @@ import { useNewsStore } from '../stores/news/newsStore.js';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 const { t } = useI18n();
+
 onMounted(() => {
   const fadeElements = document.querySelectorAll('.fade-in-element');
 
@@ -24,6 +25,7 @@ onMounted(() => {
 });
 
 const store = useNewsStore();
+
 onMounted(async () => {
   await store.fetchNews();
 });
@@ -86,10 +88,12 @@ export default {
     };
   },
   methods: {
-    showModal() {
+    showModal(news) {
       this.isModalVisible = true;
-      disableScroll(); // Deshabilita el scroll al mostrar el modal
+      this.selectedNews = news; // Aquí se pasa la noticia para editar
+      disableScroll(); // Deshabilita el scroll cuando el modal se muestre
     },
+
     hideModal() {
       this.isModalVisible = false;
       enableScroll(); // Habilita el scroll al cerrar el modal
@@ -153,12 +157,12 @@ export default {
         <div class="bloque-editar">
           <div class="iconos">
             <div class="editar">
-              <button @click="mostrarModal = true"><i class='bx bxs-edit'></i></button>
-
+              <button @click=""><i class='bx bxs-edit'></i></button>
             </div>
 
+
             <div class="eliminar">
-              <button @click="borrar"><i class='bx bxs-trash'></i></button>
+              <button @click="store.deleteNews(newss.id_news)"><i class='bx bxs-trash'></i></button>
 
             </div>
           </div>

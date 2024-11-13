@@ -1,21 +1,32 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { useBookStore } from '../stores/library/bookStore';
+import { useBookStore } from '../stores/library/bookStore'; 
 import Footer from './Footer.vue';
 import Header from './Header.vue';
 import { useI18n } from 'vue-i18n';
-import { computed } from 'vue';
-const { t } = useI18n();
+import LibrosForm from '../components/AdminForms/LibrosForm.vue';
+import img1 from '@/assets/images/biblio.jpg';
+import Carousel from '../components/Carousel.vue';
+import Modal_library from '../components/Modal_library.vue';
+import Modal from './Modal.vue';
+import EditBookModal from '../components/AdminForms/EditBookModal.vue';
 
+const { t } = useI18n();
 const store = useBookStore();
+
 const searchTerm = ref('');
 const filteredBooks = ref([]);
+const isModalVisible = ref(false);
+const isModalOpen = ref(false);
+const selectedBook = ref(null);
+const carouselImages = [img1];
+const mostrarModal = ref(false);
+const mostrarEditModal = ref(false);
 
 onMounted(async () => {
   await store.fetchBooks();
   filteredBooks.value = store.material_bibliografico;
 });
-
 
 const performSearch = () => {
   filteredBooks.value = store.material_bibliografico.filter(book =>
@@ -23,93 +34,47 @@ const performSearch = () => {
     book.author_matbib.toLowerCase().includes(searchTerm.value.toLowerCase())
   );
 };
-function disableScroll() {
-  window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
-  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
-  window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
-  window.addEventListener('keydown', preventDefaultForScrollKeys, false);
-}
 
-function enableScroll() {
-  window.removeEventListener('DOMMouseScroll', preventDefault, false);
-  window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
-  window.removeEventListener('touchmove', preventDefault, wheelOpt);
-  window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
-}
-
-var keys = { 37: 1, 38: 1, 39: 1, 40: 1 }; // Arrow keys
-function preventDefault(e) {
-  e.preventDefault();
-}
-
-function preventDefaultForScrollKeys(e) {
-  if (keys[e.keyCode]) {
-    preventDefault(e);
-    return false;
+const addBook = async (book) => {
+  try {
+    await store.addBook(book); 
+    filteredBooks.value.push(book); 
+    hideModal(); 
+  } catch (error) {
+    console.error("Error al agregar el libro:", error);
   }
-}
+};
 
-var supportsPassive = false;
-try {
-  window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
-    get: function () { supportsPassive = true; }
-  }));
-} catch (e) { }
-
-var wheelOpt = supportsPassive ? { passive: false } : false;
-var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
-
-</script>
-
-<script>
-import LibrosForm from '../components/AdminForms/LibrosForm.vue';
-
-import img1 from '@/assets/images/biblio.jpg';
-import Carousel from '../components/Carousel.vue';
-import Modal_library from '../components/Modal_library.vue';
-import Modal from './Modal.vue';
-export default {
-  components: {
-    Modal,
-    Modal_library,
-    LibrosForm
-  },
-  data() {
-    return {
-      isModalVisible: false,
-      isModalOpen: false,
-      selectedBook: null,
-      carouselImages: [img1],
-      mostrarModal: false,
-      isModalVisible: false
-    };
-  },
-  methods: {
-    showModal() {
-      this.isModalVisible = true;
-    },
-    hideModal() {
-      this.isModalVisible = false;
-    },
-    openModal(book) {
-      this.selectedBook = book;
-      this.isModalOpen = true;
-      document.body.classList.add('no-scroll');
-    },
-    closeModal() {
-      this.isModalOpen = false;
-      this.selectedBook = null;
-      document.body.classList.remove('no-scroll');
-    },
-    showModal() {
-      this.isModalVisible = true;
-      disableScroll();
-    },
-    hideModal() {
-      this.isModalVisible = false;
-      enableScroll();
-    }
+const deleteBook = async (id) => {
+  try {
+    await store.deleteBook(id); // Elimina el libro en el servidor
+    filteredBooks.value = filteredBooks.value.filter(book => book.id_matbib !== id); // Elimina el libro localmente
+  } catch (error) {
+    console.error("Error eliminando el libro:", error);
   }
+};
+
+// Funciones de modales
+const openModal = (book) => {
+  selectedBook.value = book;
+  isModalOpen.value = true;
+  document.body.classList.add('no-scroll');
+};
+
+const closeModal = () => {
+  isModalOpen.value = false;
+  selectedBook.value = null;
+  document.body.classList.remove('no-scroll');
+};
+
+const showModal = () => {
+  isModalVisible.value = true;
+  disableScroll();
+};
+
+const hideModal = () => {
+  isModalVisible.value = false;
+  enableScroll();
 };
 </script>
 
@@ -117,7 +82,6 @@ export default {
   <Header v-if="!isModalOpen" />
   <Carousel :images="carouselImages" :carouselText="t('secciones.biblioteca')" />
   <div class="library-container">
-
 
     <!-- Sección de búsqueda -->
     <div class="search-section">
@@ -145,10 +109,10 @@ export default {
           </div>
         </div>
         <div class="container-buttons">
-          <button class="button-icon-editar" @click="mostrarModal = true">
+          <button class="button-icon-editar" @click="mostrarEditModal = true">
             <i class='bx bxs-edit'></i>
           </button>
-          <button class="button-icon-eliminar">
+          <button class="button-icon-eliminar" @click="deleteBook(book.id_matbib)"> <!-- Botón para eliminar -->
             <i class='bx bxs-trash'></i>
           </button>
         </div>
@@ -160,12 +124,11 @@ export default {
     <i class='bx bxs-calendar'></i>
   </button>
   <LibrosForm v-if="mostrarModal" :show="mostrarModal" @close="mostrarModal = false" />
+  <EditBookModal v-if="mostrarEditModal" :book="selectedBook" :show="mostrarEditModal" @close="mostrarEditModal = false" />
   <Modal :visible="isModalVisible" @close="hideModal"></Modal>
   <Modal_library v-if="isModalOpen" :book="selectedBook" @close="closeModal" />
-
   <Footer />
 </template>
-
 
 <style scoped>
 .no-scroll {

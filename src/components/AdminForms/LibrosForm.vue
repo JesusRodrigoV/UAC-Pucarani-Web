@@ -1,133 +1,73 @@
 <template>
-    <div v-if="show" class="modal-overlay" @click.self="closeModal">
+    <div v-if="show" class="modal-overlay">
         <div class="modal-content">
-            <v-card class="pa-5">
-                <div class="cerrar">
-                    <button @click="closeModal"><i class='bx bx-x'></i></button>
+            <form @submit.prevent="handleSubmit">
+                <div>
+                    <label for="type">Tipo de Material</label>
+                    <input v-model="newBook.type_matbib" id="type" required />
                 </div>
-
-                <v-form ref="form" v-model="isFormValid" @submit.prevent="createBook">
-                    <h2>Agregar Nuevo Libro</h2>
-                    <div class="container-id">
-                        <div class="iz-der">
-                            <div class="izquierda">
-                                <v-text-field v-model="title" label="Título" :rules="[v => !!v || 'Título requerido']"
-                                    required></v-text-field>
-
-                                <v-text-field v-model="author" label="Autor" :rules="[v => !!v || 'Autor requerido']"
-                                    required></v-text-field>
-
-                                <v-text-field v-model="isbn" label="ISBN" :rules="[v => !!v || 'ISBN requerido']"
-                                    required></v-text-field>
-
-                                <v-text-field v-model="language" label="Idioma" required></v-text-field>
-                                <v-textarea v-model="description" label="Descripción" required></v-textarea>
-                            </div>
-                            <div class="derecha">
-                                
-
-                                <v-textarea v-model="summary" label="Resumen" required></v-textarea>
-
-                                <v-textarea v-model="collaborators" label="Colaboradores" required></v-textarea>
-
-                                <v-file-input v-model="file" label="Subir PDF" accept=".pdf"
-                                    :rules="[v => !!v || 'Archivo requerido']" required></v-file-input>
-                            </div>
-                        </div>
-                        <div class="centered">
-                            <v-btn type="submit" color="primary" :disabled="!isFormValid">
-                                Subir Libro
-                            </v-btn>
-                        </div>
-                    </div>
-
-
-                </v-form>
-            </v-card>
+                <div>
+                    <label for="title">Título</label>
+                    <input v-model="newBook.title_matbib" id="title" required />
+                </div>
+                <div>
+                    <label for="author">Autor</label>
+                    <input v-model="newBook.author_matbib" id="author" required />
+                </div>
+                <div>
+                    <label for="isbn">ISBN</label>
+                    <input v-model="newBook.isbn_matbib" id="isbn" required />
+                </div>
+                <div>
+                    <label for="description">Descripción</label>
+                    <textarea v-model="newBook.description_matbib" id="description"></textarea>
+                </div>
+                <button type="submit">Guardar</button>
+                <button type="button" @click="$emit('close')">Cancelar</button>
+            </form>
         </div>
     </div>
 </template>
 
 <script>
-// Disable and Enable Scroll Functions
-function disableScroll() {
-    window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
-    window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
-    window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
-    window.addEventListener('keydown', preventDefaultForScrollKeys, false);
-}
-
-function enableScroll() {
-    window.removeEventListener('DOMMouseScroll', preventDefault, false);
-    window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
-    window.removeEventListener('touchmove', preventDefault, wheelOpt);
-    window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
-}
-
-var keys = { 37: 1, 38: 1, 39: 1, 40: 1 }; // Arrow keys
-function preventDefault(e) {
-    e.preventDefault();
-}
-
-function preventDefaultForScrollKeys(e) {
-    if (keys[e.keyCode]) {
-        preventDefault(e);
-        return false;
-    }
-}
-
-var supportsPassive = false;
-try {
-    window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
-        get: function () { supportsPassive = true; }
-    }));
-} catch (e) { }
-
-var wheelOpt = supportsPassive ? { passive: false } : false;
-var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+import { ref } from 'vue';
+import { useBookStore } from '@/stores/library/bookStore';
 
 export default {
-    props: ['show'],
-    data() {
+    props: {
+        show: Boolean,
+    },
+    setup() {
+        const store = useBookStore();
+        const newBook = ref({
+            type_matbib: '',
+            title_matbib: '',
+            author_matbib: '',
+            isbn_matbib: '',
+            description_matbib: '',
+        });
+
+        const handleSubmit = async () => {
+            try {
+                store.newBook = { ...newBook.value };
+                await store.addBook();
+                newBook.value = {
+                    type_matbib: '',
+                    title_matbib: '',
+                    author_matbib: '',
+                    isbn_matbib: '',
+                    description_matbib: '',
+                };
+            } catch (error) {
+                console.error('Error al guardar el libro:', error);
+            }
+        };
+
         return {
-            title: '',
-            author: '',
-            isbn: '',
-            language: '',
-            description: '',
-            summary: '',
-            collaborators: '',
-            file: null,
-            isFormValid: false,
+            newBook,
+            handleSubmit,
         };
     },
-    methods: {
-        closeModal() {
-            this.$emit('close');
-        },
-        createBook() {
-            // Lógica para agregar el libro
-            console.log("Libro agregado:", {
-                title: this.title,
-                author: this.author,
-                isbn: this.isbn,
-                language: this.language,
-                description: this.description,
-                summary: this.summary,
-                collaborators: this.collaborators,
-                file: this.file
-            });
-            this.closeModal();
-        }
-    },
-    mounted() {
-        disableScroll();
-        document.body.classList.add('no-scroll');
-    },
-    beforeUnmount() {
-        enableScroll();
-        document.body.classList.remove('no-scroll');
-    }
 };
 </script>
 
@@ -136,58 +76,61 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semi-transparente */
     display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 10000;
+    align-items: center;
+    z-index: 1000;
+    /* Asegura que esté por encima de otros elementos */
 }
 
 .modal-content {
-    background: white;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
-    max-width: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
     width: 100%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 20000;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
-.cerrar {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    font-size: 30px;
-    transition: color 0.3s ease-in-out;
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
 }
 
-.cerrar:hover {
-    color: red;
+button[type="submit"] {
+    background-color: #1a4aa2;
+    color: white;
 }
 
-.container-id {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.iz-der {
-    display: flex;
-    width: 100%;
-}
-
-.izquierda,
-.derecha {
-    flex: 1;
-    padding: 10px;
-    text-align: center;
-}
-
-.centered {
-    margin-top: 5px;
-    padding: 5px;
-    text-align: center;
+button[type="button"] {
+    background-color: #ccc;
+    color: black;
 }
 </style>

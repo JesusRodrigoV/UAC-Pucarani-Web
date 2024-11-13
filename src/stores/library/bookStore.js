@@ -27,17 +27,17 @@ export const useBookStore = defineStore
                 console.error('Error fetching books:', error);
             }
         },
-        async addBook() {
+        async addNews(news) {
             try {
-                console.log('Adding book:', this.newBook);
-                const response = await apiClient.post('/', this.newBook);
-                console.log('Book add successfully:', response.data);
-                this.reserForm();
-                await this.fetchBooks();
+              console.log('Adding news:', news);
+              const response = await apiClient.post('/', news); // Pasamos el objeto news con los datos del formulario
+              console.log('News added successfully:', response.data);
+              this.resetForm();
+              await this.fetchNews(); // Recargar las noticias después de agregar una
             } catch (error) {
-                console.error('Error adding book:', error.response);
+              console.error('Error adding news:', error.response);
             }
-        },
+        },          
         async deleteBook(id) {
             try {
                 console.log('Deleting book with ID:', id);
@@ -48,15 +48,18 @@ export const useBookStore = defineStore
                 console.error('Error deleting book:', error);
             }
         },
-        async updateExistingBook() {
+        async updateBook(updatedBook) {
             try {
-                console.log('Update book:', this.newBook);
-                await apiClient.put('/' + this.editingBook, this.newBook);
-                console.log('Book updated successfully.');
-                this.reserForm();
-                await this.fetchBooks();
+              // Enviar la actualización al servidor
+              await axios.put(`/api/books/${updatedBook.id_matbib}`, updatedBook);
+              
+              // Actualizar localmente la lista de libros para que refleje el cambio
+              const index = this.material_bibliografico.findIndex(book => book.id_matbib === updatedBook.id_matbib);
+              if (index !== -1) {
+                this.material_bibliografico[index] = updatedBook;  // Actualiza el libro en el estado
+              }
             } catch (error) {
-                console.error('Error updating book:', error);
+              console.error("Error al actualizar el libro:", error);
             }
         },
         reserForm() {
