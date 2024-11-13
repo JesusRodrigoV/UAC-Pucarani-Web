@@ -12,7 +12,7 @@ import vuetify from 'vite-plugin-vuetify'; // Asegúrate de importar este plugin
 export default defineConfig({
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': '/src', // Esto te permite usar `@` como referencia a la carpeta src
     },
   },
 
