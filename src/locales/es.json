@@ -38,6 +38,23 @@
     "pastoral": "Pastoral",
     "contactos": "Contactos"
   },
+
+  "lasSecciones": {
+    "carreras": "Carreras",
+    "bienvenida": "Bienvenidos a Nuestra Comunidad Académica",
+    "descripcion_bienvenida": "La Unidad Académica Campesina de Pucarani te invita a ser parte de una experiencia educativa única. Descubre programas diseñados para impulsar tu formación profesional, con un compromiso profundo hacia el bienestar de nuestra sociedad. Nos enorgullece formar futuros profesionales que no solo destacan por su conocimiento, sino también por su vocación de servicio."
+  },
+  "carreras": {
+    "fisioterapia": {
+      "nombre": "Fisioterapia y kinesiología",
+      "descripcion": "La carrera de Fisioterapia y Kinesiología se centra en la prevención, diagnóstico y tratamiento de lesiones físicas y trastornos del movimiento. Los estudiantes se capacitan en técnicas de rehabilitación para mejorar la calidad de vida de los pacientes y optimizar su recuperación física."
+    },
+    "enfermeria": {
+      "nombre": "Enfermería",
+      "descripcion": "Esta carrera prepara a los estudiantes para el cuidado integral de pacientes en diferentes entornos de salud. Los egresados adquieren habilidades en técnicas de atención médica, promoción de la salud, y cuidado preventivo, además de una formación en ética y responsabilidad social."
+    }
+  },
+
   "bienvenido": "Bienvenido a la UAC Pucarani",
   "explora": "Explora un mundo de oportunidades educativas y de desarrollo personal en nuestra comunidad.",
   "compromiso": "Comprometidos con tu futuro",
@@ -61,23 +78,23 @@
   "virtues": [
     {
       "title": "Excelencia Académica",
-      "description": "Nos enfocamos en la excelencia académica..."
+      "description": "Nos enfocamos en la excelencia académica a través de programas innovadores, impulsando el pensamiento crítico y la investigación."
     },
     {
       "title": "Compromiso Social",
-      "description": "Fomentamos en nuestros estudiantes un sentido de responsabilidad social..."
+      "description": "Fomentamos en nuestros estudiantes un sentido de responsabilidad social, alentándolos a contribuir activamente a sus comunidades."
     },
     {
       "title": "Desarrollo Integral",
-      "description": "Promovemos el crecimiento integral de nuestros estudiantes..."
+      "description": "Promovemos el crecimiento integral de nuestros estudiantes, desarrollando habilidades tanto profesionales como personales para enfrentar los desafíos del mañana."
     },
     {
       "title": "Inclusión y Diversidad",
-      "description": "Celebramos la diversidad cultural y promovemos un entorno inclusivo..."
+      "description": "Celebramos la diversidad cultural y promovemos un entorno inclusivo que respeta y valora a cada individuo."
     },
     {
       "title": "Ética y Valores",
-      "description": "Formamos líderes con una sólida base ética..."
+      "description": "Formamos líderes con una sólida base ética, orientados a actuar con integridad y respeto en todos los aspectos de su vida."
     }
   ]
 }

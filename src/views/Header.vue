@@ -48,20 +48,22 @@ export default {
   <header :class="['header', { 'transparent': headerTransparent, 'hidden': headerHidden }]">
     <div class="header-left">
       <RouterLink to="/">
-        <img v-if="headerTransparent" src="../assets/images/logoHorizontalBlancoUAC.png" alt="Logo UAC" class="logo-uac" />
-        <img v-if="!headerTransparent" src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC" class="logo-uac" />
+        <img v-if="headerTransparent" src="../assets/images/logoHorizontalBlancoUAC.png" alt="Logo UAC"
+          class="logo-uac-trans" />
+        <img v-if="!headerTransparent" src="../assets/images/logoHorizontalAzulUAC.png" alt="Logo UAC"
+          class="logo-uac" />
       </RouterLink>
     </div>
 
     <!-- Enlaces de navegación -->
     <nav :class="['nav-links', menuOpen ? 'show' : '']">
-      <RouterLink to="/">{{ t('titles.home') }}</RouterLink>
-      <RouterLink to="/careers">{{ t('titles.careers') }}</RouterLink>
-      <RouterLink to="/library">{{ t('titles.library') }}</RouterLink>
-      <RouterLink to="/content">{{ t('titles.content') }}</RouterLink>
-      <RouterLink to="/jobBank">{{ t('titles.jobBank') }}</RouterLink>
-      <RouterLink to="/pastoral">{{ t('titles.pastoral') }}</RouterLink>
-      <RouterLink to="/contacts">{{ t('titles.contacts') }}</RouterLink>
+      <RouterLink to="/" class="enlace">{{ t('titles.home') }}</RouterLink>
+      <RouterLink to="/careers"class="enlace">{{ t('titles.careers') }}</RouterLink>
+      <RouterLink to="/library"class="enlace">{{ t('titles.library') }}</RouterLink>
+      <RouterLink to="/content"class="enlace">{{ t('titles.content') }}</RouterLink>
+      <RouterLink to="/jobBank"class="enlace">{{ t('titles.jobBank') }}</RouterLink>
+      <RouterLink to="/pastoral"class="enlace">{{ t('titles.pastoral') }}</RouterLink>
+      <RouterLink to="/contacts"class="enlace">{{ t('titles.contacts') }}</RouterLink>
     </nav>
 
 
@@ -78,6 +80,35 @@ export default {
 </template>
 
 <style scoped>
+.enlace {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--azul-principal);
+  transition: color 0.5s ease-in-out, text-decoration 0.5s ease-in-out;
+  margin: 2px;
+}
+
+.enlace:hover {
+  color: var(--azul-hover);
+}
+
+.enlace::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--azul-hover);
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.enlace:hover::after {
+    width: 100%;
+    left: 0;
+}
 .header {
   align-items: center;
   text-align: center;
@@ -112,6 +143,15 @@ export default {
   filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
 }
 
+.logo-uac-trans{
+  height: 80px;
+  margin-right: 20px;
+  /* filter: drop-shadow(
+    0 0 10px rgba(0, 85, 165, 0.4)
+  ); */
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.9));
+}
+
 
 
 .nav-links {
@@ -125,12 +165,12 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 14px;
-
+transition: font-size 0.4s ease, color 0.4s ease-in-out;
 }
 
 .nav-links a:hover {
   color: #024a97;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .header-right {
@@ -165,6 +205,12 @@ export default {
 .menu-button,
 .login-button {
   margin-right: 10px;
+}
+.enlace.router-link-active::after {
+  color: var(--azul-principal);
+  width: 100%;
+  left: 0;
+  background-color: var(--azul-hover); /* color del subrayado */
 }
 
 

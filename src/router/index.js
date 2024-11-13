@@ -11,7 +11,7 @@ import fisio from "../views/fisio.vue";
 import home from "../views/home.vue";
 import jobBank from "../views/jobBank.vue";
 import library from "../views/library.vue";
-import Loading from '../views/Loading.vue';
+import Loading from "../views/Loading.vue";
 import login from "../views/login.vue";
 import MenuPage from "../views/MenuPage.vue";
 import pastoral from "../views/Pastoral.vue";
@@ -68,21 +68,21 @@ const routes = [
     component: Calendar,
   },
   {
-    path: '/pastoral',
+    path: "/pastoral",
     component: pastoral,
   },
   {
-    path: '/menu',
+    path: "/menu",
     component: MenuPage,
   },
   {
-    path: '/admin',
+    path: "/admin",
     component: admin,
-    name: 'AdminPage'
+    name: "AdminPage",
   },
   {
-    path: '/loading',
-    name: 'Loading',
+    path: "/loading",
+    name: "Loading",
     component: Loading,
   },
 ];
@@ -90,6 +90,31 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { left: 0, top: 0 };
+  },
 });
-
+router.beforeEach((to, from, next) => {
+  const defaultTitle = "UAC Pucarani";
+  const routeTitles = {
+    "/": "Inicio - UAC Pucarani",
+    "/login": "Login - UAC Pucarani",
+    "/careers": "Carreras - UAC Pucarani",
+    "/library": "Biblioteca - UAC Pucarani",
+    "/content": "Contenido - UAC Pucarani",
+    "/contacts": "Contactos - UAC Pucarani",
+    "/jobBank": "Bolsa de Trabajo - UAC Pucarani",
+    "/fisio": "Fisioterapia - UAC Pucarani",
+    "/enfe": "Enfermería - UAC Pucarani",
+    "/boton": "Botón - UAC Pucarani",
+    "/vac": "Vacío - UAC Pucarani",
+    "/calendar": "Calendario - UAC Pucarani",
+    "/pastoral": "Pastoral - UAC Pucarani",
+    "/menu": "Menú - UAC Pucarani",
+    "/admin": "Admin - UAC Pucarani",
+    "/loading": "Cargando - UAC Pucarani",
+  };
+  document.title = routeTitles[to.path] || defaultTitle;
+  next();
+});
 export default router;

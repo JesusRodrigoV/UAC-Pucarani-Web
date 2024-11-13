@@ -52,9 +52,9 @@
             </div>
             
         </div>
-        <div class="login-box">
+        <!-- <div class="login-box">
             <p v-if="authStore.error" class="error-message">{{ authStore.error }}</p>
-        </div>
+        </div> -->
     </div>
 
 
@@ -315,9 +315,6 @@ i {
 }
 
 .volver {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     position: relative;
     display: inline-block;
     text-align: center;

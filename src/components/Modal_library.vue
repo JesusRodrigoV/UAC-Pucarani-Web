@@ -11,17 +11,17 @@
       <p class="type-item">{{ book.type_matbib || 'Tipo Desconocido' }}</p>
       <h3 class="title-item">{{ book.title_matbib || 'Título Desconocido' }}</h3>
       <p class="item-text">{{ book.description_matbib }}</p>
-      <!-- botón para descargar -->
-      <button class="button-download" @click="downloadPdf(book.filename)">
-        <div class="icon-text">
-          <i class='bx bxs-file-pdf'></i>
-          <span>Descargar PDF</span>
-        </div>
-      </button>
+
 
       <p class="title-details">Detalles </p>
       <hr>
       <p class="item-text">Título: {{ book.title_matbib }}</p>
+      <button class="button-download" @click="downloadPdf(book.filename)">
+        <div class="icon-text">
+          <i class='bx bxs-download'></i>
+          <span>Descargar PDF</span>
+        </div>
+      </button>
     </div>
   </div>
 </template>
@@ -56,6 +56,10 @@ export default {
 </script>
 
 <style scoped>
+.icon-text {
+  font-size: 30px;
+}
+
 .modal-overlay {
   background-color: rgba(0, 0, 0, 0.5);
   height: 100vh !important;
@@ -83,7 +87,7 @@ export default {
 }
 
 .button-close-modal-overlay {
-  font-size: 100px;
+  font-size: 75px;
   color: rgb(255, 0, 0);
   transition: color 0.5s ease-in-out;
 }
@@ -103,13 +107,14 @@ export default {
 }
 
 .modal-content {
+  cursor: default;
   background: white;
   padding: 20px;
   border-radius: 5px;
   height: auto;
   width: 90%;
   max-width: 870px;
-  margin: 0 ;
+  margin: 0;
   position: relative;
 }
 

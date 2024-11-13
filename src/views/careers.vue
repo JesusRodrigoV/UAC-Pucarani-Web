@@ -10,6 +10,22 @@ import { computed } from 'vue';
 const { t } = useI18n();
 const isModalVisible = ref(false);
 
+const careers = computed(() => [
+  {
+    id: 1,
+    name: t('carreras.fisioterapia.nombre'),
+    description: t('carreras.fisioterapia.descripcion'),
+    image: imgfisio,
+    link: '/fisio',
+  },
+  {
+    id: 2,
+    name: t('carreras.fisioterapia.nombre'),
+    description: t('carreras.fisioterapia.descripcion'),
+    image: imgenfe,
+    link: '/enfe',
+  },
+]);
 const showModal = () => {
   isModalVisible.value = true;
 };
@@ -54,30 +70,14 @@ export default {
     };
   },
 };
-const careers = ref([
-  {
-    id: 1,
-    name: 'Fisioterapia y kinesiologia',
-    description: 'La carrera de Fisioterapia y Kinesiología se centra en la prevención, diagnóstico y tratamiento de lesiones físicas y trastornos del movimiento. Los estudiantes se capacitan en técnicas de rehabilitación para mejorar la calidad de vida de los pacientes y optimizar su recuperación física.',
-    image: imgfisio,
-    link: '/fisio',
-  },
-  {
-    id: 2,
-    name: 'Enfermería',
-    description: 'Esta carrera prepara a los estudiantes para el cuidado integral de pacientes en diferentes entornos de salud. Los egresados adquieren habilidades en técnicas de atención médica, promoción de la salud, y cuidado preventivo, además de una formación en ética y responsabilidad social.',
-    image: imgenfe,
-    link: '/enfe',
-  },
-]);
 </script>
 <template>
   <Header />
   <Carousel :images="carouselImages" :carouselText="t('secciones.carreras')" />
   <section class="welcome-text">
-    <h1>Bienvenidos a Nuestra Comunidad Académica</h1>
+    <h1>{{ t('lasSecciones.bienvenida') }}</h1>
     <p>
-      La Unidad Académica Campesina de Pucarani te invita a ser parte de una experiencia educativa única. Descubre programas diseñados para impulsar tu formación profesional, con un compromiso profundo hacia el bienestar de nuestra sociedad. Nos enorgullece formar futuros profesionales que no solo destacan por su conocimiento, sino también por su vocación de servicio.
+      {{ t('lasSecciones.descripcion_bienvenida') }}
     </p>
   </section>
 
@@ -95,7 +95,7 @@ const careers = ref([
   <div class="careers-container">
 
   </div>
-  
+
   <button id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>
   </button>
@@ -224,21 +224,23 @@ const careers = ref([
 }
 
 .career-card {
-  width: 250px;
+  width: 20%;
   border-radius: 8px;
   padding: 20px;
   text-align: center;
   transition: transform 0.3s;
 }
-.sin{
+
+.sin {
   text-decoration: none;
 }
+
 .career-card:hover {
   transform: scale(1.05);
 }
 
 .career-image {
-  width: 100%;
+  width: auto;
   height: auto;
   border-radius: 8px;
 }
@@ -253,5 +255,4 @@ const careers = ref([
   text-decoration: none;
   margin-top: 15px;
 }
-
 </style>

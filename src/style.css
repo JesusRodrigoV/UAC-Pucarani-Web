@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -9,6 +8,10 @@
   --amarillo: #ffd700;
   --amarillo-hover: #e2c000;
   /*Otros colores*/
+  --background: #fff;
+  --linkedin: #0a66c2;
+  --youtube: #e52d27;
+  --twitter: #000;
   --rojito: #9e2b25;
   --celeste: #99d5c9;
   --azulito-celeste: #80ada0;
@@ -23,12 +26,11 @@
   --amarillo-oscuro: #e0a800;
   --succes-verde: #28a745;
   --succes-verde-hover: #218838;
-
 }
 body {
   margin: 0;
   /* font-family: Source Sans Pro, Arial, sans-serif; */
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   /* margin-top: 100px; */
 }
 .principal {
@@ -68,7 +70,7 @@ body {
   font-size: 32px;
   margin-bottom: 20px;
   color: #003366;
-  color: 
+  color: ;
 }
 
 .contact-section p {
@@ -265,7 +267,7 @@ body.dark-mode {
   background: linear-gradient(90deg, #0077cc, #0055a5);
 }
 .button-a {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   padding: 15px 32px;

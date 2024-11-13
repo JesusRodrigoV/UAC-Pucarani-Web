@@ -35,18 +35,25 @@
       </div>
     </div>
 
-    <!-- Cards de beneficios -->
-    <div class="cards-container">
-      <div class="cardil" v-for="(benefit, index) in benefits" :key="index">
-        <div class="cardil-inner">
-          <div class="cardil-front">
-            <p>{{ benefit.title }}</p>
-          </div>
-          <div class="cardil-back">
-            <p>{{ benefit.description }}</p>
+    <div class="advantages-section">
+      <h2>Ventajas</h2>
+      <div class="cards-container">
+        <div class="cardil" v-for="(benefit, index) in benefits" :key="index">
+          <div class="cardil-inner">
+            <div class="cardil-front">
+              <p>{{ benefit.title }}</p>
+            </div>
+            <div class="cardil-back">
+              <p>{{ benefit.description }}</p>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    
+    <div class="curriculum-section">
+      <h2>Malla Curricular</h2>
+      <button class="curriculum-button" @click="downloadCurriculum">Descargar Malla</button>
     </div>
   </div>
 
@@ -93,8 +100,8 @@ export default {
   methods: {
     downloadCurriculum() {
       const link = document.createElement('a');
-      link.href = '/mallac_enf-1.pdf';
-      link.download = 'mallac_enf-1.pdf';
+      link.href = '/mallac_kif.pdf';
+      link.download = 'mallac_kif.pdf';
       link.click();
     }
   }
@@ -131,7 +138,24 @@ export default {
   flex-wrap: wrap;
   row-gap: 20px;
 }
-
+.advantages-section {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.advantages-section h2 {
+  font-size: 28px;
+  color: #005a99;
+  margin-bottom: 20px;
+}
 .info-card {
   background-color: #f9f9f9;
   border: 1px solid #ddd;

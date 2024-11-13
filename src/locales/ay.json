@@ -38,6 +38,22 @@
     "pastoral": "Pastorala t’aqa",
     "contactos": "Uñt’ayasiñanaka"
   },
+  "lasSecciones": {
+    "carreras": "Yatichäwinakapa",
+    "bienvenida": "Yatichäwi Markaru Jilïri Qhispiyatäwi",
+    "descripcion_bienvenida": "Pukarani Yatichäw Markapa mä jach’a yatichäwi amuyuniw jumatak utji. Yatichäwi amtanakax juman yatichäwim uskhachañatakiw ukat jakäwi sumankañapataki ch’amanchäta. Kunaswa taqi qhananchapxäta yatichäwiru, janirakiw uñnaqalïwipana, jan ukax qhispiyäwipana."
+  },
+  "carreras": {
+    "fisioterapia": {
+      "nombre": "Fisioterapia ukat Kinesiología",
+      "descripcion": "Fisioterapia ukat Kinesiología yatichäwiw uka uñjañawipanx k’añaskäwi ukat usuwinak jikxatañataki uñt’ayañatakiki. Yatiqirinakax qhipat thaqhapxañatakikiw ch’amanchäwimpi ukat ukhamat jakäwinakap usuntañatakiki."
+    },
+    "enfermeria": {
+      "nombre": "Enfermería",
+      "descripcion": "Aka yatichäwix jakäwi uñt’añatakiw ch’amanchäwimpi jilat kullakanak jakäwinakapan yatichäwimp yanapt’apxi. Yatiqirinakax llakipachan yanapt’añatakiki, ukat suma jakäwi uñt’añataki ch’amanchapxi."
+    }
+  },
+
   "bienvenido": "UAC Pucarani taypita jumanakar yuspajaraña",
   "explora": "Yatiqawi ukanakatpacha suma yanapt’ata, waynata yatiqirinakar yanapt’awi",
   "compromiso": "Kimsachasiña jumanakar yanapt’añataki",

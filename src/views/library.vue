@@ -125,10 +125,11 @@ export default {
       <div class="search-input-container">
         <input type="text" v-model="searchTerm" placeholder="Coloca el nombre de un libro" class="search-input" />
         <button class="search-button" @click="performSearch">Buscar</button>
-        <v-btn color="primary" @click="mostrarModal = true">
+        <button class="search-button" @click="mostrarModal = true">
           <v-icon left><i class="bx bx-plus"></i></v-icon>
           Añadir Nuevo Libro
-        </v-btn>
+        </button>
+       
       </div>
     </div>
 
@@ -144,7 +145,6 @@ export default {
           </div>
         </div>
         <div class="container-buttons">
-
           <button class="button-icon-editar" @click="mostrarModal = true">
             <i class='bx bxs-edit'></i>
           </button>
@@ -250,16 +250,18 @@ export default {
 
 .search-button {
   padding: 10px 20px;
-  background-color: #1a4aa2;
+  background-color: var(--azul-principal);
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-right: 25px;
   font-size: 16px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
 }
 
 .results-section {
+  cursor:pointer;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -316,10 +318,12 @@ export default {
   z-index: 10;
   top: 0;
   right: 0;
+  margin-left: 25px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: start;
   align-items: flex-start;
+  padding: 2px;
   transition: transform .3s cubic-bezier(.23, 1, .32, 1), opacity .2s;
   transform: translate(-4px);
   margin-right: 4px;
@@ -327,19 +331,22 @@ export default {
 
 .button-item-library {
   display: flex;
+  margin: 2px;
   justify-content: center;
   align-items: center;
   width: 40px;
 }
 
 .button-icon-editar {
-  font-size: 30px;
+  font-size: 35px;
+  margin: 2px;
   color: var(--azul-principal);
   transition: color 0.3s ease-in-out;
 }
 
 .button-icon-eliminar {
-  font-size: 30px;
+  font-size: 35px;
+  margin: 2px;
   color: var(--azul-principal);
   transition: color 0.3s ease-in-out;
 }
@@ -386,8 +393,8 @@ export default {
 
 
 .search-button:hover {
-  background-color: #666;
-  transform: translateY(-2px);
+  background-color: var(--azul-hover);
+  transform: translateY(-1px);
 }
 
 
