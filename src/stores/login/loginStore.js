@@ -31,7 +31,13 @@ export const useAuthStore = defineStore('auth', {
                     console.log('Login successful:', this.token);
                 }
             } catch (error) {
-                this.error = error.response?.data?.error || 'Error de conexión';
+                if (error.response?.data?.error === 'User not found') {
+                    this.error = 'Usuario inexistente';
+                } else if (error.response?.data?.error === 'Invalid credentials') {
+                    this.error = 'Error en contraseña';
+                } else {
+                    this.error = 'Error de conexión';
+                }
                 console.error('Error during login:', this.error);
             }
         },

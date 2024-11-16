@@ -27,17 +27,21 @@ export const useBookStore = defineStore
                 console.error('Error fetching books:', error);
             }
         },
-        async addNews(news) {
+        async addBook() {
             try {
-              console.log('Adding news:', news);
-              const response = await apiClient.post('/', news); // Pasamos el objeto news con los datos del formulario
-              console.log('News added successfully:', response.data);
-              this.resetForm();
-              await this.fetchNews(); // Recargar las noticias después de agregar una
+                console.log('Adding book:', this.newBook);
+                const response = await apiClient.post('/', this.newBook);
+                console.log('Book added successfully:', response.data);
+        
+                // Añadimos el nuevo libro manualmente al array de material_bibliografico
+                this.material_bibliografico.push(response.data);
+        
+                this.reserForm();
+                // No necesitamos esperar a fetchBooks, ya que hemos añadido el libro manualmente
             } catch (error) {
-              console.error('Error adding news:', error.response);
+                console.error('Error adding book:', error.response);
             }
-        },          
+        },         
         async deleteBook(id) {
             try {
                 console.log('Deleting book with ID:', id);
@@ -50,8 +54,8 @@ export const useBookStore = defineStore
         },
         async updateBook(updatedBook) {
             try {
-              // Enviar la actualización al servidor
-              await axios.put(`/api/books/${updatedBook.id_matbib}`, updatedBook);
+              
+              
               
               // Actualizar localmente la lista de libros para que refleje el cambio
               const index = this.material_bibliografico.findIndex(book => book.id_matbib === updatedBook.id_matbib);

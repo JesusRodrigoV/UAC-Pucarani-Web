@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { useBookStore } from '../stores/library/bookStore'; 
+import { useBookStore } from '../stores/library/bookStore';
 import Footer from './Footer.vue';
 import Header from './Header.vue';
 import { useI18n } from 'vue-i18n';
@@ -9,7 +9,6 @@ import img1 from '@/assets/images/biblio.jpg';
 import Carousel from '../components/Carousel.vue';
 import Modal_library from '../components/Modal_library.vue';
 import Modal from './Modal.vue';
-import EditBookModal from '../components/AdminForms/EditBookModal.vue';
 
 const { t } = useI18n();
 const store = useBookStore();
@@ -37,9 +36,9 @@ const performSearch = () => {
 
 const addBook = async (book) => {
   try {
-    await store.addBook(book); 
-    filteredBooks.value.push(book); 
-    hideModal(); 
+    await store.addBook(book);
+    filteredBooks.value.push(book);
+    hideModal();
   } catch (error) {
     console.error("Error al agregar el libro:", error);
   }
@@ -78,6 +77,7 @@ const hideModal = () => {
 };
 </script>
 
+
 <template>
   <Header v-if="!isModalOpen" />
   <Carousel :images="carouselImages" :carouselText="t('secciones.biblioteca')" />
@@ -90,10 +90,9 @@ const hideModal = () => {
         <input type="text" v-model="searchTerm" placeholder="Coloca el nombre de un libro" class="search-input" />
         <button class="search-button" @click="performSearch">Buscar</button>
         <button class="search-button" @click="mostrarModal = true">
-          <v-icon left><i class="bx bx-plus"></i></v-icon>
+          <i class="bx bx-plus"></i>
           Añadir Nuevo Libro
         </button>
-       
       </div>
     </div>
 
@@ -124,11 +123,13 @@ const hideModal = () => {
     <i class='bx bxs-calendar'></i>
   </button>
   <LibrosForm v-if="mostrarModal" :show="mostrarModal" @close="mostrarModal = false" />
-  <EditBookModal v-if="mostrarEditModal" :book="selectedBook" :show="mostrarEditModal" @close="mostrarEditModal = false" />
+  <EditBookModal v-if="mostrarEditModal" :book="selectedBook" :show="mostrarEditModal"
+    @close="mostrarEditModal = false" />
   <Modal :visible="isModalVisible" @close="hideModal"></Modal>
   <Modal_library v-if="isModalOpen" :book="selectedBook" @close="closeModal" />
   <Footer />
 </template>
+
 
 <style scoped>
 .no-scroll {
@@ -213,18 +214,17 @@ const hideModal = () => {
 
 .search-button {
   padding: 10px 20px;
-  background-color: var(--azul-principal);
+  margin: 12px;
+  background-color: #1a4aa2;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-right: 25px;
   font-size: 16px;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .results-section {
-  cursor:pointer;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -234,7 +234,7 @@ const hideModal = () => {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  /*width: 900px;*/
+
 }
 
 .item-find {
@@ -281,35 +281,32 @@ const hideModal = () => {
   z-index: 10;
   top: 0;
   right: 0;
-  margin-left: 25px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: start;
   align-items: flex-start;
-  padding: 2px;
   transition: transform .3s cubic-bezier(.23, 1, .32, 1), opacity .2s;
   transform: translate(-4px);
-  margin-right: 4px;
+  margin-left: 10px;
 }
 
 .button-item-library {
   display: flex;
-  margin: 2px;
   justify-content: center;
   align-items: center;
   width: 40px;
 }
 
 .button-icon-editar {
-  font-size: 35px;
-  margin: 2px;
+  font-size: 30px;
+  margin: 10px;
   color: var(--azul-principal);
   transition: color 0.3s ease-in-out;
 }
 
 .button-icon-eliminar {
-  font-size: 35px;
-  margin: 2px;
+  font-size: 30px;
+  margin: 10px;
   color: var(--azul-principal);
   transition: color 0.3s ease-in-out;
 }
@@ -356,8 +353,8 @@ const hideModal = () => {
 
 
 .search-button:hover {
-  background-color: var(--azul-hover);
-  transform: translateY(-1px);
+  background-color: #666;
+  transform: translateY(-2px);
 }
 
 
