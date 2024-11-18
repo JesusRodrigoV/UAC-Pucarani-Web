@@ -9,7 +9,6 @@ import img1 from '@/assets/images/biblio.jpg';
 import Carousel from '../components/Carousel.vue';
 import Modal_library from '../components/Modal_library.vue';
 import Modal from './Modal.vue';
-import EditBookModal from '../components/AdminForms/EditBookModal.vue';
 
 const { t } = useI18n();
 const store = useBookStore();
