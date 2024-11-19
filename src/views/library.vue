@@ -81,7 +81,41 @@ const hideModal = () => {
 <template>
   <Header v-if="!isModalOpen" />
   <Carousel :images="carouselImages" :carouselText="t('secciones.biblioteca')" />
+
+  <section class="library-section">
+    <h2 class="library-title">{{ t('biblioteca.titulo') }}</h2>
+    <p class="library-intro">{{ t('biblioteca.intro') }}</p>
+    <div class="container">
+      
+      
+      <div class="publication">
+        <div class="image-container">
+          <img src="@/assets/images/CONRImage.jpg" alt="">
+        </div>
+        <div class="texto-container">
+          <h3 class="publication-title">{{ t('biblioteca.revista') }} Current Opinion Nursing & Research (CONR)</h3>
+          <p class="publication-description">{{ t('biblioteca.revDescripcion') }}</p>
+        </div>
+        <div class="boton-container">
+          <a href="https://conr-bo.com" target="_blank" class="publication-link">{{t('biblioteca.explorarRevista')}} CONR</a>
+        </div>
+      </div>
+    </div>
+    
+    
+  </section>
+
   <div class="library-container">
+    <div class="card-revista">
+      <a href="https://conr-bo.com">Enlace a la revista</a>
+    </div>
+    <!-- -------------
+     -------------
+        -------------
+    Podemos borrar desde aqui
+    ------------- --
+    -------------
+    ------------->
 
     <!-- Sección de búsqueda -->
     <div class="search-section">
@@ -117,6 +151,16 @@ const hideModal = () => {
         </div>
       </div>
     </div>
+
+
+    <!-- -------------
+          -------------
+          -------------
+      Podemos borrar hasta aqui
+      ------------- --
+      -------------
+      ------------->
+
   </div>
 
   <button v-if="!isModalOpen" id="icon-container" class="icon-container" @click="showModal">
@@ -136,17 +180,90 @@ const hideModal = () => {
   overflow: hidden;
 }
 
-.library-container {
+.texto-container {
+  flex: 1;
+  margin: 1.5rem 1.5rem 0 1.5rem;
+}
+
+.boton-container {
+  margin: 1rem 1.5rem 1.5rem 1.5rem;
+}
+
+.library-section {
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+}
+
+.container {
+  justify-content: space-around;
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.library-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #036;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.library-intro {
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.publication {
+  margin: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  background: #fff;
+  width: 50%;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.publication-title {
+  font-size: 1.5rem;
+  color: #036;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.publication-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.publication-link {
+  display: inline-block;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #036;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.publication-link:hover {
+  background-color: #024;
 }
 
 .image-container {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
+  flex: 1;
+  margin: 0;
+  border-radius: 15px;
+}
+
+.image-container img {
+  border-radius: 15px;
 }
 
 .home-image {

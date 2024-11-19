@@ -90,5 +90,12 @@
     },
     { "title": "Uñjatäwi", "description": "Qullqi askit jan wali uñjatäwi..." },
     { "title": "Amuyt'aña Ch'iqt'aña", "description": "Uñjatäwinakapakiw" }
-  ]
+  ],
+  "biblioteca": {
+    "titulo": "Yatiqañ Utachasa",
+    "intro": "Yatiqa, yatiñ utachakampi yatiqañatak amuyunakampi. Aka chiqan jiskt'asiñkamawa qillqata, irnakañanakaxa yatiqirinakampir, yatiqirinakampir irnaqirinakampir yanapayaniri.",
+    "revista": "Qillqata",
+    "revDescripcion": "Saraqatanakaman urunaka, 2018 mara 25 uru saraqataru ist'ayasina, Pucarani markan Yatiqañ Utachaxa irpapxirï. Qillqt'añatak saräwinakamp, usutanakampi yatiqirinakampi irnaqatanakampi yatiqañaraki. Akaxa aka p'iqinchäwinakatak, jakawit utjiñatak maykhipa yatiqañar yanapini.",
+    "explorarRevista": "Qillqt'añan jiskt'asiña"
+  }
 }

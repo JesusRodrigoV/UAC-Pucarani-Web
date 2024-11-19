@@ -97,5 +97,12 @@
       "title": "Ética y Valores",
       "description": "Formamos líderes con una sólida base ética, orientados a actuar con integridad y respeto en todos los aspectos de su vida."
     }
-  ]
+  ],
+  "biblioteca":{
+    "titulo": "Biblioteca Digital",
+    "intro": " Accede a recursos académicos y científicos de alta calidad. En esta sección encontrarás enlaces a nuestras publicaciones destacadas y materiales de apoyo para estudiantes, docentes e investigadores.",
+    "revista": "Revista",
+    "revDescripcion": "Revista internacional de edición semestral, fundada el 25 de septiembre de 2018 por la Unidad Académica Campesina de Pucarani. Promueve investigaciones inéditas en áreas de enfermería, salud y otros campos relacionados, contribuyendo al desarrollo de los sistemas de salud y al mejoramiento de la calidad de vida de las poblaciones.",
+    "explorarRevista": "Leer más en la revista"
+  }
 }

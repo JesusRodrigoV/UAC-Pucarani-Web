@@ -11,15 +11,15 @@
         <p class="prompt">Para enfermería</p>
         <div class="info-content">
           <div class="info-row">
-            <img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" />
+            <!-- <img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" /> -->
             <div>Título</div>
           </div>
           <div class="info-row">
-            <img src="@/assets/images/labor.png" alt="Labores" class="info-icon" />
+            <!-- <img src="@/assets/images/labor.png" alt="Labores" class="info-icon" /> -->
             <div>Control de medicamentos</div>
           </div>
           <div class="info-row">
-            <img src="@/assets/images/relojj.png" alt="Horarios y lugar" class="info-icon" />
+            <!-- <img src="@/assets/images/relojj.png" alt="Horarios y lugar" class="info-icon" /> -->
             <div>8:30-13:00 | Hospital Obrero</div>
           </div>
         </div>
@@ -30,15 +30,15 @@
         <p class="prompt">Para fisioterapia</p>
         <div class="info-content">
           <div class="info-row">
-            <img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" />
+            <!-- <img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" /> -->
             <div>Título</div>
           </div>
           <div class="info-row">
-            <img src="@/assets/images/labor.png" alt="Labores" class="info-icon" />
+            <!-- <img src="@/assets/images/labor.png" alt="Labores" class="info-icon" /> -->
             <div>Análisis y tratamiento</div>
           </div>
           <div class="info-row">
-            <img src="@/assets/images/relojj.png" alt="Horarios y lugar" class="info-icon" />
+            <!-- <img src="@/assets/images/relojj.png" alt="Horarios y lugar" class="info-icon" /> -->
             <div>13:30-19:00 | Avenida Avaroa</div>
           </div>
         </div>

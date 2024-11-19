@@ -39,24 +39,23 @@
     "pastoral": "Pastoral",
     "contactos": "Contacts"
   },
-  
-    "lasSecciones": {
-      "carreras": "Careers",
-      "bienvenida": "Welcome to Our Academic Community",
-      "descripcion_bienvenida": "The Pucarani Academic Unit invites you to be part of a unique educational experience. Discover programs designed to boost your professional training, with a deep commitment to the well-being of our society. We are proud to shape future professionals who stand out not only for their knowledge but also for their dedication to service."
-    },
-    "carreras": {
-      "fisioterapia": {
-        "nombre": "Physiotherapy and Kinesiology",
-        "descripcion": "The Physiotherapy and Kinesiology program focuses on the prevention, diagnosis, and treatment of physical injuries and movement disorders. Students are trained in rehabilitation techniques to improve patients' quality of life and optimize their physical recovery."
-      },
-      "enfermeria": {
-        "nombre": "Nursing",
-        "descripcion": "This program prepares students for the comprehensive care of patients in various health settings. Graduates acquire skills in medical care techniques, health promotion, preventive care, along with training in ethics and social responsibility."
-      }
-    }
 
-,  
+  "lasSecciones": {
+    "carreras": "Careers",
+    "bienvenida": "Welcome to Our Academic Community",
+    "descripcion_bienvenida": "The Pucarani Academic Unit invites you to be part of a unique educational experience. Discover programs designed to boost your professional training, with a deep commitment to the well-being of our society. We are proud to shape future professionals who stand out not only for their knowledge but also for their dedication to service."
+  },
+  "carreras": {
+    "fisioterapia": {
+      "nombre": "Physiotherapy and Kinesiology",
+      "descripcion": "The Physiotherapy and Kinesiology program focuses on the prevention, diagnosis, and treatment of physical injuries and movement disorders. Students are trained in rehabilitation techniques to improve patients' quality of life and optimize their physical recovery."
+    },
+    "enfermeria": {
+      "nombre": "Nursing",
+      "descripcion": "This program prepares students for the comprehensive care of patients in various health settings. Graduates acquire skills in medical care techniques, health promotion, preventive care, along with training in ethics and social responsibility."
+    }
+  },
+
   "bienvenido": "Welcome to UAC Pucarani",
   "explora": "Explore a world of educational opportunities and personal development in our community.",
   "compromiso": "Committed to your future",
@@ -98,5 +97,12 @@
       "title": "Ethics and Values",
       "description": "We cultivate leaders with a strong ethical foundation..."
     }
-  ]
+  ],
+  "biblioteca": {
+    "titulo": "Digital Library",
+    "intro": "Access high-quality academic and scientific resources. In this section, you will find links to our featured publications and support materials for students, teachers, and researchers.",
+    "revista": "Journal",
+    "revDescripcion": "International semi-annual journal, founded on September 25, 2018, by the Unidad Académica Campesina de Pucarani. It promotes original research in areas of nursing, health, and other related fields, contributing to the development of health systems and improving the quality of life of populations.",
+    "explorarRevista": "Read more in the journal"
+  }
 }

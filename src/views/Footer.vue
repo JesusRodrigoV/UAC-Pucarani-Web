@@ -45,11 +45,13 @@ const toggleLanguage = () => {
               <RouterLink to="/fisio">{{ t('careers.fisioterapia') }}</RouterLink>
             </li>
           </ul>
-          <!-- <ul class="service_header">
-            <li class="service_name">{{ t('industries.title') }}</li>
-            <li><a href="#">Johnson & Johnson</a></li>
-          </ul>
           <ul class="service_header">
+            <li class="service_name">Cuenta</li>
+            <li>
+              <RouterLink to="/login">Iniciar Sesion</RouterLink>
+            </li>
+          </ul>
+          <!-- <ul class="service_header">
             <li class="service_name">{{ t('company.title') }}</li>
             <li><a href="#">Ucbito</a></li>
           </ul> -->
@@ -165,12 +167,14 @@ footer {
   font-weight: 400;
   line-height: 28px;
 }
-.social-media{
+
+.social-media {
   display: flex;
-  justify-content: center; 
-  align-items: center;    
-  gap: 16px; 
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 }
+
 .social_media a {
   color: #828282;
   margin-right: 22px;
@@ -181,8 +185,10 @@ footer {
 .social-icon {
   fill: #828282;
 }
-.social-icon, .bx{
-  width: 20px; 
+
+.social-icon,
+.bx {
+  width: 20px;
   height: 20px;
   display: inline-block;
 }
