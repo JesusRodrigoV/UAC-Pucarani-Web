@@ -165,16 +165,26 @@ footer {
   font-weight: 400;
   line-height: 28px;
 }
-
+.social-media{
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  gap: 16px; 
+}
 .social_media a {
   color: #828282;
   margin-right: 22px;
   font-size: 24px;
+  transition: color 0.3s ease-in-out, fill 0.3s ease-in-out;
 }
 
 .social-icon {
-  width: 20px;
   fill: #828282;
+}
+.social-icon, .bx{
+  width: 20px; 
+  height: 20px;
+  display: inline-block;
 }
 
 .social-icon:hover {
@@ -294,26 +304,27 @@ hr {
   }
 
   .desc_area {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
 
 
 
   .social_media {
+    display: inline-block;
     margin-bottom: 1rem;
     text-align: center;
   }
 
   .profil {
     width: 100%;
-    
+
   }
 
   .logo_area {

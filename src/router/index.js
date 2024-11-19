@@ -16,7 +16,7 @@ import login from "../views/login.vue";
 import MenuPage from "../views/MenuPage.vue";
 import pastoral from "../views/Pastoral.vue";
 import feed from "../views/SocialFeed.vue";
-import vac from "../views/vacio.vue";
+import Carrera from "../views/CarreraInd.vue";
 
 const routes = [
   {
@@ -60,10 +60,6 @@ const routes = [
     component: boton,
   },
   {
-    path: "/vac",
-    component: vac,
-  },
-  {
     path: "/calendar",
     component: Calendar,
   },
@@ -74,6 +70,10 @@ const routes = [
   {
     path: "/menu",
     component: MenuPage,
+  },
+  {
+    path: "/Carrera",
+    component: Carrera,
   },
   {
     path: "/admin",

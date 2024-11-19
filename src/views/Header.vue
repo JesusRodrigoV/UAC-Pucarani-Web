@@ -64,6 +64,7 @@ export default {
       <RouterLink to="/jobBank"class="enlace">{{ t('titles.jobBank') }}</RouterLink>
       <RouterLink to="/pastoral"class="enlace">{{ t('titles.pastoral') }}</RouterLink>
       <RouterLink to="/contacts"class="enlace">{{ t('titles.contacts') }}</RouterLink>
+      <RouterLink to="/admin"class="enlace">{{ t('titles.admin') }}</RouterLink>
     </nav>
 
 
