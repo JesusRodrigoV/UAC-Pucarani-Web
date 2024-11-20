@@ -3,43 +3,39 @@
     <Carousel :images="carouselImages" carouselText="Enfermería" />
 
     <div class="fisio-container">
+        <!-- Información General -->
         <div class="info-cards">
-            <div class="info-card">
-                <i class='bx bx-time info-icon'></i>
-                <h2>Duración de la carrera</h2>
-            </div>
-
-            <div class="info-card">
-                <i class='bx bx-book info-icon'></i>
-                <h2>Áreas de estudio</h2>
-            </div>
-
-            <div class="info-card">
-                <i class='bx bxs-bookmark info-icon'></i>
-                <h2>Modalidades de graduación</h2>
-
+            <div class="info-card" v-for="(info, index) in infoCards" :key="index">
+                <i :class="info.icon + ' info-icon'"></i>
+                <h2>{{ info.title }}</h2>
             </div>
         </div>
 
-        <div class="advantages-section">
-            <h2>Ventajas</h2>
-            <div class="cards-container">
-                <div class="cardil" v-for="(benefit, index) in benefits" :key="index">
-                    <div class="cardil-inner">
-                        <div class="cardil-front">
-                            <p>{{ benefit.title }}</p>
-                        </div>
-                        <div class="cardil-back">
-                            <p>{{ benefit.description }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Sección de Tabs -->
+        <div class="malla">
+            <v-card>
+                <v-tabs v-model="tab" background-color="primary" dark>
+                    <v-tab v-for="(item, index) in items" :key="index">
+                        {{ item.tab }}
+                    </v-tab>
+                </v-tabs>
+
+                <v-tabs-items v-model="tab">
+                    <v-tab-item v-for="(item, index) in items" :key="index">
+                        <v-card flat>
+                            <v-card-text>{{ item.content }}</v-card-text>
+                        </v-card>
+                    </v-tab-item>
+                </v-tabs-items>
+            </v-card>
         </div>
 
+        <!-- Malla Curricular -->
         <div class="curriculum-section">
             <h2>Malla Curricular</h2>
-            <button class="curriculum-button" @click="downloadCurriculum">Descargar Malla</button>
+            <button class="curriculum-button" @click="downloadCurriculum">
+                Descargar Malla
+            </button>
         </div>
     </div>
 
@@ -49,23 +45,29 @@
 <script setup>
 import Footer from './Footer.vue';
 import Header from './Header.vue';
-import { useI18n } from 'vue-i18n';
-const { t } = useI18n();
-</script>
+import { ref } from 'vue';
 
-<script>
+const tab = ref(0); // Comienza en la primera pestaña
+const items = [
+    { tab: "Primer Semestre", content: "Contenido del Primer Semestre." },
+    { tab: "Segundo Semestre", content: "Contenido del Segundo Semestre." },
+    { tab: "Tercer Semestre", content: "Contenido del Tercer Semestre." },
+    { tab: "Cuarto Semestre", content: "Contenido del Cuarto Semestre." },
+];
 
+const infoCards = [
+    { icon: 'bx bx-time', title: 'Duración de la carrera' },
+    { icon: 'bx bx-book', title: 'Áreas de estudio' },
+    { icon: 'bx bxs-bookmark', title: 'Modalidades de graduación' },
+];
 
-export default {
-    methods: {
-        downloadCurriculum() {
-            const link = document.createElement('a');
-            link.href = '/malla_enfermeria.pdf';
-            link.download = 'malla_enfermeria.pdf';
-            link.click();
-        }
-    }
-};
+// Descargar el archivo de la malla curricular
+function downloadCurriculum() {
+    const link = document.createElement('a');
+    link.href = '/malla_enfermeria.pdf';
+    link.download = 'malla_enfermeria.pdf';
+    link.click();
+}
 </script>
 
 <style scoped>
@@ -106,6 +108,10 @@ export default {
     max-width: 1200px;
     text-align: center;
     margin-bottom: 40px;
+}
+
+.malla {
+    width: 90%;
 }
 
 .cards-container {

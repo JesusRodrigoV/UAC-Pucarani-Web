@@ -4,22 +4,22 @@
   <div class="fisio-container">
     
 
-    <!-- Contenedor de las opciones de selección -->
+    
     <div class="container-group">
       <!-- Opción Enfermería -->
       <div class="option-card" @click="selectOption('enfermeria')">
         <p class="prompt">Para enfermería</p>
         <div class="info-content">
           <div class="info-row">
-            <!-- <img src="@/assets/images/requisitos.png" alt="Requisitos" class="info-icon" /> -->
+            <i class='bx bx-list-check info-icon'></i>
             <div>Título</div>
           </div>
           <div class="info-row">
-            <!-- <img src="@/assets/images/labor.png" alt="Labores" class="info-icon" /> -->
+            <i class='bx bx-briefcase info-icon'></i>
             <div>Control de medicamentos</div>
           </div>
           <div class="info-row">
-            <!-- <img src="@/assets/images/relojj.png" alt="Horarios y lugar" class="info-icon" /> -->
+            <i class='bx bx-time-five info-icon'></i>  
             <div>8:30-13:00 | Hospital Obrero</div>
           </div>
         </div>
