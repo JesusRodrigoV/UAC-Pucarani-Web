@@ -62,7 +62,7 @@ const logout = () => {
     </nav>
 
     <div class="header-right">
-      <i v-if="authStore.token" class="bx bxs-exit" @click="logout"></i>
+      <i v-if="authStore.token" class="bx bxs-exit login-icon" @click="logout"></i>
       <RouterLink v-else to="/login">
         <i :class="['bx', 'bxs-user-circle', 'login-icon', { 'no-shadow': headerTransparent }]"></i>
       </RouterLink>
