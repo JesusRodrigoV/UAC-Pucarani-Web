@@ -1,9 +1,13 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
-import { RouterLink } from 'vue-router';
+import { ref, onMounted, onUnmounted } from 'vue';
+import { RouterLink, useRouter } from 'vue-router';
+import { useAuthStore } from '../stores/login/loginStore';
 import { useI18n } from 'vue-i18n';
 
+const authStore = useAuthStore();
 const { t } = useI18n();
+const router = useRouter();
+
 const headerTransparent = ref(true);
 const headerHidden = ref(false);
 const menuOpen = ref(false);
@@ -27,20 +31,10 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
-</script>
 
-<script>
-import { useAuth } from '../composables/useAuth';
-
-export default {
-  setup() {
-    const { isAuthenticated, logout } = useAuth();
-
-    return {
-      isAuthenticated,
-      logout
-    };
-  }
+const logout = () => {
+  authStore.logout();
+  router.push('/login');
 };
 </script>
 
@@ -58,18 +52,17 @@ export default {
     <!-- Enlaces de navegación -->
     <nav :class="['nav-links', menuOpen ? 'show' : '']">
       <RouterLink to="/" class="enlace">{{ t('titles.home') }}</RouterLink>
-      <RouterLink to="/careers"class="enlace">{{ t('titles.careers') }}</RouterLink>
-      <RouterLink to="/library"class="enlace">{{ t('titles.library') }}</RouterLink>
-      <RouterLink to="/content"class="enlace">{{ t('titles.content') }}</RouterLink>
-      <RouterLink to="/jobBank"class="enlace">{{ t('titles.jobBank') }}</RouterLink>
-      <RouterLink to="/pastoral"class="enlace">{{ t('titles.pastoral') }}</RouterLink>
-      <RouterLink to="/contacts"class="enlace">{{ t('titles.contacts') }}</RouterLink>
-      <RouterLink to="/admin"class="enlace">{{ t('titles.admin') }}</RouterLink>
+      <RouterLink to="/careers" class="enlace">{{ t('titles.careers') }}</RouterLink>
+      <RouterLink to="/library" class="enlace">{{ t('titles.library') }}</RouterLink>
+      <RouterLink to="/content" class="enlace">{{ t('titles.content') }}</RouterLink>
+      <RouterLink to="/jobBank" class="enlace">{{ t('titles.jobBank') }}</RouterLink>
+      <RouterLink to="/pastoral" class="enlace">{{ t('titles.pastoral') }}</RouterLink>
+      <RouterLink to="/contacts" class="enlace">{{ t('titles.contacts') }}</RouterLink>
+      <RouterLink v-if="authStore.role === 'admin'" to="/admin" class="enlace">{{ t('titles.admin') }}</RouterLink>
     </nav>
 
-
     <div class="header-right">
-      <i v-if="isAuthenticated" class="bx bxs-exit" @click="logout"></i>
+      <i v-if="authStore.token" class="bx bxs-exit" @click="logout"></i>
       <RouterLink v-else to="/login">
         <i :class="['bx', 'bxs-user-circle', 'login-icon', { 'no-shadow': headerTransparent }]"></i>
       </RouterLink>

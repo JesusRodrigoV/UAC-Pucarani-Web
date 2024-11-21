@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import axios from 'axios';
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:3000/users', 
+    baseURL: 'http://localhost:3000/users',
     withCredentials: false,
     headers: {
         Accept: 'application/json',
@@ -14,6 +14,7 @@ export const useAuthStore = defineStore('auth', {
     state: () => ({
         token: null,
         user: null,
+        role: null,
         error: null,
     }),
 
@@ -24,29 +25,37 @@ export const useAuthStore = defineStore('auth', {
                     email_user,
                     password_user
                 });
-                
+
                 if (response.data.ok) {
-                    this.token = response.data.msg; // Almacena el token
+                    this.token = response.data.msg; // Token de autenticación
+                    this.role = response.data.role; // Rol del usuario
+                    this.user = response.data.user; // Información del usuario
                     this.error = null;
-                    console.log('Login successful:', this.token);
+
+                    console.log('Inicio de sesión exitoso:', {
+                        token: this.token,
+                        role: this.role,
+                    });
                 }
             } catch (error) {
-                if (error.response?.data?.error === 'User not found') {
+                const errorMsg = error.response?.data?.error;
+                if (errorMsg === 'User not found') {
                     this.error = 'Usuario inexistente';
-                } else if (error.response?.data?.error === 'Invalid credentials') {
-                    this.error = 'Error en contraseña';
+                } else if (errorMsg === 'Invalid credentials') {
+                    this.error = 'Contraseña incorrecta';
                 } else {
                     this.error = 'Error de conexión';
                 }
-                console.error('Error during login:', this.error);
+                console.error('Error durante el inicio de sesión:', this.error);
             }
         },
 
         logout() {
             this.token = null;
             this.user = null;
+            this.role = null;
             this.error = null;
-            console.log('User logged out.');
+            console.log('Sesión cerrada.');
         },
     }
 });

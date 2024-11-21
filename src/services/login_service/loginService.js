@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:3000/users', 
+    baseURL: 'http://localhost:3000/users',
     withCredentials: false,
     headers: {
         Accept: 'application/json',
@@ -10,7 +10,6 @@ const apiClient = axios.create({
 });
 
 export default {
-    // Método para login
     login(email_user, password_user) {
         return apiClient.post('/login', {
             email_user,
