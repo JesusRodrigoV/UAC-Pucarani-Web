@@ -3,9 +3,14 @@ import Header from './Header.vue'
 import Footer from './Footer.vue'
 import { onMounted } from 'vue';
 import { useNewsStore } from '../stores/news/newsStore.js';
+import { useCareerStore } from '../stores/career/careerStore.js';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 const { t } = useI18n();
+
+const careerStore = useCareerStore();
+
+careerStore.fetchCareers();
 
 onMounted(() => {
   const fadeElements = document.querySelectorAll('.fade-in-element');
@@ -105,6 +110,17 @@ export default {
 <template>
   <Header />
   <Carousel :images="carouselImages" :carouselText="t('secciones.contenido')" />
+
+  <!-- Si quieres lo borras - inicio -->
+  <div class="image-info-container" v-for="career in careerStore.careers" :key="career.id">
+    <img :src="career.image_career" alt="Foto de carrera" width="50" height="50" />
+    <div class="text-info">
+      <p>{{ career.name_career }}</p>
+      <p>{{ career.description_career }}</p>
+    </div>
+  </div>
+  <!-- fin -->
+
   <div class="content-container fade-in-element">
     <div class="image-info-container">
       <img src="@/assets/images/enfermeria.jpg" alt="Carrera de Enfermería" class="career-image" />
@@ -139,10 +155,6 @@ export default {
   <div class="news-container fade-in-element">
     <div class="titu-agregar">
       <h2>Últimas Noticias</h2>
-      <v-btn color="primary" @click="mostrarModal = true">
-        <v-icon left><i class="bx bx-plus"></i></v-icon>
-        Añadir Nueva Noticia
-      </v-btn>
     </div>
 
 
@@ -154,19 +166,6 @@ export default {
         <h3>{{ newss.holder_news }}</h3>
         <p>{{ newss.date_news }}</p>
         <p>{{ newss.summary_news }}</p>
-        <div class="bloque-editar">
-          <div class="iconos">
-            <div class="editar">
-              <button @click=""><i class='bx bxs-edit'></i></button>
-            </div>
-
-
-            <div class="eliminar">
-              <button @click="store.deleteNews(newss.id_news)"><i class='bx bxs-trash'></i></button>
-
-            </div>
-          </div>
-        </div>
       </div>
 
     </div>
