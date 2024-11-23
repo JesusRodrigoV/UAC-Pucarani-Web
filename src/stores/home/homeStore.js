@@ -6,15 +6,13 @@ const apiClient = axios.create({
     withCredentials: false,
     headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json'
     }
 });
 
-export const useOpinionStore = defineStore
-('opinion', {
+export const useOpinionStore = defineStore('opinion', {
     state: () => ({
         opinions_home: [],
-        newOpinion: { image_person: '', name_person: '', description_opinion: '' },
+        newOpinion: { image_person: null, name_person: '', description_opinion: '' },
         editingOpinion: null
     }),
     actions: {
@@ -29,8 +27,15 @@ export const useOpinionStore = defineStore
         },
         async addOpinion() {
             try {
-                console.log('Adding opinion:', this.newOpinion);
-                const response = await apiClient.post('/', this.newOpinion);  
+                // Crear un objeto FormData para incluir la imagen y los datos
+                const formData = new FormData();
+                formData.append('image_person', this.newOpinion.image_person); // Archivo de imagen
+                formData.append('name_person', this.newOpinion.name_person);
+                formData.append('description_opinion', this.newOpinion.description_opinion);
+
+                const response = await apiClient.post('/', formData, {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                });
                 console.log('Opinion added successfully:', response.data);
                 this.resetForm();
                 await this.fetchOpinions();
@@ -50,8 +55,15 @@ export const useOpinionStore = defineStore
         },
         async updateExistingOpinion() {
             try {
-                console.log('Update opinion:', this.newOpinion);
-                await apiClient.put('/' + this.editingOpinion.id, this.newOpinion);  
+                // Crear un objeto FormData para actualizar con imagen y datos
+                const formData = new FormData();
+                formData.append('image_person', this.newOpinion.image_person); // Archivo de imagen
+                formData.append('name_person', this.newOpinion.name_person);
+                formData.append('description_opinion', this.newOpinion.description_opinion);
+
+                await apiClient.put('/' + this.editingOpinion.id, formData, {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                });
                 console.log('Opinion updated successfully.');
                 this.resetForm();
                 await this.fetchOpinions();
@@ -61,7 +73,7 @@ export const useOpinionStore = defineStore
         },
         resetForm() {
             console.log('Resetting form.');
-            this.newOpinion = { image_person: '', name_person: '', description_opinion: '' };
+            this.newOpinion = { image_person: null, name_person: '', description_opinion: '' };
             this.editingOpinion = null;
         },
         cancelEdit() {

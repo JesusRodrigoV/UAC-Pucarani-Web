@@ -2,8 +2,16 @@
 import Footer from './Footer.vue';
 import Header from './Header.vue';
 import { useI18n } from 'vue-i18n';
-import { computed } from 'vue';
+import { onMounted, computed } from 'vue';
+import { useOpinionStore } from '../stores/home/homeStore';
 const { t } = useI18n();
+
+const store = useOpinionStore();
+
+onMounted(async () => {
+  await store.fetchOpinions();
+});
+
 const testimonials = computed(() => [
   {
     name: t('testimonials[0].name'),
@@ -131,8 +139,7 @@ document.querySelectorAll('button').forEach(button => {
 
     </div>
   </section>
-
-
+  
   <div class="testimonials-container">
     <div class="testimonial-card" v-for="(testimonial, index) in testimonials" :key="index">
       <img :src="testimonial.image" :alt="testimonial.name" class="testimonial-image" />
@@ -141,6 +148,12 @@ document.querySelectorAll('button').forEach(button => {
         <p>{{ testimonial.text }}</p>
       </div>
     </div>
+  </div>
+
+  <!-- Sector de testimonios -->
+  <div v-for="opinion in store.opinions_home" :key="opinion.id_opinion">
+      <h2>{{ opinion.name_person }}</h2>
+      <p>{{ opinion.description_opinion }}</p>
   </div>
 
   <div class="virtues-container">
