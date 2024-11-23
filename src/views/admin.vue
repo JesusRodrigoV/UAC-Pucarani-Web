@@ -1,94 +1,383 @@
 <template>
   <div class="quedar">
-    <Header />
+    <Header></Header>
   </div>
+
   <div class="fondo">
+    <!-- Tabs -->
     <v-tabs v-model="selectedTab" align-tabs="center" color="deep-purple-accent-4">
-      <v-tab>Testimonios</v-tab>
-      <v-tab>Form 2</v-tab>
-      <v-tab>Carreras</v-tab>
+      <v-tab @click="changeTab(0)">Testimonios</v-tab>
+      <v-tab @click="changeTab(1)">Carreras</v-tab>
+      <v-tab @click="changeTab(2)">Noticias</v-tab>
+      <v-tab @click="changeTab(3)">Eventos de pastoral</v-tab>
     </v-tabs>
-    <div class="container-forms">
-      <!-- Formulario 1 -->
-      <div v-if="selectedTab === 0">
-        <div class="container">
-          <h3>Formulario 1</h3>
-          <v-form ref="form1" v-model="valid1">
-            <v-text-field label="Nombre" v-model="form1Data.name" :rules="[rules.required]" />
-            <v-btn @click="submitForm('form1')">Enviar</v-btn>
-          </v-form>
-        </div>
+  </div>
 
-      </div>
+  <!-- Área de testimonios -->
+  <div class="container-forms" v-if="selectedTab === 0">
+    <div class="container">
+      <form @submit.prevent="saveOpinion">
+        <h2>{{ opinionStore.editingOpinion ? 'Editar' : 'Agregar' }} testimonio</h2>
+        <input type="text" v-model="opinionStore.newOpinion.name_person" placeholder="Nombre de la persona" required/>
+        <textarea v-model="opinionStore.newOpinion.description_opinion" placeholder="Descripción de la opinión" required></textarea>
+        <input type="file" @change="onFileChangeOpinion"/>
+        <button type="submit">
+          {{ opinionStore.editingOpinion ? 'Actualizar' : 'Agregar' }}
+        </button>
+        <button v-if="opinionStore.editingOpinion" type="button" @click="cancelEdit">
+          Cancelar
+        </button>
+      </form>
+    </div>
 
-      <!-- Formulario 2 -->
-      <div v-if="selectedTab === 1">
-        <div class="container">
-          <h3>Formulario 2</h3>
-          <v-form ref="form2" v-model="valid2">
-            <v-text-field label="Email" v-model="form2Data.email" :rules="[rules.email]" />
-            <v-btn @click="submitForm('form2')">Enviar</v-btn>
-          </v-form>
-        </div>
-      </div>
+    <!-- Tabla de testimonios -->
+    <div class="table-container">
+      <h3>Lista de Testimonios</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Imagen</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="opinion in opinionStore.opinions_home" :key="opinion.id">
+              <td>{{ opinion.id_opinion }}</td>
+              <td>{{ opinion.name_person }}</td>
+              <td>{{ opinion.description_opinion }}</td>
+            <td>
+              <img :src="opinion.image_person" alt="Foto de persona" width="50" height="50" />
+            </td>
+            <td>
+              <button @click="editOpinion(opinion)">Editar</button>
+              <button @click="opinionStore.deleteOpinion(opinion.id_opinion)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-      <!-- Formulario 3 -->
-      <div v-if="selectedTab === 2">
-        <div class="container">
-          <h3>Formulario 3</h3>
-          <v-form ref="form3" v-model="valid3">
-            <v-text-field label="Edad" v-model="form3Data.age" :rules="[rules.number]" />
-            <v-btn @click="submitForm('form3')">Enviar</v-btn>
-          </v-form>
-        </div>
-      </div>
+  <!-- Área de carreras -->
+  <div class="container-forms" v-if="selectedTab === 1">
+    <div class="container">
+      <form @submit.prevent="saveCareer">
+        <h2>{{ careerStore.editingCareer ? 'Editar' : 'Agregar' }} carrera</h2>
+        <input type="text" v-model="careerStore.newCareer.name_career" placeholder="Nombre de la carrera" required/>
+        <input type="file" @change="onFileChangeCareer"/>
+        <textarea v-model="careerStore.newCareer.description_career" placeholder="Descripción de la carrera" required></textarea>
+        <input type="text" v-model="careerStore.newCareer.duration_career" placeholder="Duración de la carrera" required/>
+        <textarea v-model="careerStore.newCareer.study_area" placeholder="Áreas de estudio" required></textarea>
+        <textarea v-model="careerStore.newCareer.graduation_modality" placeholder="Modalidades de graduación" required></textarea>
+        <button type="submit">
+          {{ careerStore.editingCareer ? 'Actualizar' : 'Agregar' }}
+        </button>
+        <button v-if="careerStore.editingCareer" type="button" @click="cancelEditCareer">
+          Cancelar
+        </button>
+      </form>
+    </div>
+
+    <!-- Tabla de carreras -->
+    <div class="table-container">
+      <h3>Lista de carreras</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Duración</th>
+              <th>Áreas de estudio</th>
+              <th>Modalidades de graduación</th>
+              <th>Descripción de la carrera</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="career in careerStore.careers" :key="career.id">
+              <td>{{ career.id_career }}</td>
+              <td>
+                <img :src="career.image_career" alt="Foto de carrera" width="50" height="50" />
+              </td>
+              <td>{{ career.name_career }}</td>
+              <td>{{ career.duration_career }}</td>
+              <td>{{ career.study_area }}</td>
+              <td>{{ career.graduation_modality }}</td>
+              <td>{{ career.description_career }}</td>
+            <td>
+              <button @click="editCareer(career)">Editar</button>
+              <button @click="careerStore.deleteCareer(career.id_career)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Área de noticias -->
+  <div class="container-forms" v-if="selectedTab === 2">
+    <div class="container">
+      <form @submit.prevent="saveNews">
+        <h2>{{ newsStore.editingNews ? 'Editar' : 'Agregar' }} noticia</h2>
+        <input type="text" v-model="newsStore.newNews.holder_news" placeholder="Titular de la noticia" required/>
+        <input type="file" @change="onFileChange"/>
+        <input type="date" id="date_news" v-model="newsStore.newNews.date_news" required />
+        <textarea v-model="newsStore.newNews.summary_news" placeholder="Descripción de la noticia" required></textarea>
+        <button type="submit">
+          {{ newsStore.editingNews ? 'Actualizar' : 'Agregar' }}
+        </button>
+        <button v-if="newsStore.editingNews" type="button" @click="cancelEditNews">
+          Cancelar
+        </button>
+      </form>
+    </div>
+
+    <!-- Tabla de noticias -->
+    <div class="table-container">
+      <h3>Lista de noticias</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Titular</th>
+              <th>Imagen</th>
+              <th>Fecha</th>
+              <th>Descripción</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="newss in newsStore.news" :key="newss.id">
+              <td>{{ newss.id_news }}</td>
+              <td>{{ newss.holder_news }}</td>
+            <td>
+              <img :src="newss.image_news" alt="Foto de noticia" width="50" height="50" />
+            </td>
+            <td>{{ newss.date_news }}</td>
+            <td>{{ newss.summary_news }}</td>
+            <td>
+              <button @click="editNews(newss)">Editar</button>
+              <button @click="newsStore.deleteNews(newss.id_news)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Área de eventos -->
+  <div class="container-forms" v-if="selectedTab === 3">
+    <div class="container">
+      <form @submit.prevent="saveEvent">
+        <h2>{{ eventStore.editingEvent ? 'Editar' : 'Agregar' }} evento de pastoral</h2>
+        <input type="text" v-model="eventStore.newEvent.title_event" placeholder="Título del evento" required/>
+        <input type="date" id="date_event" v-model="eventStore.newEvent.date_start" required />
+        <input type="date" id="date_event" v-model="eventStore.newEvent.date_end" required />
+        <textarea v-model="eventStore.newEvent.description_event" placeholder="Descripción del evento" required></textarea>
+        <button type="submit">
+          {{ eventStore.editingEvent ? 'Actualizar' : 'Agregar' }}
+        </button>
+        <button v-if="eventStore.editingEvent" type="button" @click="cancelEditEvent">
+          Cancelar
+        </button>
+      </form>
+    </div>
+
+    <!-- Tabla de eventos -->
+    <div class="table-container">
+      <h3>Lista de eventos</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Título del evento</th>
+              <th>Fecha de inicio</th>
+              <th>Fecha de cierre</th>
+              <th>Descripción</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="event in eventStore.events" :key="event.id">
+              <td>{{ event.id_event }}</td>
+              <td>{{ event.title_event }}</td>
+              <td>{{ event.date_start }}</td>
+              <td>{{ event.date_end }}</td>
+              <td>{{ event.description_event }}</td>
+              <td>
+                <button @click="editEvent(event)">Editar</button>
+                <button @click="eventStore.deleteEvent(event.id_event)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useOpinionStore } from '../stores/home/homeStore';
+import { useCareerStore } from '../stores/career/careerStore';
+import { useNewsStore } from '../stores/news/newsStore';
+import { useEventStore } from '../stores/pastoral/eventStore';
+import { ref } from 'vue';
 import Header from './Header.vue';
-import Footer from './Footer.vue';
-import { ref, reactive } from 'vue';
 
-// Estado reactivo para los datos del formulario
+// Constante para el nav
 const selectedTab = ref(0);
-const valid1 = ref(false);
-const valid2 = ref(false);
-const valid3 = ref(false);
+// Constante para testimonios
+const opinionStore = useOpinionStore();
+// Constante para carreras
+const careerStore = useCareerStore();
+// Constante para noticias
+const newsStore = useNewsStore();
+// Constante para eventos
+const eventStore = useEventStore();
 
-// Datos de los formularios
-const form1Data = reactive({ name: '' });
-const form2Data = reactive({ email: '' });
-const form3Data = reactive({ age: '' });
-
-// Reglas de validación
-const rules = {
-  required: (v) => !!v || 'Este campo es obligatorio',
-  email: (v) => /.+@.+\..+/.test(v) || 'Debe ser un email válido',
-  number: (v) => !isNaN(v) || 'Debe ser un número',
+// ====================================== Área del nav ======================================
+const changeTab = (tabIndex) => {
+  selectedTab.value = tabIndex;
 };
 
-// Método para enviar formularios
-const submitForm = (formRef, formData) => {
-  if (formRef.value.validate()) {
-    console.log(`Datos del formulario enviado:`, formData);
-    alert('Formulario enviado correctamente');
+// ====================================== Área de testimonios ======================================
+// Llama a fetchOpinions al montar
+opinionStore.fetchOpinions();
+
+// Manejar la carga de archivos
+const onFileChangeOpinion = (event) => {
+  const file = event.target.files[0];
+  opinionStore.newOpinion.image_person = file;
+};
+
+// Guardar Opinión
+const saveOpinion = () => {
+  if (opinionStore.editingOpinion) {
+    opinionStore.updateExistingOpinion();
   } else {
-    alert('Errores en el formulario');
+    opinionStore.addOpinion();
   }
 };
 
-// Referencias a los formularios
-const form1 = ref(null);
-const form2 = ref(null);
-const form3 = ref(null);
+// Cancelar edición
+const cancelEdit = () => {
+  opinionStore.cancelEdit();
+};
+
+// Editar una opinión existente
+const editOpinion = (opinion) => {
+  opinionStore.editingOpinion = opinion;
+  opinionStore.newOpinion = { ...opinion };
+};
+
+// Eliminar una opinión
+const deleteOpinion = (id) => {
+  opinionStore.deleteOpinion(id);
+};
+
+// ====================================== Área de Carreras ======================================
+// Llama a fetchCareers al montar
+careerStore.fetchCareers();
+
+// Manejar la carga de archivos
+const onFileChangeCareer = (event) => {
+  const file = event.target.files[0];
+  careerStore.newCareer.image_career = file;
+};
+
+// Guardar carrera
+const saveCareer = () => {
+  if (careerStore.editingCareer) {
+    careerStore.updateExistingCareer();
+  } else {
+    careerStore.addCareer();
+  }
+};
+
+// Cancelar edición
+const cancelEditCareer = () => {
+  careerStore.cancelEdit();
+};
+
+// Editar una opinión existente
+const editCareer = (career) => {
+  careerStore.editingCareer = career;
+  careerStore.newCareer = { ...career };
+};
+
+// Eliminar una opinión
+const deleteCareer = (id) => {
+  careerStore.deleteCareer(id);
+};
+
+// ====================================== Área de Noticias ======================================
+newsStore.fetchNews();
+
+// Manejar la carga de archivos
+const onFileChange = (event) => {
+  const file = event.target.files[0];
+  newsStore.newNews.image_news = file;
+};
+
+// Guardar noticia
+const saveNews = () => {
+  if (newsStore.editingNews) {
+    newsStore.updateExistingNews();
+  } else {
+    newsStore.addNews();
+  }
+};
+
+// Cancelar edición
+const cancelEditNews = () => {
+  newsStore.cancelEdit();
+};
+
+// Editar una noticia existente
+const editNews = (newss) => {
+  newsStore.editingNews = newss;
+  newsStore.newNews = { ...newss };
+};
+
+// Eliminar una noticia
+const deleteNews = (id) => {
+  newsStore.deleteNews(id);
+};
+
+// ====================================== Área de eventos pastorales ======================================
+// Llama a fetchCareers al montar
+eventStore.fetchEvents();
+
+// Guardar eventos
+const saveEvent = () => {
+  if (eventStore.editingEvent) {
+    eventStore.updateExistingEvent();
+  } else {
+    eventStore.addEvent();
+  }
+};
+
+// Cancelar edición
+const cancelEditEvent = () => {
+  eventStore.cancelEdit();
+};
+
+// Editar un evento existente
+const editEvent = (event) => {
+  eventStore.editingEvent = event;
+  eventStore.newEvent = { ...event };
+};
+
+// Eliminar un evento
+const deleteEvent = (id) => {
+  eventStore.deleteEvent(id);
+};
 </script>
 
-
-
 <style scoped>
-
 .fondo {
   display: flex;
   flex-direction: column; /* Cambia la dirección a columna */
@@ -98,159 +387,33 @@ const form3 = ref(null);
   background-color: aquamarine;
 }
 
+.quedar{
+  position: sticky;
+}
+
 .container-forms {
   width: 100%; /* Asegúrate de que ocupe todo el ancho */
   padding: 20px; /* Espaciado interno */
   background-color: blanchedalmond;
 }
 
-.container {
-  margin: 10px auto; /* Centra cada formulario verticalmente */
-  max-width: 500px; /* Limita el ancho del formulario */
-  padding: 15px;
-  background-color: aqua;
-  border: 1px solid black;
-  border-radius: 8px; /* Opcional: redondea bordes */
+.table-container {
+  margin-top: 20px;
 }
 
-.custom-tab {
-  color: black;
-}
-
-.custom-tab:hover {
-  color: var(--azul-hover);
-}
-
-.contenido-form {
-  height: 100vh;
+table {
   width: 100%;
-  margin: 10px;
-  background-color: rosybrown;
-  border: 5px solid black;
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-}
-.v-text-field{
-  margin: 10px;
-}
-.quedar{
-  position: sticky;
-}
-/* 
-.admin-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  background-color: rgb(29, 81, 141);
-  padding: 40px;
-  border-radius: 8px;
+  border-collapse: collapse;
+  margin-top: 10px;
 }
 
-h1 {
-  color: white;
-  font-weight: bold;
-  margin-bottom: 20px;
+table th, table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
 }
 
-.panel-header {
-  background-color: white;
-  color: rgb(29, 81, 141);
-  font-weight: bold;
-  font-size: 18px;
-  border-radius: 4px;
+table th {
+  background-color: #f0f0f0;
 }
-
-.v-expansion-panel-content {
-  background-color: white;
-  border-radius: 4px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.v-text-field,
-.v-textarea {
-  background-color: rgba(29, 81, 141, 0.05);
-  border-radius: 4px;
-}
-
-.v-btn {
-  margin: 10px 5px;
-  color: white;
-  font-weight: bold;
-}
-
-.v-btn.primary {
-  background-color: rgb(29, 81, 141);
-  transition: background-color 0.3s ease;
-}
-
-.v-btn.primary:hover {
-  background-color: rgba(29, 81, 141, 0.8);
-}
-
-.v-btn.error {
-  background-color: rgb(200, 50, 50);
-  transition: background-color 0.3s ease;
-}
-
-.v-btn.error:hover {
-  background-color: rgba(200, 50, 50, 0.8);
-}
-
-
-
-
-* {
-  transition: all 0.3s ease-in-out;
-}
-
-.admin-page {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-}
-
-.panel-header {
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-}
-
-.panel-header:hover {
-  transform: scale(1.02);
-  background-color: rgba(29, 81, 141, 0.1);
-}
-
-.v-text-field input:focus,
-.v-textarea textarea:focus {
-  border-color: rgb(29, 81, 141);
-  box-shadow: 0 0 10px rgba(29, 81, 141, 0.3);
-}
-
-.v-text-field,
-.v-textarea {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.v-btn {
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
-}
-
-.v-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-}
-
-.v-btn.primary:hover {
-  background-color: rgba(29, 81, 141, 0.9);
-  transform: translateY(-3px) rotate(-1deg);
-}
-
-.v-btn.error:hover {
-  background-color: rgba(200, 50, 50, 0.9);
-  transform: translateY(-3px) rotate(1deg);
-}
-
-.v-expansion-panel-content {
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-} */
 </style>
