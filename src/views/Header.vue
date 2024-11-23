@@ -52,7 +52,7 @@ const logout = () => {
     <!-- Enlaces de navegación -->
     <nav :class="['nav-links', menuOpen ? 'show' : '']">
       <RouterLink to="/" class="enlace">{{ t('titles.home') }}</RouterLink>
-      <RouterLink to="/careers" class="enlace">{{ t('titles.careers') }}</RouterLink>
+      <RouterLink to="/Carrera" class="enlace">{{ t('Carrera') }}</RouterLink>
       <RouterLink to="/library" class="enlace">{{ t('titles.library') }}</RouterLink>
       <RouterLink to="/content" class="enlace">{{ t('titles.content') }}</RouterLink>
       <RouterLink to="/jobBank" class="enlace">{{ t('titles.jobBank') }}</RouterLink>
