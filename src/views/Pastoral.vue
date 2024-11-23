@@ -6,13 +6,13 @@ import Header from './Header.vue';
 import Modal from './Modal.vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
-const { t } = useI18n();
+import { useEventStore } from '../stores/pastoral/eventStore';
 
-const testimonials = ref([
-    { text: "La pastoral me ha ayudado a fortalecer mi fe y encontrar un grupo de apoyo increíble.", author: "Juan Pérez, Estudiante" },
-    { text: "Gracias a los retiros pastorales, he podido reflexionar sobre mi vida y encontrar propósito.", author: "María Sánchez, Estudiante" },
-    { text: "Las actividades pastorales han sido esenciales para mi crecimiento personal y espiritual.", author: "Carlos Ruiz, Estudiante" }
-]);
+const { t } = useI18n();
+const eventStore = useEventStore();
+
+// Mostrar eventos de pastoral
+eventStore.fetchEvents();
 
 const isModalVisible = ref(false);
 
@@ -67,16 +67,13 @@ export default {
             </section>
         </section>
 
-        <section class="testimonios-container">
-            <h2 class="testimonial-title">Testimonios</h2>
-            <div class="testimonials-container">
-                
-                <div class="testimonial-card" v-for="(testimonial, index) in testimonials" :key="index">
-                    <div class="testimonial-content">
-                        <p>"{{ testimonial.text }}"</p>
-                        <span>– {{ testimonial.author }}</span>
-                    </div>
-                </div>
+        <h2 class="testimonial-title">Eventos de pastoral</h2>
+        <section class="testimonios-container" v-for="event in eventStore.events" :key="event.id">
+            <div class="info-event">
+                <p>{{ event.title_event }}</p>
+                <p>{{ event.date_start }}</p>
+                <p>{{ event.description_event }}</p>
+                <p>{{ event.date_end }}</p>
             </div>
         </section>
 
