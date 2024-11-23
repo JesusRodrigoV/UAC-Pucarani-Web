@@ -5,7 +5,6 @@ const apiClient = axios.create({
     withCredentials: false,
     headers:{
         Accept: 'application/json',
-        'Content-Type': 'application/json'
     }
 });
 
@@ -17,10 +16,14 @@ export default {
         return apiClient.get('/' + id);
     },
     createNews(data) {
-        return apiClient.post('/', data);
+        return apiClient.post('/', data, {
+            headers: { 'Content-Type': 'multipart/form-data' }
+        });
     },
     updateNews(id, data) {
-        return apiClient.put('/' + id, data);
+        return apiClient.put('/' + id, data, {
+            headers: { 'Content-Type': 'multipart/form-data' }
+        });
     },
     deleteNews(id) {
         return apiClient.delete('/' + id);

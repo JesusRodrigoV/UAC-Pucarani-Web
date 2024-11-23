@@ -14,7 +14,7 @@ export const useNewsStore = defineStore
     ('newss', {
         state: () => ({
             news: [],
-            newNews: { holder_news: '', image_news: '', date_news: '', summary_news: '' },
+            newNews: { holder_news: '', image_news: null, date_news: '', summary_news: '' },
             editingNews: null
         }),
         actions: {
@@ -27,13 +27,21 @@ export const useNewsStore = defineStore
                     console.error('Error fetching news:', error);
                 }
             },
-            async addNews(news) {
+            async addNews() {
                 try {
-                    console.log('Adding news:', news);
-                    const response = await apiClient.post('/', news); // Pasamos el objeto news con los datos del formulario
+                    // Crear un objeto FormData para incluir la imagen y los datos
+                    const formData = new FormData();
+                    formData.append('holder_news', this.newNews.holder_news)
+                    formData.append('image_news', this.newNews.image_news); // Archivo de imagen
+                    formData.append('date_news', this.newNews.date_news);
+                    formData.append('summary_news', this.newNews.summary_news);
+    
+                    const response = await apiClient.post('/', formData, {
+                        headers: { 'Content-Type': 'multipart/form-data' }
+                    });
                     console.log('News added successfully:', response.data);
                     this.resetForm();
-                    await this.fetchNews(); // Recargar las noticias después de agregar una
+                    await this.fetchNews();
                 } catch (error) {
                     console.error('Error adding news:', error.response);
                 }
@@ -50,14 +58,17 @@ export const useNewsStore = defineStore
             },
             async updateExistingNews() {
                 try {
-                    console.log('Update news:', this.newNews);
-
-                    // Usar el ID del libro que estás editando
-                    await apiClient.put('/' + this.editingNews.id_news, this.newNews);
-
+                    // Crear un objeto FormData para actualizar con imagen y datos
+                    const formData = new FormData();
+                    formData.append('holder_news', this.newNews.holder_news)
+                    formData.append('image_news', this.newNews.image_news); // Archivo de imagen
+                    formData.append('date_news', this.newNews.date_news);
+                    formData.append('summary_news', this.newNews.summary_news);
+    
+                    await apiClient.put('/' + this.editingNews.id, formData, {
+                        headers: { 'Content-Type': 'multipart/form-data' }
+                    });
                     console.log('News updated successfully.');
-                    await this.fetchNews()
-                    // Restablecer formulario y refrescar lista de libros
                     this.resetForm();
                     await this.fetchNews();
                 } catch (error) {
