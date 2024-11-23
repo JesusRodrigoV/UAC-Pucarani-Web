@@ -35,7 +35,7 @@ export const useNewsStore = defineStore
                     formData.append('image_news', this.newNews.image_news); // Archivo de imagen
                     formData.append('date_news', this.newNews.date_news);
                     formData.append('summary_news', this.newNews.summary_news);
-    
+
                     const response = await apiClient.post('/', formData, {
                         headers: { 'Content-Type': 'multipart/form-data' }
                     });
@@ -64,7 +64,7 @@ export const useNewsStore = defineStore
                     formData.append('image_news', this.newNews.image_news); // Archivo de imagen
                     formData.append('date_news', this.newNews.date_news);
                     formData.append('summary_news', this.newNews.summary_news);
-    
+
                     await apiClient.put('/' + this.editingNews.id, formData, {
                         headers: { 'Content-Type': 'multipart/form-data' }
                     });
