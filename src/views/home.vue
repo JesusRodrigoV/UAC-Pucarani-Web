@@ -126,21 +126,21 @@ document.querySelectorAll('button').forEach(button => {
 
   <section class="welcome-section">
     <div class="welcome-banner">
-      <h1>{{t('bienvenido')}}</h1>
-      <p>{{t('explora')}}</p>
+      <h1>{{ t('bienvenido') }}</h1>
+      <p>{{ t('explora') }}</p>
     </div>
 
     <div class="welcome-content">
-      <h2>{{t('compromiso')}}</h2>
-      <p>{{t('descripcion')}}</p>
+      <h2>{{ t('compromiso') }}</h2>
+      <p>{{ t('descripcion') }}</p>
 
-      <h2>{{t('unete')}}</h2>
-      <p>{{t('union')}}</p>
+      <h2>{{ t('unete') }}</h2>
+      <p>{{ t('union') }}</p>
 
     </div>
   </section>
-  
-  <div class="testimonials-container">
+
+  <!-- <div class="testimonials-container">
     <div class="testimonial-card" v-for="(testimonial, index) in testimonials" :key="index">
       <img :src="testimonial.image" :alt="testimonial.name" class="testimonial-image" />
       <div class="testimonial-content">
@@ -148,12 +148,16 @@ document.querySelectorAll('button').forEach(button => {
         <p>{{ testimonial.text }}</p>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Sector de testimonios -->
-  <div v-for="opinion in store.opinions_home" :key="opinion.id_opinion">
-      <h2>{{ opinion.name_person }}</h2>
-      <p>{{ opinion.description_opinion }}</p>
+  <div class="testimonials-container">
+    <div class="testimonial-card" v-for="opinion in store.opinions_home" :key="opinion.id_opinion">
+      <div class="testimonial-content">
+        <h2>{{ opinion.name_person }}</h2>
+        <p>{{ opinion.description_opinion }}</p>
+      </div>
+    </div>
   </div>
 
   <div class="virtues-container">
@@ -562,20 +566,23 @@ document.querySelectorAll('button').forEach(button => {
     display: flex;
     border: 1px solid black;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
     text-align: center;
   }
-  .virtue-card{
+
+  .virtue-card {
     width: 90%;
-    
+
   }
+
   .testimonials-container {
     flex-direction: column;
     justify-content: center;
     text-align: center;
   }
-  .testimonial-card{
-    
+
+  .testimonial-card {
+
     width: 90%;
   }
 }

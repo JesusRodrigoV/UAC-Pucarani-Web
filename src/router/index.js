@@ -17,6 +17,7 @@ import MenuPage from "../views/MenuPage.vue";
 import pastoral from "../views/Pastoral.vue";
 import feed from "../views/SocialFeed.vue";
 import Carrera from "../views/CarreraInd.vue";
+import HeaderEst from "../views/HeaderEst.vue";
 
 const routes = [
   {
@@ -79,6 +80,10 @@ const routes = [
     path: "/admin",
     component: admin,
     name: "AdminPage",
+  },
+  {
+    path: "/headerest",
+    component: HeaderEst,
   },
   {
     path: "/loading",

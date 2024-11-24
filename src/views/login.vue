@@ -1,5 +1,9 @@
 <template>
   <div class="fondo">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
     <div class="container">
       <div class="izquierda">Bienvenido</div>
       <div class="derecha">
@@ -95,11 +99,68 @@ export default {
   align-items: center;
   width: 100%;
   height: 100vh;
+  background: linear-gradient(135deg, #ffffff, #6b72ff63);
   /* background-color: aquamarine; */
-  background-color: white;
+  /* background-color: white;
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
+  position: relative;
+  overflow: hidden;
 }
+
+
+@keyframes move {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.185);
+  animation: move 1s infinite;
+  opacity: 0.7;
+}
+
+.circle:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.circle:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  top: 5%;
+  left: 10%;
+  animation-delay: 1.5s;
+}
+.circle:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  top: 67%;
+  left: 80%;
+  animation-delay: 1.5s;
+}
+.circle:nth-child(4) {
+  width: 150px;
+  height: 150px;
+  top: 5%;
+  left: 87%;
+  animation-delay: 1.5s;
+}
+
 
 .container {
   display: flex;
