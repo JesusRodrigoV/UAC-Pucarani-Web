@@ -67,8 +67,8 @@ export default {
             </section>
         </section>
 
-        <h2 class="testimonial-title">Eventos de pastoral</h2>
-        <section class="testimonios-container" v-for="event in eventStore.events" :key="event.id">
+        <h2 class="eventos-title">Eventos de pastoral</h2>
+        <section class="eventos-venir" v-for="event in eventStore.events" :key="event.id">
             <div class="info-event">
                 <p>{{ event.title_event }}</p>
                 <p>{{ event.date_start }}</p>
@@ -78,7 +78,7 @@ export default {
         </section>
 
         <section class="calendar-registration-container">
-            <div class="izq">
+            <!-- <div class="izq">
                 <div class="upcoming-events">
                     <h2>Calendario de Eventos Pastorales</h2>
                     <ul>
@@ -112,7 +112,7 @@ export default {
                         <button type="submit" class="primary-button">Inscribirse</button>
                     </form>
                 </div>
-            </div>
+            </div> -->
         </section>
 
 
@@ -468,4 +468,59 @@ ul li {
     font-style: italic;
     line-height: 1.6;
 }
+
+.eventos-title {
+    color: var(--azul-principal);
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.eventos-venir {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.info-event {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-event:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event-title {
+    font-size: 1.5rem;
+    color: var(--azul-principal);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.event-date,
+.event-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.event-date {
+    color: #666;
+}
+
+.event-description {
+    color: #333;
+    line-height: 1.6;
+}
+
 </style>

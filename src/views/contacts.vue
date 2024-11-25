@@ -21,17 +21,12 @@ export default {
 </script>
 
 
-
-
-
-
-
 <template>
     <Header />
     <Carousel :images="carouselImages" :carouselText="t('secciones.contactos')" />
     <div class="principal">
-        <h1>UAC Pucarani</h1>
-        <h2>Contactos</h2>
+        <h1 class="titulo-con">UAC Pucarani</h1>
+        <h2 class="titulo-h2">Contactos</h2>
         <div class="contact-info">
             <div class="info-item">
                 <h3>Teléfonos</h3>
@@ -142,7 +137,33 @@ p {
 a {
     text-decoration: none;
 }
+.titulo-con {
+    color: var(--azul-principal);
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+.titulo-h2 {
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.principal{
+    text-align: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 100px;
+  margin-left: 100px;
+}
 .background {
     background: var(--background);
     display: grid;
@@ -225,14 +246,15 @@ a {
 }
 
 .map-container {
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .mapa {
     width: 100%;
     height: 350px;
+    border: 0;
 }
 
 .x {
@@ -290,4 +312,3 @@ a {
     }
 }
 </style>
-<style src="src/style.css"></style>

@@ -104,11 +104,6 @@ const hideModal = () => {
     
     
   </section>
-
-  <div class="library-container">
-    <div class="card-revista">
-      <a href="https://conr-bo.com">Enlace a la revista</a>
-    </div>
     <!-- -------------
      -------------
         -------------
@@ -116,9 +111,7 @@ const hideModal = () => {
     ------------- --
     -------------
     ------------->
-
-    <!-- Sección de búsqueda -->
-    <div class="search-section">
+    <!-- <div class="search-section">
       <p class="search-text">Realiza tu búsqueda en este apartado:</p>
       <div class="search-input-container">
         <input type="text" v-model="searchTerm" placeholder="Coloca el nombre de un libro" class="search-input" />
@@ -129,8 +122,6 @@ const hideModal = () => {
         </button>
       </div>
     </div>
-
-    <!-- Resultados de la búsqueda -->
     <div class="results-section">
       <div class="item-find" v-for="book in filteredBooks" :key="book.id_matbib">
         <div class="item-content" @click="openModal(book)">
@@ -145,12 +136,12 @@ const hideModal = () => {
           <button class="button-icon-editar" @click="mostrarEditModal = true">
             <i class='bx bxs-edit'></i>
           </button>
-          <button class="button-icon-eliminar" @click="deleteBook(book.id_matbib)"> <!-- Botón para eliminar -->
+          <button class="button-icon-eliminar" @click="deleteBook(book.id_matbib)">
             <i class='bx bxs-trash'></i>
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
     <!-- -------------
@@ -161,7 +152,6 @@ const hideModal = () => {
       -------------
       ------------->
 
-  </div>
 
   <button v-if="!isModalOpen" id="icon-container" class="icon-container" @click="showModal">
     <i class='bx bxs-calendar'></i>

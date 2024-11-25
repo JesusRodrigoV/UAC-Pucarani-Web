@@ -5,33 +5,37 @@
         <div class="cerrar">
           <i class='bx bx-x ' @click="closeModal"></i>
         </div>
-
-        <h1>Calendario</h1>
+        <h1 style="color:var(--azul-hover); font-size: 25px;">Calendario</h1>
         <div class="calendar-header">
           <i class='bx bx-chevron-left' @click="prevMonth"></i>
-          <h2>{{ months[currentMonth] }} {{ currentYear }}</h2>
+
+          <h2 style="color:var(--azul-hover)">{{ months[currentMonth] }} {{ currentYear }}</h2>
           <i class='bx bx-chevron-right' @click="nextMonth"></i>
         </div>
         <div class="calendar-grid">
           <div class="day-name" v-for="day in days" :key="day">{{ day }}</div>
           <div v-for="blank in blankDays" :key="'blank-' + blank" class="day-blank"></div>
-          <div v-for="day in daysInMonth" :key="day" class="day" :class="{ today: isToday(day) }"
-            @click="openDayEvents(day)">
+          <div v-for="day in daysInMonth" :key="day"
+            :class="['day', { 'today': isToday(day), 'has-event': events[day] }]" @click="openDayEvents(day)">
             {{ day }}
-
+            <span v-if="events[day]" class="event-indicator">•</span>
           </div>
         </div>
       </div>
 
       <!-- Modal para añadir eventos -->
-      <div v-if="showEventModal" class="event-modal">
-        <h3>Añadir Evento para el {{ selectedDay }} {{ months[currentMonth] }} {{ currentYear }}</h3>
-        <label>Hora:</label>
-        <input type="time" v-model="eventTime" />
-        <label>Descripción:</label>
-        <input type="text" v-model="eventDescription" />
-        <button @click="addEvent">Añadir Evento</button>
-        <button @click="closeEventModal">Cancelar</button>
+      <div v-if="authStore.token">
+        <div v-if="showEventModal" class="event-modal">
+          <h3>Añadir Evento para el {{ selectedDay }} {{ months[currentMonth] }} {{ currentYear }}</h3>
+          <label>Hora:</label>
+          <input type="time" v-model="eventTime" />
+          <label>Descripción:</label>
+          <input type="text" v-model="eventDescription" />
+          <div class="modal-buttons">
+            <button @click="addEvent" class="modal-button">Añadir Evento</button>
+            <button @click="closeEventModal" class="modal-button">Cancelar</button>
+          </div>
+        </div>
       </div>
 
       <!-- Modal para ver eventos del día -->
@@ -42,15 +46,18 @@
             {{ event.time }} - {{ event.description }}
           </li>
         </ul>
-        <button @click="closeDayEventsModal">Cerrar</button>
+        <button @click="closeDayEventsModal" class="modal-button">Cerrar</button>
       </div>
     </div>
   </div>
 </template>
-
+<script setup>
+import { useAuthStore } from '../stores/login/loginStore';
+const authStore = useAuthStore();
+</script>
 <script>
 export default {
-  props: ['visible'],
+  props: ['visible', 'isAdmin'],
   data() {
     return {
       currentDate: new Date(),
@@ -108,6 +115,7 @@ export default {
       );
     },
     openEventModal(day) {
+
       this.selectedDay = day;
       this.eventTime = '';
       this.eventDescription = '';
@@ -141,7 +149,6 @@ export default {
 };
 </script>
 
-
 <style scoped>
 .modal-overlay {
   position: fixed;
@@ -158,8 +165,8 @@ export default {
 
 .modal-content {
   background: white;
-  padding: 10px 20px;
-  border-radius: 2.5%;
+  padding: 20px;
+  border-radius: 8px;
   max-height: 80vh;
   overflow-y: auto;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -195,20 +202,17 @@ export default {
 
 .day,
 .day-blank {
-  border: none;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid #ddd; */
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .day:hover {
-  /* background-color: var(--blanco-lila); */
   background-color: #A0ACAD;
 }
 
@@ -216,7 +220,6 @@ export default {
   background-color: var(--azul-hover);
   font-weight: bold;
   color: white;
-  transition: background-color 0.2s, color 0.2s
 }
 
 .today:hover {
@@ -224,32 +227,36 @@ export default {
   color: red;
 }
 
+.has-event {
+  /* border: 2px solid var(--azul-principal); */
+  position: relative;
+}
+
+.event-indicator {
+  position: absolute;
+  top: 14px;
+  /* right: 5px; */
+  color: var(--azul-principal);
+  font-size: 1.5rem;
+}
+
 .cerrar {
   display: flex;
-  width: 25%;
+  width: 100%;
   justify-content: flex-end;
-  border: 1px solid black;
   position: absolute;
+  top: 160px;
+  right: 575px;
   cursor: pointer;
 }
-.cerrar i{
-  align-items: flex-end;
+
+.cerrar i {
   font-size: 35px;
 }
 
 .cerrar:hover {
   color: red;
 }
-
-/* i {
-  font-size: 40px;
-}
-
-i:hover {
-  color: #0055a5;
-} */
-
-
 
 .event-modal {
   background: white;
@@ -281,8 +288,23 @@ i:hover {
   box-sizing: border-box;
 }
 
-.event-modal button {
-  margin-top: 10px;
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.modal-button {
   padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--azul-principal);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-button:hover {
+  background-color: var(--azul-hover);
 }
 </style>
