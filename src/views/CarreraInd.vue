@@ -1,6 +1,7 @@
 <template>
     <Header />
-    <Carousel :images="carouselImages" carouselText="Enfermería" />
+    <!-- Modifica esto Menchaca nombre de la carrera -->
+    <Carousel :images="carouselImages" carouselText="Carreras" />
 
     <div class="fisio-container">
         <!-- Información General -->
@@ -52,6 +53,25 @@ const careerStore = useCareerStore();
 careerStore.fetchCareers();
 </script>
 
+<script>
+import uacInicio from '@/assets/images/infra/principal.jpg';
+import inicio2 from '@/assets/images/uac_inicio.jfif';
+import i4 from '@/assets/images/enfe/enfe5.jpg';
+import i5 from '@/assets/images/enfe/enfe6.jpg';
+
+import i6 from '@/assets/images/fisio/fisio6.jpg';
+import Carousel from '../components/Carousel.vue';
+
+export default {
+  data() {
+    return {
+      isModalVisible: false,
+      carouselImages: [uacInicio, inicio2, i4, i5, i6],
+      currentImageIndex: 0
+    };
+  },
+};
+</script>
 <style scoped>
 .fisio-container {
     display: flex;
