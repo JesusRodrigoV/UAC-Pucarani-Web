@@ -3,13 +3,14 @@
     <!-- Modifica esto Menchaca nombre de la carrera -->
     <Carousel :images="carouselImages" carouselText="Carreras" />
 
-    <div class="fisio-container">
-        <!-- Información General -->
-        <div class="info-cards" v-for="career in careerStore.careers" :key="career.id">
-            <div class="general-info">
-                <p>{{ career.name_career }}</p>
+    <div class="fisio-container" v-for="career in careerStore.careers" :key="career.id">
+        <div class="general-info">
+                <p class="titulo-carrera">{{ career.name_career }}</p>
                 <p>{{ career.description_career }}</p>
             </div>
+        <!-- Información General -->
+        <div class="info-cards">
+            
 
             <div class="info-card">
                 <i class='bx bx-time'></i>
@@ -30,12 +31,12 @@
             </div>
 
             <!-- Malla Curricular -->
-            <div class="curriculum-section">
+            <!-- <div class="curriculum-section">
                 <h2>Malla Curricular</h2>
                 <button class="curriculum-button" @click="downloadCurriculum">
                     Descargar Malla
                 </button>
-            </div>
+            </div> -->
         </div>
     </div>
     <Footer />
@@ -73,13 +74,32 @@ export default {
 };
 </script>
 <style scoped>
+
+i{
+    font-size: 30px;
+}
+.titulo-carrera{
+    font-size: 30px;
+    font-weight: bold;
+    color:var(--azul-principal);
+}
 .fisio-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-}
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
 
+    box-shadow: 10px 5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+.general-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 35px;
+}
 .info-cards {
     display: flex;
     justify-content: center;

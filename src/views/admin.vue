@@ -44,7 +44,7 @@
               <th>ID</th>
               <th>Nombre</th>
               <th>Descripción</th>
-              <th>Imagen</th>
+              <!-- <th>Imagen</th> -->
               <th>Acciones</th>
             </tr>
           </thead>
@@ -53,11 +53,11 @@
               <td>{{ opinion.id_opinion }}</td>
               <td>{{ opinion.name_person }}</td>
               <td>{{ opinion.description_opinion }}</td>
-              <td>
+              <!-- <td>
                 <img :src="opinion.image_person" alt="Foto de persona" width="50" height="50" />
-              </td>
+              </td> -->
               <td>
-                <button @click="editOpinion(opinion)"><i class='bx bx-edit editar'></i></button>
+                <!-- <button @click="editOpinion(opinion)"><i class='bx bx-edit editar'></i></button> -->
                 <button @click="opinionStore.deleteOpinion(opinion.id_opinion)"><i
                     class='bx bxs-trash eliminar'></i></button>
               </td>
@@ -102,7 +102,7 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Imagen</th>
+              <!-- <th>Imagen</th> -->
               <th>Nombre</th>
               <th>Duración</th>
               <th>Áreas de estudio</th>
@@ -114,16 +114,16 @@
           <tbody>
             <tr v-for="career in careerStore.careers" :key="career.id">
               <td>{{ career.id_career }}</td>
-              <td>
+              <!-- <td>
                 <img :src="career.image_career" alt="Foto de carrera" width="50" height="50" />
-              </td>
+              </td> -->
               <td>{{ career.name_career }}</td>
               <td>{{ career.duration_career }}</td>
               <td>{{ career.study_area }}</td>
               <td>{{ career.graduation_modality }}</td>
               <td>{{ career.description_career }}</td>
               <td>
-                <button @click="editCareer(career)"><i class='bx bx-edit  editar'></i></button>
+                <!-- <button @click="editCareer(career)"><i class='bx bx-edit  editar'></i></button> -->
                 <button @click="careerStore.deleteCareer(career.id_career)"><i
                     class='bx bxs-trash eliminar'></i></button>
               </td>
@@ -164,7 +164,7 @@
             <tr>
               <th>ID</th>
               <th>Titular</th>
-              <th>Imagen</th>
+              <!-- <th>Imagen</th> -->
               <th>Fecha</th>
               <th>Descripción</th>
               <th>Acciones</th>
@@ -174,13 +174,13 @@
             <tr v-for="newss in newsStore.news" :key="newss.id">
               <td>{{ newss.id_news }}</td>
               <td>{{ newss.holder_news }}</td>
-              <td>
+              <!-- <td>
                 <img :src="newss.image_news" alt="Foto de noticia" width="50" height="50" />
-              </td>
+              </td> -->
               <td>{{ newss.date_news }}</td>
               <td>{{ newss.summary_news }}</td>
               <td>
-                <button @click="editNews(newss)"><i class='bx bx-edit editar'></i></button>
+                <!-- <button @click="editNews(newss)"><i class='bx bx-edit editar'></i></button> -->
                 <button @click="newsStore.deleteNews(newss.id_news)"><i class='bx bxs-trash eliminar'></i></button>
               </td>
             </tr>
@@ -234,7 +234,7 @@
               <td>{{ event.date_end }}</td>
               <td>{{ event.description_event }}</td>
               <td>
-                <button @click="editEvent(event)"><i class='bx bx-edit editar'></i></button>
+                <!-- <button @click="editEvent(event)"><i class='bx bx-edit editar'></i></button> -->
                 <button @click="eventStore.deleteEvent(event.id_event)"><i class='bx bxs-trash eliminar'></i></button>
               </td>
             </tr>
